@@ -1,6 +1,5 @@
 #if FRENCH
 
-#pragma region FRENCH
 const u8 gDummyItemDescription[] = _("?????");
 // Pokeballs
 const u8 gMasterBallItemDescription[] = _("La meilleure BALL.\nCapture le POKéMON\nà coup sûr.");
@@ -327,11 +326,9 @@ const u8 gSapphireItemDescription[] = _("Une pierre bleue\nqui symbolise\nl'honn
 // Emerald-specific key items
 const u8 gMagmaEmblemItemDescription[] = _("Un objet portant le\nsceau de la\nTEAM MAGMA.");
 const u8 gOldSeaMapItemDescription[] = _("Une vieille carte\nmontrant la route\nvers une île.");
-#pragma endregion FRENCH
 
 #else
 
-#pragma region ENGLISH
 const u8 gDummyItemDescription[] = _("?????");
 // Pokeballs
 const u8 gMasterBallItemDescription[] = _("The best BALL that\ncatches a POKéMON\nwithout fail.");
@@ -659,5 +656,4 @@ const u8 gSapphireItemDescription[] = _("A brilliant blue gem\nthat symbolizes\n
 const u8 gMagmaEmblemItemDescription[] = _("A medal-like item in\nthe same shape as\nTEAM MAGMA's mark.");
 const u8 gOldSeaMapItemDescription[] = _("A faded sea chart\nthat shows the way\nto a certain island.");
 
-#pragma endregion ENGLISH
 #endif

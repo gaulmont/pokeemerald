@@ -1,6 +1,5 @@
 #if FRENCH
 
-#pragma region FRENCH
 static const u8 sNullDescription[] = _(
     "");
 
@@ -1420,11 +1419,8 @@ static const u8 sPsychoBoostDescription[] = _(
     "Attaque à pleine puissance,"
     "mais baisse ATQ. SPE.");
 
-#pragma endregion FRENCH
-
 #else
 
-#pragma region ENGLISH
 
 static const u8 sNullDescription[] = _(
     "");
@@ -2845,7 +2841,6 @@ static const u8 sPsychoBoostDescription[] = _(
     "Allows a full-power attack,\n"
     "but sharply lowers SP. ATK.");
 
-#pragma endregion ENGLISH
 
 #endif
 

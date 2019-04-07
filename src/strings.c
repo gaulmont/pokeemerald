@@ -3,8 +3,8 @@
 		
 ALIGNED(4)		
 
-//#if FRENCH
-//#pragma region FRENCH
+#if FRENCH
+
 const u8 gExpandedPlaceholder_Empty[] = _("");
 const u8 gExpandedPlaceholder_Kun[] = _("");
 const u8 gExpandedPlaceholder_Chan[] = _("");
@@ -1828,10 +1828,8 @@ const u8 gText_PokeBalls[] = _("POKé BALLS");
 const u8 gText_Berry[] = _("BAIE");
 const u8 gText_Berries[] = _("BAIES");
 
-//#pragma endregion FRENCH
-/*
 #else
-#pragma region  ENGLISH
+
 const u8 gExpandedPlaceholder_Empty[] = _("");
 const u8 gExpandedPlaceholder_Kun[] = _("");
 const u8 gExpandedPlaceholder_Chan[] = _("");
@@ -3648,6 +3646,5 @@ const u8 gText_Answer[] = _("ANSWER");
 const u8 gText_PokeBalls[] = _("POKé BALLS");
 const u8 gText_Berry[] = _("BERRY");
 const u8 gText_Berries[] = _("BERRIES");
-#pragma endregion ENGLISH
 
-#endif*/
+#endif
