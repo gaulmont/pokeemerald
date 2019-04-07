@@ -3,8 +3,8 @@
 		
 ALIGNED(4)		
 
-#if FRENCH
-#pragma region FRENCH
+//#if FRENCH
+//#pragma region FRENCH
 const u8 gExpandedPlaceholder_Empty[] = _("");
 const u8 gExpandedPlaceholder_Kun[] = _("");
 const u8 gExpandedPlaceholder_Chan[] = _("");
@@ -1779,9 +1779,11 @@ const u8 gMrStoneMatchCallName[] = _("M. ROCHARD");
 const u8 gStevenMatchCallDesc[] = _("COMME UN ROC");
 const u8 gStevenMatchCallName[] = _("PIERRE");
 
+const u8 gMayBrendanMatchCallDesc[] = _("LE VOISIN");
+/*
 const u8 gBrendanMatchCallDesc[] = _("LE VOISIN");
 const u8 gMayMatchCallDesc[] = _("LA VOISINE");
-
+*/
 const u8 gNormanMatchCallDesc[] = _("SERIEUX");
 const u8 gMomMatchCallDesc[] = _("LA PLUS DOUCE");
 const u8 gWallyMatchCallDesc[] = _("AMI DES {PKMN}");
@@ -1826,8 +1828,8 @@ const u8 gText_PokeBalls[] = _("POKé BALLS");
 const u8 gText_Berry[] = _("BAIE");
 const u8 gText_Berries[] = _("BAIES");
 
-#pragma endregion FRENCH
-
+//#pragma endregion FRENCH
+/*
 #else
 #pragma region  ENGLISH
 const u8 gExpandedPlaceholder_Empty[] = _("");
@@ -3648,4 +3650,4 @@ const u8 gText_Berry[] = _("BERRY");
 const u8 gText_Berries[] = _("BERRIES");
 #pragma endregion ENGLISH
 
-#endif
+#endif*/

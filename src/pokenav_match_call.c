@@ -214,7 +214,16 @@ extern const u8 gText_May_Pokenav_2B414B[];
 extern const u8 gText_May_Pokenav_2B4228[];
 extern const u8 gText_May_Pokenav_2B42E0[];
 extern const u8 gText_May_Pokenav_2B4350[];
+
+/*#if FRENCH
+extern const u8 gBrendanMatchCallDesc[];
+extern const u8 gMayMatchCallDesc[];
+
+#else*/
 extern const u8 gMayBrendanMatchCallDesc[];
+
+//#endif
+
 extern const u8 gExpandedPlaceholder_May[];
 extern const u8 gText_Brendan_Pokenav_2B43EF[];
 extern const u8 gText_Brendan_Pokenav_2B4486[];
@@ -422,6 +431,18 @@ static const match_call_text_data_t sMayTextScripts[] = {
     { NULL,                     0xFFFF,              0xFFFF }
 };
 
+#if FRENCH
+static const struct MatchCallStruct4 sMayMatchCallHeader =
+{
+    .type = 4,
+    .gender = MALE,
+    .flag = FLAG_ENABLE_RIVAL_MATCH_CALL,
+    .desc = gBrendanMatchCallDesc,
+    .name = gExpandedPlaceholder_May,
+    .textData = sMayTextScripts
+};
+
+#else
 static const struct MatchCallStruct4 sMayMatchCallHeader =
 {
     .type = 4,
@@ -431,6 +452,7 @@ static const struct MatchCallStruct4 sMayMatchCallHeader =
     .name = gExpandedPlaceholder_May,
     .textData = sMayTextScripts
 };
+#endif
 
 static const match_call_text_data_t sBrendanTextScripts[] = {
     { gText_Brendan_Pokenav_2B43EF, 0xFFFF,              0xFFFF },
@@ -450,6 +472,8 @@ static const match_call_text_data_t sBrendanTextScripts[] = {
     { gText_Brendan_Pokenav_2B4D46, FLAG_SYS_GAME_CLEAR, 0xFFFF },
     { NULL,                         0xFFFF,              0xFFFF }
 };
+
+
 
 static const struct MatchCallStruct4 sBrendanMatchCallHeader =
 {
