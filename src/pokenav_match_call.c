@@ -431,7 +431,7 @@ static const match_call_text_data_t sMayTextScripts[] = {
     { NULL,                     0xFFFF,              0xFFFF }
 };
 
-#if FRENCH
+#ifdef FRENCH
 static const struct MatchCallStruct4 sMayMatchCallHeader =
 {
     .type = 4,

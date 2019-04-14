@@ -3,7 +3,7 @@
 		
 ALIGNED(4)		
 
-#if FRENCH
+#ifdef FRENCH
 
 const u8 gExpandedPlaceholder_Empty[] = _("");
 const u8 gExpandedPlaceholder_Kun[] = _("");

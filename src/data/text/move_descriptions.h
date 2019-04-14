@@ -1,4 +1,4 @@
-#if FRENCH
+#ifdef FRENCH
 
 static const u8 sNullDescription[] = _(
     "");
@@ -1419,8 +1419,8 @@ static const u8 sPsychoBoostDescription[] = _(
     "Attaque à pleine puissance,"
     "mais baisse ATQ. SPE.");
 
-#else
 
+#else
 
 static const u8 sNullDescription[] = _(
     "");
@@ -2841,7 +2841,7 @@ static const u8 sPsychoBoostDescription[] = _(
     "Allows a full-power attack,\n"
     "but sharply lowers SP. ATK.");
 
-
+    
 #endif
 
 // MOVE_NONE is ignored in this table. Make sure to always subtract 1 before getting the right pointer.

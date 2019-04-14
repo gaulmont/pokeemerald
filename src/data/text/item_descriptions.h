@@ -1,4 +1,4 @@
-#if FRENCH
+#ifdef FRENCH
 
 const u8 gDummyItemDescription[] = _("?????");
 // Pokeballs
@@ -8,7 +8,7 @@ const u8 gGreatBallItemDescription[] = _("BALL au taux de\nréussite supérieur\
 const u8 gPokeBallItemDescription[] = _("Un objet qui permet\nd'attraper les\nPOKéMON sauvages.");
 const u8 gSafariBallItemDescription[] = _("Une BALL spéciale\nutilisée juste\nau PARC SAFARI.");
 const u8 gNetBallItemDescription[] = _("Une BALL qui marche\nbien sur un POKéMON\nEAU ou INSECTE.");
-const u8 gDiveBallItemDescription[] = _("Une BALL qui marche\nmieux avec les\n[pk][mn] sous-marins.");
+const u8 gDiveBallItemDescription[] = _("Une BALL qui marche\nmieux avec les\n{PKMN} sous-marins.");
 const u8 gNestBallItemDescription[] = _("Une BALL qui marche\nmieux avec les\nPOKéMON faibles.");
 const u8 gRepeatBallItemDescription[] = _("Une BALL qui marche\nbien sur un POKéMON\ndéjà capturé.");
 const u8 gTimerBallItemDescription[] = _("Plus efficace\npendant les\ncombats longs.");
