@@ -1779,11 +1779,11 @@ const u8 gMrStoneMatchCallName[] = _("M. ROCHARD");
 const u8 gStevenMatchCallDesc[] = _("COMME UN ROC");
 const u8 gStevenMatchCallName[] = _("PIERRE");
 
-const u8 gMayBrendanMatchCallDesc[] = _("LE VOISIN");
-/*
+//const u8 gMayBrendanMatchCallDesc[] = _("LE VOISIN");
+
 const u8 gBrendanMatchCallDesc[] = _("LE VOISIN");
 const u8 gMayMatchCallDesc[] = _("LA VOISINE");
-*/
+
 const u8 gNormanMatchCallDesc[] = _("SERIEUX");
 const u8 gMomMatchCallDesc[] = _("LA PLUS DOUCE");
 const u8 gWallyMatchCallDesc[] = _("AMI DES {PKMN}");

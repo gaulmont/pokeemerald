@@ -215,14 +215,14 @@ extern const u8 gText_May_Pokenav_2B4228[];
 extern const u8 gText_May_Pokenav_2B42E0[];
 extern const u8 gText_May_Pokenav_2B4350[];
 
-/*#if FRENCH
+#ifdef FRENCH
 extern const u8 gBrendanMatchCallDesc[];
 extern const u8 gMayMatchCallDesc[];
 
-#else*/
+#else
 extern const u8 gMayBrendanMatchCallDesc[];
 
-//#endif
+#endif
 
 extern const u8 gExpandedPlaceholder_May[];
 extern const u8 gText_Brendan_Pokenav_2B43EF[];
@@ -432,7 +432,7 @@ static const match_call_text_data_t sMayTextScripts[] = {
 };
 
 #ifdef FRENCH
-static const struct MatchCallStruct4 sMayMatchCallHeader =
+static const struct MatchCallStruct4 sBrendanMatchCallHeader =
 {
     .type = 4,
     .gender = MALE,
@@ -443,7 +443,7 @@ static const struct MatchCallStruct4 sMayMatchCallHeader =
 };
 
 #else
-static const struct MatchCallStruct4 sMayMatchCallHeader =
+static const struct MatchCallStruct4 sBrendanMatchCallHeader =
 {
     .type = 4,
     .gender = MALE,
@@ -474,8 +474,19 @@ static const match_call_text_data_t sBrendanTextScripts[] = {
 };
 
 
+#ifdef FRENCH
+static const struct MatchCallStruct4 sMayMatchCallHeader =
+{
+    .type = 4,
+    .gender = FEMALE,
+    .flag = FLAG_ENABLE_RIVAL_MATCH_CALL,
+    .desc = gMayMatchCallDesc,
+    .name = gExpandedPlaceholder_Brendan,
+    .textData = sBrendanTextScripts
+};
+#else
 
-static const struct MatchCallStruct4 sBrendanMatchCallHeader =
+static const struct MatchCallStruct4 sMayMatchCallHeader =
 {
     .type = 4,
     .gender = FEMALE,
@@ -484,6 +495,7 @@ static const struct MatchCallStruct4 sBrendanMatchCallHeader =
     .name = gExpandedPlaceholder_Brendan,
     .textData = sBrendanTextScripts
 };
+#endif
 
 static const match_call_text_data_t sWallyTextScripts[] = {
     { gText_Wally_Pokenav_2B4DE2, 0xFFFF,     0xFFFF },
