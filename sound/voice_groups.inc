@@ -21946,3 +21946,30 @@ voicegroup190:: @ 86B429C
 	voice_square_1 0, 2, 0, 0, 15, 0  @ 86B4698
 	voice_directsound_no_resample 64, 104, DirectSoundWaveData_86DD11C, 255, 0, 255, 0  @ 86B46A4
 	voice_directsound 63, 64, DirectSoundWaveData_86DE6C0, 255, 0, 255, 0  @ 86B46B0
+
+		.align 2
+voicegroup888:: @ 86B46BC
+	voice_directsound 60, 0, DirectSoundWaveData_86E1CF8, 255, 250, 0, 221   @ -Piano- 0 : Acoustic Grand Piano
+	voice_directsound 60, 0, DirectSoundWaveData_86E3358, 255, 250, 0, 221   @ 1 : Brite Acoustic Piano
+	voice_directsound 60, 0, DirectSoundWaveData_871CBCC, 128, 249, 0, 188  @ 2 : Electric Grand Piano
+	voice_directsound 60, 0, DirectSoundWaveData_873D874, 255, 242, 0, 204   @ 3 : Honky Tonk Piano
+	voice_directsound 60, 0, DirectSoundWaveData_86E48B4, 255, 247, 0, 221   @ 4 : Electric Piano (Rhodes)
+	voice_directsound 60, 0, DirectSoundWaveData_86E1CF8, 255, 250, 0, 221   @ 5 : Chorused Piano [MISS]
+	voice_directsound 60, 0, DirectSoundWaveData_86E0D98, 255, 252, 0, 239  @ 6 : Harpsichord
+	voice_directsound 60, 0, DirectSoundWaveData_86FFDC0, 255, 250, 0, 149  @ 7 : Clavinet
+	voice_directsound 60, 0, DirectSoundWaveData_873E2A4, 255, 235, 0, 204  @ -Chromatic percussion- 8 : Celesta [MISS]
+	voice_directsound 60, 0, DirectSoundWaveData_873E2A4, 255, 235, 0, 204  @ 9 : Glockenspiel [MISS]
+	voice_directsound 60, 0, DirectSoundWaveData_873E2A4, 255, 235, 0, 204  @ 10 : Music Box [MISS]
+	voice_directsound 60, 0, DirectSoundWaveData_8710AB8, 255, 188, 139, 239  @ 11 : Vibraphone [NOTGOOD]
+	voice_directsound 60, 0, DirectSoundWaveData_873E2A4, 255, 235, 0, 204  @ 12 : Marimba [MISS]
+	voice_directsound 60, 0, DirectSoundWaveData_873E2A4, 255, 235, 0, 204  @ 13 : Xylophone [MISS]
+	voice_directsound 60, 0, DirectSoundWaveData_8736C74, 255, 216, 90, 242  @ 14 : Tubular Bells
+	voice_directsound 60, 0, DirectSoundWaveData_8706DCC, 255, 0, 206, 242  @ 15 : Dulcimer
+	voice_directsound 60, 0, DirectSoundWaveData_86B63A8, 255, 0, 255, 165  @ -Organ- 16 : Hammond Organ
+	voice_directsound 60, 0, DirectSoundWaveData_8717980, 255, 76, 154, 188  @ 17 : Percussive Organ [MISS]
+	voice_directsound 60, 0, DirectSoundWaveData_87410E0, 255, 0, 255, 165  @ 18 : Rock Organ [NOTGOOD]
+	voice_directsound 60, 0, DirectSoundWaveData_8715038, 255, 76, 154, 188  @ 19 : Church Organ
+	voice_directsound 60, 0, DirectSoundWaveData_8717980, 255, 76, 154, 188  @ 20 : Reed Organ
+	voice_directsound 60, 0, DirectSoundWaveData_8717980, 255, 76, 154, 188  @ 21 : Accordion [MISS]
+	voice_directsound 60, 0, DirectSoundWaveData_8717980, 255, 76, 154, 188  @ 22 : Harmonica [MISS]
+	voice_directsound 60, 0, DirectSoundWaveData_8717980, 255, 76, 154, 188  @ 23 : Tango Accordion [MISS]
