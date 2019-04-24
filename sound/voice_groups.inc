@@ -21973,3 +21973,43 @@ voicegroup888:: @ 86B46BC
 	voice_directsound 60, 0, DirectSoundWaveData_8717980, 255, 76, 154, 188  @ 21 : Accordion [MISS]
 	voice_directsound 60, 0, DirectSoundWaveData_8717980, 255, 76, 154, 188  @ 22 : Harmonica [MISS]
 	voice_directsound 60, 0, DirectSoundWaveData_8717980, 255, 76, 154, 188  @ 23 : Tango Accordion [MISS]
+	voice_directsound 60, 0, DirectSoundWaveData_86FFDC0, 255, 253, 0, 149  @ -Guitar- 24 : Acoustic Nylon Guitar [NOTGOOD]
+	voice_directsound 60, 0, DirectSoundWaveData_86FFDC0, 255, 253, 0, 149  @ 25 : Acoustic Steel Guitar
+	voice_directsound 60, 0, DirectSoundWaveData_86B776C, 255, 235, 128, 99  @ 26 : Electric Jazz Guitar
+	voice_directsound 60, 0, DirectSoundWaveData_8701A10, 255, 0, 206, 242  @ 27 : Electric Clean Guitar [NOTGOOD]
+	voice_directsound 60, 0, DirectSoundWaveData_8726EF0, 255, 216, 0, 165  @ 28 : Electric Muted Guitar [MISS]
+	voice_directsound 60, 0, DirectSoundWaveData_86BDC80, 255, 165, 206, 127  @ 29 : Overdriven Guitar
+	voice_directsound 60, 0, DirectSoundWaveData_870DE64, 255, 0, 255, 127  @ 30 : Distortion Guitar
+	voice_directsound 60, 0, DirectSoundWaveData_88DA388, 255, 0, 255, 195  @ 31 : Guitar Harmonica
+	voice_directsound 60, 0, DirectSoundWaveData_88DA388, 255, 0, 255, 195  @ -Bass- 32 : Acoustic Bass
+	voice_directsound 60, 0, DirectSoundWaveData_88D8418, 255, 249, 25, 149  @ 33 : Electric Bass fingered
+	voice_directsound 60, 0, DirectSoundWaveData_86FFDC0, 255, 253, 0, 149  @ 34 : Electric Bass picked
+	voice_directsound 60, 0, DirectSoundWaveData_8726EF0, 255, 216, 0, 165  @ 35 : Fretless Bass [NOTGOOD]
+	voice_directsound 60, 0, DirectSoundWaveData_871CBCC, 255, 165, 180, 165 @ 36 : Slap Bass 1 [MISS]
+	voice_directsound 60, 0, DirectSoundWaveData_86BEF94, 255, 165, 180, 216  @ 37 : Slap Bass 2
+	voice_directsound 60, 0, DirectSoundWaveData_87322BC, 255, 178, 180, 165  @ 38 : Synth Bass 1 [MISS]
+	voice_directsound 60, 0, DirectSoundWaveData_87322BC, 255, 178, 180, 165  @ 39 : Synth Bass 2 [MISS]
+	voice_directsound 60, 0, DirectSoundWaveData_86E89E4, 255, 0, 255, 196  @ -Strings- 40 : Violin [NOTGOOD]
+	voice_directsound 60, 0, DirectSoundWaveData_86E89E4, 255, 0, 255, 196  @ 41 : Viola [NOTGOOD]
+	voice_directsound 60, 0, DirectSoundWaveData_86E89E4, 255, 0, 255, 196  @ 42 : Cello [MISS]
+	voice_directsound 60, 0, DirectSoundWaveData_86EAD00, 255, 0, 255, 196  @ 43 : Contrabass [NOTGOOD]
+	voice_directsound 60, 0, DirectSoundWaveData_86EAD00, 255, 0, 255, 196  @ 44 : Tremolo Strings [MISS]
+	voice_directsound 60, 0, DirectSoundWaveData_8726EF0, 255, 216, 0, 165  @ 45 : Pizzicato Strings
+	voice_directsound 60, 0, DirectSoundWaveData_873D874, 255, 242, 0, 204  @ 46 : Orchestral Harp [MISS]
+	voice_directsound 60, 0, DirectSoundWaveData_86B9318, 255, 246, 0, 226  @ 47 : Timpani 1
+	voice_directsound 60, 0, DirectSoundWaveData_86E5440, 255, 0, 255, 196  @ 48 : -Ensemble- String Ensemble 1
+	voice_directsound 60, 0, DirectSoundWaveData_86E5440, 255, 0, 255, 196  @ 49 : Slow String [MISS]
+	voice_directsound 60, 0, DirectSoundWaveData_86EAD00, 255, 0, 255, 196  @ 50 : Synth Strings 1
+	voice_directsound 60, 0, DirectSoundWaveData_86E89E4, 255, 0, 255, 165  @ 51 : Synth Strings 2 [NOTGOOD]
+	voice_directsound 60, 0, DirectSoundWaveData_86BA7E8, 128, 165, 128, 188  @ 52 : Choir Aahs
+	voice_directsound 60, 0, DirectSoundWaveData_871A724, 128, 165, 128, 188  @ 53 : Voice Oohs 
+	voice_directsound 60, 0, DirectSoundWaveData_871A724, 128, 165, 128, 188  @ 54 : Synth Voice [MISS]
+	voice_directsound 60, 0, DirectSoundWaveData_8726EF0, 255, 216, 0, 165  @ 55 : Orchestral Hit [MISS]
+	voice_directsound 60, 0, DirectSoundWaveData_86BBE98, 255, 165, 154, 127  @ 56 : -Brass- Trumpet
+	voice_directsound 60, 0, DirectSoundWaveData_86FB0D8, 255, 0, 218, 165  @ 57 : Trombone
+	voice_directsound 60, 0, DirectSoundWaveData_86F0C2C, 255, 0, 193, 127 @ 58 : Tuba
+	voice_directsound 60, 0, DirectSoundWaveData_86EE3CC, 255, 0, 193, 127  @ 59 : Muted Trumpet [NOTGOOD]
+	voice_directsound 60, 0, DirectSoundWaveData_86FB0D8, 255, 0, 218, 165  @ 60 : French Horn [NOTGOOD]
+	voice_directsound 60, 0, DirectSoundWaveData_88D6978, 255, 0, 206, 204  @ 61 : Brass Section
+	voice_directsound 60, 0, DirectSoundWaveData_871CBCC, 128, 249, 0, 188  @ 62 : Synth Brass 1 [NOTGOOD]
+	voice_directsound 60, 0, DirectSoundWaveData_86EAD00, 255, 0, 255, 196  @ 63 : Synth Brass 2 [NOTGOOD]
