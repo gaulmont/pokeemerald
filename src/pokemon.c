@@ -3119,6 +3119,7 @@ s32 CalculateBaseDamage(struct BattlePokemon *attacker, struct BattlePokemon *de
         {
             attack = (attack * (attackerHoldEffectParam + 100)) / 100;
             spAttack = (spAttack * (attackerHoldEffectParam + 100)) / 100;
+            break;
         }
     }
 
