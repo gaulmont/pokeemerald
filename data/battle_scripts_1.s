@@ -283,9 +283,16 @@ BattleScript_HitFromAtkAnimation::
 	waitmessage 0x40
 	seteffectwithchance
 	tryfaintmon BS_TARGET, FALSE, NULL
+	
+	jumpifhalfword CMP_EQUAL, gChosenMove, MOVE_VOLT_TACKLE, Custom_VoltTackle
 BattleScript_MoveEnd::
 	moveendall
 	end
+
+Custom_VoltTackle::
+	setmoveeffect MOVE_EFFECT_PARALYSIS
+	seteffectwithchance
+	goto BattleScript_MoveEnd
 
 BattleScript_MakeMoveMissed::
 	orbyte gMoveResultFlags, MOVE_RESULT_MISSED
