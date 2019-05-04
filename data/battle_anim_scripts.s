@@ -370,6 +370,15 @@ gBattleAnims_Moves::
 	.4byte Move_WATER_PULSE
 	.4byte Move_DOOM_DESIRE
 	.4byte Move_PSYCHO_BOOST
+
+	@Gen4 EFFECT_HIT
+	.4byte Move_AQUA_TAIL
+	.4byte Move_DRAGON_PULSE
+	.4byte Move_POWER_GEM
+	.4byte Move_POWER_WHIP
+	.4byte Move_SEED_BOMB
+	.4byte Move_X_SCISSOR
+
 	.4byte Move_COUNT @ cannot be reached, because last move is Psycho Boost
 
 	.align 2
@@ -9915,6 +9924,15 @@ WeatherBallIce:
 	call FreezeEffect1
 	waitforvisualfinish
 	end
+
+@Gen4 EFFECT_HIT
+
+Move_AQUA_TAIL:
+Move_DRAGON_PULSE:
+Move_POWER_GEM:
+Move_POWER_WHIP:
+Move_SEED_BOMB:
+Move_X_SCISSOR:
 
 Move_COUNT:
 	loadspritegfx ANIM_TAG_IMPACT

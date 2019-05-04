@@ -1419,6 +1419,31 @@ static const u8 sPsychoBoostDescription[] = _(
     "Attaque à pleine puissance,\n"
     "mais baisse ATQ. SPE.");
 
+// Gen4 EFFECT_HIT
+static const u8 sAquaTailDescription[] = _(
+	"dummy\n"
+	"dummy");
+
+static const u8 sDragonPulseDescription[] = _(
+	"dummy\n"
+	"dummy");
+
+static const u8 sPowerGemDescription[] = _(
+	"dummy\n"
+	"dummy");
+
+static const u8 sPowerWhipDescription[] = _(
+	"dummy\n"
+	"dummy");
+
+static const u8 sSeedBombDescription[] = _(
+	"dummy\n"
+	"dummy");
+
+static const u8 sXScissorDescription[] = _(
+	"dummy\n"
+	"dummy");
+
 
 #else
 
@@ -2841,6 +2866,30 @@ static const u8 sPsychoBoostDescription[] = _(
     "Allows a full-power attack,\n"
     "but sharply lowers SP. ATK.");
 
+// Gen4 EFFECT_HIT
+static const u8 sAquaTailDescription[] = _(
+	"dummy\n"
+	"dummy");
+
+static const u8 sDragonPulseDescription[] = _(
+	"dummy\n"
+	"dummy");
+
+static const u8 sPowerGemDescription[] = _(
+	"dummy\n"
+	"dummy");
+
+static const u8 sPowerWhipDescription[] = _(
+	"dummy\n"
+	"dummy");
+
+static const u8 sSeedBombDescription[] = _(
+	"dummy\n"
+	"dummy");
+
+static const u8 sXScissorDescription[] = _(
+	"dummy\n"
+	"dummy");
     
 #endif
 
@@ -3201,4 +3250,12 @@ const u8 *const gMoveDescriptionPointers[MOVES_COUNT - 1] =
     [MOVE_WATER_PULSE - 1] = sWaterPulseDescription,
     [MOVE_DOOM_DESIRE - 1] = sDoomDesireDescription,
     [MOVE_PSYCHO_BOOST - 1] = sPsychoBoostDescription,
+
+    // Gen4 EFFECT_HIT
+    [MOVE_AQUA_TAIL - 1] = sAquaTailDescription,
+    [MOVE_DRAGON_PULSE - 1] = sDragonPulseDescription,
+    [MOVE_POWER_GEM - 1] = sPowerGemDescription,
+    [MOVE_POWER_WHIP - 1] = sPowerWhipDescription,
+    [MOVE_SEED_BOMB - 1] = sSeedBombDescription,
+    [MOVE_X_SCISSOR - 1] = sXScissorDescription,
 };
