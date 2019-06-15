@@ -1444,6 +1444,26 @@ static const u8 sXScissorDescription[] = _(
 	"dummy\n"
 	"dummy");
 
+// Gen4 EFFECT_QUICK_ATTACK
+static const u8 sAquaJetDescription[] = _(
+	"dummy\n"
+	"dummy");
+
+static const u8 sBulletPunchDescription[] = _(
+	"dummy\n"
+	"dummy");
+
+static const u8 sIceShardDescription[] = _(
+	"dummy\n"
+	"dummy");
+
+static const u8 sShadowSneakDescription[] = _(
+	"dummy\n"
+	"dummy");
+
+static const u8 sVacuumWaveDescription[] = _(
+	"dummy\n"
+	"dummy");
 
 #else
 
@@ -2890,6 +2910,28 @@ static const u8 sSeedBombDescription[] = _(
 static const u8 sXScissorDescription[] = _(
 	"dummy\n"
 	"dummy");
+
+
+// Gen4 EFFECT_QUICK_ATTACK
+static const u8 sAquaJetDescription[] = _(
+	"dummy\n"
+	"dummy");
+
+static const u8 sBulletPunchDescription[] = _(
+	"dummy\n"
+	"dummy");
+
+static const u8 sIceShardDescription[] = _(
+	"dummy\n"
+	"dummy");
+
+static const u8 sShadowSneakDescription[] = _(
+	"dummy\n"
+	"dummy");
+
+static const u8 sVacuumWaveDescription[] = _(
+	"dummy\n"
+	"dummy");
     
 #endif
 
@@ -3258,4 +3300,11 @@ const u8 *const gMoveDescriptionPointers[MOVES_COUNT - 1] =
     [MOVE_POWER_WHIP - 1] = sPowerWhipDescription,
     [MOVE_SEED_BOMB - 1] = sSeedBombDescription,
     [MOVE_X_SCISSOR - 1] = sXScissorDescription,
+
+    // Gen4 EFFECT_QUICK_ATTACK
+    [MOVE_AQUA_JET - 1] = sAquaJetDescription,
+    [MOVE_BULLET_PUNCH - 1] = sBulletPunchDescription,
+    [MOVE_ICE_SHARD - 1] = sIceShardDescription,
+    [MOVE_SHADOW_SNEAK - 1] = sShadowSneakDescription,
+    [MOVE_VACUUM_WAVE - 1] = sVacuumWaveDescription,
 };

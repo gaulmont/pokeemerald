@@ -379,6 +379,13 @@ gBattleAnims_Moves::
 	.4byte Move_SEED_BOMB
 	.4byte Move_X_SCISSOR
 
+	@Gen4 EFFECT_QUICK_ATTACK
+	.4byte Move_AQUA_JET
+	.4byte Move_BULLET_PUNCH
+	.4byte Move_ICE_SHARD
+	.4byte Move_SHADOW_SNEAK
+	.4byte Move_VACUUM_WAVE
+
 	.4byte Move_COUNT @ cannot be reached, because last move is Psycho Boost
 
 	.align 2
@@ -9933,6 +9940,14 @@ Move_POWER_GEM:
 Move_POWER_WHIP:
 Move_SEED_BOMB:
 Move_X_SCISSOR:
+
+@Gen4 EFFECT_QUICK_ATTACK
+
+Move_AQUA_JET:
+Move_BULLET_PUNCH:
+Move_ICE_SHARD:
+Move_SHADOW_SNEAK:
+Move_VACUUM_WAVE:
 
 Move_COUNT:
 	loadspritegfx ANIM_TAG_IMPACT
