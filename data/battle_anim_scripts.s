@@ -9965,17 +9965,43 @@ Move_SEED_BOMB:
 	waitforvisualfinish
 	end
 
-		loadspritegfx ANIM_TAG_EXPLOSION
-	loadspritegfx ANIM_TAG_LARGE_FRESH_EGG
-	playsewithpan SE_W039, SOUND_PAN_ATTACKER
-	createsprite gUnknown_08593488, ANIM_TARGET, 2, 10, 0, 0, 0, 25, -32
-	waitforvisualfinish
-
 Move_X_SCISSOR:
+	goto Move_COUNT
 
 @Gen4 EFFECT_QUICK_ATTACK
 
 Move_AQUA_JET:
+	loadspritegfx ANIM_TAG_SWEAT_BEAD
+	loadspritegfx ANIM_TAG_IMPACT
+	createvisualtask AnimTask_BlendParticle, 5, ANIM_TAG_IMPACT, 0, 12, 12, RGB(0, 0, 23)
+
+	monbg ANIM_ATK_PARTNER
+
+	createsprite gSimplePaletteBlendSpriteTemplate, ANIM_ATTACKER, 0, 4, 2, 0, 7, RGB(0, 0, 23)
+	
+	setalpha 12, 8
+	createvisualtask AnimTask_TranslateMonEllipticalRespectSide, 2, ANIM_ATTACKER, 24, 0, 1, 5
+	createvisualtask sub_81169C0, 2, 0, 4, 7, 3
+	playsewithpan SE_W026, SOUND_PAN_ATTACKER
+	delay 4
+	createvisualtask AnimTask_ShakeMon, 2, ANIM_TARGET, 5, 0, 6, 1
+	createsprite gBasicHitSplatSpriteTemplate, ANIM_TARGET, 4, 0, 0, 1, 1
+
+	playsewithpan SE_W153, SOUND_PAN_TARGET
+	call DiveAttack1
+	call DiveAttack1
+	call DiveAttack1
+	call DiveAttack1
+	call DiveAttack1
+	waitforvisualfinish
+	createsprite gSimplePaletteBlendSpriteTemplate, ANIM_ATTACKER, 0, 4, 2, 7, 0, RGB(0, 0, 23)
+	waitforvisualfinish
+	clearmonbg ANIM_ATK_PARTNER
+	blendoff
+	clearmonbg ANIM_DEF_PARTNER
+	blendoff
+	end
+
 Move_BULLET_PUNCH:
 Move_ICE_SHARD:
 Move_SHADOW_SNEAK:
