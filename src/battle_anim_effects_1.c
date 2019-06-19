@@ -2385,6 +2385,7 @@ static void AnimHyperBeamOrbStep(struct Sprite* sprite)
 // arg 3: target y pixel offset
 // arg 4: duration
 // arg 5: wave amplitude
+// arg 6: CUSTOM ; 0 = normal anim, 1 = no sprouts
 void AnimLeechSeed(struct Sprite* sprite)
 {
     InitSpritePosToAnimAttacker(sprite, TRUE);
@@ -2396,7 +2397,7 @@ void AnimLeechSeed(struct Sprite* sprite)
     sprite->data[4] = GetBattlerSpriteCoord(gBattleAnimTarget, BATTLER_COORD_Y) + gBattleAnimArgs[3];
     sprite->data[5] = gBattleAnimArgs[5];
     InitAnimArcTranslation(sprite);
-    sprite->callback = AnimLeechSeedStep;
+    sprite->callback = AnimLeechSeedStep;    
 }
 
 static void AnimLeechSeedStep(struct Sprite* sprite)
@@ -2406,7 +2407,10 @@ static void AnimLeechSeedStep(struct Sprite* sprite)
         sprite->invisible = 1;
         sprite->data[0] = 10;
         sprite->callback = WaitAnimForDuration;
-        StoreSpriteCallbackInData6(sprite, AnimLeechSeedSprouts);
+        if (gBattleAnimArgs[6] == 0)
+            StoreSpriteCallbackInData6(sprite, AnimLeechSeedSprouts);
+        else
+            StoreSpriteCallbackInData6(sprite, DestroyAnimSprite);
     }
 }
 

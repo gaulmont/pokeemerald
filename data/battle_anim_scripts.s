@@ -919,13 +919,13 @@ FireBlast2:
 Move_LEECH_SEED:
 	loadspritegfx ANIM_TAG_SEED
 	playsewithpan SE_W077, SOUND_PAN_ATTACKER
-	createsprite gLeechSeedSpriteTemplate, ANIM_TARGET, 2, 15, 0, 0, 24, 35, -32
+	createsprite gLeechSeedSpriteTemplate, ANIM_TARGET, 2, 15, 0, 0, 24, 35, -32, 0
 	delay 8
 	playsewithpan SE_W077, SOUND_PAN_ATTACKER
-	createsprite gLeechSeedSpriteTemplate, ANIM_TARGET, 2, 15, 0, -16, 24, 35, -40
+	createsprite gLeechSeedSpriteTemplate, ANIM_TARGET, 2, 15, 0, -16, 24, 35, -40, 0
 	delay 8
 	playsewithpan SE_W077, SOUND_PAN_ATTACKER
-	createsprite gLeechSeedSpriteTemplate, ANIM_TARGET, 2, 15, 0, 16, 24, 35, -37
+	createsprite gLeechSeedSpriteTemplate, ANIM_TARGET, 2, 15, 0, 16, 24, 35, -37, 0
 	delay 12
 	loopsewithpan SE_W039, SOUND_PAN_TARGET, 10, 8
 	waitforvisualfinish
@@ -9938,7 +9938,39 @@ Move_AQUA_TAIL:
 Move_DRAGON_PULSE:
 Move_POWER_GEM:
 Move_POWER_WHIP:
-Move_SEED_BOMB:
+	goto Move_COUNT
+
+Move_SEED_BOMB:	
+	loadspritegfx ANIM_TAG_SEED
+	loadspritegfx ANIM_TAG_EXPLOSION
+	playsewithpan SE_W077, SOUND_PAN_ATTACKER
+	createsprite gLeechSeedSpriteTemplate, ANIM_TARGET, 2, 15, 0, 0, 18, 24, -32, 1
+	delay 8
+	playsewithpan SE_W077, SOUND_PAN_ATTACKER
+	createsprite gLeechSeedSpriteTemplate, ANIM_TARGET, 2, 15, 0, -16, 18, 24, -40, 1
+	delay 8
+	playsewithpan SE_W077, SOUND_PAN_ATTACKER
+	createsprite gLeechSeedSpriteTemplate, ANIM_TARGET, 2, 15, 0, 16, 18, 24, -37, 1
+	delay 12
+	createvisualtask AnimTask_ShakeMon2, 2, ANIM_TARGET, 4, 0, 16, 1
+	createsprite gBattleAnimSpriteTemplate_859371C, ANIM_TARGET, 4, 6, 5, 1, 0
+	playsewithpan SE_W120, SOUND_PAN_TARGET
+	delay 8
+	createsprite gBattleAnimSpriteTemplate_859371C, ANIM_TARGET, 4, -16, -15, 1, 0
+	playsewithpan SE_W120, SOUND_PAN_TARGET
+	delay 8
+	createsprite gBattleAnimSpriteTemplate_859371C, ANIM_TARGET, 4, 16, -5, 1, 0
+	playsewithpan SE_W120, SOUND_PAN_TARGET
+	delay 3
+	waitforvisualfinish
+	end
+
+		loadspritegfx ANIM_TAG_EXPLOSION
+	loadspritegfx ANIM_TAG_LARGE_FRESH_EGG
+	playsewithpan SE_W039, SOUND_PAN_ATTACKER
+	createsprite gUnknown_08593488, ANIM_TARGET, 2, 10, 0, 0, 0, 25, -32
+	waitforvisualfinish
+
 Move_X_SCISSOR:
 
 @Gen4 EFFECT_QUICK_ATTACK
