@@ -6,6 +6,7 @@
 #include "constants/event_object_movement_constants.h"
 #include "constants/field_effects.h"
 #include "constants/flags.h"
+#include "constants/decorations.h"
 #include "constants/items.h"
 #include "constants/heal_locations.h"
 #include "constants/layouts.h"
@@ -825,7 +826,7 @@ Std_10: @ 8271347
 	waitmessage
 	return
 
-EventScript_27134E: @ 827134E
+EventScript_UnusedReturn: @ 827134E
 	return
 
 Common_EventScript_SaveGame:: @ 827134F
@@ -846,87 +847,87 @@ Std_MsgboxAutoclose:: @ 8271494
 	release
 	return
 
-EventScript_27149D:: @ 827149D
-	setberrytree 2, 7, 5
-	setberrytree 1, 3, 5
-	setberrytree 11, 7, 5
-	setberrytree 13, 3, 5
-	setberrytree 4, 7, 5
-	setberrytree 76, 1, 5
-	setberrytree 8, 1, 5
-	setberrytree 10, 6, 5
-	setberrytree 25, 20, 5
-	setberrytree 26, 2, 5
-	setberrytree 66, 2, 5
-	setberrytree 67, 20, 5
-	setberrytree 69, 22, 5
-	setberrytree 70, 22, 5
-	setberrytree 71, 22, 5
-	setberrytree 55, 17, 5
-	setberrytree 56, 17, 5
-	setberrytree 5, 1, 5
-	setberrytree 6, 6, 5
-	setberrytree 7, 1, 5
-	setberrytree 16, 18, 5
-	setberrytree 17, 18, 5
-	setberrytree 18, 18, 5
-	setberrytree 29, 19, 5
-	setberrytree 28, 19, 5
-	setberrytree 27, 19, 5
-	setberrytree 24, 4, 5
-	setberrytree 23, 3, 5
-	setberrytree 22, 3, 5
-	setberrytree 21, 4, 5
-	setberrytree 19, 16, 5
-	setberrytree 20, 16, 5
-	setberrytree 80, 7, 5
-	setberrytree 81, 7, 5
-	setberrytree 77, 8, 5
-	setberrytree 78, 8, 5
-	setberrytree 68, 8, 5
-	setberrytree 31, 10, 5
-	setberrytree 33, 10, 5
-	setberrytree 34, 21, 5
-	setberrytree 35, 21, 5
-	setberrytree 36, 21, 5
-	setberrytree 83, 24, 5
-	setberrytree 84, 24, 5
-	setberrytree 85, 10, 5
-	setberrytree 86, 6, 5
-	setberrytree 37, 5, 5
-	setberrytree 38, 5, 5
-	setberrytree 39, 5, 5
-	setberrytree 40, 3, 5
-	setberrytree 41, 3, 5
-	setberrytree 42, 3, 5
-	setberrytree 46, 19, 5
-	setberrytree 45, 20, 5
-	setberrytree 44, 18, 5
-	setberrytree 43, 16, 5
-	setberrytree 47, 8, 5
-	setberrytree 48, 5, 5
-	setberrytree 49, 4, 5
-	setberrytree 50, 2, 5
-	setberrytree 52, 18, 5
-	setberrytree 53, 18, 5
-	setberrytree 62, 6, 5
-	setberrytree 64, 6, 5
-	setberrytree 58, 21, 5
-	setberrytree 59, 21, 5
-	setberrytree 60, 25, 5
-	setberrytree 61, 25, 5
-	setberrytree 79, 23, 5
-	setberrytree 14, 23, 5
-	setberrytree 15, 21, 5
-	setberrytree 30, 21, 5
-	setberrytree 65, 25, 5
-	setberrytree 72, 25, 5
-	setberrytree 73, 23, 5
-	setberrytree 74, 23, 5
-	setberrytree 87, 3, 5
-	setberrytree 88, 10, 5
-	setberrytree 89, 4, 5
-	setberrytree 82, 36, 5
+EventScript_ResetAllBerries:: @ 827149D
+	setberrytree 2, ITEM_TO_BERRY(ITEM_ORAN_BERRY), 5
+	setberrytree 1, ITEM_TO_BERRY(ITEM_PECHA_BERRY), 5
+	setberrytree 11, ITEM_TO_BERRY(ITEM_ORAN_BERRY), 5
+	setberrytree 13, ITEM_TO_BERRY(ITEM_PECHA_BERRY), 5
+	setberrytree 4, ITEM_TO_BERRY(ITEM_ORAN_BERRY), 5
+	setberrytree 76, ITEM_TO_BERRY(ITEM_CHERI_BERRY), 5
+	setberrytree 8, ITEM_TO_BERRY(ITEM_CHERI_BERRY), 5
+	setberrytree 10, ITEM_TO_BERRY(ITEM_LEPPA_BERRY), 5
+	setberrytree 25, ITEM_TO_BERRY(ITEM_PINAP_BERRY), 5
+	setberrytree 26, ITEM_TO_BERRY(ITEM_CHESTO_BERRY), 5
+	setberrytree 66, ITEM_TO_BERRY(ITEM_CHESTO_BERRY), 5
+	setberrytree 67, ITEM_TO_BERRY(ITEM_PINAP_BERRY), 5
+	setberrytree 69, ITEM_TO_BERRY(ITEM_KELPSY_BERRY), 5
+	setberrytree 70, ITEM_TO_BERRY(ITEM_KELPSY_BERRY), 5
+	setberrytree 71, ITEM_TO_BERRY(ITEM_KELPSY_BERRY), 5
+	setberrytree 55, ITEM_TO_BERRY(ITEM_BLUK_BERRY), 5
+	setberrytree 56, ITEM_TO_BERRY(ITEM_BLUK_BERRY), 5
+	setberrytree 5, ITEM_TO_BERRY(ITEM_CHERI_BERRY), 5
+	setberrytree 6, ITEM_TO_BERRY(ITEM_LEPPA_BERRY), 5
+	setberrytree 7, ITEM_TO_BERRY(ITEM_CHERI_BERRY), 5
+	setberrytree 16, ITEM_TO_BERRY(ITEM_NANAB_BERRY), 5
+	setberrytree 17, ITEM_TO_BERRY(ITEM_NANAB_BERRY), 5
+	setberrytree 18, ITEM_TO_BERRY(ITEM_NANAB_BERRY), 5
+	setberrytree 29, ITEM_TO_BERRY(ITEM_WEPEAR_BERRY), 5
+	setberrytree 28, ITEM_TO_BERRY(ITEM_WEPEAR_BERRY), 5
+	setberrytree 27, ITEM_TO_BERRY(ITEM_WEPEAR_BERRY), 5
+	setberrytree 24, ITEM_TO_BERRY(ITEM_RAWST_BERRY), 5
+	setberrytree 23, ITEM_TO_BERRY(ITEM_PECHA_BERRY), 5
+	setberrytree 22, ITEM_TO_BERRY(ITEM_PECHA_BERRY), 5
+	setberrytree 21, ITEM_TO_BERRY(ITEM_RAWST_BERRY), 5
+	setberrytree 19, ITEM_TO_BERRY(ITEM_RAZZ_BERRY), 5
+	setberrytree 20, ITEM_TO_BERRY(ITEM_RAZZ_BERRY), 5
+	setberrytree 80, ITEM_TO_BERRY(ITEM_ORAN_BERRY), 5
+	setberrytree 81, ITEM_TO_BERRY(ITEM_ORAN_BERRY), 5
+	setberrytree 77, ITEM_TO_BERRY(ITEM_PERSIM_BERRY), 5
+	setberrytree 78, ITEM_TO_BERRY(ITEM_PERSIM_BERRY), 5
+	setberrytree 68, ITEM_TO_BERRY(ITEM_PERSIM_BERRY), 5
+	setberrytree 31, ITEM_TO_BERRY(ITEM_SITRUS_BERRY), 5
+	setberrytree 33, ITEM_TO_BERRY(ITEM_SITRUS_BERRY), 5
+	setberrytree 34, ITEM_TO_BERRY(ITEM_POMEG_BERRY), 5
+	setberrytree 35, ITEM_TO_BERRY(ITEM_POMEG_BERRY), 5
+	setberrytree 36, ITEM_TO_BERRY(ITEM_POMEG_BERRY), 5
+	setberrytree 83, ITEM_TO_BERRY(ITEM_HONDEW_BERRY), 5
+	setberrytree 84, ITEM_TO_BERRY(ITEM_HONDEW_BERRY), 5
+	setberrytree 85, ITEM_TO_BERRY(ITEM_SITRUS_BERRY), 5
+	setberrytree 86, ITEM_TO_BERRY(ITEM_LEPPA_BERRY), 5
+	setberrytree 37, ITEM_TO_BERRY(ITEM_ASPEAR_BERRY), 5
+	setberrytree 38, ITEM_TO_BERRY(ITEM_ASPEAR_BERRY), 5
+	setberrytree 39, ITEM_TO_BERRY(ITEM_ASPEAR_BERRY), 5
+	setberrytree 40, ITEM_TO_BERRY(ITEM_PECHA_BERRY), 5
+	setberrytree 41, ITEM_TO_BERRY(ITEM_PECHA_BERRY), 5
+	setberrytree 42, ITEM_TO_BERRY(ITEM_PECHA_BERRY), 5
+	setberrytree 46, ITEM_TO_BERRY(ITEM_WEPEAR_BERRY), 5
+	setberrytree 45, ITEM_TO_BERRY(ITEM_PINAP_BERRY), 5
+	setberrytree 44, ITEM_TO_BERRY(ITEM_NANAB_BERRY), 5
+	setberrytree 43, ITEM_TO_BERRY(ITEM_RAZZ_BERRY), 5
+	setberrytree 47, ITEM_TO_BERRY(ITEM_PERSIM_BERRY), 5
+	setberrytree 48, ITEM_TO_BERRY(ITEM_ASPEAR_BERRY), 5
+	setberrytree 49, ITEM_TO_BERRY(ITEM_RAWST_BERRY), 5
+	setberrytree 50, ITEM_TO_BERRY(ITEM_CHESTO_BERRY), 5
+	setberrytree 52, ITEM_TO_BERRY(ITEM_NANAB_BERRY), 5
+	setberrytree 53, ITEM_TO_BERRY(ITEM_NANAB_BERRY), 5
+	setberrytree 62, ITEM_TO_BERRY(ITEM_LEPPA_BERRY), 5
+	setberrytree 64, ITEM_TO_BERRY(ITEM_LEPPA_BERRY), 5
+	setberrytree 58, ITEM_TO_BERRY(ITEM_POMEG_BERRY), 5
+	setberrytree 59, ITEM_TO_BERRY(ITEM_POMEG_BERRY), 5
+	setberrytree 60, ITEM_TO_BERRY(ITEM_GREPA_BERRY), 5
+	setberrytree 61, ITEM_TO_BERRY(ITEM_GREPA_BERRY), 5
+	setberrytree 79, ITEM_TO_BERRY(ITEM_QUALOT_BERRY), 5
+	setberrytree 14, ITEM_TO_BERRY(ITEM_QUALOT_BERRY), 5
+	setberrytree 15, ITEM_TO_BERRY(ITEM_POMEG_BERRY), 5
+	setberrytree 30, ITEM_TO_BERRY(ITEM_POMEG_BERRY), 5
+	setberrytree 65, ITEM_TO_BERRY(ITEM_GREPA_BERRY), 5
+	setberrytree 72, ITEM_TO_BERRY(ITEM_GREPA_BERRY), 5
+	setberrytree 73, ITEM_TO_BERRY(ITEM_QUALOT_BERRY), 5
+	setberrytree 74, ITEM_TO_BERRY(ITEM_QUALOT_BERRY), 5
+	setberrytree 87, ITEM_TO_BERRY(ITEM_PECHA_BERRY), 5
+	setberrytree 88, ITEM_TO_BERRY(ITEM_SITRUS_BERRY), 5
+	setberrytree 89, ITEM_TO_BERRY(ITEM_RAWST_BERRY), 5
+	setberrytree 82, ITEM_TO_BERRY(ITEM_LIECHI_BERRY), 5
 	return
 
 EventScript_ResetAllMapFlags:: @ 82715DE
@@ -1089,13 +1090,13 @@ EventScript_ResetAllMapFlags:: @ 82715DE
 	setflag FLAG_HIDE_EVER_GRANDE_POKEMON_CENTER_1F_SCOTT
 	setflag FLAG_HIDE_SKY_PILLAR_WALLACE
 	setflag FLAG_RAYQUAZA_ON_SKY_TOWER_SUMMIT
-	call EventScript_27149D
+	call EventScript_ResetAllBerries
 	end
 
 EverGrandeCity_HallOfFame_EventScript_2717C1:: @ 82717C1
 	special sub_81AFDD0
 	setflag FLAG_IS_CHAMPION
-	call EverGrandeCity_HallOfFame_EventScript_271829
+	call EverGrandeCity_HallOfFame_EventScript_ResetDefeatedEventLegendaries
 	compare VAR_FOSSIL_MANIAC_STATE, 0
 	call_if_eq EverGrandeCity_HallOfFame_EventScript_271839
 	clearflag FLAG_HIDE_LILCOVE_MOTEL_GAME_DESIGNERS
@@ -1120,7 +1121,7 @@ EverGrandeCity_HallOfFame_EventScript_2717C1:: @ 82717C1
 	call_if_eq EverGrandeCity_HallOfFame_EventScript_271851
 	return
 
-EverGrandeCity_HallOfFame_EventScript_271829:: @ 8271829
+EverGrandeCity_HallOfFame_EventScript_ResetDefeatedEventLegendaries:: @ 8271829
 	clearflag FLAG_DEFEATED_MEW
 	clearflag FLAG_DEFEATED_LATIAS_OR_LATIOS
 	clearflag FLAG_DEFEATED_DEOXYS
@@ -1193,7 +1194,7 @@ EventScript_MoveMrBrineyToRoute108:: @ 82718B3
 	end
 
 EverGrandeCity_HallOfFame_EventScript_ResetEliteFour:: @ 82718CC
-	clearflag FLAG_DEFEATED_ELITE_4_SYDNEY
+	clearflag FLAG_DEFEATED_ELITE_4_SIDNEY
 	clearflag FLAG_DEFEATED_ELITE_4_PHOEBE
 	clearflag FLAG_DEFEATED_ELITE_4_GLACIA
 	clearflag FLAG_DEFEATED_ELITE_4_DRAKE
@@ -2766,7 +2767,7 @@ EventScript_2736F8:: @ 82736F8
 Common_EventScript_NopReturn:: @ 827374E
 	return
 
-EventScript_27374F:: @ 827374F
+EventScript_UnusedSetVarResult1:: @ 827374F
 	setvar VAR_RESULT, 1
 	return
 
@@ -3460,7 +3461,7 @@ EventScript_GotoTrainerScript:: @ 82742F6
 gUnknown_0827E8CE:: @ 827E8CE
 	.string "Missed turn$"
 
-gUnknown_0827E8DA:: @ 827E8DA
+gText_LinkStandby4:: @ 827E8DA
 	.string "Link standby!$"
 
 gUnknown_0827E8E8:: @ 827E8E8

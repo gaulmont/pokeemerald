@@ -1622,7 +1622,7 @@ static void sub_80773D0(void)
             if (sub_8010500())
             {
                 gMain.state++;
-                sub_800E0E8();
+                LoadWirelessStatusIndicatorSpriteGfx();
                 CreateWirelessStatusIndicatorSprite(0, 0);
             }
         }
@@ -1816,7 +1816,7 @@ static void sub_8077B74(void)
     case 5:
         if (gWirelessCommType)
         {
-            sub_800E0E8();
+            LoadWirelessStatusIndicatorSpriteGfx();
             CreateWirelessStatusIndicatorSprite(0, 0);
         }
         gMain.state++;
@@ -4242,7 +4242,7 @@ void sub_807AE50(void)
             {
                 if (gWirelessCommType)
                 {
-                    sub_800E0E8();
+                    LoadWirelessStatusIndicatorSpriteGfx();
                     CreateWirelessStatusIndicatorSprite(0, 0);
                 }
                 SetMainCallback2(sub_807EA2C);
@@ -5840,7 +5840,7 @@ static void _CreateInGameTradePokemon(u8 whichPlayerMon, u8 whichInGameTrade)
     SetMonData(pokemon, MON_DATA_NICKNAME, inGameTrade->name);
     SetMonData(pokemon, MON_DATA_OT_NAME, inGameTrade->otName);
     SetMonData(pokemon, MON_DATA_OT_GENDER, &inGameTrade->otGender);
-    SetMonData(pokemon, MON_DATA_ALT_ABILITY, &inGameTrade->secondAbility);
+    SetMonData(pokemon, MON_DATA_ABILITY_NUM, &inGameTrade->secondAbility);
     SetMonData(pokemon, MON_DATA_BEAUTY, &inGameTrade->stats[1]);
     SetMonData(pokemon, MON_DATA_CUTE, &inGameTrade->stats[2]);
     SetMonData(pokemon, MON_DATA_COOL, &inGameTrade->stats[0]);
