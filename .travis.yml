@@ -30,5 +30,5 @@ matrix:
             - g++-7
       env: _="Build"
       script:
-        - ./build_tools.sh
+        - ./build_tools.sh g++-7
         - make -j2
