@@ -374,6 +374,7 @@ const u8 gMoveNames[MOVES_COUNT][MOVE_NAME_LENGTH + 1] =
 
     // Gen4 EFFECT_OVERHEAT
     [MOVE_DRACO_METEOR] = _("DRACO METEOR"),
+    [MOVE_LEAF_STORM] = _("TEMPETEVERTE"),
 
 };
 
@@ -755,6 +756,7 @@ const u8 gMoveNames[MOVES_COUNT][MOVE_NAME_LENGTH + 1] =
     
     // Gen4 EFFECT_OVERHEAT
     [MOVE_DRACO_METEOR] = _("DRACO METEOR"),
+    [MOVE_LEAF_STORM] = _("LEAF STORM"),
 };
 
 

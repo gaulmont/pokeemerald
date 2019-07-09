@@ -388,6 +388,7 @@ gBattleAnims_Moves::
 
 	@Gen4 EFFECT_OVERHEAT
 	.4byte Move_DRACO_METEOR
+	.4byte Move_LEAF_STORM
 
 	.4byte Move_COUNT @ cannot be reached, because last move is Psycho Boost
 
@@ -10009,10 +10010,98 @@ Move_BULLET_PUNCH:
 Move_ICE_SHARD:
 Move_SHADOW_SNEAK:
 Move_VACUUM_WAVE:
+	goto Move_COUNT
 
 @Gen4 EFFECT_OVERHEAT
 
 Move_DRACO_METEOR:
+	loadspritegfx ANIM_TAG_SUNLIGHT
+	loadspritegfx ANIM_TAG_WARM_ROCK
+	createvisualtask AnimTask_BlendParticle, 5, ANIM_TAG_WARM_ROCK, 0, 6, 31, RGB_WHITE
+	createvisualtask AnimTask_BlendParticle, 5, ANIM_TAG_SUNLIGHT, 0, 6, 16, RGB_WHITE
+	fadetobg BG_COSMIC
+	waitbgfadeout	
+	waitbgfadein	
+	panse_26 SE_W080, 192, 63, 1, 0
+	setalpha 12, 8
+	call SunnyDay1
+	call SunnyDay1
+	call SunnyDay1
+	call SunnyDay1
+	waitforvisualfinish	
+	delay 48
+	createsprite gUnknown_085955E8, ANIM_ATTACKER, 40, 200, -32, 0, 100, 0
+	createsprite gUnknown_085955E8, ANIM_ATTACKER, 40, 30, -32, 16, 90, 1
+	createsprite gUnknown_085955E8, ANIM_ATTACKER, 40, 150, -32, 32, 60, 2
+	createsprite gUnknown_085955E8, ANIM_ATTACKER, 40, 90, -32, 48, 80, 3
+	createsprite gUnknown_085955E8, ANIM_ATTACKER, 40, 110, -32, 64, 50, 0
+	createsprite gUnknown_085955E8, ANIM_ATTACKER, 40, 60, -32, 80, 70, 1	
+	delay 22
+	createvisualtask AnimTask_ShakeMon, 2, ANIM_TARGET, 5, 0, 256, 0
+	loopsewithpan SE_W088, 63, 16, 12
+	delay 84
+	playsewithpan SE_W070, 63
+	delay 12
+	playsewithpan SE_W070, 63
+	delay 12
+	playsewithpan SE_W070, 63
+	delay 12
+	playsewithpan SE_W070, 63
+	delay 12
+	playsewithpan SE_W070, 63
+	delay 12
+	playsewithpan SE_W070, 63
+	waitforvisualfinish
+	restorebg
+	waitbgfadeout	
+	waitbgfadein
+	end
+
+Move_LEAF_STORM:
+	loadspritegfx ANIM_TAG_AIR_WAVE_2
+	loadspritegfx ANIM_TAG_IMPACT
+	loadspritegfx ANIM_TAG_THIN_RING
+	
+	createvisualtask AnimTask_BlendParticle, 5, ANIM_TAG_AIR_WAVE_2, 0, 6, 6, RGB(0, 31, 0)
+	createvisualtask AnimTask_BlendParticle, 5, ANIM_TAG_THIN_RING, 0, 6, 15, RGB_WHITE
+	
+	monbg ANIM_DEF_PARTNER
+	monbgprio_2A ANIM_TARGET
+	setalpha 12, 8
+	createsprite gSimplePaletteBlendSpriteTemplate, ANIM_ATTACKER, 2, 1, 0, 0, 7, RGB(0, 31, 0)
+	
+	monbgprio_28 1
+	setalpha 12, 8
+	waitforvisualfinish
+	delay 15
+	
+	createvisualtask sub_8115A04, 2, 2, 2, 2, 0, 14, RGB_WHITE
+	createsprite gUnknown_08593850, ANIM_ATTACKER, 40, 0, 0, 0, 0
+	playsewithpan SE_W048, 192
+	delay 7
+	createsprite gUnknown_08593850, ANIM_ATTACKER, 40, 0, 0, 0, 0
+	playsewithpan SE_W048, 192
+	delay 7
+	createsprite gUnknown_08593850, ANIM_ATTACKER, 40, 0, 0, 0, 0
+	playsewithpan SE_W048, 192
+	waitforvisualfinish
+	
+	call Aeroblast1
+	createvisualtask AnimTask_ShakeMon, 5, ANIM_TARGET, 5, 0, 50, 1
+	call Aeroblast1
+	call Aeroblast1
+	call Aeroblast1
+	call Aeroblast1
+	waitforvisualfinish
+	createsprite gBasicHitSplatSpriteTemplate, ANIM_ATTACKER, 2, 0, 0, 1, 0
+	playsewithpan SE_W013, 63
+	waitforvisualfinish
+	
+	createsprite gSimplePaletteBlendSpriteTemplate, ANIM_ATTACKER, 2, 1, 1, 7, 0, RGB(0, 31, 0)
+	waitforvisualfinish
+	clearmonbg ANIM_DEF_PARTNER
+	blendoff
+	end
 
 Move_COUNT:
 	loadspritegfx ANIM_TAG_IMPACT
