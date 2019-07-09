@@ -386,6 +386,9 @@ gBattleAnims_Moves::
 	.4byte Move_SHADOW_SNEAK
 	.4byte Move_VACUUM_WAVE
 
+	@Gen4 EFFECT_OVERHEAT
+	.4byte Move_DRACO_METEOR
+
 	.4byte Move_COUNT @ cannot be reached, because last move is Psycho Boost
 
 	.align 2
@@ -10006,6 +10009,10 @@ Move_BULLET_PUNCH:
 Move_ICE_SHARD:
 Move_SHADOW_SNEAK:
 Move_VACUUM_WAVE:
+
+@Gen4 EFFECT_OVERHEAT
+
+Move_DRACO_METEOR:
 
 Move_COUNT:
 	loadspritegfx ANIM_TAG_IMPACT

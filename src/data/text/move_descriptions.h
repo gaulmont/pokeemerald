@@ -1465,6 +1465,11 @@ static const u8 sVacuumWaveDescription[] = _(
 	"dummy\n"
 	"dummy");
 
+    // Gen4 EFFECT_OVERHEAT
+    
+static const u8 sDracoMeteorDescription[] = _(
+	"dummy\n"
+	"dummy");
 #else
 
 static const u8 sNullDescription[] = _(
@@ -2933,6 +2938,12 @@ static const u8 sVacuumWaveDescription[] = _(
 	"dummy\n"
 	"dummy");
     
+    // Gen4 EFFECT_OVERHEAT
+
+static const u8 sDracoMeteorDescription[] = _(
+	"dummy\n"
+	"dummy");
+    
 #endif
 
 // MOVE_NONE is ignored in this table. Make sure to always subtract 1 before getting the right pointer.
@@ -3307,4 +3318,7 @@ const u8 *const gMoveDescriptionPointers[MOVES_COUNT - 1] =
     [MOVE_ICE_SHARD - 1] = sIceShardDescription,
     [MOVE_SHADOW_SNEAK - 1] = sShadowSneakDescription,
     [MOVE_VACUUM_WAVE - 1] = sVacuumWaveDescription,
+
+    // Gen4 EFFECT_OVERHEAT
+    [MOVE_DRACO_METEOR - 1] = sDracoMeteorDescription,
 };
