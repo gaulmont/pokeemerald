@@ -1433,7 +1433,11 @@ const u8 gUnknown_08DD1A18[] = INCBIN_U8("graphics/unknown/unknown_DD1A18.4bpp")
 // trainer card
 
 const u16 gEmeraldTrainerCard0Star_Pal[] = INCBIN_U16("graphics/trainer_card/0star.gbapal");
+#ifdef FRENCH
+const u32 gEmeraldTrainerCard_Gfx[] = INCBIN_U32("graphics_fr/trainer_card/card.4bpp.lz");
+#else
 const u32 gEmeraldTrainerCard_Gfx[] = INCBIN_U32("graphics/trainer_card/card.4bpp.lz");
+#endif
 
 const u32 gUnknown_08DD1F78[] = INCBIN_U32("graphics/unknown/unknown_DD1F78.bin.lz");
 const u32 gUnknown_08DD2010[] = INCBIN_U32("graphics/unknown/unknown_DD2010.bin.lz");
