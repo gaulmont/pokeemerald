@@ -164,10 +164,9 @@ const u8 gText_DexSearchDontSpecify[] = _("INDIFFERENT");
 const u8 gText_DexSearchTypeNone[] = _("AUCUN");
 const u8 gText_SelectorArrow[] = _("▶");
 const u8 gUnknown_085E8B3C[] = _(" ");
-
 const u8 gText_WelcomeToHOF[] = _("Bienvenue au PANTHEON!");
-const u8 gUnknown_085E8B5B[] = _("Spotted POKéMON: {STR_VAR_1}!\nOwned POKéMON: {STR_VAR_2}!\pPROF. BIRCH's POKéDEX rating!\pPROF. BIRCH: Let's see…\p");
-const u8 gUnknown_085E8BBA[] = _("SAVING...\nDON'T TURN OFF THE POWER.");
+const u8 gText_HOFDexRating[] = _("Spotted POKéMON: {STR_VAR_1}!\nOwned POKéMON: {STR_VAR_2}!\pPROF. BIRCH's POKéDEX rating!\pPROF. BIRCH: Let's see…\p");
+const u8 gText_HOFDexSaving[] = _("SAVING...\nDON'T TURN OFF THE POWER.");
 const u8 gText_HOFCorrupted[] = _("Données du PANTHEON corrompues.");
 const u8 gText_HOFNumber[] = _("   PANTHEON Nº ");
 const u8 gText_LeagueChamp[] = _("MAITRE DE LA LIGUE!\nFELICITATIONS!");
@@ -256,29 +255,29 @@ const u8 gText_ThePokemonList[] = _("à la LISTE POKéMON");
 const u8 gText_TheShop[] = _("au magasin");
 const u8 gText_ThePC[] = _("au PC");
 		
-const u8 *const gReturnToXStringsTable[] =		
-{		
-    gText_TheField,		
-    gText_TheBattle,		
-    gText_ThePokemonList,		
-    gText_TheShop,		
-    gText_TheField,		
-    gText_TheField,		
-    gText_ThePC,		
-    gText_TheField,		
-    gText_TheField,		
-    gText_TheField,		
-    gText_TheBattle,		
-    gText_ThePC		
-};		
-		
-const u8 *const gReturnToXStringsTable2[] =		
-{		
-    gText_TheField,		
-    gText_TheBattle,		
-    gText_ThePokemonList,		
-    gText_TheField		
-};		
+const u8 *const gReturnToXStringsTable[] =
+{
+    gText_TheField,
+    gText_TheBattle,
+    gText_ThePokemonList,
+    gText_TheShop,
+    gText_TheField,
+    gText_TheField,
+    gText_ThePC,
+    gText_TheField,
+    gText_TheField,
+    gText_TheField,
+    gText_TheBattle,
+    gText_ThePC
+};
+
+const u8 *const gReturnToXStringsTable2[] =
+{
+    gText_TheField,
+    gText_TheBattle,
+    gText_ThePokemonList,
+    gText_TheField
+};
 		
 const u8 gText_ReturnToVar1[] = _("Retourner\n{STR_VAR_1}.");
 const u8 gText_ItemsPocket[] = _("OBJETS");
@@ -428,45 +427,45 @@ const u8 gText_PkmnGotOverInfatuation[] = _("{STR_VAR_1} n'est plus\namoureux.{P
 const u8 gText_ThrowAwayItem[] = _("Jeter {STR_VAR_1}?");
 const u8 gText_ItemThrownAway[] = _("{STR_VAR_1} a été jeté.{PAUSE_UNTIL_PRESS}");
 const u8 gUnknown_085E9E2E[] = _("Teach which POKéMON?");
-const u8 gUnknown_085E9E43[] = _("Choisir un POKéMON.");
-const u8 gUnknown_085E9E55[] = _("Le mettre où?");
-const u8 gUnknown_085E9E64[] = _("Enseigner à quel POKéMON?");
-const u8 gUnknown_085E9E79[] = _("Utiliser sur quel POKéMON?");
-const u8 gUnknown_085E9E8F[] = _("Donner à quel POKéMON?");
-const u8 gUnknown_085E9EA6[] = _("Que faire avec ce PKMN?");
-const u8 gUnknown_085E9EBC[] = _("Il n'y a rien à COUPER.");
-const u8 gUnknown_085E9ED4[] = _("On ne peut pas SURFER ici.");
-const u8 gUnknown_085E9EE9[] = _("Vous SURFEZ déjà.");
-const u8 gUnknown_085E9F01[] = _("Impossible ici.");
-const u8 gUnknown_085E9F16[] = _("Laquelle restaurer?");
-const u8 gUnknown_085E9F2A[] = _("Augmenter quels PP?");
-const u8 gUnknown_085E9F42[] = _("Que faire avec un objet?");
-const u8 gUnknown_085E9F58[] = _("Aucun POKéMON utilisable!");
-const u8 gUnknown_085E9F6F[] = _("Choisir un POKéMON.");
-const u8 gUnknown_085E9F81[] = _("Pas assez de PV…");
-const u8 gUnknown_085E9F90[] = _("Il faut {STR_VAR_1} POKéMON.");
-const u8 gUnknown_085E9FA7[] = _("Pas les mêmes POKéMON.");
-const u8 gUnknown_085E9FC2[] = _("Pas d'objets identiques.");
-const u8 gUnknown_085E9FDB[] = _("Le courant est trop rapide!");
-const u8 gUnknown_085E9FF9[] = _("Que faire avec LETTRE?");
-const u8 gUnknown_085EA010[] = _("Choisir un PKMN ou annuler.");
-const u8 gUnknown_085EA02A[] = _("Choisir un PKMN et confirmer.");
-const u8 gUnknown_085EA046[] = _("C'est parti pour une balade!");
-const u8 gUnknown_085EA05B[] = _("Déjà en cours d'utilisation.");
-const u8 gUnknown_085EA073[] = _("{STR_VAR_1} tient déjà\n{STR_VAR_2}!");
-const u8 gUnknown_085EA091[] = _("Pas utilis.");
-const u8 gUnknown_085EA099[] = _("APTE");
-const u8 gUnknown_085EA09E[] = _("PREMIER");
-const u8 gUnknown_085EA0A4[] = _("DEUXIEME");
-const u8 gUnknown_085EA0AB[] = _("TROISIEME");
-const u8 gUnknown_085EA0B1[] = _("APTE");
-const u8 gUnknown_085EA0B6[] = _("PAS APTE");
-const u8 gUnknown_085EA0BF[] = _("APTE");
-const u8 gUnknown_085EA0C5[] = _("PAS APTE");
-const u8 gUnknown_085EA0CF[] = _("APPRIS");
-const u8 gUnknown_085EA0D7[] = _("PORTE");
-const u8 gUnknown_085EA0DC[] = _("PAS D'OBJET");
-const u8 gUnknown_085EA0E7[] = _("QUATRIEME");
+const u8 gText_ChoosePokemon[] = _("Choisir un POKéMON.");
+const u8 gText_MoveToWhere[] = _("Le mettre où?");
+const u8 gText_TeachWhichPokemon[] = _("Enseigner à quel POKéMON?");
+const u8 gText_UseOnWhichPokemon[] = _("Utiliser sur quel POKéMON?");
+const u8 gText_GiveToWhichPokemon[] = _("Donner à quel POKéMON?");
+const u8 gText_DoWhatWithPokemon[] = _("Que faire avec ce PKMN?");
+const u8 gText_NothingToCut[] = _("Il n'y a rien à COUPER.");
+const u8 gText_CantSurfHere[] = _("On ne peut pas SURFER ici.");
+const u8 gText_AlreadySurfing[] = _("Vous SURFEZ déjà.");
+const u8 gText_CantUseHere[] = _("Impossible ici.");
+const u8 gText_RestoreWhichMove[] = _("Laquelle restaurer?");
+const u8 gText_BoostPp[] = _("Augmenter quels PP?");
+const u8 gText_DoWhatWithItem[] = _("Que faire avec un objet?");
+const u8 gText_NoPokemonForBattle[] = _("Aucun POKéMON utilisable!");
+const u8 gText_ChoosePokemon2[] = _("Choisir un POKéMON.");
+const u8 gText_NotEnoughHp[] = _("Pas assez de PV…");
+const u8 gText_PokemonAreNeeded[] = _("Il faut {STR_VAR_1} POKéMON.");
+const u8 gText_PokemonCantBeSame[] = _("Pas les mêmes POKéMON.");
+const u8 gText_NoIdenticalHoldItems[] = _("Pas d'objets identiques.");
+const u8 gText_CurrentIsTooFast[] = _("Le courant est trop rapide!");
+const u8 gText_DoWhatWithMail[] = _("Que faire avec LETTRE?");
+const u8 gText_ChoosePokemonCancel[] = _("Choisir un PKMN ou annuler.");
+const u8 gText_ChoosePokemonConfirm[] = _("Choisir un PKMN et confirmer.");
+const u8 gText_EnjoyCycling[] = _("C'est parti pour une balade!");
+const u8 gText_InUseAlready_PM[] = _("Déjà en cours d'utilisation.");
+const u8 gText_AlreadyHoldingOne[] = _("{STR_VAR_1} tient déjà\n{STR_VAR_2}!");
+const u8 gText_NoUse[] = _("Pas utilis.");
+const u8 gText_Able[] = _("APTE");
+const u8 gText_First_PM[] = _("PREMIER");
+const u8 gText_Second_PM[] = _("DEUXIEME");
+const u8 gText_Third_PM[] = _("TROISIEME");
+const u8 gText_Able2[] = _("APTE");
+const u8 gText_NotAble[] = _("PAS APTE");
+const u8 gText_Able3[] = _("APTE");
+const u8 gText_NotAble2[] = _("PAS APTE");
+const u8 gText_Learned[] = _("APPRIS");
+const u8 gText_Have[] = _("PORTE");
+const u8 gText_DontHave[] = _("PAS D'OBJET");
+const u8 gText_Fourth[] = _("QUATRIEME");
 const u8 gText_PkmnCantParticipate[] = _("Ce POKéMON ne peut pas participer.{PAUSE_UNTIL_PRESS}");
 const u8 gText_CancelParticipation[] = _("Annuler la participation?");
 const u8 gText_CancelBattle[] = _("Annuler le combat?");
@@ -966,21 +965,21 @@ const u8 gUnknown_085EBE7D[] = _("DETAIL");
 const u8 gUnknown_085EBE84[] = _("CALL");
 const u8 gUnknown_085EBE89[] = _("EXIT");
 const u8 gUnknown_085EBE8E[] = _("Can't call opponent here.");
-const u8 gUnknown_085EBEA8[] = _("STRATEGIE");
-const u8 gUnknown_085EBEB1[] = _("POKéMON DU DRESSEUR");
-const u8 gUnknown_085EBEC3[] = _("PRESENTATION");
-const u8 gText_Navgear_ClearButtonList[] = _("{CLEAR 0x80}");
-const u8 gText_NavgearMap_ZoomedOutButtons[] = _("{A_BUTTON}ZOOM + {B_BUTTON}RETOUR");
-const u8 gText_NavgearMap_ZoomedInButtons[] = _("{A_BUTTON}ZOOM - {B_BUTTON}RETOUR");
-const u8 gText_NavgearCondition_MonListButtons[] = _("{A_BUTTON}CONDITION {B_BUTTON}RETOUR");
-const u8 gText_NavgearCondition_MonStatusButtons[] = _("{A_BUTTON}MARQUAGE {B_BUTTON}RETOUR");
-const u8 gText_NavgearCondition_MarkingButtons[] = _("{A_BUTTON}CHOIX {B_BUTTON}RETOUR");
-const u8 gText_NavgearMatchCall_TrainerListButtons[] = _("{A_BUTTON}MENU {B_BUTTON}RETOUR");
-const u8 gText_NavgearMatchCall_CallMenuButtons[] = _("{A_BUTTON}OK {B_BUTTON}RETOUR");
-const u8 gText_NavgearMatchCall_CheckTrainerButtons[] = _("{B_BUTTON}RETOUR");
-const u8 gText_NavgearRibbons_MonListButtons[] = _("{A_BUTTON}RUBANS {B_BUTTON}RETOUR");
-const u8 gText_NavgearRibbons_RibbonListButtons[] = _("{A_BUTTON}DETAILS {B_BUTTON}RETOUR");
-const u8 gText_NavgearRibbons_RibbonCheckButtons[] = _("{B_BUTTON}RETOUR");
+const u8 gText_PokenavMatchCall_Strategy[] = _("STRATEGIE");
+const u8 gText_PokenavMatchCall_TrainerPokemon[] = _("POKéMON DU DRESSEUR");
+const u8 gText_PokenavMatchCall_SelfIntroduction[] = _("PRESENTATION");
+const u8 gText_Pokenav_ClearButtonList[] = _("{CLEAR 0x80}");
+const u8 gText_PokenavMap_ZoomedOutButtons[] = _("{A_BUTTON}ZOOM + {B_BUTTON}RETOUR");
+const u8 gText_PokenavMap_ZoomedInButtons[] = _("{A_BUTTON}ZOOM - {B_BUTTON}RETOUR");
+const u8 gText_PokenavCondition_MonListButtons[] = _("{A_BUTTON}CONDITION {B_BUTTON}RETOUR");
+const u8 gText_PokenavCondition_MonStatusButtons[] = _("{A_BUTTON}MARQUAGE {B_BUTTON}RETOUR");
+const u8 gText_PokenavCondition_MarkingButtons[] = _("{A_BUTTON}CHOIX {B_BUTTON}RETOUR");
+const u8 gText_PokenavMatchCall_TrainerListButtons[] = _("{A_BUTTON}MENU {B_BUTTON}RETOUR");
+const u8 gText_PokenavMatchCall_CallMenuButtons[] = _("{A_BUTTON}OK {B_BUTTON}RETOUR");
+const u8 gText_PokenavMatchCall_CheckTrainerButtons[] = _("{B_BUTTON}RETOUR");
+const u8 gText_PokenavRibbons_MonListButtons[] = _("{A_BUTTON}RUBANS {B_BUTTON}RETOUR");
+const u8 gText_PokenavRibbons_RibbonListButtons[] = _("{A_BUTTON}DETAILS {B_BUTTON}RETOUR");
+const u8 gText_PokenavRibbons_RibbonCheckButtons[] = _("{B_BUTTON}RETOUR");
 const u8 gText_NatureSlash[] = _("NATURE/");
 const u8 gText_TrainerCloseBy[] = _("Le DRESSEUR est proche.\nParlez-lui directement.");
 const u8 gText_InParty[] = _("DE L'EQUIPE");
