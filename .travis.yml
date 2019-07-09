@@ -22,6 +22,12 @@ install:
 matrix:
   include:
     - os: linux
+      addons:
+        apt:
+          sources:
+              - ubuntu-toolchain-r-test
+          packages:
+            - g++-7
       env: _="Build"
       script:
         - ./build_tools.sh

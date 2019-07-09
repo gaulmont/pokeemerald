@@ -50,6 +50,7 @@
 #include "pokemon_summary_screen.h"
 #include "pokenav.h"
 #include "menu_specialized.h"
+#include "constants/rgb.h"
 #include "data.h"
 
 extern struct MusicPlayerInfo gMPlayInfo_BGM;
@@ -1277,8 +1278,8 @@ static void atk04_critcalc(void)
                 //gen4
                 + (gBattleMoves[gCurrentMove].effect == EFFECT_RAZOR_WIND);
 
-    if (critChance > 4)
-        critChance = 4;
+    if (critChance >= ARRAY_COUNT(sCriticalHitChance))
+        critChance = ARRAY_COUNT(sCriticalHitChance) - 1;
 
     if ((gBattleMons[gBattlerTarget].ability != ABILITY_BATTLE_ARMOR && gBattleMons[gBattlerTarget].ability != ABILITY_SHELL_ARMOR)
      && !(gStatuses3[gBattlerAttacker] & STATUS3_CANT_SCORE_A_CRIT)
@@ -4907,7 +4908,7 @@ static void atk4D_switchindataupdate(void)
 
     gBattleMons[gActiveBattler].type1 = gBaseStats[gBattleMons[gActiveBattler].species].type1;
     gBattleMons[gActiveBattler].type2 = gBaseStats[gBattleMons[gActiveBattler].species].type2;
-    gBattleMons[gActiveBattler].ability = GetAbilityBySpecies(gBattleMons[gActiveBattler].species, gBattleMons[gActiveBattler].altAbility);
+    gBattleMons[gActiveBattler].ability = GetAbilityBySpecies(gBattleMons[gActiveBattler].species, gBattleMons[gActiveBattler].abilityNum);
 
     // check knocked off item
     i = GetBattlerSide(gActiveBattler);
@@ -5698,7 +5699,7 @@ static void atk5A_yesnoboxlearnmove(void)
             if (gBattleCommunication[1] == 0)
             {
                 HandleBattleWindow(0x18, 0x8, 0x1D, 0xD, WINDOW_CLEAR);
-                BeginNormalPaletteFade(0xFFFFFFFF, 0, 0, 0x10, 0);
+                BeginNormalPaletteFade(0xFFFFFFFF, 0, 0, 0x10, RGB_BLACK);
                 gBattleScripting.learnMoveState++;
             }
             else
@@ -8652,7 +8653,7 @@ static void atkAE_healpartystatus(void)
         for (i = 0; i < PARTY_SIZE; i++)
         {
             u16 species = GetMonData(&party[i], MON_DATA_SPECIES2);
-            u8 abilityBit = GetMonData(&party[i], MON_DATA_ALT_ABILITY);
+            u8 abilityNum = GetMonData(&party[i], MON_DATA_ABILITY_NUM);
 
             if (species != SPECIES_NONE && species != SPECIES_EGG)
             {
@@ -8665,7 +8666,7 @@ static void atkAE_healpartystatus(void)
                          && !(gAbsentBattlerFlags & gBitTable[gActiveBattler]))
                     ability = gBattleMons[gActiveBattler].ability;
                 else
-                    ability = GetAbilityBySpecies(species, abilityBit);
+                    ability = GetAbilityBySpecies(species, abilityNum);
 
                 if (ability != ABILITY_SOUNDPROOF)
                     toHeal |= (1 << i);
@@ -9874,10 +9875,10 @@ static void atkE5_pickup(void)
             species = GetMonData(&gPlayerParty[i], MON_DATA_SPECIES2);
             heldItem = GetMonData(&gPlayerParty[i], MON_DATA_HELD_ITEM);
 
-            if (GetMonData(&gPlayerParty[i], MON_DATA_ALT_ABILITY))
-                ability = gBaseStats[species].ability2;
+            if (GetMonData(&gPlayerParty[i], MON_DATA_ABILITY_NUM))
+                ability = gBaseStats[species].abilities[1];
             else
-                ability = gBaseStats[species].ability1;
+                ability = gBaseStats[species].abilities[0];
 
             if (ability == ABILITY_PICKUP
                 && species != 0
@@ -9897,10 +9898,10 @@ static void atkE5_pickup(void)
             species = GetMonData(&gPlayerParty[i], MON_DATA_SPECIES2);
             heldItem = GetMonData(&gPlayerParty[i], MON_DATA_HELD_ITEM);
 
-            if (GetMonData(&gPlayerParty[i], MON_DATA_ALT_ABILITY))
-                ability = gBaseStats[species].ability2;
+            if (GetMonData(&gPlayerParty[i], MON_DATA_ABILITY_NUM))
+                ability = gBaseStats[species].abilities[1];
             else
-                ability = gBaseStats[species].ability1;
+                ability = gBaseStats[species].abilities[0];
 
             if (ability == ABILITY_PICKUP
                 && species != 0
@@ -10305,7 +10306,7 @@ static void atkF2_displaydexinfo(void)
     switch (gBattleCommunication[0])
     {
     case 0:
-        BeginNormalPaletteFade(0xFFFFFFFF, 0, 0, 0x10, 0);
+        BeginNormalPaletteFade(0xFFFFFFFF, 0, 0, 0x10, RGB_BLACK);
         gBattleCommunication[0]++;
         break;
     case 1:
@@ -10336,7 +10337,7 @@ static void atkF2_displaydexinfo(void)
     case 4:
         if (!IsDma3ManagerBusyWithBgCopy())
         {
-            BeginNormalPaletteFade(0xFFFF, 0, 0x10, 0, 0);
+            BeginNormalPaletteFade(0xFFFF, 0, 0x10, 0, RGB_BLACK);
             ShowBg(0);
             ShowBg(3);
             gBattleCommunication[0]++;
