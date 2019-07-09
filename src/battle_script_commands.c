@@ -7305,12 +7305,26 @@ static u8 ChangeStatBuffs(s8 statValue, u8 statId, u8 flags, const u8 *BS_ptr)
                 gBattleTextBuff2[3] = STRINGID_STATHARSHLY >> 8;
                 index = 4;
             }
+
+            #ifdef FRENCH
+            else
+            {
+                gBattleTextBuff2[index] = B_BUFF_STRING;
+                index++;
+                gBattleTextBuff2[index] = STRINGID_STATFELL;
+                index++;
+                gBattleTextBuff2[index] = STRINGID_STATFELL >> 8;
+                index++;
+            }
+            #else
             gBattleTextBuff2[index] = B_BUFF_STRING;
             index++;
             gBattleTextBuff2[index] = STRINGID_STATFELL;
             index++;
             gBattleTextBuff2[index] = STRINGID_STATFELL >> 8;
             index++;
+            #endif
+
             gBattleTextBuff2[index] = B_BUFF_EOS;
 
             if (gBattleMons[gActiveBattler].statStages[statId] == 0)
@@ -7332,12 +7346,27 @@ static u8 ChangeStatBuffs(s8 statValue, u8 statId, u8 flags, const u8 *BS_ptr)
             gBattleTextBuff2[3] = STRINGID_STATSHARPLY >> 8;
             index = 4;
         }
+
+        #ifdef FRENCH
+        else
+        {
+            gBattleTextBuff2[index] = B_BUFF_STRING;
+            index++;
+            gBattleTextBuff2[index] = STRINGID_STATROSE;
+            index++;
+            gBattleTextBuff2[index] = STRINGID_STATROSE >> 8;
+            index++;
+        }
+        
+        #else
         gBattleTextBuff2[index] = B_BUFF_STRING;
         index++;
         gBattleTextBuff2[index] = STRINGID_STATROSE;
         index++;
         gBattleTextBuff2[index] = STRINGID_STATROSE >> 8;
         index++;
+        #endif
+
         gBattleTextBuff2[index] = B_BUFF_EOS;
 
         if (gBattleMons[gActiveBattler].statStages[statId] == 0xC)
