@@ -26,7 +26,12 @@
 #define LANGUAGE_SPANISH 7
 
 #define GAME_VERSION (VERSION_EMERALD)
+
+#ifdef FRENCH
+#define GAME_LANGUAGE (LANGUAGE_FRENCH)
+#else
 #define GAME_LANGUAGE (LANGUAGE_ENGLISH)
+#endif
 
 // capacities of various saveblock objects
 #define DAYCARE_MON_COUNT 2
