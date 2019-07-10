@@ -60,7 +60,11 @@
 #define POKEMON_NAME_LENGTH 10
 #define PLAYER_NAME_LENGTH 7
 #define MAIL_WORDS_COUNT 9
+#ifdef FRENCH
+#define MOVE_NAME_LENGTH 13
+#else
 #define MOVE_NAME_LENGTH 12
+#endif
 
 #define MALE 0
 #define FEMALE 1
