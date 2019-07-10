@@ -4615,7 +4615,605 @@ const struct BattleMove gBattleMoves[MOVES_COUNT] =
         .flags = FLAG_IS_SPECIAL | FLAG_PROTECT_AFFECTED | FLAG_MIRROR_MOVE_AFFECTED | FLAG_KINGSROCK_AFFECTED,
     },
 
-    // GEN4 EFFECT_HIT
+    // GEN4
+
+	[MOVE_ROOST] =
+    {
+        .effect = EFFECT_SPLASH,
+        .power = 0,
+        .type = TYPE_NORMAL,
+        .accuracy = 0,
+        .pp = 40,
+        .secondaryEffectChance = 0,
+        .target = MOVE_TARGET_USER,
+        .priority = 0,
+        .flags = FLAG_IS_STATUS,
+    },
+
+	[MOVE_GRAVITY] =
+    {
+        .effect = EFFECT_SPLASH,
+        .power = 0,
+        .type = TYPE_NORMAL,
+        .accuracy = 0,
+        .pp = 40,
+        .secondaryEffectChance = 0,
+        .target = MOVE_TARGET_USER,
+        .priority = 0,
+        .flags = FLAG_IS_STATUS,
+    },
+
+	[MOVE_MIRACLE_EYE] =
+    {
+        .effect = EFFECT_SPLASH,
+        .power = 0,
+        .type = TYPE_NORMAL,
+        .accuracy = 0,
+        .pp = 40,
+        .secondaryEffectChance = 0,
+        .target = MOVE_TARGET_USER,
+        .priority = 0,
+        .flags = FLAG_IS_STATUS,
+    },
+
+	[MOVE_WAKE_UP_SLAP] =
+    {
+        .effect = EFFECT_SPLASH,
+        .power = 0,
+        .type = TYPE_NORMAL,
+        .accuracy = 0,
+        .pp = 40,
+        .secondaryEffectChance = 0,
+        .target = MOVE_TARGET_USER,
+        .priority = 0,
+        .flags = FLAG_IS_STATUS,
+    },
+
+	[MOVE_HAMMER_ARM] =
+    {
+        .effect = EFFECT_SPLASH,
+        .power = 0,
+        .type = TYPE_NORMAL,
+        .accuracy = 0,
+        .pp = 40,
+        .secondaryEffectChance = 0,
+        .target = MOVE_TARGET_USER,
+        .priority = 0,
+        .flags = FLAG_IS_STATUS,
+    },
+
+	[MOVE_GYRO_BALL] =
+    {
+        .effect = EFFECT_SPLASH,
+        .power = 0,
+        .type = TYPE_NORMAL,
+        .accuracy = 0,
+        .pp = 40,
+        .secondaryEffectChance = 0,
+        .target = MOVE_TARGET_USER,
+        .priority = 0,
+        .flags = FLAG_IS_STATUS,
+    },
+
+	[MOVE_HEALING_WISH] =
+    {
+        .effect = EFFECT_SPLASH,
+        .power = 0,
+        .type = TYPE_NORMAL,
+        .accuracy = 0,
+        .pp = 40,
+        .secondaryEffectChance = 0,
+        .target = MOVE_TARGET_USER,
+        .priority = 0,
+        .flags = FLAG_IS_STATUS,
+    },
+
+	[MOVE_BRINE] =
+    {
+        .effect = EFFECT_SPLASH,
+        .power = 0,
+        .type = TYPE_NORMAL,
+        .accuracy = 0,
+        .pp = 40,
+        .secondaryEffectChance = 0,
+        .target = MOVE_TARGET_USER,
+        .priority = 0,
+        .flags = FLAG_IS_STATUS,
+    },
+
+	[MOVE_NATURAL_GIFT] =
+    {
+        .effect = EFFECT_SPLASH,
+        .power = 0,
+        .type = TYPE_NORMAL,
+        .accuracy = 0,
+        .pp = 40,
+        .secondaryEffectChance = 0,
+        .target = MOVE_TARGET_USER,
+        .priority = 0,
+        .flags = FLAG_IS_STATUS,
+    },
+
+	[MOVE_FEINT] =
+    {
+        .effect = EFFECT_SPLASH,
+        .power = 0,
+        .type = TYPE_NORMAL,
+        .accuracy = 0,
+        .pp = 40,
+        .secondaryEffectChance = 0,
+        .target = MOVE_TARGET_USER,
+        .priority = 0,
+        .flags = FLAG_IS_STATUS,
+    },
+
+	[MOVE_PLUCK] =
+    {
+        .effect = EFFECT_SPLASH,
+        .power = 0,
+        .type = TYPE_NORMAL,
+        .accuracy = 0,
+        .pp = 40,
+        .secondaryEffectChance = 0,
+        .target = MOVE_TARGET_USER,
+        .priority = 0,
+        .flags = FLAG_IS_STATUS,
+    },
+
+	[MOVE_TAIL_WIND] =
+    {
+        .effect = EFFECT_SPLASH,
+        .power = 0,
+        .type = TYPE_NORMAL,
+        .accuracy = 0,
+        .pp = 40,
+        .secondaryEffectChance = 0,
+        .target = MOVE_TARGET_USER,
+        .priority = 0,
+        .flags = FLAG_IS_STATUS,
+    },
+
+	[MOVE_ACCUPRESSURE] =
+    {
+        .effect = EFFECT_SPLASH,
+        .power = 0,
+        .type = TYPE_NORMAL,
+        .accuracy = 0,
+        .pp = 40,
+        .secondaryEffectChance = 0,
+        .target = MOVE_TARGET_USER,
+        .priority = 0,
+        .flags = FLAG_IS_STATUS,
+    },
+
+	[MOVE_METAL_BURST] =
+    {
+        .effect = EFFECT_SPLASH,
+        .power = 0,
+        .type = TYPE_NORMAL,
+        .accuracy = 0,
+        .pp = 40,
+        .secondaryEffectChance = 0,
+        .target = MOVE_TARGET_USER,
+        .priority = 0,
+        .flags = FLAG_IS_STATUS,
+    },
+
+	[MOVE_U_TURN] =
+    {
+        .effect = EFFECT_SPLASH,
+        .power = 0,
+        .type = TYPE_NORMAL,
+        .accuracy = 0,
+        .pp = 40,
+        .secondaryEffectChance = 0,
+        .target = MOVE_TARGET_USER,
+        .priority = 0,
+        .flags = FLAG_IS_STATUS,
+    },
+
+	[MOVE_CLOSE_COMBAT] =
+    {
+        .effect = EFFECT_SPLASH,
+        .power = 0,
+        .type = TYPE_NORMAL,
+        .accuracy = 0,
+        .pp = 40,
+        .secondaryEffectChance = 0,
+        .target = MOVE_TARGET_USER,
+        .priority = 0,
+        .flags = FLAG_IS_STATUS,
+    },
+
+	[MOVE_PAYBACK] =
+    {
+        .effect = EFFECT_SPLASH,
+        .power = 0,
+        .type = TYPE_NORMAL,
+        .accuracy = 0,
+        .pp = 40,
+        .secondaryEffectChance = 0,
+        .target = MOVE_TARGET_USER,
+        .priority = 0,
+        .flags = FLAG_IS_STATUS,
+    },
+
+	[MOVE_ASSURANCE] =
+    {
+        .effect = EFFECT_SPLASH,
+        .power = 0,
+        .type = TYPE_NORMAL,
+        .accuracy = 0,
+        .pp = 40,
+        .secondaryEffectChance = 0,
+        .target = MOVE_TARGET_USER,
+        .priority = 0,
+        .flags = FLAG_IS_STATUS,
+    },
+
+	[MOVE_EMBARGO] =
+    {
+        .effect = EFFECT_SPLASH,
+        .power = 0,
+        .type = TYPE_NORMAL,
+        .accuracy = 0,
+        .pp = 40,
+        .secondaryEffectChance = 0,
+        .target = MOVE_TARGET_USER,
+        .priority = 0,
+        .flags = FLAG_IS_STATUS,
+    },
+
+	[MOVE_FLING] =
+    {
+        .effect = EFFECT_SPLASH,
+        .power = 0,
+        .type = TYPE_NORMAL,
+        .accuracy = 0,
+        .pp = 40,
+        .secondaryEffectChance = 0,
+        .target = MOVE_TARGET_USER,
+        .priority = 0,
+        .flags = FLAG_IS_STATUS,
+    },
+
+	[MOVE_PSYCHO_SHIFT] =
+    {
+        .effect = EFFECT_SPLASH,
+        .power = 0,
+        .type = TYPE_NORMAL,
+        .accuracy = 0,
+        .pp = 40,
+        .secondaryEffectChance = 0,
+        .target = MOVE_TARGET_USER,
+        .priority = 0,
+        .flags = FLAG_IS_STATUS,
+    },
+
+	[MOVE_TRUMP_CARD] =
+    {
+        .effect = EFFECT_SPLASH,
+        .power = 0,
+        .type = TYPE_NORMAL,
+        .accuracy = 0,
+        .pp = 40,
+        .secondaryEffectChance = 0,
+        .target = MOVE_TARGET_USER,
+        .priority = 0,
+        .flags = FLAG_IS_STATUS,
+    },
+
+	[MOVE_HEAL_BLOCK] =
+    {
+        .effect = EFFECT_SPLASH,
+        .power = 0,
+        .type = TYPE_NORMAL,
+        .accuracy = 0,
+        .pp = 40,
+        .secondaryEffectChance = 0,
+        .target = MOVE_TARGET_USER,
+        .priority = 0,
+        .flags = FLAG_IS_STATUS,
+    },
+
+	[MOVE_WRING_OUT] =
+    {
+        .effect = EFFECT_SPLASH,
+        .power = 0,
+        .type = TYPE_NORMAL,
+        .accuracy = 0,
+        .pp = 40,
+        .secondaryEffectChance = 0,
+        .target = MOVE_TARGET_USER,
+        .priority = 0,
+        .flags = FLAG_IS_STATUS,
+    },
+
+	[MOVE_POWER_TRICK] =
+    {
+        .effect = EFFECT_SPLASH,
+        .power = 0,
+        .type = TYPE_NORMAL,
+        .accuracy = 0,
+        .pp = 40,
+        .secondaryEffectChance = 0,
+        .target = MOVE_TARGET_USER,
+        .priority = 0,
+        .flags = FLAG_IS_STATUS,
+    },
+
+	[MOVE_GASTRO_ACID] =
+    {
+        .effect = EFFECT_SPLASH,
+        .power = 0,
+        .type = TYPE_NORMAL,
+        .accuracy = 0,
+        .pp = 40,
+        .secondaryEffectChance = 0,
+        .target = MOVE_TARGET_USER,
+        .priority = 0,
+        .flags = FLAG_IS_STATUS,
+    },
+
+	[MOVE_LUCKY_CHANT] =
+    {
+        .effect = EFFECT_SPLASH,
+        .power = 0,
+        .type = TYPE_NORMAL,
+        .accuracy = 0,
+        .pp = 40,
+        .secondaryEffectChance = 0,
+        .target = MOVE_TARGET_USER,
+        .priority = 0,
+        .flags = FLAG_IS_STATUS,
+    },
+
+	[MOVE_ME_FIRST] =
+    {
+        .effect = EFFECT_SPLASH,
+        .power = 0,
+        .type = TYPE_NORMAL,
+        .accuracy = 0,
+        .pp = 40,
+        .secondaryEffectChance = 0,
+        .target = MOVE_TARGET_USER,
+        .priority = 0,
+        .flags = FLAG_IS_STATUS,
+    },
+
+	[MOVE_COPYCAT] =
+    {
+        .effect = EFFECT_SPLASH,
+        .power = 0,
+        .type = TYPE_NORMAL,
+        .accuracy = 0,
+        .pp = 40,
+        .secondaryEffectChance = 0,
+        .target = MOVE_TARGET_USER,
+        .priority = 0,
+        .flags = FLAG_IS_STATUS,
+    },
+
+	[MOVE_POWER_SWAP] =
+    {
+        .effect = EFFECT_SPLASH,
+        .power = 0,
+        .type = TYPE_NORMAL,
+        .accuracy = 0,
+        .pp = 40,
+        .secondaryEffectChance = 0,
+        .target = MOVE_TARGET_USER,
+        .priority = 0,
+        .flags = FLAG_IS_STATUS,
+    },
+
+	[MOVE_GUARD_SWAP] =
+    {
+        .effect = EFFECT_SPLASH,
+        .power = 0,
+        .type = TYPE_NORMAL,
+        .accuracy = 0,
+        .pp = 40,
+        .secondaryEffectChance = 0,
+        .target = MOVE_TARGET_USER,
+        .priority = 0,
+        .flags = FLAG_IS_STATUS,
+    },
+
+	[MOVE_PUNISHMENT] =
+    {
+        .effect = EFFECT_SPLASH,
+        .power = 0,
+        .type = TYPE_NORMAL,
+        .accuracy = 0,
+        .pp = 40,
+        .secondaryEffectChance = 0,
+        .target = MOVE_TARGET_USER,
+        .priority = 0,
+        .flags = FLAG_IS_STATUS,
+    },
+
+	[MOVE_LAST_RESORT] =
+    {
+        .effect = EFFECT_SPLASH,
+        .power = 0,
+        .type = TYPE_NORMAL,
+        .accuracy = 0,
+        .pp = 40,
+        .secondaryEffectChance = 0,
+        .target = MOVE_TARGET_USER,
+        .priority = 0,
+        .flags = FLAG_IS_STATUS,
+    },
+
+	[MOVE_WORRY_SEED] =
+    {
+        .effect = EFFECT_SPLASH,
+        .power = 0,
+        .type = TYPE_NORMAL,
+        .accuracy = 0,
+        .pp = 40,
+        .secondaryEffectChance = 0,
+        .target = MOVE_TARGET_USER,
+        .priority = 0,
+        .flags = FLAG_IS_STATUS,
+    },
+
+	[MOVE_SUCKER_PUNCH] =
+    {
+        .effect = EFFECT_SPLASH,
+        .power = 0,
+        .type = TYPE_NORMAL,
+        .accuracy = 0,
+        .pp = 40,
+        .secondaryEffectChance = 0,
+        .target = MOVE_TARGET_USER,
+        .priority = 0,
+        .flags = FLAG_IS_STATUS,
+    },
+
+	[MOVE_TOXIC_SPIKES] =
+    {
+        .effect = EFFECT_SPLASH,
+        .power = 0,
+        .type = TYPE_NORMAL,
+        .accuracy = 0,
+        .pp = 40,
+        .secondaryEffectChance = 0,
+        .target = MOVE_TARGET_USER,
+        .priority = 0,
+        .flags = FLAG_IS_STATUS,
+    },
+
+	[MOVE_HEART_SWAP] =
+    {
+        .effect = EFFECT_SPLASH,
+        .power = 0,
+        .type = TYPE_NORMAL,
+        .accuracy = 0,
+        .pp = 40,
+        .secondaryEffectChance = 0,
+        .target = MOVE_TARGET_USER,
+        .priority = 0,
+        .flags = FLAG_IS_STATUS,
+    },
+
+	[MOVE_AQUA_RING] =
+    {
+        .effect = EFFECT_SPLASH,
+        .power = 0,
+        .type = TYPE_NORMAL,
+        .accuracy = 0,
+        .pp = 40,
+        .secondaryEffectChance = 0,
+        .target = MOVE_TARGET_USER,
+        .priority = 0,
+        .flags = FLAG_IS_STATUS,
+    },
+
+	[MOVE_MAGNET_RISE] =
+    {
+        .effect = EFFECT_SPLASH,
+        .power = 0,
+        .type = TYPE_NORMAL,
+        .accuracy = 0,
+        .pp = 40,
+        .secondaryEffectChance = 0,
+        .target = MOVE_TARGET_USER,
+        .priority = 0,
+        .flags = FLAG_IS_STATUS,
+    },
+
+	[MOVE_FLARE_BLITZ] =
+    {
+        .effect = EFFECT_SPLASH,
+        .power = 0,
+        .type = TYPE_NORMAL,
+        .accuracy = 0,
+        .pp = 40,
+        .secondaryEffectChance = 0,
+        .target = MOVE_TARGET_USER,
+        .priority = 0,
+        .flags = FLAG_IS_STATUS,
+    },
+
+	[MOVE_FORCE_PALM] =
+    {
+        .effect = EFFECT_SPLASH,
+        .power = 0,
+        .type = TYPE_NORMAL,
+        .accuracy = 0,
+        .pp = 40,
+        .secondaryEffectChance = 0,
+        .target = MOVE_TARGET_USER,
+        .priority = 0,
+        .flags = FLAG_IS_STATUS,
+    },
+
+	[MOVE_AURA_SPHERE] =
+    {
+        .effect = EFFECT_SPLASH,
+        .power = 0,
+        .type = TYPE_NORMAL,
+        .accuracy = 0,
+        .pp = 40,
+        .secondaryEffectChance = 0,
+        .target = MOVE_TARGET_USER,
+        .priority = 0,
+        .flags = FLAG_IS_STATUS,
+    },
+
+	[MOVE_ROCK_POLISH] =
+    {
+        .effect = EFFECT_SPLASH,
+        .power = 0,
+        .type = TYPE_NORMAL,
+        .accuracy = 0,
+        .pp = 40,
+        .secondaryEffectChance = 0,
+        .target = MOVE_TARGET_USER,
+        .priority = 0,
+        .flags = FLAG_IS_STATUS,
+    },
+
+	[MOVE_POISON_JAB] =
+    {
+        .effect = EFFECT_SPLASH,
+        .power = 0,
+        .type = TYPE_NORMAL,
+        .accuracy = 0,
+        .pp = 40,
+        .secondaryEffectChance = 0,
+        .target = MOVE_TARGET_USER,
+        .priority = 0,
+        .flags = FLAG_IS_STATUS,
+    },
+
+	[MOVE_DARK_PULSE] =
+    {
+        .effect = EFFECT_SPLASH,
+        .power = 0,
+        .type = TYPE_NORMAL,
+        .accuracy = 0,
+        .pp = 40,
+        .secondaryEffectChance = 0,
+        .target = MOVE_TARGET_USER,
+        .priority = 0,
+        .flags = FLAG_IS_STATUS,
+    },
+
+    [MOVE_NIGHT_SLASH] =
+    {
+        .effect = EFFECT_HIGH_CRITICAL,
+        .power = 70,
+        .type = TYPE_DARK,
+        .accuracy = 100,
+        .pp = 15,
+        .secondaryEffectChance = 0,
+        .target = MOVE_TARGET_SELECTED,
+        .priority = 0,
+        .flags = FLAG_MAKES_CONTACT | FLAG_PROTECT_AFFECTED | FLAG_MIRROR_MOVE_AFFECTED | FLAG_KINGSROCK_AFFECTED,
+    },
 
     [MOVE_AQUA_TAIL] =
     {
@@ -4623,32 +5221,6 @@ const struct BattleMove gBattleMoves[MOVES_COUNT] =
         .power = 90,
         .type = TYPE_WATER,
         .accuracy = 90,
-        .pp = 10,
-        .secondaryEffectChance = 0,
-        .target = MOVE_TARGET_SELECTED,
-        .priority = 0,
-        .flags = FLAG_MAKES_CONTACT | FLAG_PROTECT_AFFECTED | FLAG_MIRROR_MOVE_AFFECTED | FLAG_KINGSROCK_AFFECTED,
-    },
-
-    [MOVE_DRAGON_PULSE] =
-    {
-        .effect = EFFECT_HIT,
-        .power = 90,
-        .type = TYPE_DRAGON,
-        .accuracy = 100,
-        .pp = 10,
-        .secondaryEffectChance = 0,
-        .target = MOVE_TARGET_SELECTED,
-        .priority = 0,
-        .flags = FLAG_IS_SPECIAL | FLAG_PROTECT_AFFECTED | FLAG_MIRROR_MOVE_AFFECTED | FLAG_KINGSROCK_AFFECTED,
-    },
-
-    [MOVE_POWER_WHIP] =
-    {
-        .effect = EFFECT_HIT,
-        .power = 120,
-        .type = TYPE_GRASS,
-        .accuracy = 85,
         .pp = 10,
         .secondaryEffectChance = 0,
         .target = MOVE_TARGET_SELECTED,
@@ -4669,6 +5241,19 @@ const struct BattleMove gBattleMoves[MOVES_COUNT] =
         .flags = FLAG_PROTECT_AFFECTED | FLAG_MIRROR_MOVE_AFFECTED | FLAG_KINGSROCK_AFFECTED,
     },
 
+	[MOVE_AIR_SLASH] =
+    {
+        .effect = EFFECT_SPLASH,
+        .power = 0,
+        .type = TYPE_NORMAL,
+        .accuracy = 0,
+        .pp = 40,
+        .secondaryEffectChance = 0,
+        .target = MOVE_TARGET_USER,
+        .priority = 0,
+        .flags = FLAG_IS_STATUS,
+    },
+
     [MOVE_X_SCISSOR] =
     {
         .effect = EFFECT_HIT,
@@ -4682,19 +5267,173 @@ const struct BattleMove gBattleMoves[MOVES_COUNT] =
         .flags = FLAG_MAKES_CONTACT | FLAG_PROTECT_AFFECTED | FLAG_MIRROR_MOVE_AFFECTED | FLAG_KINGSROCK_AFFECTED,
     },
 
-    // GEN4 EFFECT_PRIORITY
+	[MOVE_BUG_BUZZ] =
+    {
+        .effect = EFFECT_SPLASH,
+        .power = 0,
+        .type = TYPE_NORMAL,
+        .accuracy = 0,
+        .pp = 40,
+        .secondaryEffectChance = 0,
+        .target = MOVE_TARGET_USER,
+        .priority = 0,
+        .flags = FLAG_IS_STATUS,
+    },
 
-    [MOVE_AQUA_JET] =
+    [MOVE_DRAGON_PULSE] =
+    {
+        .effect = EFFECT_HIT,
+        .power = 90,
+        .type = TYPE_DRAGON,
+        .accuracy = 100,
+        .pp = 10,
+        .secondaryEffectChance = 0,
+        .target = MOVE_TARGET_SELECTED,
+        .priority = 0,
+        .flags = FLAG_IS_SPECIAL | FLAG_PROTECT_AFFECTED | FLAG_MIRROR_MOVE_AFFECTED | FLAG_KINGSROCK_AFFECTED,
+    },
+
+	[MOVE_DRAGON_RUSH] =
+    {
+        .effect = EFFECT_SPLASH,
+        .power = 0,
+        .type = TYPE_NORMAL,
+        .accuracy = 0,
+        .pp = 40,
+        .secondaryEffectChance = 0,
+        .target = MOVE_TARGET_USER,
+        .priority = 0,
+        .flags = FLAG_IS_STATUS,
+    },
+
+	[MOVE_POWER_GEM] =
+    {
+        .effect = EFFECT_SPLASH,
+        .power = 0,
+        .type = TYPE_NORMAL,
+        .accuracy = 0,
+        .pp = 40,
+        .secondaryEffectChance = 0,
+        .target = MOVE_TARGET_USER,
+        .priority = 0,
+        .flags = FLAG_IS_STATUS,
+    },
+
+	[MOVE_DRAIN_PUNCH] =
+    {
+        .effect = EFFECT_SPLASH,
+        .power = 0,
+        .type = TYPE_NORMAL,
+        .accuracy = 0,
+        .pp = 40,
+        .secondaryEffectChance = 0,
+        .target = MOVE_TARGET_USER,
+        .priority = 0,
+        .flags = FLAG_IS_STATUS,
+    },
+
+    [MOVE_VACUUM_WAVE] =
     {
         .effect = EFFECT_QUICK_ATTACK,
         .power = 40,
-        .type = TYPE_WATER,
+        .type = TYPE_FIGHTING,
         .accuracy = 100,
-        .pp = 20,
+        .pp = 30,
         .secondaryEffectChance = 0,
         .target = MOVE_TARGET_SELECTED,
         .priority = 1,
-        .flags = FLAG_MAKES_CONTACT | FLAG_PROTECT_AFFECTED | FLAG_MIRROR_MOVE_AFFECTED | FLAG_KINGSROCK_AFFECTED,
+        .flags = FLAG_IS_SPECIAL | FLAG_PROTECT_AFFECTED | FLAG_MIRROR_MOVE_AFFECTED | FLAG_KINGSROCK_AFFECTED,
+    },
+
+	[MOVE_FOCUS_BLAST] =
+    {
+        .effect = EFFECT_SPLASH,
+        .power = 0,
+        .type = TYPE_NORMAL,
+        .accuracy = 0,
+        .pp = 40,
+        .secondaryEffectChance = 0,
+        .target = MOVE_TARGET_USER,
+        .priority = 0,
+        .flags = FLAG_IS_STATUS,
+    },
+
+	[MOVE_ENERGY_BALL] =
+    {
+        .effect = EFFECT_SPLASH,
+        .power = 0,
+        .type = TYPE_NORMAL,
+        .accuracy = 0,
+        .pp = 40,
+        .secondaryEffectChance = 0,
+        .target = MOVE_TARGET_USER,
+        .priority = 0,
+        .flags = FLAG_IS_STATUS,
+    },
+
+	[MOVE_BRAVE_BIRD] =
+    {
+        .effect = EFFECT_SPLASH,
+        .power = 0,
+        .type = TYPE_NORMAL,
+        .accuracy = 0,
+        .pp = 40,
+        .secondaryEffectChance = 0,
+        .target = MOVE_TARGET_USER,
+        .priority = 0,
+        .flags = FLAG_IS_STATUS,
+    },
+
+	[MOVE_EARTH_POWER] =
+    {
+        .effect = EFFECT_SPLASH,
+        .power = 0,
+        .type = TYPE_NORMAL,
+        .accuracy = 0,
+        .pp = 40,
+        .secondaryEffectChance = 0,
+        .target = MOVE_TARGET_USER,
+        .priority = 0,
+        .flags = FLAG_IS_STATUS,
+    },
+
+	[MOVE_SWITCHEROO] =
+    {
+        .effect = EFFECT_SPLASH,
+        .power = 0,
+        .type = TYPE_NORMAL,
+        .accuracy = 0,
+        .pp = 40,
+        .secondaryEffectChance = 0,
+        .target = MOVE_TARGET_USER,
+        .priority = 0,
+        .flags = FLAG_IS_STATUS,
+    },
+
+	[MOVE_GIGA_IMPACT] =
+    {
+        .effect = EFFECT_SPLASH,
+        .power = 0,
+        .type = TYPE_NORMAL,
+        .accuracy = 0,
+        .pp = 40,
+        .secondaryEffectChance = 0,
+        .target = MOVE_TARGET_USER,
+        .priority = 0,
+        .flags = FLAG_IS_STATUS,
+    },
+
+	[MOVE_NASTY_PLOT] =
+    {
+        .effect = EFFECT_SPLASH,
+        .power = 0,
+        .type = TYPE_NORMAL,
+        .accuracy = 0,
+        .pp = 40,
+        .secondaryEffectChance = 0,
+        .target = MOVE_TARGET_USER,
+        .priority = 0,
+        .flags = FLAG_IS_STATUS,
     },
 
     [MOVE_BULLET_PUNCH] =
@@ -4710,6 +5449,19 @@ const struct BattleMove gBattleMoves[MOVES_COUNT] =
         .flags = FLAG_MAKES_CONTACT | FLAG_PROTECT_AFFECTED | FLAG_MIRROR_MOVE_AFFECTED | FLAG_KINGSROCK_AFFECTED,
     },
 
+	[MOVE_AVALANCHE] =
+    {
+        .effect = EFFECT_SPLASH,
+        .power = 0,
+        .type = TYPE_NORMAL,
+        .accuracy = 0,
+        .pp = 40,
+        .secondaryEffectChance = 0,
+        .target = MOVE_TARGET_USER,
+        .priority = 0,
+        .flags = FLAG_IS_STATUS,
+    },
+
     [MOVE_ICE_SHARD] =
     {
         .effect = EFFECT_QUICK_ATTACK,
@@ -4721,6 +5473,58 @@ const struct BattleMove gBattleMoves[MOVES_COUNT] =
         .target = MOVE_TARGET_SELECTED,
         .priority = 1,
         .flags = FLAG_MAKES_CONTACT | FLAG_PROTECT_AFFECTED | FLAG_MIRROR_MOVE_AFFECTED | FLAG_KINGSROCK_AFFECTED,
+    },
+
+    [MOVE_SHADOW_CLAW] =
+    {
+        .effect = EFFECT_HIGH_CRITICAL,
+        .power = 70,
+        .type = TYPE_GHOST,
+        .accuracy = 100,
+        .pp = 15,
+        .secondaryEffectChance = 0,
+        .target = MOVE_TARGET_SELECTED,
+        .priority = 0,
+        .flags = FLAG_MAKES_CONTACT | FLAG_PROTECT_AFFECTED | FLAG_MIRROR_MOVE_AFFECTED | FLAG_KINGSROCK_AFFECTED,
+    },
+
+	[MOVE_THUNDER_FANG] =
+    {
+        .effect = EFFECT_SPLASH,
+        .power = 0,
+        .type = TYPE_NORMAL,
+        .accuracy = 0,
+        .pp = 40,
+        .secondaryEffectChance = 0,
+        .target = MOVE_TARGET_USER,
+        .priority = 0,
+        .flags = FLAG_IS_STATUS,
+    },
+
+	[MOVE_ICE_FANG] =
+    {
+        .effect = EFFECT_SPLASH,
+        .power = 0,
+        .type = TYPE_NORMAL,
+        .accuracy = 0,
+        .pp = 40,
+        .secondaryEffectChance = 0,
+        .target = MOVE_TARGET_USER,
+        .priority = 0,
+        .flags = FLAG_IS_STATUS,
+    },
+
+	[MOVE_FIRE_FANG] =
+    {
+        .effect = EFFECT_SPLASH,
+        .power = 0,
+        .type = TYPE_NORMAL,
+        .accuracy = 0,
+        .pp = 40,
+        .secondaryEffectChance = 0,
+        .target = MOVE_TARGET_USER,
+        .priority = 0,
+        .flags = FLAG_IS_STATUS,
     },
 
     [MOVE_SHADOW_SNEAK] =
@@ -4735,21 +5539,110 @@ const struct BattleMove gBattleMoves[MOVES_COUNT] =
         .priority = 1,
         .flags = FLAG_MAKES_CONTACT | FLAG_PROTECT_AFFECTED | FLAG_MIRROR_MOVE_AFFECTED | FLAG_KINGSROCK_AFFECTED,
     },
-    
-    [MOVE_VACUUM_WAVE] =
+
+	[MOVE_MUD_BOMB] =
     {
-        .effect = EFFECT_QUICK_ATTACK,
-        .power = 40,
-        .type = TYPE_FIGHTING,
-        .accuracy = 100,
-        .pp = 30,
+        .effect = EFFECT_SPLASH,
+        .power = 0,
+        .type = TYPE_NORMAL,
+        .accuracy = 0,
+        .pp = 40,
         .secondaryEffectChance = 0,
-        .target = MOVE_TARGET_SELECTED,
-        .priority = 1,
-        .flags = FLAG_IS_SPECIAL | FLAG_PROTECT_AFFECTED | FLAG_MIRROR_MOVE_AFFECTED | FLAG_KINGSROCK_AFFECTED,
+        .target = MOVE_TARGET_USER,
+        .priority = 0,
+        .flags = FLAG_IS_STATUS,
     },
 
-    // GEN4 EFFECT_OVERHEAT
+    [MOVE_PSYCHO_CUT] =
+    {
+        .effect = EFFECT_HIGH_CRITICAL,
+        .power = 70,
+        .type = TYPE_DARK,
+        .accuracy = 100,
+        .pp = 20,
+        .secondaryEffectChance = 0,
+        .target = MOVE_TARGET_SELECTED,
+        .priority = 0,
+        .flags = FLAG_PROTECT_AFFECTED | FLAG_MIRROR_MOVE_AFFECTED | FLAG_KINGSROCK_AFFECTED,
+    },
+
+	[MOVE_ZEN_HEADBUTT] =
+    {
+        .effect = EFFECT_SPLASH,
+        .power = 0,
+        .type = TYPE_NORMAL,
+        .accuracy = 0,
+        .pp = 40,
+        .secondaryEffectChance = 0,
+        .target = MOVE_TARGET_USER,
+        .priority = 0,
+        .flags = FLAG_IS_STATUS,
+    },
+
+	[MOVE_MIRROR_SHOT] =
+    {
+        .effect = EFFECT_SPLASH,
+        .power = 0,
+        .type = TYPE_NORMAL,
+        .accuracy = 0,
+        .pp = 40,
+        .secondaryEffectChance = 0,
+        .target = MOVE_TARGET_USER,
+        .priority = 0,
+        .flags = FLAG_IS_STATUS,
+    },
+
+	[MOVE_FLASH_CANNON] =
+    {
+        .effect = EFFECT_SPLASH,
+        .power = 0,
+        .type = TYPE_NORMAL,
+        .accuracy = 0,
+        .pp = 40,
+        .secondaryEffectChance = 0,
+        .target = MOVE_TARGET_USER,
+        .priority = 0,
+        .flags = FLAG_IS_STATUS,
+    },
+
+	[MOVE_ROCK_CLIMB] =
+    {
+        .effect = EFFECT_SPLASH,
+        .power = 0,
+        .type = TYPE_NORMAL,
+        .accuracy = 0,
+        .pp = 40,
+        .secondaryEffectChance = 0,
+        .target = MOVE_TARGET_USER,
+        .priority = 0,
+        .flags = FLAG_IS_STATUS,
+    },
+
+	[MOVE_DEFOG] =
+    {
+        .effect = EFFECT_SPLASH,
+        .power = 0,
+        .type = TYPE_NORMAL,
+        .accuracy = 0,
+        .pp = 40,
+        .secondaryEffectChance = 0,
+        .target = MOVE_TARGET_USER,
+        .priority = 0,
+        .flags = FLAG_IS_STATUS,
+    },
+
+	[MOVE_TRICK_ROOM] =
+    {
+        .effect = EFFECT_SPLASH,
+        .power = 0,
+        .type = TYPE_NORMAL,
+        .accuracy = 0,
+        .pp = 40,
+        .secondaryEffectChance = 0,
+        .target = MOVE_TARGET_USER,
+        .priority = 0,
+        .flags = FLAG_IS_STATUS,
+    },
 
     [MOVE_DRACO_METEOR] =
     {
@@ -4762,6 +5655,32 @@ const struct BattleMove gBattleMoves[MOVES_COUNT] =
         .target = MOVE_TARGET_SELECTED,
         .priority = 0,
         .flags = FLAG_IS_SPECIAL | FLAG_PROTECT_AFFECTED | FLAG_MIRROR_MOVE_AFFECTED | FLAG_KINGSROCK_AFFECTED,
+    },
+
+	[MOVE_DISCHARGE] =
+    {
+        .effect = EFFECT_SPLASH,
+        .power = 0,
+        .type = TYPE_NORMAL,
+        .accuracy = 0,
+        .pp = 40,
+        .secondaryEffectChance = 0,
+        .target = MOVE_TARGET_USER,
+        .priority = 0,
+        .flags = FLAG_IS_STATUS,
+    },
+
+	[MOVE_LAVA_PLUME] =
+    {
+        .effect = EFFECT_SPLASH,
+        .power = 0,
+        .type = TYPE_NORMAL,
+        .accuracy = 0,
+        .pp = 40,
+        .secondaryEffectChance = 0,
+        .target = MOVE_TARGET_USER,
+        .priority = 0,
+        .flags = FLAG_IS_STATUS,
     },
 
     [MOVE_LEAF_STORM] =
@@ -4777,7 +5696,213 @@ const struct BattleMove gBattleMoves[MOVES_COUNT] =
         .flags = FLAG_IS_SPECIAL | FLAG_PROTECT_AFFECTED | FLAG_MIRROR_MOVE_AFFECTED | FLAG_KINGSROCK_AFFECTED,
     },
 
-    // GEN4 EFFECT_HIGH_CRITICAL
+    [MOVE_POWER_WHIP] =
+    {
+        .effect = EFFECT_HIT,
+        .power = 120,
+        .type = TYPE_GRASS,
+        .accuracy = 85,
+        .pp = 10,
+        .secondaryEffectChance = 0,
+        .target = MOVE_TARGET_SELECTED,
+        .priority = 0,
+        .flags = FLAG_MAKES_CONTACT | FLAG_PROTECT_AFFECTED | FLAG_MIRROR_MOVE_AFFECTED | FLAG_KINGSROCK_AFFECTED,
+    },
+
+	[MOVE_ROCK_WRECKER] =
+    {
+        .effect = EFFECT_SPLASH,
+        .power = 0,
+        .type = TYPE_NORMAL,
+        .accuracy = 0,
+        .pp = 40,
+        .secondaryEffectChance = 0,
+        .target = MOVE_TARGET_USER,
+        .priority = 0,
+        .flags = FLAG_IS_STATUS,
+    },
+
+	[MOVE_CROSS_POISON] =
+    {
+        .effect = EFFECT_SPLASH,
+        .power = 0,
+        .type = TYPE_NORMAL,
+        .accuracy = 0,
+        .pp = 40,
+        .secondaryEffectChance = 0,
+        .target = MOVE_TARGET_USER,
+        .priority = 0,
+        .flags = FLAG_IS_STATUS,
+    },
+
+	[MOVE_GUNK_SHOT] =
+    {
+        .effect = EFFECT_SPLASH,
+        .power = 0,
+        .type = TYPE_NORMAL,
+        .accuracy = 0,
+        .pp = 40,
+        .secondaryEffectChance = 0,
+        .target = MOVE_TARGET_USER,
+        .priority = 0,
+        .flags = FLAG_IS_STATUS,
+    },
+
+	[MOVE_IRON_HEAD] =
+    {
+        .effect = EFFECT_SPLASH,
+        .power = 0,
+        .type = TYPE_NORMAL,
+        .accuracy = 0,
+        .pp = 40,
+        .secondaryEffectChance = 0,
+        .target = MOVE_TARGET_USER,
+        .priority = 0,
+        .flags = FLAG_IS_STATUS,
+    },
+
+	[MOVE_MAGNET_BOMB] =
+    {
+        .effect = EFFECT_SPLASH,
+        .power = 0,
+        .type = TYPE_NORMAL,
+        .accuracy = 0,
+        .pp = 40,
+        .secondaryEffectChance = 0,
+        .target = MOVE_TARGET_USER,
+        .priority = 0,
+        .flags = FLAG_IS_STATUS,
+    },
+
+    [MOVE_STONE_EDGE] =
+    {
+        .effect = EFFECT_HIGH_CRITICAL,
+        .power = 100,
+        .type = TYPE_ROCK,
+        .accuracy = 80,
+        .pp = 5,
+        .secondaryEffectChance = 0,
+        .target = MOVE_TARGET_SELECTED,
+        .priority = 0,
+        .flags = FLAG_PROTECT_AFFECTED | FLAG_MIRROR_MOVE_AFFECTED | FLAG_KINGSROCK_AFFECTED,
+    },
+
+	[MOVE_CAPTIVATE] =
+    {
+        .effect = EFFECT_SPLASH,
+        .power = 0,
+        .type = TYPE_NORMAL,
+        .accuracy = 0,
+        .pp = 40,
+        .secondaryEffectChance = 0,
+        .target = MOVE_TARGET_USER,
+        .priority = 0,
+        .flags = FLAG_IS_STATUS,
+    },
+
+	[MOVE_STEALTH_ROCK] =
+    {
+        .effect = EFFECT_SPLASH,
+        .power = 0,
+        .type = TYPE_NORMAL,
+        .accuracy = 0,
+        .pp = 40,
+        .secondaryEffectChance = 0,
+        .target = MOVE_TARGET_USER,
+        .priority = 0,
+        .flags = FLAG_IS_STATUS,
+    },
+
+	[MOVE_GRASS_KNOT] =
+    {
+        .effect = EFFECT_SPLASH,
+        .power = 0,
+        .type = TYPE_NORMAL,
+        .accuracy = 0,
+        .pp = 40,
+        .secondaryEffectChance = 0,
+        .target = MOVE_TARGET_USER,
+        .priority = 0,
+        .flags = FLAG_IS_STATUS,
+    },
+
+	[MOVE_CHATTER] =
+    {
+        .effect = EFFECT_SPLASH,
+        .power = 0,
+        .type = TYPE_NORMAL,
+        .accuracy = 0,
+        .pp = 40,
+        .secondaryEffectChance = 0,
+        .target = MOVE_TARGET_USER,
+        .priority = 0,
+        .flags = FLAG_IS_STATUS,
+    },
+
+	[MOVE_JUDGMENT] =
+    {
+        .effect = EFFECT_SPLASH,
+        .power = 0,
+        .type = TYPE_NORMAL,
+        .accuracy = 0,
+        .pp = 40,
+        .secondaryEffectChance = 0,
+        .target = MOVE_TARGET_USER,
+        .priority = 0,
+        .flags = FLAG_IS_STATUS,
+    },
+
+	[MOVE_BUG_BITE] =
+    {
+        .effect = EFFECT_SPLASH,
+        .power = 0,
+        .type = TYPE_NORMAL,
+        .accuracy = 0,
+        .pp = 40,
+        .secondaryEffectChance = 0,
+        .target = MOVE_TARGET_USER,
+        .priority = 0,
+        .flags = FLAG_IS_STATUS,
+    },
+
+	[MOVE_CHARGE_BEAM] =
+    {
+        .effect = EFFECT_SPLASH,
+        .power = 0,
+        .type = TYPE_NORMAL,
+        .accuracy = 0,
+        .pp = 40,
+        .secondaryEffectChance = 0,
+        .target = MOVE_TARGET_USER,
+        .priority = 0,
+        .flags = FLAG_IS_STATUS,
+    },
+
+	[MOVE_WOOD_HAMMER] =
+    {
+        .effect = EFFECT_SPLASH,
+        .power = 0,
+        .type = TYPE_NORMAL,
+        .accuracy = 0,
+        .pp = 40,
+        .secondaryEffectChance = 0,
+        .target = MOVE_TARGET_USER,
+        .priority = 0,
+        .flags = FLAG_IS_STATUS,
+    },
+
+    [MOVE_AQUA_JET] =
+    {
+        .effect = EFFECT_QUICK_ATTACK,
+        .power = 40,
+        .type = TYPE_WATER,
+        .accuracy = 100,
+        .pp = 20,
+        .secondaryEffectChance = 0,
+        .target = MOVE_TARGET_SELECTED,
+        .priority = 1,
+        .flags = FLAG_MAKES_CONTACT | FLAG_PROTECT_AFFECTED | FLAG_MIRROR_MOVE_AFFECTED | FLAG_KINGSROCK_AFFECTED,
+    },
 
     [MOVE_ATTACK_ORDER] =
     {
@@ -4791,46 +5916,72 @@ const struct BattleMove gBattleMoves[MOVES_COUNT] =
         .priority = 0,
         .flags = FLAG_PROTECT_AFFECTED | FLAG_MIRROR_MOVE_AFFECTED | FLAG_KINGSROCK_AFFECTED,
     },
-    
-    [MOVE_NIGHT_SLASH] =
+
+	[MOVE_DEFEND_ORDER] =
     {
-        .effect = EFFECT_HIGH_CRITICAL,
-        .power = 70,
-        .type = TYPE_DARK,
-        .accuracy = 100,
-        .pp = 15,
+        .effect = EFFECT_SPLASH,
+        .power = 0,
+        .type = TYPE_NORMAL,
+        .accuracy = 0,
+        .pp = 40,
         .secondaryEffectChance = 0,
-        .target = MOVE_TARGET_SELECTED,
+        .target = MOVE_TARGET_USER,
         .priority = 0,
-        .flags = FLAG_MAKES_CONTACT | FLAG_PROTECT_AFFECTED | FLAG_MIRROR_MOVE_AFFECTED | FLAG_KINGSROCK_AFFECTED,
+        .flags = FLAG_IS_STATUS,
     },
-    
-    [MOVE_PSYCHO_CUT] =
+
+	[MOVE_HEAL_ORDER] =
     {
-        .effect = EFFECT_HIGH_CRITICAL,
-        .power = 70,
-        .type = TYPE_DARK,
-        .accuracy = 100,
-        .pp = 20,
+        .effect = EFFECT_SPLASH,
+        .power = 0,
+        .type = TYPE_NORMAL,
+        .accuracy = 0,
+        .pp = 40,
         .secondaryEffectChance = 0,
-        .target = MOVE_TARGET_SELECTED,
+        .target = MOVE_TARGET_USER,
         .priority = 0,
-        .flags = FLAG_PROTECT_AFFECTED | FLAG_MIRROR_MOVE_AFFECTED | FLAG_KINGSROCK_AFFECTED,
+        .flags = FLAG_IS_STATUS,
     },
-    
-    [MOVE_SHADOW_CLAW] =
+
+	[MOVE_HEAD_SMASH] =
     {
-        .effect = EFFECT_HIGH_CRITICAL,
-        .power = 70,
-        .type = TYPE_GHOST,
-        .accuracy = 100,
-        .pp = 15,
+        .effect = EFFECT_SPLASH,
+        .power = 0,
+        .type = TYPE_NORMAL,
+        .accuracy = 0,
+        .pp = 40,
         .secondaryEffectChance = 0,
-        .target = MOVE_TARGET_SELECTED,
+        .target = MOVE_TARGET_USER,
         .priority = 0,
-        .flags = FLAG_MAKES_CONTACT | FLAG_PROTECT_AFFECTED | FLAG_MIRROR_MOVE_AFFECTED | FLAG_KINGSROCK_AFFECTED,
+        .flags = FLAG_IS_STATUS,
     },
-    
+
+	[MOVE_DOUBLE_HIT] =
+    {
+        .effect = EFFECT_SPLASH,
+        .power = 0,
+        .type = TYPE_NORMAL,
+        .accuracy = 0,
+        .pp = 40,
+        .secondaryEffectChance = 0,
+        .target = MOVE_TARGET_USER,
+        .priority = 0,
+        .flags = FLAG_IS_STATUS,
+    },
+
+	[MOVE_ROAR_OF_TIME] =
+    {
+        .effect = EFFECT_SPLASH,
+        .power = 0,
+        .type = TYPE_NORMAL,
+        .accuracy = 0,
+        .pp = 40,
+        .secondaryEffectChance = 0,
+        .target = MOVE_TARGET_USER,
+        .priority = 0,
+        .flags = FLAG_IS_STATUS,
+    },
+
     [MOVE_SPACIAL_REND] =
     {
         .effect = EFFECT_HIGH_CRITICAL,
@@ -4843,17 +5994,95 @@ const struct BattleMove gBattleMoves[MOVES_COUNT] =
         .priority = 0,
         .flags = FLAG_IS_SPECIAL | FLAG_PROTECT_AFFECTED | FLAG_MIRROR_MOVE_AFFECTED | FLAG_KINGSROCK_AFFECTED,
     },
-    
-    [MOVE_STONE_EDGE] =
+
+	[MOVE_LUNAR_DANCE] =
     {
-        .effect = EFFECT_HIGH_CRITICAL,
-        .power = 100,
-        .type = TYPE_ROCK,
-        .accuracy = 80,
-        .pp = 5,
+        .effect = EFFECT_SPLASH,
+        .power = 0,
+        .type = TYPE_NORMAL,
+        .accuracy = 0,
+        .pp = 40,
         .secondaryEffectChance = 0,
-        .target = MOVE_TARGET_SELECTED,
+        .target = MOVE_TARGET_USER,
         .priority = 0,
-        .flags = FLAG_PROTECT_AFFECTED | FLAG_MIRROR_MOVE_AFFECTED | FLAG_KINGSROCK_AFFECTED,
+        .flags = FLAG_IS_STATUS,
+    },
+
+	[MOVE_CRUSH_GRIP] =
+    {
+        .effect = EFFECT_SPLASH,
+        .power = 0,
+        .type = TYPE_NORMAL,
+        .accuracy = 0,
+        .pp = 40,
+        .secondaryEffectChance = 0,
+        .target = MOVE_TARGET_USER,
+        .priority = 0,
+        .flags = FLAG_IS_STATUS,
+    },
+
+	[MOVE_MAGMA_STORM] =
+    {
+        .effect = EFFECT_SPLASH,
+        .power = 0,
+        .type = TYPE_NORMAL,
+        .accuracy = 0,
+        .pp = 40,
+        .secondaryEffectChance = 0,
+        .target = MOVE_TARGET_USER,
+        .priority = 0,
+        .flags = FLAG_IS_STATUS,
+    },
+
+	[MOVE_DARK_VOID] =
+    {
+        .effect = EFFECT_SPLASH,
+        .power = 0,
+        .type = TYPE_NORMAL,
+        .accuracy = 0,
+        .pp = 40,
+        .secondaryEffectChance = 0,
+        .target = MOVE_TARGET_USER,
+        .priority = 0,
+        .flags = FLAG_IS_STATUS,
+    },
+
+	[MOVE_SEED_FLARE] =
+    {
+        .effect = EFFECT_SPLASH,
+        .power = 0,
+        .type = TYPE_NORMAL,
+        .accuracy = 0,
+        .pp = 40,
+        .secondaryEffectChance = 0,
+        .target = MOVE_TARGET_USER,
+        .priority = 0,
+        .flags = FLAG_IS_STATUS,
+    },
+
+	[MOVE_OMINOUS_WIND] =
+    {
+        .effect = EFFECT_SPLASH,
+        .power = 0,
+        .type = TYPE_NORMAL,
+        .accuracy = 0,
+        .pp = 40,
+        .secondaryEffectChance = 0,
+        .target = MOVE_TARGET_USER,
+        .priority = 0,
+        .flags = FLAG_IS_STATUS,
+    },
+
+	[MOVE_SHADOW_FORCE] =
+    {
+        .effect = EFFECT_SPLASH,
+        .power = 0,
+        .type = TYPE_NORMAL,
+        .accuracy = 0,
+        .pp = 40,
+        .secondaryEffectChance = 0,
+        .target = MOVE_TARGET_USER,
+        .priority = 0,
+        .flags = FLAG_IS_STATUS,
     },
 };

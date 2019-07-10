@@ -1420,19 +1420,191 @@ static const u8 sPsychoBoostDescription[] = _(
     "mais baisse ATQ. SPE.");
 
 // Gen4 EFFECT_HIT
+static const u8 sRoostDescription[] = _(
+	"dummy\n"
+	"dummy");
+
+static const u8 sGravityDescription[] = _(
+	"dummy\n"
+	"dummy");
+
+static const u8 sMiracleEyeDescription[] = _(
+	"dummy\n"
+	"dummy");
+
+static const u8 sWakeUpSlapDescription[] = _(
+	"dummy\n"
+	"dummy");
+
+static const u8 sHammerArmDescription[] = _(
+	"dummy\n"
+	"dummy");
+
+static const u8 sGyroBallDescription[] = _(
+	"dummy\n"
+	"dummy");
+
+static const u8 sHealingWishDescription[] = _(
+	"dummy\n"
+	"dummy");
+
+static const u8 sBrineDescription[] = _(
+	"dummy\n"
+	"dummy");
+
+static const u8 sNaturalGiftDescription[] = _(
+	"dummy\n"
+	"dummy");
+
+static const u8 sFeintDescription[] = _(
+	"dummy\n"
+	"dummy");
+
+static const u8 sPluckDescription[] = _(
+	"dummy\n"
+	"dummy");
+
+static const u8 sTailWindDescription[] = _(
+	"dummy\n"
+	"dummy");
+
+static const u8 sAccupressureDescription[] = _(
+	"dummy\n"
+	"dummy");
+
+static const u8 sMetalBurstDescription[] = _(
+	"dummy\n"
+	"dummy");
+
+static const u8 sUTurnDescription[] = _(
+	"dummy\n"
+	"dummy");
+
+static const u8 sCloseCombatDescription[] = _(
+	"dummy\n"
+	"dummy");
+
+static const u8 sPaybackDescription[] = _(
+	"dummy\n"
+	"dummy");
+
+static const u8 sAssuranceDescription[] = _(
+	"dummy\n"
+	"dummy");
+
+static const u8 sEmbargoDescription[] = _(
+	"dummy\n"
+	"dummy");
+
+static const u8 sFlingDescription[] = _(
+	"dummy\n"
+	"dummy");
+
+static const u8 sPsychoShiftDescription[] = _(
+	"dummy\n"
+	"dummy");
+
+static const u8 sTrumpCardDescription[] = _(
+	"dummy\n"
+	"dummy");
+
+static const u8 sHealBlockDescription[] = _(
+	"dummy\n"
+	"dummy");
+
+static const u8 sWringOutDescription[] = _(
+	"dummy\n"
+	"dummy");
+
+static const u8 sPowerTrickDescription[] = _(
+	"dummy\n"
+	"dummy");
+
+static const u8 sGastroAcidDescription[] = _(
+	"dummy\n"
+	"dummy");
+
+static const u8 sLuckyChantDescription[] = _(
+	"dummy\n"
+	"dummy");
+
+static const u8 sMeFirstDescription[] = _(
+	"dummy\n"
+	"dummy");
+
+static const u8 sCopycatDescription[] = _(
+	"dummy\n"
+	"dummy");
+
+static const u8 sPowerSwapDescription[] = _(
+	"dummy\n"
+	"dummy");
+
+static const u8 sGuardSwapDescription[] = _(
+	"dummy\n"
+	"dummy");
+
+static const u8 sPunishmentDescription[] = _(
+	"dummy\n"
+	"dummy");
+
+static const u8 sLastResortDescription[] = _(
+	"dummy\n"
+	"dummy");
+
+static const u8 sWorrySeedDescription[] = _(
+	"dummy\n"
+	"dummy");
+
+static const u8 sSuckerPunchDescription[] = _(
+	"dummy\n"
+	"dummy");
+
+static const u8 sToxicSpikesDescription[] = _(
+	"dummy\n"
+	"dummy");
+
+static const u8 sHeartSwapDescription[] = _(
+	"dummy\n"
+	"dummy");
+
+static const u8 sAquaRingDescription[] = _(
+	"dummy\n"
+	"dummy");
+
+static const u8 sMagnetRiseDescription[] = _(
+	"dummy\n"
+	"dummy");
+
+static const u8 sFlareBlitzDescription[] = _(
+	"dummy\n"
+	"dummy");
+
+static const u8 sForcePalmDescription[] = _(
+	"dummy\n"
+	"dummy");
+
+static const u8 sAuraSphereDescription[] = _(
+	"dummy\n"
+	"dummy");
+
+static const u8 sRockPolishDescription[] = _(
+	"dummy\n"
+	"dummy");
+
+static const u8 sPoisonJabDescription[] = _(
+	"dummy\n"
+	"dummy");
+
+static const u8 sDarkPulseDescription[] = _(
+	"dummy\n"
+	"dummy");
+
+static const u8 sNightSlashDescription[] = _(
+	"dummy\n"
+	"dummy");
+
 static const u8 sAquaTailDescription[] = _(
-	"dummy\n"
-	"dummy");
-
-static const u8 sDragonPulseDescription[] = _(
-	"dummy\n"
-	"dummy");
-
-static const u8 sPowerGemDescription[] = _(
-	"dummy\n"
-	"dummy");
-
-static const u8 sPowerWhipDescription[] = _(
 	"dummy\n"
 	"dummy");
 
@@ -1440,24 +1612,31 @@ static const u8 sSeedBombDescription[] = _(
 	"dummy\n"
 	"dummy");
 
+static const u8 sAirSlashDescription[] = _(
+	"dummy\n"
+	"dummy");
+
 static const u8 sXScissorDescription[] = _(
 	"dummy\n"
 	"dummy");
 
-// Gen4 EFFECT_QUICK_ATTACK
-static const u8 sAquaJetDescription[] = _(
+static const u8 sBugBuzzDescription[] = _(
 	"dummy\n"
 	"dummy");
 
-static const u8 sBulletPunchDescription[] = _(
+static const u8 sDragonPulseDescription[] = _(
 	"dummy\n"
 	"dummy");
 
-static const u8 sIceShardDescription[] = _(
+static const u8 sDragonRushDescription[] = _(
 	"dummy\n"
 	"dummy");
 
-static const u8 sShadowSneakDescription[] = _(
+static const u8 sPowerGemDescription[] = _(
+	"dummy\n"
+	"dummy");
+
+static const u8 sDrainPunchDescription[] = _(
 	"dummy\n"
 	"dummy");
 
@@ -1465,39 +1644,234 @@ static const u8 sVacuumWaveDescription[] = _(
 	"dummy\n"
 	"dummy");
 
-// Gen4 EFFECT_OVERHEAT    
-static const u8 sDracoMeteorDescription[] = _(
+static const u8 sFocusBlastDescription[] = _(
 	"dummy\n"
 	"dummy");
-    
+
+static const u8 sEnergyBallDescription[] = _(
+	"dummy\n"
+	"dummy");
+
+static const u8 sBraveBirdDescription[] = _(
+	"dummy\n"
+	"dummy");
+
+static const u8 sEarthPowerDescription[] = _(
+	"dummy\n"
+	"dummy");
+
+static const u8 sSwitcherooDescription[] = _(
+	"dummy\n"
+	"dummy");
+
+static const u8 sGigaImpactDescription[] = _(
+	"dummy\n"
+	"dummy");
+
+static const u8 sNastyPlotDescription[] = _(
+	"dummy\n"
+	"dummy");
+
+static const u8 sBulletPunchDescription[] = _(
+	"dummy\n"
+	"dummy");
+
+static const u8 sAvalancheDescription[] = _(
+	"dummy\n"
+	"dummy");
+
+static const u8 sIceShardDescription[] = _(
+	"dummy\n"
+	"dummy");
+
+static const u8 sShadowClawDescription[] = _(
+	"dummy\n"
+	"dummy");
+
+static const u8 sThunderFangDescription[] = _(
+	"dummy\n"
+	"dummy");
+
+static const u8 sIceFangDescription[] = _(
+	"dummy\n"
+	"dummy");
+
+static const u8 sFireFangDescription[] = _(
+	"dummy\n"
+	"dummy");
+
+static const u8 sShadowSneakDescription[] = _(
+	"dummy\n"
+	"dummy");
+
+static const u8 sMudBombDescription[] = _(
+	"dummy\n"
+	"dummy");
+
+static const u8 sPsychoCutDescription[] = _(
+	"dummy\n"
+	"dummy");
+
+static const u8 sZenHeadbuttDescription[] = _(
+	"dummy\n"
+	"dummy");
+
+static const u8 sMirrorShotDescription[] = _(
+	"dummy\n"
+	"dummy");
+
+static const u8 sFlashCannonDescription[] = _(
+	"dummy\n"
+	"dummy");
+
+static const u8 sRockClimbDescription[] = _(
+	"dummy\n"
+	"dummy");
+
+static const u8 sDefogDescription[] = _(
+	"dummy\n"
+	"dummy");
+
+static const u8 sTrickRoomDescription[] = _(
+	"dummy\n"
+	"dummy");
+
+static const u8 sDracoMeteoreDescription[] = _(
+	"dummy\n"
+	"dummy");
+
+static const u8 sDischargeDescription[] = _(
+	"dummy\n"
+	"dummy");
+
+static const u8 sLavaPlumeDescription[] = _(
+	"dummy\n"
+	"dummy");
+
 static const u8 sLeafStormDescription[] = _(
 	"dummy\n"
 	"dummy");
 
-// Gen4 EFFECT_HIGH_CRITICAL
-static const u8 sAttackOrderDescription[] = _(
+static const u8 sPowerWhipDescription[] = _(
 	"dummy\n"
 	"dummy");
-    
-static const u8 sNightSlashDescription[] = _(
+
+static const u8 sRockWreckerDescription[] = _(
 	"dummy\n"
 	"dummy");
-    
-static const u8 sPsychoCutDescription[] = _(
+
+static const u8 sCrossPoisonDescription[] = _(
 	"dummy\n"
 	"dummy");
-    
-static const u8 sShadowClawDescription[] = _(
+
+static const u8 sGunkShotDescription[] = _(
 	"dummy\n"
 	"dummy");
-    
-static const u8 sSpacialRendDescription[] = _(
+
+static const u8 sIronHeadDescription[] = _(
 	"dummy\n"
 	"dummy");
-    
+
+static const u8 sMagnetBombDescription[] = _(
+	"dummy\n"
+	"dummy");
+
 static const u8 sStoneEdgeDescription[] = _(
 	"dummy\n"
 	"dummy");
+
+static const u8 sCaptivateDescription[] = _(
+	"dummy\n"
+	"dummy");
+
+static const u8 sStealthRockDescription[] = _(
+	"dummy\n"
+	"dummy");
+
+static const u8 sGrassKnotDescription[] = _(
+	"dummy\n"
+	"dummy");
+
+static const u8 sChatterDescription[] = _(
+	"dummy\n"
+	"dummy");
+
+static const u8 sJudgmentDescription[] = _(
+	"dummy\n"
+	"dummy");
+
+static const u8 sBugBiteDescription[] = _(
+	"dummy\n"
+	"dummy");
+
+static const u8 sChargeBeamDescription[] = _(
+	"dummy\n"
+	"dummy");
+
+static const u8 sWoodHammerDescription[] = _(
+	"dummy\n"
+	"dummy");
+
+static const u8 sAquaJetDescription[] = _(
+	"dummy\n"
+	"dummy");
+
+static const u8 sAttackOrderDescription[] = _(
+	"dummy\n"
+	"dummy");
+
+static const u8 sDefendOrderDescription[] = _(
+	"dummy\n"
+	"dummy");
+
+static const u8 sHealOrderDescription[] = _(
+	"dummy\n"
+	"dummy");
+
+static const u8 sHeadSmashDescription[] = _(
+	"dummy\n"
+	"dummy");
+
+static const u8 sDoubleHitDescription[] = _(
+	"dummy\n"
+	"dummy");
+
+static const u8 sRoarOfTimeDescription[] = _(
+	"dummy\n"
+	"dummy");
+
+static const u8 sSpacialRendDescription[] = _(
+	"dummy\n"
+	"dummy");
+
+static const u8 sLunarDanceDescription[] = _(
+	"dummy\n"
+	"dummy");
+
+static const u8 sCrushGripDescription[] = _(
+	"dummy\n"
+	"dummy");
+
+static const u8 sMagmaStormDescription[] = _(
+	"dummy\n"
+	"dummy");
+
+static const u8 sDarkVoidDescription[] = _(
+	"dummy\n"
+	"dummy");
+
+static const u8 sSeedFlareDescription[] = _(
+	"dummy\n"
+	"dummy");
+
+static const u8 sOminousWindDescription[] = _(
+	"dummy\n"
+	"dummy");
+
+static const u8 sShadowForceDescription[] = _(
+	"dummy\n"
+	"dummy");
+
 #else
 
 static const u8 sNullDescription[] = _(
@@ -2920,19 +3294,191 @@ static const u8 sPsychoBoostDescription[] = _(
     "but sharply lowers SP. ATK.");
 
 // Gen4 EFFECT_HIT
+static const u8 sRoostDescription[] = _(
+	"dummy\n"
+	"dummy");
+
+static const u8 sGravityDescription[] = _(
+	"dummy\n"
+	"dummy");
+
+static const u8 sMiracleEyeDescription[] = _(
+	"dummy\n"
+	"dummy");
+
+static const u8 sWakeUpSlapDescription[] = _(
+	"dummy\n"
+	"dummy");
+
+static const u8 sHammerArmDescription[] = _(
+	"dummy\n"
+	"dummy");
+
+static const u8 sGyroBallDescription[] = _(
+	"dummy\n"
+	"dummy");
+
+static const u8 sHealingWishDescription[] = _(
+	"dummy\n"
+	"dummy");
+
+static const u8 sBrineDescription[] = _(
+	"dummy\n"
+	"dummy");
+
+static const u8 sNaturalGiftDescription[] = _(
+	"dummy\n"
+	"dummy");
+
+static const u8 sFeintDescription[] = _(
+	"dummy\n"
+	"dummy");
+
+static const u8 sPluckDescription[] = _(
+	"dummy\n"
+	"dummy");
+
+static const u8 sTailWindDescription[] = _(
+	"dummy\n"
+	"dummy");
+
+static const u8 sAccupressureDescription[] = _(
+	"dummy\n"
+	"dummy");
+
+static const u8 sMetalBurstDescription[] = _(
+	"dummy\n"
+	"dummy");
+
+static const u8 sUTurnDescription[] = _(
+	"dummy\n"
+	"dummy");
+
+static const u8 sCloseCombatDescription[] = _(
+	"dummy\n"
+	"dummy");
+
+static const u8 sPaybackDescription[] = _(
+	"dummy\n"
+	"dummy");
+
+static const u8 sAssuranceDescription[] = _(
+	"dummy\n"
+	"dummy");
+
+static const u8 sEmbargoDescription[] = _(
+	"dummy\n"
+	"dummy");
+
+static const u8 sFlingDescription[] = _(
+	"dummy\n"
+	"dummy");
+
+static const u8 sPsychoShiftDescription[] = _(
+	"dummy\n"
+	"dummy");
+
+static const u8 sTrumpCardDescription[] = _(
+	"dummy\n"
+	"dummy");
+
+static const u8 sHealBlockDescription[] = _(
+	"dummy\n"
+	"dummy");
+
+static const u8 sWringOutDescription[] = _(
+	"dummy\n"
+	"dummy");
+
+static const u8 sPowerTrickDescription[] = _(
+	"dummy\n"
+	"dummy");
+
+static const u8 sGastroAcidDescription[] = _(
+	"dummy\n"
+	"dummy");
+
+static const u8 sLuckyChantDescription[] = _(
+	"dummy\n"
+	"dummy");
+
+static const u8 sMeFirstDescription[] = _(
+	"dummy\n"
+	"dummy");
+
+static const u8 sCopycatDescription[] = _(
+	"dummy\n"
+	"dummy");
+
+static const u8 sPowerSwapDescription[] = _(
+	"dummy\n"
+	"dummy");
+
+static const u8 sGuardSwapDescription[] = _(
+	"dummy\n"
+	"dummy");
+
+static const u8 sPunishmentDescription[] = _(
+	"dummy\n"
+	"dummy");
+
+static const u8 sLastResortDescription[] = _(
+	"dummy\n"
+	"dummy");
+
+static const u8 sWorrySeedDescription[] = _(
+	"dummy\n"
+	"dummy");
+
+static const u8 sSuckerPunchDescription[] = _(
+	"dummy\n"
+	"dummy");
+
+static const u8 sToxicSpikesDescription[] = _(
+	"dummy\n"
+	"dummy");
+
+static const u8 sHeartSwapDescription[] = _(
+	"dummy\n"
+	"dummy");
+
+static const u8 sAquaRingDescription[] = _(
+	"dummy\n"
+	"dummy");
+
+static const u8 sMagnetRiseDescription[] = _(
+	"dummy\n"
+	"dummy");
+
+static const u8 sFlareBlitzDescription[] = _(
+	"dummy\n"
+	"dummy");
+
+static const u8 sForcePalmDescription[] = _(
+	"dummy\n"
+	"dummy");
+
+static const u8 sAuraSphereDescription[] = _(
+	"dummy\n"
+	"dummy");
+
+static const u8 sRockPolishDescription[] = _(
+	"dummy\n"
+	"dummy");
+
+static const u8 sPoisonJabDescription[] = _(
+	"dummy\n"
+	"dummy");
+
+static const u8 sDarkPulseDescription[] = _(
+	"dummy\n"
+	"dummy");
+
+static const u8 sNightSlashDescription[] = _(
+	"dummy\n"
+	"dummy");
+
 static const u8 sAquaTailDescription[] = _(
-	"dummy\n"
-	"dummy");
-
-static const u8 sDragonPulseDescription[] = _(
-	"dummy\n"
-	"dummy");
-
-static const u8 sPowerGemDescription[] = _(
-	"dummy\n"
-	"dummy");
-
-static const u8 sPowerWhipDescription[] = _(
 	"dummy\n"
 	"dummy");
 
@@ -2940,12 +3486,63 @@ static const u8 sSeedBombDescription[] = _(
 	"dummy\n"
 	"dummy");
 
+static const u8 sAirSlashDescription[] = _(
+	"dummy\n"
+	"dummy");
+
 static const u8 sXScissorDescription[] = _(
 	"dummy\n"
 	"dummy");
 
-// Gen4 EFFECT_QUICK_ATTACK
-static const u8 sAquaJetDescription[] = _(
+static const u8 sBugBuzzDescription[] = _(
+	"dummy\n"
+	"dummy");
+
+static const u8 sDragonPulseDescription[] = _(
+	"dummy\n"
+	"dummy");
+
+static const u8 sDragonRushDescription[] = _(
+	"dummy\n"
+	"dummy");
+
+static const u8 sPowerGemDescription[] = _(
+	"dummy\n"
+	"dummy");
+
+static const u8 sDrainPunchDescription[] = _(
+	"dummy\n"
+	"dummy");
+
+static const u8 sVacuumWaveDescription[] = _(
+	"dummy\n"
+	"dummy");
+
+static const u8 sFocusBlastDescription[] = _(
+	"dummy\n"
+	"dummy");
+
+static const u8 sEnergyBallDescription[] = _(
+	"dummy\n"
+	"dummy");
+
+static const u8 sBraveBirdDescription[] = _(
+	"dummy\n"
+	"dummy");
+
+static const u8 sEarthPowerDescription[] = _(
+	"dummy\n"
+	"dummy");
+
+static const u8 sSwitcherooDescription[] = _(
+	"dummy\n"
+	"dummy");
+
+static const u8 sGigaImpactDescription[] = _(
+	"dummy\n"
+	"dummy");
+
+static const u8 sNastyPlotDescription[] = _(
 	"dummy\n"
 	"dummy");
 
@@ -2953,7 +3550,27 @@ static const u8 sBulletPunchDescription[] = _(
 	"dummy\n"
 	"dummy");
 
+static const u8 sAvalancheDescription[] = _(
+	"dummy\n"
+	"dummy");
+
 static const u8 sIceShardDescription[] = _(
+	"dummy\n"
+	"dummy");
+
+static const u8 sShadowClawDescription[] = _(
+	"dummy\n"
+	"dummy");
+
+static const u8 sThunderFangDescription[] = _(
+	"dummy\n"
+	"dummy");
+
+static const u8 sIceFangDescription[] = _(
+	"dummy\n"
+	"dummy");
+
+static const u8 sFireFangDescription[] = _(
 	"dummy\n"
 	"dummy");
 
@@ -2961,43 +3578,174 @@ static const u8 sShadowSneakDescription[] = _(
 	"dummy\n"
 	"dummy");
 
-static const u8 sVacuumWaveDescription[] = _(
+static const u8 sMudBombDescription[] = _(
 	"dummy\n"
 	"dummy");
-    
-// Gen4 EFFECT_OVERHEAT
-static const u8 sDracoMeteorDescription[] = _(
+
+static const u8 sPsychoCutDescription[] = _(
 	"dummy\n"
 	"dummy");
-    
+
+static const u8 sZenHeadbuttDescription[] = _(
+	"dummy\n"
+	"dummy");
+
+static const u8 sMirrorShotDescription[] = _(
+	"dummy\n"
+	"dummy");
+
+static const u8 sFlashCannonDescription[] = _(
+	"dummy\n"
+	"dummy");
+
+static const u8 sRockClimbDescription[] = _(
+	"dummy\n"
+	"dummy");
+
+static const u8 sDefogDescription[] = _(
+	"dummy\n"
+	"dummy");
+
+static const u8 sTrickRoomDescription[] = _(
+	"dummy\n"
+	"dummy");
+
+static const u8 sDracoMeteoreDescription[] = _(
+	"dummy\n"
+	"dummy");
+
+static const u8 sDischargeDescription[] = _(
+	"dummy\n"
+	"dummy");
+
+static const u8 sLavaPlumeDescription[] = _(
+	"dummy\n"
+	"dummy");
+
 static const u8 sLeafStormDescription[] = _(
 	"dummy\n"
 	"dummy");
 
-// Gen4 EFFECT_HIGH_CRITICAL
-static const u8 sAttackOrderDescription[] = _(
+static const u8 sPowerWhipDescription[] = _(
 	"dummy\n"
 	"dummy");
-    
-static const u8 sNightSlashDescription[] = _(
+
+static const u8 sRockWreckerDescription[] = _(
 	"dummy\n"
 	"dummy");
-    
-static const u8 sPsychoCutDescription[] = _(
+
+static const u8 sCrossPoisonDescription[] = _(
 	"dummy\n"
 	"dummy");
-    
-static const u8 sShadowClawDescription[] = _(
+
+static const u8 sGunkShotDescription[] = _(
 	"dummy\n"
 	"dummy");
-    
-static const u8 sSpacialRendDescription[] = _(
+
+static const u8 sIronHeadDescription[] = _(
 	"dummy\n"
 	"dummy");
-    
+
+static const u8 sMagnetBombDescription[] = _(
+	"dummy\n"
+	"dummy");
+
 static const u8 sStoneEdgeDescription[] = _(
 	"dummy\n"
 	"dummy");
+
+static const u8 sCaptivateDescription[] = _(
+	"dummy\n"
+	"dummy");
+
+static const u8 sStealthRockDescription[] = _(
+	"dummy\n"
+	"dummy");
+
+static const u8 sGrassKnotDescription[] = _(
+	"dummy\n"
+	"dummy");
+
+static const u8 sChatterDescription[] = _(
+	"dummy\n"
+	"dummy");
+
+static const u8 sJudgmentDescription[] = _(
+	"dummy\n"
+	"dummy");
+
+static const u8 sBugBiteDescription[] = _(
+	"dummy\n"
+	"dummy");
+
+static const u8 sChargeBeamDescription[] = _(
+	"dummy\n"
+	"dummy");
+
+static const u8 sWoodHammerDescription[] = _(
+	"dummy\n"
+	"dummy");
+
+static const u8 sAquaJetDescription[] = _(
+	"dummy\n"
+	"dummy");
+
+static const u8 sAttackOrderDescription[] = _(
+	"dummy\n"
+	"dummy");
+
+static const u8 sDefendOrderDescription[] = _(
+	"dummy\n"
+	"dummy");
+
+static const u8 sHealOrderDescription[] = _(
+	"dummy\n"
+	"dummy");
+
+static const u8 sHeadSmashDescription[] = _(
+	"dummy\n"
+	"dummy");
+
+static const u8 sDoubleHitDescription[] = _(
+	"dummy\n"
+	"dummy");
+
+static const u8 sRoarOfTimeDescription[] = _(
+	"dummy\n"
+	"dummy");
+
+static const u8 sSpacialRendDescription[] = _(
+	"dummy\n"
+	"dummy");
+
+static const u8 sLunarDanceDescription[] = _(
+	"dummy\n"
+	"dummy");
+
+static const u8 sCrushGripDescription[] = _(
+	"dummy\n"
+	"dummy");
+
+static const u8 sMagmaStormDescription[] = _(
+	"dummy\n"
+	"dummy");
+
+static const u8 sDarkVoidDescription[] = _(
+	"dummy\n"
+	"dummy");
+
+static const u8 sSeedFlareDescription[] = _(
+	"dummy\n"
+	"dummy");
+
+static const u8 sOminousWindDescription[] = _(
+	"dummy\n"
+	"dummy");
+
+static const u8 sShadowForceDescription[] = _(
+	"dummy\n"
+	"dummy");
+
 #endif
 
 // MOVE_NONE is ignored in this table. Make sure to always subtract 1 before getting the right pointer.
@@ -3358,30 +4106,118 @@ const u8 *const gMoveDescriptionPointers[MOVES_COUNT - 1] =
     [MOVE_DOOM_DESIRE - 1] = sDoomDesireDescription,
     [MOVE_PSYCHO_BOOST - 1] = sPsychoBoostDescription,
 
-    // Gen4 EFFECT_HIT
-    [MOVE_AQUA_TAIL - 1] = sAquaTailDescription,
-    [MOVE_DRAGON_PULSE - 1] = sDragonPulseDescription,
-    [MOVE_POWER_GEM - 1] = sPowerGemDescription,
-    [MOVE_POWER_WHIP - 1] = sPowerWhipDescription,
-    [MOVE_SEED_BOMB - 1] = sSeedBombDescription,
-    [MOVE_X_SCISSOR - 1] = sXScissorDescription,
+	[MOVE_ROOST - 1] = sRoostDescription,
+	[MOVE_GRAVITY - 1] = sGravityDescription,
+	[MOVE_MIRACLE_EYE - 1] = sMiracleEyeDescription,
+	[MOVE_WAKE_UP_SLAP - 1] = sWakeUpSlapDescription,
+	[MOVE_HAMMER_ARM - 1] = sHammerArmDescription,
+	[MOVE_GYRO_BALL - 1] = sGyroBallDescription,
+	[MOVE_HEALING_WISH - 1] = sHealingWishDescription,
+	[MOVE_BRINE - 1] = sBrineDescription,
+	[MOVE_NATURAL_GIFT - 1] = sNaturalGiftDescription,
+	[MOVE_FEINT - 1] = sFeintDescription,
+	[MOVE_PLUCK - 1] = sPluckDescription,
+	[MOVE_TAIL_WIND - 1] = sTailWindDescription,
+	[MOVE_ACCUPRESSURE - 1] = sAccupressureDescription,
+	[MOVE_METAL_BURST - 1] = sMetalBurstDescription,
+	[MOVE_U_TURN - 1] = sUTurnDescription,
+	[MOVE_CLOSE_COMBAT - 1] = sCloseCombatDescription,
+	[MOVE_PAYBACK - 1] = sPaybackDescription,
+	[MOVE_ASSURANCE - 1] = sAssuranceDescription,
+	[MOVE_EMBARGO - 1] = sEmbargoDescription,
+	[MOVE_FLING - 1] = sFlingDescription,
+	[MOVE_PSYCHO_SHIFT - 1] = sPsychoShiftDescription,
+	[MOVE_TRUMP_CARD - 1] = sTrumpCardDescription,
+	[MOVE_HEAL_BLOCK - 1] = sHealBlockDescription,
+	[MOVE_WRING_OUT - 1] = sWringOutDescription,
+	[MOVE_POWER_TRICK - 1] = sPowerTrickDescription,
+	[MOVE_GASTRO_ACID - 1] = sGastroAcidDescription,
+	[MOVE_LUCKY_CHANT - 1] = sLuckyChantDescription,
+	[MOVE_ME_FIRST - 1] = sMeFirstDescription,
+	[MOVE_COPYCAT - 1] = sCopycatDescription,
+	[MOVE_POWER_SWAP - 1] = sPowerSwapDescription,
+	[MOVE_GUARD_SWAP - 1] = sGuardSwapDescription,
+	[MOVE_PUNISHMENT - 1] = sPunishmentDescription,
+	[MOVE_LAST_RESORT - 1] = sLastResortDescription,
+	[MOVE_WORRY_SEED - 1] = sWorrySeedDescription,
+	[MOVE_SUCKER_PUNCH - 1] = sSuckerPunchDescription,
+	[MOVE_TOXIC_SPIKES - 1] = sToxicSpikesDescription,
+	[MOVE_HEART_SWAP - 1] = sHeartSwapDescription,
+	[MOVE_AQUA_RING - 1] = sAquaRingDescription,
+	[MOVE_MAGNET_RISE - 1] = sMagnetRiseDescription,
+	[MOVE_FLARE_BLITZ - 1] = sFlareBlitzDescription,
+	[MOVE_FORCE_PALM - 1] = sForcePalmDescription,
+	[MOVE_AURA_SPHERE - 1] = sAuraSphereDescription,
+	[MOVE_ROCK_POLISH - 1] = sRockPolishDescription,
+	[MOVE_POISON_JAB - 1] = sPoisonJabDescription,
+	[MOVE_DARK_PULSE - 1] = sDarkPulseDescription,
+	[MOVE_NIGHT_SLASH - 1] = sNightSlashDescription,
+	[MOVE_AQUA_TAIL - 1] = sAquaTailDescription,
+	[MOVE_SEED_BOMB - 1] = sSeedBombDescription,
+	[MOVE_AIR_SLASH - 1] = sAirSlashDescription,
+	[MOVE_X_SCISSOR - 1] = sXScissorDescription,
+	[MOVE_BUG_BUZZ - 1] = sBugBuzzDescription,
+	[MOVE_DRAGON_PULSE - 1] = sDragonPulseDescription,
+	[MOVE_DRAGON_RUSH - 1] = sDragonRushDescription,
+	[MOVE_POWER_GEM - 1] = sPowerGemDescription,
+	[MOVE_DRAIN_PUNCH - 1] = sDrainPunchDescription,
+	[MOVE_VACUUM_WAVE - 1] = sVacuumWaveDescription,
+	[MOVE_FOCUS_BLAST - 1] = sFocusBlastDescription,
+	[MOVE_ENERGY_BALL - 1] = sEnergyBallDescription,
+	[MOVE_BRAVE_BIRD - 1] = sBraveBirdDescription,
+	[MOVE_EARTH_POWER - 1] = sEarthPowerDescription,
+	[MOVE_SWITCHEROO - 1] = sSwitcherooDescription,
+	[MOVE_GIGA_IMPACT - 1] = sGigaImpactDescription,
+	[MOVE_NASTY_PLOT - 1] = sNastyPlotDescription,
+	[MOVE_BULLET_PUNCH - 1] = sBulletPunchDescription,
+	[MOVE_AVALANCHE - 1] = sAvalancheDescription,
+	[MOVE_ICE_SHARD - 1] = sIceShardDescription,
+	[MOVE_SHADOW_CLAW - 1] = sShadowClawDescription,
+	[MOVE_THUNDER_FANG - 1] = sThunderFangDescription,
+	[MOVE_ICE_FANG - 1] = sIceFangDescription,
+	[MOVE_FIRE_FANG - 1] = sFireFangDescription,
+	[MOVE_SHADOW_SNEAK - 1] = sShadowSneakDescription,
+	[MOVE_MUD_BOMB - 1] = sMudBombDescription,
+	[MOVE_PSYCHO_CUT - 1] = sPsychoCutDescription,
+	[MOVE_ZEN_HEADBUTT - 1] = sZenHeadbuttDescription,
+	[MOVE_MIRROR_SHOT - 1] = sMirrorShotDescription,
+	[MOVE_FLASH_CANNON - 1] = sFlashCannonDescription,
+	[MOVE_ROCK_CLIMB - 1] = sRockClimbDescription,
+	[MOVE_DEFOG - 1] = sDefogDescription,
+	[MOVE_TRICK_ROOM - 1] = sTrickRoomDescription,
+	[MOVE_DRACO_METEOR - 1] = sDracoMeteoreDescription,
+	[MOVE_DISCHARGE - 1] = sDischargeDescription,
+	[MOVE_LAVA_PLUME - 1] = sLavaPlumeDescription,
+	[MOVE_LEAF_STORM - 1] = sLeafStormDescription,
+	[MOVE_POWER_WHIP - 1] = sPowerWhipDescription,
+	[MOVE_ROCK_WRECKER - 1] = sRockWreckerDescription,
+	[MOVE_CROSS_POISON - 1] = sCrossPoisonDescription,
+	[MOVE_GUNK_SHOT - 1] = sGunkShotDescription,
+	[MOVE_IRON_HEAD - 1] = sIronHeadDescription,
+	[MOVE_MAGNET_BOMB - 1] = sMagnetBombDescription,
+	[MOVE_STONE_EDGE - 1] = sStoneEdgeDescription,
+	[MOVE_CAPTIVATE - 1] = sCaptivateDescription,
+	[MOVE_STEALTH_ROCK - 1] = sStealthRockDescription,
+	[MOVE_GRASS_KNOT - 1] = sGrassKnotDescription,
+	[MOVE_CHATTER - 1] = sChatterDescription,
+	[MOVE_JUDGMENT - 1] = sJudgmentDescription,
+	[MOVE_BUG_BITE - 1] = sBugBiteDescription,
+	[MOVE_CHARGE_BEAM - 1] = sChargeBeamDescription,
+	[MOVE_WOOD_HAMMER - 1] = sWoodHammerDescription,
+	[MOVE_AQUA_JET - 1] = sAquaJetDescription,
+	[MOVE_ATTACK_ORDER - 1] = sAttackOrderDescription,
+	[MOVE_DEFEND_ORDER - 1] = sDefendOrderDescription,
+	[MOVE_HEAL_ORDER - 1] = sHealOrderDescription,
+	[MOVE_HEAD_SMASH - 1] = sHeadSmashDescription,
+	[MOVE_DOUBLE_HIT - 1] = sDoubleHitDescription,
+	[MOVE_ROAR_OF_TIME - 1] = sRoarOfTimeDescription,
+	[MOVE_SPACIAL_REND - 1] = sSpacialRendDescription,
+	[MOVE_LUNAR_DANCE - 1] = sLunarDanceDescription,
+	[MOVE_CRUSH_GRIP - 1] = sCrushGripDescription,
+	[MOVE_MAGMA_STORM - 1] = sMagmaStormDescription,
+	[MOVE_DARK_VOID - 1] = sDarkVoidDescription,
+	[MOVE_SEED_FLARE - 1] = sSeedFlareDescription,
+	[MOVE_OMINOUS_WIND - 1] = sOminousWindDescription,
+	[MOVE_SHADOW_FORCE - 1] = sShadowForceDescription,
 
-    // Gen4 EFFECT_QUICK_ATTACK
-    [MOVE_AQUA_JET - 1] = sAquaJetDescription,
-    [MOVE_BULLET_PUNCH - 1] = sBulletPunchDescription,
-    [MOVE_ICE_SHARD - 1] = sIceShardDescription,
-    [MOVE_SHADOW_SNEAK - 1] = sShadowSneakDescription,
-    [MOVE_VACUUM_WAVE - 1] = sVacuumWaveDescription,
-
-    // Gen4 EFFECT_OVERHEAT
-    [MOVE_DRACO_METEOR - 1] = sDracoMeteorDescription,
-    [MOVE_LEAF_STORM - 1] = sLeafStormDescription,
-
-    // Gen4 EFFECT_HIGH_CRITICAL
-    [MOVE_ATTACK_ORDER - 1] = sAttackOrderDescription,
-    [MOVE_NIGHT_SLASH - 1] = sNightSlashDescription,
-    [MOVE_PSYCHO_CUT - 1] = sPsychoCutDescription,
-    [MOVE_SHADOW_CLAW - 1] = sShadowClawDescription,
-    [MOVE_SPACIAL_REND - 1] = sSpacialRendDescription,
-    [MOVE_STONE_EDGE - 1] = sStoneEdgeDescription,
 };
