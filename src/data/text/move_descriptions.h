@@ -1465,13 +1465,37 @@ static const u8 sVacuumWaveDescription[] = _(
 	"dummy\n"
 	"dummy");
 
-    // Gen4 EFFECT_OVERHEAT
-    
+// Gen4 EFFECT_OVERHEAT    
 static const u8 sDracoMeteorDescription[] = _(
 	"dummy\n"
 	"dummy");
     
 static const u8 sLeafStormDescription[] = _(
+	"dummy\n"
+	"dummy");
+
+// Gen4 EFFECT_HIGH_CRITICAL
+static const u8 sAttackOrderDescription[] = _(
+	"dummy\n"
+	"dummy");
+    
+static const u8 sNightSlashDescription[] = _(
+	"dummy\n"
+	"dummy");
+    
+static const u8 sPsychoCutDescription[] = _(
+	"dummy\n"
+	"dummy");
+    
+static const u8 sShadowClawDescription[] = _(
+	"dummy\n"
+	"dummy");
+    
+static const u8 sSpacialRendDescription[] = _(
+	"dummy\n"
+	"dummy");
+    
+static const u8 sStoneEdgeDescription[] = _(
 	"dummy\n"
 	"dummy");
 #else
@@ -2920,7 +2944,6 @@ static const u8 sXScissorDescription[] = _(
 	"dummy\n"
 	"dummy");
 
-
 // Gen4 EFFECT_QUICK_ATTACK
 static const u8 sAquaJetDescription[] = _(
 	"dummy\n"
@@ -2942,13 +2965,37 @@ static const u8 sVacuumWaveDescription[] = _(
 	"dummy\n"
 	"dummy");
     
-    // Gen4 EFFECT_OVERHEAT
-
+// Gen4 EFFECT_OVERHEAT
 static const u8 sDracoMeteorDescription[] = _(
 	"dummy\n"
 	"dummy");
     
 static const u8 sLeafStormDescription[] = _(
+	"dummy\n"
+	"dummy");
+
+// Gen4 EFFECT_HIGH_CRITICAL
+static const u8 sAttackOrderDescription[] = _(
+	"dummy\n"
+	"dummy");
+    
+static const u8 sNightSlashDescription[] = _(
+	"dummy\n"
+	"dummy");
+    
+static const u8 sPsychoCutDescription[] = _(
+	"dummy\n"
+	"dummy");
+    
+static const u8 sShadowClawDescription[] = _(
+	"dummy\n"
+	"dummy");
+    
+static const u8 sSpacialRendDescription[] = _(
+	"dummy\n"
+	"dummy");
+    
+static const u8 sStoneEdgeDescription[] = _(
 	"dummy\n"
 	"dummy");
 #endif
@@ -3329,4 +3376,12 @@ const u8 *const gMoveDescriptionPointers[MOVES_COUNT - 1] =
     // Gen4 EFFECT_OVERHEAT
     [MOVE_DRACO_METEOR - 1] = sDracoMeteorDescription,
     [MOVE_LEAF_STORM - 1] = sLeafStormDescription,
+
+    // Gen4 EFFECT_HIGH_CRITICAL
+    [MOVE_ATTACK_ORDER - 1] = sAttackOrderDescription,
+    [MOVE_NIGHT_SLASH - 1] = sNightSlashDescription,
+    [MOVE_PSYCHO_CUT - 1] = sPsychoCutDescription,
+    [MOVE_SHADOW_CLAW - 1] = sShadowClawDescription,
+    [MOVE_SPACIAL_REND - 1] = sSpacialRendDescription,
+    [MOVE_STONE_EDGE - 1] = sStoneEdgeDescription,
 };

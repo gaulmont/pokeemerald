@@ -390,6 +390,14 @@ gBattleAnims_Moves::
 	.4byte Move_DRACO_METEOR
 	.4byte Move_LEAF_STORM
 
+	@Gen4 EFFECT_HIGH_CRITICAL
+	.4byte Move_ATTACK_ORDER
+	.4byte Move_NIGHT_SLASH
+	.4byte Move_PSYCHO_CUT
+	.4byte Move_SHADOW_CLAW
+	.4byte Move_SPACIAL_REND
+	.4byte Move_STONE_EDGE
+
 	.4byte Move_COUNT @ cannot be reached, because last move is Psycho Boost
 
 	.align 2
@@ -10102,6 +10110,14 @@ Move_LEAF_STORM:
 	clearmonbg ANIM_DEF_PARTNER
 	blendoff
 	end
+
+@Gen4 EFFECT_HIGH_CRITICAL
+Move_ATTACK_ORDER:
+Move_NIGHT_SLASH:
+Move_PSYCHO_CUT:
+Move_SHADOW_CLAW:
+Move_SPACIAL_REND:
+Move_STONE_EDGE:
 
 Move_COUNT:
 	loadspritegfx ANIM_TAG_IMPACT
