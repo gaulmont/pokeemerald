@@ -4983,13 +4983,13 @@ const struct BattleMove gBattleMoves[MOVES_COUNT] =
 
 	[MOVE_COPYCAT] =
     {
-        .effect = EFFECT_SPLASH,
+        .effect = EFFECT_MIRROR_MOVE,
         .power = 0,
-        .type = TYPE_NORMAL,
+        .type = TYPE_FLYING,
         .accuracy = 0,
-        .pp = 40,
+        .pp = 20,
         .secondaryEffectChance = 0,
-        .target = MOVE_TARGET_USER,
+        .target = MOVE_TARGET_DEPENDS,
         .priority = 0,
         .flags = FLAG_IS_STATUS,
     },
@@ -5828,15 +5828,15 @@ const struct BattleMove gBattleMoves[MOVES_COUNT] =
 
 	[MOVE_CHATTER] =
     {
-        .effect = EFFECT_SPLASH,
-        .power = 0,
-        .type = TYPE_NORMAL,
-        .accuracy = 0,
-        .pp = 40,
-        .secondaryEffectChance = 0,
-        .target = MOVE_TARGET_USER,
+        .effect = EFFECT_CONFUSE_HIT,
+        .power = 60,
+        .type = TYPE_FLYING,
+        .accuracy = 100,
+        .pp = 20,
+        .secondaryEffectChance = 15,
+        .target = MOVE_TARGET_SELECTED,
         .priority = 0,
-        .flags = FLAG_IS_STATUS,
+        .flags = FLAG_IS_SPECIAL | FLAG_PROTECT_AFFECTED | FLAG_MIRROR_MOVE_AFFECTED,
     },
 
 	[MOVE_JUDGMENT] =
@@ -5958,15 +5958,15 @@ const struct BattleMove gBattleMoves[MOVES_COUNT] =
 
 	[MOVE_DOUBLE_HIT] =
     {
-        .effect = EFFECT_SPLASH,
-        .power = 0,
+        .effect = EFFECT_DOUBLE_HIT,
+        .power = 35,
         .type = TYPE_NORMAL,
-        .accuracy = 0,
-        .pp = 40,
+        .accuracy = 90,
+        .pp = 10,
         .secondaryEffectChance = 0,
-        .target = MOVE_TARGET_USER,
+        .target = MOVE_TARGET_SELECTED,
         .priority = 0,
-        .flags = FLAG_IS_STATUS,
+        .flags = FLAG_MAKES_CONTACT | FLAG_PROTECT_AFFECTED | FLAG_KINGSROCK_AFFECTED,
     },
 
 	[MOVE_ROAR_OF_TIME] =
