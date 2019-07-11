@@ -5191,15 +5191,15 @@ const struct BattleMove gBattleMoves[MOVES_COUNT] =
 
 	[MOVE_DARK_PULSE] =
     {
-        .effect = EFFECT_SPLASH,
-        .power = 0,
-        .type = TYPE_NORMAL,
-        .accuracy = 0,
-        .pp = 40,
-        .secondaryEffectChance = 0,
-        .target = MOVE_TARGET_USER,
+        .effect = EFFECT_FLINCH_HIT,
+        .power = 80,
+        .type = TYPE_DARK,
+        .accuracy = 100,
+        .pp = 15,
+        .secondaryEffectChance = 20,
+        .target = MOVE_TARGET_SELECTED,
         .priority = 0,
-        .flags = FLAG_IS_STATUS,
+        .flags = FLAG_IS_SPECIAL | FLAG_PROTECT_AFFECTED | FLAG_MIRROR_MOVE_AFFECTED | FLAG_KINGSROCK_AFFECTED,
     },
 
     [MOVE_NIGHT_SLASH] =
@@ -5243,15 +5243,15 @@ const struct BattleMove gBattleMoves[MOVES_COUNT] =
 
 	[MOVE_AIR_SLASH] =
     {
-        .effect = EFFECT_SPLASH,
-        .power = 0,
-        .type = TYPE_NORMAL,
-        .accuracy = 0,
-        .pp = 40,
-        .secondaryEffectChance = 0,
-        .target = MOVE_TARGET_USER,
+        .effect = EFFECT_FLINCH_HIT,
+        .power = 75,
+        .type = TYPE_FLYING,
+        .accuracy = 95,
+        .pp = 20,
+        .secondaryEffectChance = 30,
+        .target = MOVE_TARGET_SELECTED,
         .priority = 0,
-        .flags = FLAG_IS_STATUS,
+        .flags = FLAG_IS_SPECIAL | FLAG_PROTECT_AFFECTED | FLAG_MIRROR_MOVE_AFFECTED | FLAG_KINGSROCK_AFFECTED,
     },
 
     [MOVE_X_SCISSOR] =
@@ -5295,15 +5295,15 @@ const struct BattleMove gBattleMoves[MOVES_COUNT] =
 
 	[MOVE_DRAGON_RUSH] =
     {
-        .effect = EFFECT_SPLASH,
-        .power = 0,
-        .type = TYPE_NORMAL,
-        .accuracy = 0,
-        .pp = 40,
-        .secondaryEffectChance = 0,
-        .target = MOVE_TARGET_USER,
+        .effect = EFFECT_FLINCH_HIT,
+        .power = 100,
+        .type = TYPE_DRAGON,
+        .accuracy = 75,
+        .pp = 10,
+        .secondaryEffectChance = 20,
+        .target = MOVE_TARGET_SELECTED,
         .priority = 0,
-        .flags = FLAG_IS_STATUS,
+        .flags = FLAG_MAKES_CONTACT | FLAG_MIRROR_MOVE_AFFECTED | FLAG_KINGSROCK_AFFECTED,
     },
 
 	[MOVE_POWER_GEM] =
@@ -5568,15 +5568,15 @@ const struct BattleMove gBattleMoves[MOVES_COUNT] =
 
 	[MOVE_ZEN_HEADBUTT] =
     {
-        .effect = EFFECT_SPLASH,
-        .power = 0,
-        .type = TYPE_NORMAL,
-        .accuracy = 0,
-        .pp = 40,
-        .secondaryEffectChance = 0,
-        .target = MOVE_TARGET_USER,
+        .effect = EFFECT_FLINCH_HIT,
+        .power = 80,
+        .type = TYPE_PSYCHIC,
+        .accuracy = 90,
+        .pp = 15,
+        .secondaryEffectChance = 20,
+        .target = MOVE_TARGET_SELECTED,
         .priority = 0,
-        .flags = FLAG_IS_STATUS,
+        .flags = FLAG_MAKES_CONTACT | FLAG_PROTECT_AFFECTED | FLAG_KINGSROCK_AFFECTED,
     },
 
 	[MOVE_MIRROR_SHOT] =
@@ -5750,15 +5750,15 @@ const struct BattleMove gBattleMoves[MOVES_COUNT] =
 
 	[MOVE_IRON_HEAD] =
     {
-        .effect = EFFECT_SPLASH,
-        .power = 0,
-        .type = TYPE_NORMAL,
-        .accuracy = 0,
-        .pp = 40,
-        .secondaryEffectChance = 0,
-        .target = MOVE_TARGET_USER,
+        .effect = EFFECT_FLINCH_HIT,
+        .power = 80,
+        .type = TYPE_STEEL,
+        .accuracy = 100,
+        .pp = 15,
+        .secondaryEffectChance = 30,
+        .target = MOVE_TARGET_SELECTED,
         .priority = 0,
-        .flags = FLAG_IS_STATUS,
+        .flags = FLAG_MAKES_CONTACT | FLAG_PROTECT_AFFECTED | FLAG_MIRROR_MOVE_AFFECTED,
     },
 
 	[MOVE_MAGNET_BOMB] =
