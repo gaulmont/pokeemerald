@@ -285,14 +285,31 @@ BattleScript_HitFromAtkAnimation::
 	tryfaintmon BS_TARGET, FALSE, NULL
 	
 	jumpifhalfword CMP_EQUAL, gChosenMove, MOVE_VOLT_TACKLE, Custom_VoltTackle
+	
+	jumpifhalfword CMP_EQUAL, gChosenMove, MOVE_THUNDER_FANG, Custom_ThunderFang
+	jumpifhalfword CMP_EQUAL, gChosenMove, MOVE_ICE_FANG, Custom_IceFang
+	jumpifhalfword CMP_EQUAL, gChosenMove, MOVE_FIRE_FANG, Custom_FireFang
+
 BattleScript_MoveEnd::
 	moveendall
 	end
 
+Custom_ThunderFang::
 Custom_VoltTackle::
 	setmoveeffect MOVE_EFFECT_PARALYSIS
 	seteffectwithchance
 	goto BattleScript_MoveEnd
+
+Custom_IceFang::
+	setmoveeffect MOVE_EFFECT_FREEZE
+	seteffectwithchance
+	goto BattleScript_MoveEnd
+
+Custom_FireFang::
+	setmoveeffect MOVE_EFFECT_BURN
+	seteffectwithchance
+	goto BattleScript_MoveEnd
+
 
 BattleScript_MakeMoveMissed::
 	orbyte gMoveResultFlags, MOVE_RESULT_MISSED
