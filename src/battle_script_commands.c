@@ -1276,7 +1276,8 @@ static void atk04_critcalc(void)
                 + 2 * (holdEffect == HOLD_EFFECT_LUCKY_PUNCH && gBattleMons[gBattlerAttacker].species == SPECIES_CHANSEY)
                 + 2 * (holdEffect == HOLD_EFFECT_STICK && gBattleMons[gBattlerAttacker].species == SPECIES_FARFETCHD)
                 //gen4
-                + (gBattleMoves[gCurrentMove].effect == EFFECT_RAZOR_WIND);
+                + (gBattleMoves[gCurrentMove].effect == EFFECT_RAZOR_WIND)
+                + (gCurrentMove == MOVE_CROSS_POISON);
 
     if (critChance >= ARRAY_COUNT(sCriticalHitChance))
         critChance = ARRAY_COUNT(sCriticalHitChance) - 1;

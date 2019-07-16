@@ -1081,7 +1081,12 @@ BattleScript_EffectSpecialAttackDownHit::
 	goto BattleScript_EffectHit
 
 BattleScript_EffectSpecialDefenseDownHit::
+	jumpifhalfword CMP_EQUAL, gChosenMove, MOVE_SEED_FLARE, Custom_SeedFlare
 	setmoveeffect MOVE_EFFECT_SP_DEF_MINUS_1
+	goto BattleScript_EffectHit
+
+Custom_SeedFlare::
+	setmoveeffect MOVE_EFFECT_SP_DEF_MINUS_2
 	goto BattleScript_EffectHit
 
 BattleScript_EffectAccuracyDownHit::
