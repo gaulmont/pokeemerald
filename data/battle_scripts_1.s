@@ -708,12 +708,6 @@ BattleScript_EffectRestoreHp::
 	datahpupdate BS_ATTACKER
 	printstring STRINGID_PKMNREGAINEDHEALTH
 	waitmessage 0x40
-
-	jumpifhalfword CMP_EQUAL, gChosenMove, MOVE_ROOST, EffectRoost 
-	goto BattleScript_MoveEnd
-
-EffectRoost:
-	setstatus3 BS_ATTACKER, STATUS3_ROOST
 	goto BattleScript_MoveEnd
 
 BattleScript_EffectToxic::

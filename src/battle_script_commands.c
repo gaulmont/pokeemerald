@@ -1405,7 +1405,8 @@ static void atk06_typecalc(void)
             else if (TYPE_EFFECT_ATK_TYPE(i) == moveType)
             {
                 //Roost
-                if (TYPE_EFFECT_DEF_TYPE(i) == TYPE_FLYING && ((gStatuses3[gBattlerTarget] & STATUS3_ROOST) != 0))
+                if ((GetBattlerTurnOrderNum(BS_TARGET) < gCurrentTurnActionNumber && gLastMoves[BS_TARGET] == MOVE_ROOST)
+                && (TYPE_EFFECT_DEF_TYPE(i) == TYPE_FLYING))
                 {
                     i += 3;
                     continue;

@@ -785,10 +785,6 @@ enum
     ENDTURN_TAUNT,
     ENDTURN_YAWN,
     ENDTURN_ITEMS2,
-
-    //custom
-    ENDTURN_ROOST,
-
     ENDTURN_BATTLER_COUNT
 };
 
@@ -1097,15 +1093,6 @@ u8 DoBattlerEndTurnEffects(void)
                         BattleScriptExecute(BattleScript_YawnMakesAsleep);
                         effect++;
                     }
-                }
-                gBattleStruct->turnEffectsTracker++;
-                break;
-                
-            //custom
-            case ENDTURN_ROOST:  // roost
-                if ((gStatuses3[gActiveBattler] & STATUS3_ROOST) != 0)
-                {
-                    gStatuses3[gActiveBattler] &= ~STATUS3_ROOST;
                 }
                 gBattleStruct->turnEffectsTracker++;
                 break;
