@@ -325,6 +325,8 @@ static void atkF5_removeattackerstatus1(void);
 static void atkF6_finishaction(void);
 static void atkF7_finishturn(void);
 static void atkF8_trainerslideout(void);
+//custom
+static void atkF9_setstatus3(void);
 
 void (* const gBattleScriptingCommandsTable[])(void) =
 {
@@ -576,7 +578,9 @@ void (* const gBattleScriptingCommandsTable[])(void) =
     atkF5_removeattackerstatus1,
     atkF6_finishaction,
     atkF7_finishturn,
-    atkF8_trainerslideout
+    atkF8_trainerslideout,
+    //custom
+    atkF9_setstatus3
 };
 
 struct StatFractions
@@ -1400,6 +1404,13 @@ static void atk06_typecalc(void)
             }
             else if (TYPE_EFFECT_ATK_TYPE(i) == moveType)
             {
+                //Roost
+                if (TYPE_EFFECT_DEF_TYPE(i) == TYPE_FLYING && ((gStatuses3[gBattlerTarget] & STATUS3_ROOST) != 0))
+                {
+                    i += 3;
+                    continue;
+                }
+
                 // check type1
                 if (TYPE_EFFECT_DEF_TYPE(i) == gBattleMons[gBattlerTarget].type1)
                     ModulateDmgByType(TYPE_EFFECT_MULTIPLIER(i));
@@ -10525,4 +10536,13 @@ static void atkF8_trainerslideout(void)
     MarkBattlerForControllerExec(gActiveBattler);
 
     gBattlescriptCurrInstr += 2;
+}
+
+static void atkF9_setstatus3(void)
+{
+    u8 battlerId = GetBattlerForBattleScript(gBattlescriptCurrInstr[1]);
+    u32 status = T2_READ_32(gBattlescriptCurrInstr + 2);
+
+    gStatuses3[battlerId] |= status;
+    gBattlescriptCurrInstr += 5;
 }

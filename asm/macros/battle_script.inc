@@ -1245,6 +1245,13 @@
 	.byte 0xf8
 	.byte \param0
 	.endm
+
+	@custom
+	.macro setstatus3 battler:req, param1:req
+	.byte 0xf9
+	.byte \battler
+	.4byte \param1
+	.endm
 	
 @ various command changed to more readable macros
 	.macro cancelmultiturnmoves battler:req
