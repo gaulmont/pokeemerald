@@ -284,11 +284,12 @@ BattleScript_HitFromAtkAnimation::
 	seteffectwithchance
 	tryfaintmon BS_TARGET, FALSE, NULL
 	
-	jumpifhalfword CMP_EQUAL, gChosenMove, MOVE_VOLT_TACKLE, Custom_VoltTackle
+	jumpifmove MOVE_VOLT_TACKLE, Custom_VoltTackle
+	jumpifmove MOVE_FLARE_BLITZ, Custom_FlareBlitz
 	
-	jumpifhalfword CMP_EQUAL, gChosenMove, MOVE_THUNDER_FANG, Custom_ThunderFang
-	jumpifhalfword CMP_EQUAL, gChosenMove, MOVE_ICE_FANG, Custom_IceFang
-	jumpifhalfword CMP_EQUAL, gChosenMove, MOVE_FIRE_FANG, Custom_FireFang
+	jumpifmove MOVE_THUNDER_FANG, Custom_ThunderFang
+	jumpifmove MOVE_ICE_FANG, Custom_IceFang
+	jumpifmove MOVE_FIRE_FANG, Custom_FireFang
 
 BattleScript_MoveEnd::
 	moveendall
@@ -305,6 +306,7 @@ Custom_IceFang::
 	seteffectwithchance
 	goto BattleScript_MoveEnd
 
+Custom_FlareBlitz::
 Custom_FireFang::
 	setmoveeffect MOVE_EFFECT_BURN
 	seteffectwithchance
@@ -939,9 +941,14 @@ BattleScript_EffectFocusEnergy::
 	goto BattleScript_MoveEnd
 
 BattleScript_EffectRecoil::
+	jumpifmove MOVE_HEAD_SMASH, Custom_HeadSmash
 	setmoveeffect MOVE_EFFECT_RECOIL_25 | MOVE_EFFECT_AFFECTS_USER | MOVE_EFFECT_CERTAIN
 	jumpifnotmove MOVE_STRUGGLE, BattleScript_EffectHit
 	incrementgamestat GAME_STAT_USED_STRUGGLE
+	goto BattleScript_EffectHit
+
+Custom_HeadSmash::
+	setmoveeffect MOVE_EFFECT_RECOIL_50 | MOVE_EFFECT_AFFECTS_USER | MOVE_EFFECT_CERTAIN
 	goto BattleScript_EffectHit
 
 BattleScript_EffectConfuse::
@@ -1098,7 +1105,7 @@ BattleScript_EffectSpecialAttackDownHit::
 	goto BattleScript_EffectHit
 
 BattleScript_EffectSpecialDefenseDownHit::
-	jumpifhalfword CMP_EQUAL, gChosenMove, MOVE_SEED_FLARE, Custom_SeedFlare
+	jumpifmove MOVE_SEED_FLARE, Custom_SeedFlare
 	setmoveeffect MOVE_EFFECT_SP_DEF_MINUS_1
 	goto BattleScript_EffectHit
 
