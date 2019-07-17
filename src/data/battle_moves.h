@@ -6023,15 +6023,15 @@ const struct BattleMove gBattleMoves[MOVES_COUNT] =
 
 	[MOVE_MAGMA_STORM] =
     {
-        .effect = EFFECT_SPLASH,
-        .power = 0,
-        .type = TYPE_NORMAL,
-        .accuracy = 0,
-        .pp = 40,
+        .effect = EFFECT_TRAP,
+        .power = 120,
+        .type = TYPE_FIRE,
+        .accuracy = 70,
+        .pp = 5,
         .secondaryEffectChance = 0,
-        .target = MOVE_TARGET_USER,
+        .target = MOVE_TARGET_SELECTED,
         .priority = 0,
-        .flags = FLAG_IS_STATUS,
+        .flags = FLAG_IS_SPECIAL | FLAG_PROTECT_AFFECTED | FLAG_MIRROR_MOVE_AFFECTED | FLAG_KINGSROCK_AFFECTED,
     },
 
 	[MOVE_DARK_VOID] =
