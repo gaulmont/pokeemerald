@@ -253,6 +253,10 @@ BattleScript_EffectUnused83::
 BattleScript_EffectUnused8d::
 BattleScript_EffectUnusedA3::
 BattleScript_EffectHit::
+	jumpifnotmove MOVE_HAMMER_ARM, Custom_HammerArm
+	setmoveeffect MOVE_EFFECT_SPD_MINUS_1 | MOVE_EFFECT_AFFECTS_USER | MOVE_EFFECT_CERTAIN
+Custom_HammerArm::
+
 	jumpifnotmove MOVE_SURF, BattleScript_HitFromAtkCanceler
 	jumpifnostatus3 BS_TARGET, STATUS3_UNDERWATER, BattleScript_HitFromAtkCanceler
 	orword gHitMarker, HITMARKER_IGNORE_UNDERWATER
