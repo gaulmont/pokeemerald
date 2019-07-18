@@ -230,6 +230,9 @@ gBattleScriptsForMoveEffects:: @ 82D86A8
 	.4byte BattleScript_EffectDragonDance
 	.4byte BattleScript_EffectCamouflage
 
+	@4g
+	.4byte BattleScript_EffectHammerArm
+
 BattleScript_EffectSpeedUp::
 BattleScript_EffectSpecialDefenseUp::
 BattleScript_EffectAccuracyUp::
@@ -253,10 +256,6 @@ BattleScript_EffectUnused83::
 BattleScript_EffectUnused8d::
 BattleScript_EffectUnusedA3::
 BattleScript_EffectHit::
-	jumpifnotmove MOVE_HAMMER_ARM, Custom_HammerArm
-	setmoveeffect MOVE_EFFECT_SPD_MINUS_1 | MOVE_EFFECT_AFFECTS_USER | MOVE_EFFECT_CERTAIN
-Custom_HammerArm::
-
 	jumpifnotmove MOVE_SURF, BattleScript_HitFromAtkCanceler
 	jumpifnostatus3 BS_TARGET, STATUS3_UNDERWATER, BattleScript_HitFromAtkCanceler
 	orword gHitMarker, HITMARKER_IGNORE_UNDERWATER
@@ -2862,6 +2861,10 @@ BattleScript_EffectCamouflage::
 	printstring STRINGID_PKMNCHANGEDTYPE
 	waitmessage 0x40
 	goto BattleScript_MoveEnd
+
+BattleScript_EffectHammerArm::
+	setmoveeffect MOVE_EFFECT_SPD_MINUS_1 | MOVE_EFFECT_AFFECTS_USER | MOVE_EFFECT_CERTAIN
+	goto BattleScript_EffectHit
 
 BattleScript_FaintAttacker::
 	playfaintcry BS_ATTACKER
