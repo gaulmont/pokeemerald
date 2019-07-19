@@ -1252,6 +1252,10 @@
 	.byte \battler
 	.4byte \param1
 	.endm
+
+	.macro overrideeffect
+	.byte 0xfa
+	.endm
 	
 @ various command changed to more readable macros
 	.macro cancelmultiturnmoves battler:req

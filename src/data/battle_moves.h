@@ -4918,15 +4918,15 @@ const struct BattleMove gBattleMoves[MOVES_COUNT] =
 
 	[MOVE_WRING_OUT] =
     {
-        .effect = EFFECT_SPLASH,
+        .effect = EFFECT_WRING_OUT,
         .power = 0,
         .type = TYPE_NORMAL,
-        .accuracy = 0,
-        .pp = 40,
+        .accuracy = 100,
+        .pp = 5,
         .secondaryEffectChance = 0,
-        .target = MOVE_TARGET_USER,
+        .target = MOVE_TARGET_SELECTED,
         .priority = 0,
-        .flags = FLAG_IS_STATUS,
+        .flags = FLAG_IS_SPECIAL | FLAG_MAKES_CONTACT | FLAG_PROTECT_AFFECTED | FLAG_MIRROR_MOVE_AFFECTED | FLAG_KINGSROCK_AFFECTED,
     },
 
 	[MOVE_POWER_TRICK] =

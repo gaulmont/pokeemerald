@@ -233,6 +233,7 @@ gBattleScriptsForMoveEffects:: @ 82D86A8
 	@4g
 	.4byte BattleScript_EffectHammerArm
 	.4byte BattleScript_EffectChargeBeam
+	.4byte BattleScript_EffectWringOut
 
 BattleScript_EffectSpeedUp::
 BattleScript_EffectSpecialDefenseUp::
@@ -2873,6 +2874,9 @@ BattleScript_EffectChargeBeam::
 	setmoveeffect MOVE_EFFECT_SP_ATK_PLUS_1 | MOVE_EFFECT_AFFECTS_USER | MOVE_EFFECT_CERTAIN
 	goto BattleScript_EffectHit
 
+BattleScript_EffectWringOut::
+	overrideeffect
+	goto BattleScript_EffectHit
 
 BattleScript_FaintAttacker::
 	playfaintcry BS_ATTACKER

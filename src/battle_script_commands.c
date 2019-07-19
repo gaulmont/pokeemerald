@@ -327,6 +327,7 @@ static void atkF7_finishturn(void);
 static void atkF8_trainerslideout(void);
 //custom
 static void atkF9_setstatus3(void);
+static void atkFA_overrideeffect(void);
 
 void (* const gBattleScriptingCommandsTable[])(void) =
 {
@@ -580,7 +581,8 @@ void (* const gBattleScriptingCommandsTable[])(void) =
     atkF7_finishturn,
     atkF8_trainerslideout,
     //custom
-    atkF9_setstatus3
+    atkF9_setstatus3,
+    atkFA_overrideeffect
 };
 
 struct StatFractions
@@ -10555,4 +10557,16 @@ static void atkF9_setstatus3(void)
 
     gStatuses3[battlerId] |= status;
     gBattlescriptCurrInstr += 5;
+}
+
+static void atkFA_overrideeffect(void)
+{
+    if (gCurrentMove == MOVE_WRING_OUT)
+    {
+        gDynamicBasePower = 120 * (gBattleMons[gBattlerTarget].hp / gBattleMons[gBattlerTarget].maxHP);
+        if (gDynamicBasePower == 0)
+            gDynamicBasePower = 1;
+    }
+
+    gBattlescriptCurrInstr++;
 }
