@@ -236,6 +236,7 @@ gBattleScriptsForMoveEffects:: @ 82D86A8
 	.4byte BattleScript_EffectWringOut
 	.4byte BattleScript_EffectPunishment
 	.4byte BattleScript_EffectGyroBall
+	.4byte BattleScript_EffectCloseCombat
 
 BattleScript_EffectSpeedUp::
 BattleScript_EffectSpecialDefenseUp::
@@ -2881,6 +2882,29 @@ BattleScript_EffectPunishment::
 BattleScript_EffectWringOut::
 	overrideeffect
 	goto BattleScript_EffectHit
+
+BattleScript_EffectCloseCombat::
+	setmoveeffect MOVE_EFFECT_DEF_SPDEF_MINUS_1 | MOVE_EFFECT_AFFECTS_USER | MOVE_EFFECT_CERTAIN
+	goto BattleScript_EffectHit
+
+BattleScript_DefSpDefDown::
+	setbyte sSTAT_ANIM_PLAYED, FALSE
+	playstatchangeanimation BS_ATTACKER, BIT_DEF | BIT_SPDEF, ATK48_DONT_CHECK_LOWER | ATK48_STAT_NEGATIVE | ATK48_ONLY_MULTIPLE
+	playstatchangeanimation BS_ATTACKER, BIT_DEF, ATK48_DONT_CHECK_LOWER | ATK48_STAT_NEGATIVE
+	setstatchanger STAT_DEF, 1, TRUE
+	statbuffchange MOVE_EFFECT_AFFECTS_USER | MOVE_EFFECT_CERTAIN | STAT_CHANGE_BS_PTR, BattleScript_DefSpDefDownTrySpDef
+	jumpifbyte CMP_EQUAL, cMULTISTRING_CHOOSER, 0x2, BattleScript_DefSpDefDownTrySpDef
+	printfromtable gStatDownStringIds
+	waitmessage 0x40
+BattleScript_DefSpDefDownTrySpDef::
+	playstatchangeanimation BS_ATTACKER, BIT_SPDEF, ATK48_DONT_CHECK_LOWER | ATK48_STAT_NEGATIVE
+	setstatchanger STAT_SPDEF, 1, TRUE
+	statbuffchange MOVE_EFFECT_AFFECTS_USER | MOVE_EFFECT_CERTAIN | STAT_CHANGE_BS_PTR, BattleScript_DefSpDefDownRet
+	jumpifbyte CMP_EQUAL, cMULTISTRING_CHOOSER, 0x2, BattleScript_DefSpDefDownRet
+	printfromtable gStatDownStringIds
+	waitmessage 0x40
+BattleScript_DefSpDefDownRet::
+	return
 
 BattleScript_FaintAttacker::
 	playfaintcry BS_ATTACKER

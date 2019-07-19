@@ -283,7 +283,7 @@
 #define MOVE_EFFECT_THRASH              0x35
 #define MOVE_EFFECT_KNOCK_OFF           0x36
 #define MOVE_EFFECT_RECOIL_50           0x37    //custom
-#define MOVE_EFFECT_NOTHING_38          0x38
+#define MOVE_EFFECT_DEF_SPDEF_MINUS_1   0x38
 #define MOVE_EFFECT_NOTHING_39          0x39
 #define MOVE_EFFECT_NOTHING_3A          0x3A
 #define MOVE_EFFECT_SP_ATK_TWO_DOWN     0x3B

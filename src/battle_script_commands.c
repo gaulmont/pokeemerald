@@ -2865,6 +2865,10 @@ void SetMoveEffect(bool8 primary, u8 certain)
                 BattleScriptPush(gBattlescriptCurrInstr + 1);
                 gBattlescriptCurrInstr = sMoveEffectBS_Ptrs[gBattleCommunication[MOVE_EFFECT_BYTE]];
                 break;
+            case MOVE_EFFECT_DEF_SPDEF_MINUS_1:
+                BattleScriptPush(gBattlescriptCurrInstr + 1);
+                gBattlescriptCurrInstr = BattleScript_DefSpDefDown;
+                break;
             case MOVE_EFFECT_THRASH:
                 if (gBattleMons[gEffectBattler].status2 & STATUS2_LOCK_CONFUSE)
                 {
