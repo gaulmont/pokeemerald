@@ -2873,7 +2873,7 @@ BattleScript_EffectHammerArm::
 	goto BattleScript_EffectHit
 
 BattleScript_EffectChargeBeam::
-	setmoveeffect MOVE_EFFECT_SP_ATK_PLUS_1 | MOVE_EFFECT_AFFECTS_USER | MOVE_EFFECT_CERTAIN
+	setmoveeffect MOVE_EFFECT_SP_ATK_PLUS_1 | MOVE_EFFECT_AFFECTS_USER
 	goto BattleScript_EffectHit
 
 BattleScript_EffectGyroBall::
