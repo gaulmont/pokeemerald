@@ -450,6 +450,29 @@ const u8 gTypeEffectiveness[336] =
     TYPE_ENDTABLE, TYPE_ENDTABLE, TYPE_MUL_NO_EFFECT
 };
 
+#ifdef FRENCH
+const u8 gTypeNames[][TYPE_NAME_LENGTH + 1] =
+{
+    _("NORMAL"),
+    _("COMBAT"),
+    _("VOL"),
+    _("POISON"),
+    _("SOL"),
+    _("ROCHE"),
+    _("INSECT"),
+    _("SPECTR"),
+    _("ACIER"),
+    _("???"),
+    _("FEU"),
+    _("EAU"),
+    _("PLANTE"),
+    _("ELECTR"),
+    _("PSY"),
+    _("GLACE"),
+    _("DRAGON"),
+    _("TENEBR"),
+};
+#else
 const u8 gTypeNames[][TYPE_NAME_LENGTH + 1] =
 {
     _("NORMAL"),
@@ -471,6 +494,7 @@ const u8 gTypeNames[][TYPE_NAME_LENGTH + 1] =
     _("DRAGON"),
     _("DARK"),
 };
+#endif
 
 // This is a factor in how much money you get for beating a trainer.
 const struct TrainerMoney gTrainerMoneyTable[] =
