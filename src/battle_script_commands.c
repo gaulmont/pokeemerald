@@ -76,6 +76,9 @@ static void PutLevelAndGenderOnLvlUpBox(void);
 
 static void SpriteCB_MonIconOnLvlUpBox(struct Sprite* sprite);
 
+//Custom
+u8 GetBattlerSpeed(u8 battlerId);
+
 static void atk00_attackcanceler(void);
 static void atk01_accuracycheck(void);
 static void atk02_attackstring(void);
@@ -10578,11 +10581,64 @@ static void atkFA_overrideeffect(void)
                 positiveStages += gBattleMons[gBattlerTarget].statStages[i] - 6;
         }
 
-        if (positiveStages > 7)
-            positiveStages = 7;
-
-        gDynamicBasePower = 60 + (20 * positiveStages);
+        gDynamicBasePower = 60 + (20 * min(7, positiveStages));
+    }
+    else if (gCurrentMove == MOVE_GYRO_BALL)
+    {
+        gDynamicBasePower = min(150, 25 * (GetBattlerSpeed(gBattlerTarget) / GetBattlerSpeed(gBattlerAttacker)));
     }
 
     gBattlescriptCurrInstr++;
+}
+
+u8 GetBattlerSpeed(u8 battlerId)
+{
+    u8 speedMultiplierBattler = 0;
+    u32 speedBattler = 0;
+    u8 holdEffect = 0;
+    u8 holdEffectParam = 0;
+
+    if (WEATHER_HAS_EFFECT)
+    {
+        if ((gBattleMons[battlerId].ability == ABILITY_SWIFT_SWIM && gBattleWeather & WEATHER_RAIN_ANY)
+            || (gBattleMons[battlerId].ability == ABILITY_CHLOROPHYLL && gBattleWeather & WEATHER_SUN_ANY))
+            speedMultiplierBattler = 2;
+        else
+            speedMultiplierBattler = 1;
+    }
+    else
+    {
+        speedMultiplierBattler = 1;
+    }
+
+    speedBattler = (gBattleMons[battlerId].speed * speedMultiplierBattler)
+                * (gStatStageRatios[gBattleMons[battlerId].statStages[STAT_SPEED]][0])
+                / (gStatStageRatios[gBattleMons[battlerId].statStages[STAT_SPEED]][1]);
+
+    if (gBattleMons[battlerId].item == ITEM_ENIGMA_BERRY)
+    {
+        holdEffect = gEnigmaBerries[battlerId].holdEffect;
+        holdEffectParam = gEnigmaBerries[battlerId].holdEffectParam;
+    }
+    else
+    {
+        holdEffect = ItemId_GetHoldEffect(gBattleMons[battlerId].item);
+        holdEffectParam = ItemId_GetHoldEffectParam(gBattleMons[battlerId].item);
+    }
+
+    // badge boost
+    if (!(gBattleTypeFlags & (BATTLE_TYPE_LINK | BATTLE_TYPE_x2000000 | BATTLE_TYPE_FRONTIER))
+        && FlagGet(FLAG_BADGE03_GET)
+        && GetBattlerSide(battlerId) == B_SIDE_PLAYER)
+    {
+        speedBattler = (speedBattler * 110) / 100;
+    }
+
+    if (holdEffect == HOLD_EFFECT_MACHO_BRACE)
+        speedBattler /= 2;
+
+    if (gBattleMons[battlerId].status1 & STATUS1_PARALYSIS)
+        speedBattler /= 4;
+
+    return speedBattler;
 }

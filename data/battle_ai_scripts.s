@@ -789,6 +789,7 @@ AI_CheckViability:
 	@4g
 	if_effect EFFECT_WRING_OUT, AI_CV_WringOut
 	if_effect EFFECT_PUNISHMENT, AI_CV_Punishment
+	if_effect EFFECT_GYRO_BALL, AI_CV_GyroBall
 	end
 
 AI_CV_Sleep: @ 82DCA92
@@ -2779,16 +2780,21 @@ AI_CV_WringOut_End:
 	end
 
 AI_CV_Punishment:
-	if_stat_level_more_than AI_USER, STAT_ATK, 9, Score_Plus3
-	if_stat_level_more_than AI_USER, STAT_ATK, 8, Score_Plus2
-	if_stat_level_more_than AI_USER, STAT_DEF, 9, Score_Plus3
-	if_stat_level_more_than AI_USER, STAT_DEF, 8, Score_Plus2
-	if_stat_level_more_than AI_USER, STAT_SPATK, 9, Score_Plus3
-	if_stat_level_more_than AI_USER, STAT_SPATK, 8, Score_Plus2
-	if_stat_level_more_than AI_USER, STAT_SPDEF, 9, Score_Plus3
-	if_stat_level_more_than AI_USER, STAT_SPDEF, 8, Score_Plus2
-	if_stat_level_more_than AI_USER, STAT_SPEED, 9, Score_Plus3
-	if_stat_level_more_than AI_USER, STAT_SPEED, 8, Score_Plus2
+	if_stat_level_more_than AI_TARGET, STAT_ATK, 9, Score_Plus3
+	if_stat_level_more_than AI_TARGET, STAT_ATK, 8, Score_Plus2
+	if_stat_level_more_than AI_TARGET, STAT_DEF, 9, Score_Plus3
+	if_stat_level_more_than AI_TARGET, STAT_DEF, 8, Score_Plus2
+	if_stat_level_more_than AI_TARGET, STAT_SPATK, 9, Score_Plus3
+	if_stat_level_more_than AI_TARGET, STAT_SPATK, 8, Score_Plus2
+	if_stat_level_more_than AI_TARGET, STAT_SPDEF, 9, Score_Plus3
+	if_stat_level_more_than AI_TARGET, STAT_SPDEF, 8, Score_Plus2
+	if_stat_level_more_than AI_TARGET, STAT_SPEED, 9, Score_Plus3
+	if_stat_level_more_than AI_TARGET, STAT_SPEED, 8, Score_Plus2
+	end
+
+AI_CV_GyroBall:
+	if_user_faster Score_Minus3
+	if_stat_level_more_than AI_TARGET, STAT_SPEED, 7, Score_Plus2
 	end
 
 AI_TryToFaint:

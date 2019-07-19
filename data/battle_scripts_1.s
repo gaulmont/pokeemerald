@@ -235,6 +235,7 @@ gBattleScriptsForMoveEffects:: @ 82D86A8
 	.4byte BattleScript_EffectChargeBeam
 	.4byte BattleScript_EffectWringOut
 	.4byte BattleScript_EffectPunishment
+	.4byte BattleScript_EffectGyroBall
 
 BattleScript_EffectSpeedUp::
 BattleScript_EffectSpecialDefenseUp::
@@ -2875,6 +2876,7 @@ BattleScript_EffectChargeBeam::
 	setmoveeffect MOVE_EFFECT_SP_ATK_PLUS_1 | MOVE_EFFECT_AFFECTS_USER | MOVE_EFFECT_CERTAIN
 	goto BattleScript_EffectHit
 
+BattleScript_EffectGyroBall::
 BattleScript_EffectPunishment::
 BattleScript_EffectWringOut::
 	overrideeffect
