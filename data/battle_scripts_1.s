@@ -1603,7 +1603,7 @@ BattleScript_EffectEndure::
 
 BattleScript_EffectSpikes::
 	attackcanceler
-	trysetspikes BattleScript_ButItFailedAtkStringPpReduce
+	trysetspikes BattleScript_ButItFailedAtkStringPpReduce, HAZARD_SPIKES
 	attackstring
 	ppreduce
 	attackanimation

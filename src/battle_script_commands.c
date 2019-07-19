@@ -8743,17 +8743,39 @@ static void atkAF_cursetarget(void)
 static void atkB0_trysetspikes(void)
 {
     u8 targetSide = GetBattlerSide(gBattlerAttacker) ^ BIT_SIDE;
+    u8 type = T1_READ_8(gBattlescriptCurrInstr + 5);
+    u8 amount;
 
-    if (gSideTimers[targetSide].spikesAmount == 3)
+    switch (type)
+    {
+        case HAZARD_SPIKES: amount = gSideTimers[targetSide].spikesAmount; break;
+        case HAZARD_STEALTH_ROCK: amount = gSideTimers[targetSide].stealthRockAmount; break;
+        case HAZARD_TOXIC_SPIKES: amount = gSideTimers[targetSide].toxicSpikesAmount; break;
+    }
+
+    if ((type != HAZARD_STEALTH_ROCK && amount == 3) || (type == HAZARD_STEALTH_ROCK && amount == 1))
     {
         gSpecialStatuses[gBattlerAttacker].ppNotAffectedByPressure = 1;
         gBattlescriptCurrInstr = T1_READ_PTR(gBattlescriptCurrInstr + 1);
     }
     else
     {
-        gSideStatuses[targetSide] |= SIDE_STATUS_SPIKES;
-        gSideTimers[targetSide].spikesAmount++;
-        gBattlescriptCurrInstr += 5;
+        switch (type)
+        {
+            case HAZARD_SPIKES:
+                gSideStatuses[targetSide] |= SIDE_STATUS_SPIKES;
+                gSideTimers[targetSide].spikesAmount++;
+                break;
+            case HAZARD_STEALTH_ROCK:
+                gSideStatuses[targetSide] |= SIDE_STATUS_STEALTH_ROCK;
+                gSideTimers[targetSide].stealthRockAmount++;
+                break;
+            case HAZARD_TOXIC_SPIKES:
+                gSideStatuses[targetSide] |= SIDE_STATUS_TOXIC_SPIKES;
+                gSideTimers[targetSide].toxicSpikesAmount++;
+                break;
+        }
+        gBattlescriptCurrInstr += 6;
     }
 }
 
@@ -9092,6 +9114,21 @@ static void atkBE_rapidspinfree(void)
     {
         gSideStatuses[GetBattlerSide(gBattlerAttacker)] &= ~(SIDE_STATUS_SPIKES);
         gSideTimers[GetBattlerSide(gBattlerAttacker)].spikesAmount = 0;
+        BattleScriptPushCursor();
+        gBattlescriptCurrInstr = BattleScript_SpikesFree;
+    }
+    //4g
+    else if (gSideStatuses[GetBattlerSide(gBattlerAttacker)] & SIDE_STATUS_STEALTH_ROCK)
+    {
+        gSideStatuses[GetBattlerSide(gBattlerAttacker)] &= ~(SIDE_STATUS_STEALTH_ROCK);
+        gSideTimers[GetBattlerSide(gBattlerAttacker)].stealthRockAmount = 0;
+        BattleScriptPushCursor();
+        gBattlescriptCurrInstr = BattleScript_SpikesFree;
+    }
+    else if (gSideStatuses[GetBattlerSide(gBattlerAttacker)] & SIDE_STATUS_TOXIC_SPIKES)
+    {
+        gSideStatuses[GetBattlerSide(gBattlerAttacker)] &= ~(SIDE_STATUS_TOXIC_SPIKES);
+        gSideTimers[GetBattlerSide(gBattlerAttacker)].toxicSpikesAmount = 0;
         BattleScriptPushCursor();
         gBattlescriptCurrInstr = BattleScript_SpikesFree;
     }

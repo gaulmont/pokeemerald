@@ -913,9 +913,10 @@
 	.4byte \param0
 	.endm
 
-	.macro trysetspikes param0:req
+	.macro trysetspikes param0:req type:req
 	.byte 0xb0
 	.4byte \param0
+	.byte \type
 	.endm
 
 	.macro setforesight

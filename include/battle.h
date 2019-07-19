@@ -160,7 +160,10 @@ struct SideTimer
     u8 safeguardBattlerId;
     u8 followmeTimer;
     u8 followmeTarget;
-    u8 spikesAmount;
+    u8 spikesAmount:2;
+    u8 stealthRockAmount:2;
+    u8 toxicSpikesAmount:2;
+    u8 placeHolder:2;
 };
 
 struct WishFutureKnock

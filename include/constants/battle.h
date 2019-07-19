@@ -201,6 +201,16 @@
 #define SIDE_STATUS_MIST             (1 << 8)
 #define SIDE_STATUS_SPIKES_DAMAGED   (1 << 9)
 
+//4g
+#define SIDE_STATUS_STEALTH_ROCK     (1 << 10)
+#define SIDE_STATUS_STEALTH_ROCK_DAMAGED     (1 << 11)
+#define SIDE_STATUS_TOXIC_SPIKES     (1 << 12)
+
+// Custom : Hazards
+#define HAZARD_SPIKES           0
+#define HAZARD_STEALTH_ROCK     1
+#define HAZARD_TOXIC_SPIKES     2
+
 // Flags describing move's result
 #define MOVE_RESULT_MISSED             (1 << 0)
 #define MOVE_RESULT_SUPER_EFFECTIVE    (1 << 1)
