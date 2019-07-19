@@ -212,6 +212,9 @@ AI_CheckBadMove_CheckEffect: @ 82DC045
 	if_effect EFFECT_WATER_SPORT, AI_CBM_WaterSport
 	if_effect EFFECT_CALM_MIND, AI_CBM_CalmMind
 	if_effect EFFECT_DRAGON_DANCE, AI_CBM_DragonDance
+
+	@4g
+	if_effect EFFECT_WRING_OUT, AI_CBM_WringOut
 	end
 
 AI_CBM_Sleep: @ 82DC2D4
@@ -602,6 +605,10 @@ AI_CBM_DragonDance: @ 82DC778
 	if_stat_level_equal AI_USER, STAT_SPEED, 12, Score_Minus8
 	end
 
+AI_CBM_WringOut:
+	if_hp_less_than AI_TARGET, 40, Score_Minus10
+	end
+
 Score_Minus1:
 	score -1
 	end
@@ -778,6 +785,10 @@ AI_CheckViability:
 	if_effect EFFECT_WATER_SPORT, AI_CV_WaterSport
 	if_effect EFFECT_CALM_MIND, AI_CV_SpDefUp
 	if_effect EFFECT_DRAGON_DANCE, AI_CV_DragonDance
+
+	@4g
+	if_effect EFFECT_WRING_OUT, AI_CV_WringOut
+	if_effect EFFECT_PUNISHMENT, AI_CV_Punishment
 	end
 
 AI_CV_Sleep: @ 82DCA92
@@ -2754,6 +2765,30 @@ AI_CV_DragonDance2:
 	score +1
 
 AI_CV_DragonDance_End:
+	end
+
+@4g
+AI_CV_WringOut:
+	if_hp_more_than AI_TARGET, 90, AI_CV_WringOut2
+	goto AI_CV_WringOut_End
+
+AI_CV_WringOut2:
+	score +2
+
+AI_CV_WringOut_End:
+	end
+
+AI_CV_Punishment:
+	if_stat_level_more_than AI_USER, STAT_ATK, 9, Score_Plus3
+	if_stat_level_more_than AI_USER, STAT_ATK, 8, Score_Plus2
+	if_stat_level_more_than AI_USER, STAT_DEF, 9, Score_Plus3
+	if_stat_level_more_than AI_USER, STAT_DEF, 8, Score_Plus2
+	if_stat_level_more_than AI_USER, STAT_SPATK, 9, Score_Plus3
+	if_stat_level_more_than AI_USER, STAT_SPATK, 8, Score_Plus2
+	if_stat_level_more_than AI_USER, STAT_SPDEF, 9, Score_Plus3
+	if_stat_level_more_than AI_USER, STAT_SPDEF, 8, Score_Plus2
+	if_stat_level_more_than AI_USER, STAT_SPEED, 9, Score_Plus3
+	if_stat_level_more_than AI_USER, STAT_SPEED, 8, Score_Plus2
 	end
 
 AI_TryToFaint:

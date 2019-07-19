@@ -10567,6 +10567,22 @@ static void atkFA_overrideeffect(void)
         if (gDynamicBasePower == 0)
             gDynamicBasePower = 1;
     }
+    else if (gCurrentMove == MOVE_PUNISHMENT)
+    {
+        u8 positiveStages = 0;
+        
+        u8 i;
+        for (i = 0; i < NUM_BATTLE_STATS; i++)
+        {
+            if (gBattleMons[gBattlerTarget].statStages[i] > 6)
+                positiveStages += gBattleMons[gBattlerTarget].statStages[i] - 6;
+        }
+
+        if (positiveStages > 7)
+            positiveStages = 7;
+
+        gDynamicBasePower = 60 + (20 * positiveStages);
+    }
 
     gBattlescriptCurrInstr++;
 }
