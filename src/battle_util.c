@@ -785,6 +785,7 @@ enum
     ENDTURN_TAUNT,
     ENDTURN_YAWN,
     ENDTURN_ITEMS2,
+    ENDTURN_AQUARING,
     ENDTURN_BATTLER_COUNT
 };
 
@@ -1096,7 +1097,20 @@ u8 DoBattlerEndTurnEffects(void)
                 }
                 gBattleStruct->turnEffectsTracker++;
                 break;
-
+            case ENDTURN_AQUARING:  // 4g Aqua_Ring
+                if ((gStatuses3[gActiveBattler] & STATUS3_AQUA_RING)
+                 && gBattleMons[gActiveBattler].hp != gBattleMons[gActiveBattler].maxHP
+                 && gBattleMons[gActiveBattler].hp != 0)
+                {
+                    gBattleMoveDamage = gBattleMons[gActiveBattler].maxHP / 16;
+                    if (gBattleMoveDamage == 0)
+                        gBattleMoveDamage = 1;
+                    gBattleMoveDamage *= -1;
+                    BattleScriptExecute(BattleScript_AquaRingTurnHeal);
+                    effect++;
+                }
+                gBattleStruct->turnEffectsTracker++;
+                break;
             case ENDTURN_BATTLER_COUNT:  // done
                 gBattleStruct->turnEffectsTracker = 0;
                 gBattleStruct->turnEffectsBattlerId++;

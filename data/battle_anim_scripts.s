@@ -525,6 +525,8 @@ gBattleAnims_General::
 	.4byte General_FocusPunchSetUp
 	.4byte General_IngrainHeal
 	.4byte General_WishHeal
+	@4g
+	.4byte General_AquaRingHeal
 
 	.align 2
 gBattleAnims_Special::
@@ -11038,6 +11040,9 @@ General_WishHeal:
 	waitforvisualfinish
 	createsprite gSimplePaletteBlendSpriteTemplate, ANIM_ATTACKER, 2, 1, 3, 10, 0, RGB_BLACK
 	end
+
+General_AquaRingHeal:
+	goto Status_Freeze
 
 AnimScript_82D85A3:
 	createvisualtask AnimTask_IsAttackerBehindSubstitute, 2

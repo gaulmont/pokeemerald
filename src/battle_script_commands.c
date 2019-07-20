@@ -329,7 +329,7 @@ static void atkF6_finishaction(void);
 static void atkF7_finishturn(void);
 static void atkF8_trainerslideout(void);
 //custom
-static void atkF9_setstatus3(void);
+static void atkF9_trysetstatus3(void);
 static void atkFA_overrideeffect(void);
 
 void (* const gBattleScriptingCommandsTable[])(void) =
@@ -584,7 +584,7 @@ void (* const gBattleScriptingCommandsTable[])(void) =
     atkF7_finishturn,
     atkF8_trainerslideout,
     //custom
-    atkF9_setstatus3,
+    atkF9_trysetstatus3,
     atkFA_overrideeffect
 };
 
@@ -10563,13 +10563,19 @@ static void atkF8_trainerslideout(void)
     gBattlescriptCurrInstr += 2;
 }
 
-static void atkF9_setstatus3(void)
+static void atkF9_trysetstatus3(void)
 {
     u8 battlerId = GetBattlerForBattleScript(gBattlescriptCurrInstr[1]);
-    u32 status = T2_READ_32(gBattlescriptCurrInstr + 2);
+    u32 flags = T2_READ_32(gBattlescriptCurrInstr + 2);
+    const u8* jumpPtr = T2_READ_PTR(gBattlescriptCurrInstr + 6);
 
-    gStatuses3[battlerId] |= status;
-    gBattlescriptCurrInstr += 5;
+    if (gStatuses3[battlerId] & flags)
+        gBattlescriptCurrInstr = jumpPtr;
+    else
+    {
+        gStatuses3[battlerId] |= flags;
+        gBattlescriptCurrInstr += 10;
+    }
 }
 
 static void atkFA_overrideeffect(void)

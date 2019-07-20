@@ -954,6 +954,8 @@ static const u8 sText_Trainer2LoseText[];
 
 //4g
 static const u8 sText_HeartSwapText[];
+static const u8 sText_AquaRingSetupText[];
+static const u8 sText_AquaRingHealText[];
 
 const u8 * const gBattleStringsTable[BATTLESTRINGS_COUNT] =
 {
@@ -1326,9 +1328,10 @@ const u8 * const gBattleStringsTable[BATTLESTRINGS_COUNT] =
     [STRINGID_PKMNBOXLANETTESPCFULL - 12] = gText_PkmnBoxLanettesPCFull,
     [STRINGID_TRAINER1WINTEXT - 12] = sText_Trainer1WinText,
     [STRINGID_TRAINER2WINTEXT - 12] = sText_Trainer2WinText,
-
     //4g
     [STRINGID_HEARTSWAP - 12] = sText_HeartSwapText,
+    [STRINGID_AQUA_RING_SETUP - 12] = sText_AquaRingSetupText,
+    [STRINGID_AQUA_RING_HEAL - 12] = sText_AquaRingHealText,
 };
 
 const u16 gMissStringIds[] =
@@ -1764,6 +1767,8 @@ static const u8 sText_TwoLinkTrainersWantToBattlePause[] = _("{B_LINK_OPPONENT1_
 
 //4g
 static const u8 sText_HeartSwapText[] = _("{B_ATK_NAME_WITH_PREFIX} échange\nles changements de stats avec la cible!");
+static const u8 sText_AquaRingSetupText[] = _("{B_ATK_NAME_WITH_PREFIX} s'entoure\nd'un voile d'eau!");
+static const u8 sText_AquaRingHealText[] = _("Le voile d'eau restaure les PV de\n{B_ATK_NAME_WITH_PREFIX}!");
 
 #else
 
@@ -1928,9 +1933,10 @@ const u8 gText_RecordBattleToPass[] = _("Would you like to record your battle\no
 const u8 gText_BattleRecordedOnPass[] = _("{B_PLAYER_NAME}'s battle result was recorded\non the FRONTIER PASS.");
 static const u8 sText_LinkTrainerWantsToBattlePause[] = _("{B_LINK_OPPONENT1_NAME}\nwants to battle!{PAUSE 49}");
 static const u8 sText_TwoLinkTrainersWantToBattlePause[] = _("{B_LINK_OPPONENT1_NAME} and {B_LINK_OPPONENT2_NAME}\nwant to battle!{PAUSE 49}");
-
 //4g
 static const u8 sText_HeartSwapText[] = _("{B_ATK_NAME_WITH_PREFIX} switched\nstat changes with the target!");
+static const u8 sText_AquaRingSetupText[] = _("{B_ATK_NAME_WITH_PREFIX} surronded\nitself with a veil of water!");
+static const u8 sText_AquaRingHealText[] = _("AQUA RING restored\n{B_ATK_NAME_WITH_PREFIX}'s HP!");
 
 #endif
 

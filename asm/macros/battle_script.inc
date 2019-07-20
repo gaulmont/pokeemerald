@@ -1247,10 +1247,11 @@
 	.endm
 
 	@custom
-	.macro setstatus3 battler:req, param1:req
+	.macro trysetstatus3 battler:req, param1:req, param2:req
 	.byte 0xf9
 	.byte \battler
 	.4byte \param1
+	.4byte \param2
 	.endm
 
 	.macro overrideeffect

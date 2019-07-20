@@ -240,6 +240,7 @@ gBattleScriptsForMoveEffects:: @ 82D86A8
 	.4byte BattleScript_EffectHeartSwap
 	.4byte BattleScript_EffectSuckerPunch
 	.4byte BattleScript_EffectAcupressure
+	.4byte BattleScript_EffectAquaRing
 
 BattleScript_EffectSpeedUp::
 BattleScript_EffectSpecialDefenseUp::
@@ -2940,6 +2941,26 @@ BattleScript_DefSpDefDownTrySpDef::
 	waitmessage 0x40
 BattleScript_DefSpDefDownRet::
 	return
+
+BattleScript_EffectAquaRing::
+	attackcanceler
+	attackstring
+	ppreduce
+	trysetstatus3 BS_ATTACKER, STATUS3_AQUA_RING, BattleScript_ButItFailed
+	attackanimation
+	waitanimation
+	printstring STRINGID_AQUA_RING_SETUP
+	waitmessage 0x40
+	goto BattleScript_MoveEnd
+
+BattleScript_AquaRingTurnHeal::
+	playanimation BS_ATTACKER, B_ANIM_AQUA_RING_HEAL, NULL
+	printstring STRINGID_AQUA_RING_HEAL
+	waitmessage 0x40
+	orword gHitMarker, HITMARKER_IGNORE_SUBSTITUTE
+	healthbarupdate BS_ATTACKER
+	datahpupdate BS_ATTACKER
+	end2
 
 BattleScript_FaintAttacker::
 	playfaintcry BS_ATTACKER
