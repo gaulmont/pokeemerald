@@ -5179,6 +5179,7 @@ static void SelectContestMoveBankTarget(u16 move)
     {
     case MOVE_TARGET_USER_OR_SELECTED:
     case MOVE_TARGET_USER:
+    case MOVE_TARGET_USER_OR_ALLY:
         gBattlerTarget = 2;
         break;
     case MOVE_TARGET_SELECTED:

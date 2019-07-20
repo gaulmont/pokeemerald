@@ -239,6 +239,7 @@ static u8 sub_805D4A8(u16 move)
     case MOVE_TARGET_RANDOM:
     case MOVE_TARGET_BOTH:
     case MOVE_TARGET_FOES_AND_ALLY:
+    case MOVE_TARGET_USER_OR_ALLY:
         if (gBattleMoves[move].power == 0)
             return 2;
         else

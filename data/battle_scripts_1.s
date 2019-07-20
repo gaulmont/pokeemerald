@@ -2903,10 +2903,21 @@ BattleScript_EffectSuckerPunch::
 	goto BattleScript_EffectHit
 
 BattleScript_EffectAcupressure::
+	attackcanceler
+	jumpifstatus2 BS_TARGET, STATUS2_SUBSTITUTE, BattleScript_MakeMoveMissed
+	attackstring
+	ppreduce
 	overrideeffect
 	jumpifmovehadnoeffect BattleScript_ButItFailedAtkStringPpReduce
-	goto BattleScript_EffectStatUp
-
+	attackanimation
+	waitanimation
+	statbuffchange STAT_CHANGE_BS_PTR, BattleScript_MoveEnd
+	setgraphicalstatchangevalues
+	playanimation BS_TARGET, B_ANIM_STATS_CHANGE, sB_ANIM_ARG1
+	printfromtable gStatUpStringIds
+	waitmessage 0x40
+	goto BattleScript_MoveEnd
+	
 BattleScript_EffectCloseCombat::
 	setmoveeffect MOVE_EFFECT_DEF_SPDEF_MINUS_1 | MOVE_EFFECT_AFFECTS_USER | MOVE_EFFECT_CERTAIN
 	goto BattleScript_EffectHit
