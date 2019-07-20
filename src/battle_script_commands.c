@@ -10609,6 +10609,13 @@ static void atkFA_overrideeffect(void)
             gBattleMons[gBattlerTarget].statStages[i] = tempStageValue;
         }
     }
+    else if (gCurrentMove == MOVE_SUCKER_PUNCH)
+    {
+        if ((GetBattlerTurnOrderNum(BS_ATTACKER) < GetBattlerTurnOrderNum(BS_TARGET)) || IS_MOVE_STATUS(gBattleMoves[gChosenMoveByBattler[gBattlerTarget]]))
+        {
+            gMoveResultFlags |= MOVE_RESULT_FAILED;
+        }
+    }
 
     gBattlescriptCurrInstr++;
 }
