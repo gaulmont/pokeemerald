@@ -4773,15 +4773,15 @@ const struct BattleMove gBattleMoves[MOVES_COUNT] =
         .flags = FLAG_IS_STATUS,
     },
 
-	[MOVE_ACCUPRESSURE] =
+	[MOVE_ACUPRESSURE] =
     {
-        .effect = EFFECT_SPLASH,
+        .effect = EFFECT_ACUPRESSURE,
         .power = 0,
         .type = TYPE_NORMAL,
         .accuracy = 0,
-        .pp = 40,
+        .pp = 30,
         .secondaryEffectChance = 0,
-        .target = MOVE_TARGET_USER,
+        .target = MOVE_TARGET_USER_OR_ALLY,
         .priority = 0,
         .flags = FLAG_IS_STATUS,
     },

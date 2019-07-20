@@ -239,6 +239,7 @@ gBattleScriptsForMoveEffects:: @ 82D86A8
 	.4byte BattleScript_EffectCloseCombat
 	.4byte BattleScript_EffectHeartSwap
 	.4byte BattleScript_EffectSuckerPunch
+	.4byte BattleScript_EffectAcupressure
 
 BattleScript_EffectSpeedUp::
 BattleScript_EffectSpecialDefenseUp::
@@ -2900,6 +2901,11 @@ BattleScript_EffectSuckerPunch::
 	overrideeffect
 	jumpifmovehadnoeffect BattleScript_ButItFailedAtkStringPpReduce
 	goto BattleScript_EffectHit
+
+BattleScript_EffectAcupressure::
+	overrideeffect
+	jumpifmovehadnoeffect BattleScript_ButItFailedAtkStringPpReduce
+	goto BattleScript_EffectStatUp
 
 BattleScript_EffectCloseCombat::
 	setmoveeffect MOVE_EFFECT_DEF_SPDEF_MINUS_1 | MOVE_EFFECT_AFFECTS_USER | MOVE_EFFECT_CERTAIN

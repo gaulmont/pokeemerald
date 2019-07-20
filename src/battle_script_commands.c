@@ -10616,6 +10616,30 @@ static void atkFA_overrideeffect(void)
             gMoveResultFlags |= MOVE_RESULT_FAILED;
         }
     }
+    else if (gCurrentMove == MOVE_ACUPRESSURE)
+    {        
+        u8 i, counter = 0;
+        for (i = STAT_ATK; i < NUM_BATTLE_STATS; i++)
+        {
+            if (gBattleMons[gBattlerTarget].statStages[i] == 12)
+            {
+                counter++;
+            }
+        }
+        if (counter == 7)
+        {
+            gMoveResultFlags |= MOVE_RESULT_FAILED;
+        }
+        else
+        {
+            do
+            {
+                counter = (Random() % NUM_BATTLE_STATS);
+            } while (counter == STAT_HP || gBattleMons[gBattlerTarget].statStages[counter] == 12);
+            
+            SET_STATCHANGER(counter, 2, FALSE);
+        }
+    }
 
     gBattlescriptCurrInstr++;
 }

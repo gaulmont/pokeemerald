@@ -1468,7 +1468,7 @@ static const u8 sTailWindDescription[] = _(
 	"dummy\n"
 	"dummy");
 
-static const u8 sAccupressureDescription[] = _(
+static const u8 sAcupressureDescription[] = _(
 	"dummy\n"
 	"dummy");
 
@@ -3342,7 +3342,7 @@ static const u8 sTailWindDescription[] = _(
 	"dummy\n"
 	"dummy");
 
-static const u8 sAccupressureDescription[] = _(
+static const u8 sAcupressureDescription[] = _(
 	"dummy\n"
 	"dummy");
 
@@ -4118,7 +4118,7 @@ const u8 *const gMoveDescriptionPointers[MOVES_COUNT - 1] =
 	[MOVE_FEINT - 1] = sFeintDescription,
 	[MOVE_PLUCK - 1] = sPluckDescription,
 	[MOVE_TAIL_WIND - 1] = sTailWindDescription,
-	[MOVE_ACCUPRESSURE - 1] = sAccupressureDescription,
+	[MOVE_ACUPRESSURE - 1] = sAcupressureDescription,
 	[MOVE_METAL_BURST - 1] = sMetalBurstDescription,
 	[MOVE_U_TURN - 1] = sUTurnDescription,
 	[MOVE_CLOSE_COMBAT - 1] = sCloseCombatDescription,
