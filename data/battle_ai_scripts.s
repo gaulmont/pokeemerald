@@ -212,9 +212,9 @@ AI_CheckBadMove_CheckEffect: @ 82DC045
 	if_effect EFFECT_WATER_SPORT, AI_CBM_WaterSport
 	if_effect EFFECT_CALM_MIND, AI_CBM_CalmMind
 	if_effect EFFECT_DRAGON_DANCE, AI_CBM_DragonDance
-
 	@4g
 	if_effect EFFECT_CRUSH_GRIP, AI_CBM_CrushGrip
+	if_effect EFFECT_AQUA_RING, AI_CBM_AquaRing
 	end
 
 AI_CBM_Sleep: @ 82DC2D4
@@ -605,8 +605,13 @@ AI_CBM_DragonDance: @ 82DC778
 	if_stat_level_equal AI_USER, STAT_SPEED, 12, Score_Minus8
 	end
 
+@4g
 AI_CBM_CrushGrip:
 	if_hp_less_than AI_TARGET, 40, Score_Minus10
+	end
+
+AI_CBM_AquaRing:
+	if_status3 AI_USER, STATUS3_AQUA_RING, Score_Minus10
 	end
 
 Score_Minus1:
@@ -1882,6 +1887,7 @@ AI_CV_Encore_EncouragedMovesToEncore:
     .byte EFFECT_WATER_SPORT
     .byte EFFECT_DRAGON_DANCE
     .byte EFFECT_CAMOUFLAGE
+	.byte EFFECT_AQUA_RING
     .byte -1
 
 AI_CV_PainSplit:
@@ -2890,6 +2896,7 @@ AI_SetupFirstTurn_SetupEffectsToEncourage:
     .byte EFFECT_BULK_UP
     .byte EFFECT_CALM_MIND
     .byte EFFECT_CAMOUFLAGE
+	.byte EFFECT_AQUA_RING
     .byte -1
 
 AI_PreferStrongestMove:
