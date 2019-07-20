@@ -1102,7 +1102,8 @@ static bool8 AccuracyCalcHelper(u16 move)
     gHitMarker &= ~HITMARKER_IGNORE_UNDERWATER;
 
     if ((WEATHER_HAS_EFFECT && (gBattleWeather & WEATHER_RAIN_ANY) && gBattleMoves[move].effect == EFFECT_THUNDER)
-     || (gBattleMoves[move].effect == EFFECT_ALWAYS_HIT || gBattleMoves[move].effect == EFFECT_VITAL_THROW))
+     || (gBattleMoves[move].effect == EFFECT_ALWAYS_HIT || gBattleMoves[move].effect == EFFECT_VITAL_THROW)
+     || (gBattleMoves[move].effect == EFFECT_HEART_SWAP))
     {
         JumpIfMoveFailed(7, move);
         return TRUE;
@@ -2131,6 +2132,11 @@ static void atk0F_resultmessage(void)
             else if (gMoveResultFlags & MOVE_RESULT_FAILED)
             {
                 stringId = STRINGID_BUTITFAILED;
+            }
+            //4g
+            else if (gCurrentMove == MOVE_HEART_SWAP)
+            {
+                stringId = STRINGID_HEARTSWAP;
             }
             else
             {
@@ -10568,7 +10574,7 @@ static void atkF9_setstatus3(void)
 
 static void atkFA_overrideeffect(void)
 {
-    if (gCurrentMove == MOVE_WRING_OUT)
+    if (gCurrentMove == MOVE_WRING_OUT || gCurrentMove == MOVE_CRUSH_GRIP)
     {
         gDynamicBasePower = 120 * (gBattleMons[gBattlerTarget].hp / gBattleMons[gBattlerTarget].maxHP);
         if (gDynamicBasePower == 0)
@@ -10590,6 +10596,18 @@ static void atkFA_overrideeffect(void)
     else if (gCurrentMove == MOVE_GYRO_BALL)
     {
         gDynamicBasePower = min(150, 25 * (GetBattlerSpeed(gBattlerTarget) / GetBattlerSpeed(gBattlerAttacker)));
+    }
+    else if (gCurrentMove == MOVE_HEART_SWAP)
+    {
+        s8 tempStageValue;
+
+        u8 i;
+        for (i = 0; i < NUM_BATTLE_STATS; i++)
+        {
+            tempStageValue = gBattleMons[gBattlerAttacker].statStages[i];
+            gBattleMons[gBattlerAttacker].statStages[i] = gBattleMons[gBattlerTarget].statStages[i];
+            gBattleMons[gBattlerTarget].statStages[i] = tempStageValue;
+        }
     }
 
     gBattlescriptCurrInstr++;

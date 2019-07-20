@@ -214,7 +214,7 @@ AI_CheckBadMove_CheckEffect: @ 82DC045
 	if_effect EFFECT_DRAGON_DANCE, AI_CBM_DragonDance
 
 	@4g
-	if_effect EFFECT_WRING_OUT, AI_CBM_WringOut
+	if_effect EFFECT_CRUSH_GRIP, AI_CBM_CrushGrip
 	end
 
 AI_CBM_Sleep: @ 82DC2D4
@@ -605,7 +605,7 @@ AI_CBM_DragonDance: @ 82DC778
 	if_stat_level_equal AI_USER, STAT_SPEED, 12, Score_Minus8
 	end
 
-AI_CBM_WringOut:
+AI_CBM_CrushGrip:
 	if_hp_less_than AI_TARGET, 40, Score_Minus10
 	end
 
@@ -787,9 +787,10 @@ AI_CheckViability:
 	if_effect EFFECT_DRAGON_DANCE, AI_CV_DragonDance
 
 	@4g
-	if_effect EFFECT_WRING_OUT, AI_CV_WringOut
+	if_effect EFFECT_CRUSH_GRIP, AI_CV_CrushGrip
 	if_effect EFFECT_PUNISHMENT, AI_CV_Punishment
 	if_effect EFFECT_GYRO_BALL, AI_CV_GyroBall
+	if_effect EFFECT_HEART_SWAP, AI_CV_PsychUp
 	end
 
 AI_CV_Sleep: @ 82DCA92
@@ -2769,14 +2770,14 @@ AI_CV_DragonDance_End:
 	end
 
 @4g
-AI_CV_WringOut:
-	if_hp_more_than AI_TARGET, 90, AI_CV_WringOut2
-	goto AI_CV_WringOut_End
+AI_CV_CrushGrip:
+	if_hp_more_than AI_TARGET, 90, AI_CV_CrushGrip2
+	goto AI_CV_CrushGrip_End
 
-AI_CV_WringOut2:
+AI_CV_CrushGrip2:
 	score +2
 
-AI_CV_WringOut_End:
+AI_CV_CrushGrip_End:
 	end
 
 AI_CV_Punishment:

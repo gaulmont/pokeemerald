@@ -4918,7 +4918,7 @@ const struct BattleMove gBattleMoves[MOVES_COUNT] =
 
 	[MOVE_WRING_OUT] =
     {
-        .effect = EFFECT_WRING_OUT,
+        .effect = EFFECT_CRUSH_GRIP,
         .power = 0,
         .type = TYPE_NORMAL,
         .accuracy = 100,
@@ -5087,15 +5087,15 @@ const struct BattleMove gBattleMoves[MOVES_COUNT] =
 
 	[MOVE_HEART_SWAP] =
     {
-        .effect = EFFECT_SPLASH,
+        .effect = EFFECT_HEART_SWAP,
         .power = 0,
-        .type = TYPE_NORMAL,
+        .type = TYPE_PSYCHIC,
         .accuracy = 0,
-        .pp = 40,
+        .pp = 10,
         .secondaryEffectChance = 0,
-        .target = MOVE_TARGET_USER,
+        .target = MOVE_TARGET_SELECTED,
         .priority = 0,
-        .flags = FLAG_IS_STATUS,
+        .flags = FLAG_IS_STATUS | FLAG_PROTECT_AFFECTED | FLAG_MIRROR_MOVE_AFFECTED,
     },
 
 	[MOVE_AQUA_RING] =
@@ -6010,15 +6010,15 @@ const struct BattleMove gBattleMoves[MOVES_COUNT] =
 
 	[MOVE_CRUSH_GRIP] =
     {
-        .effect = EFFECT_SPLASH,
+        .effect = EFFECT_CRUSH_GRIP,
         .power = 0,
         .type = TYPE_NORMAL,
-        .accuracy = 0,
+        .accuracy = 100,
         .pp = 40,
         .secondaryEffectChance = 0,
-        .target = MOVE_TARGET_USER,
+        .target = MOVE_TARGET_SELECTED,
         .priority = 0,
-        .flags = FLAG_IS_STATUS,
+        .flags = FLAG_MAKES_CONTACT | FLAG_PROTECT_AFFECTED | FLAG_MIRROR_MOVE_AFFECTED | FLAG_KINGSROCK_AFFECTED,
     },
 
 	[MOVE_MAGMA_STORM] =

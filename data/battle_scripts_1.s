@@ -233,10 +233,11 @@ gBattleScriptsForMoveEffects:: @ 82D86A8
 	@4g
 	.4byte BattleScript_EffectHammerArm
 	.4byte BattleScript_EffectChargeBeam
-	.4byte BattleScript_EffectWringOut
+	.4byte BattleScript_EffectCrushGrip
 	.4byte BattleScript_EffectPunishment
 	.4byte BattleScript_EffectGyroBall
 	.4byte BattleScript_EffectCloseCombat
+	.4byte BattleScript_EffectHeartSwap
 
 BattleScript_EffectSpeedUp::
 BattleScript_EffectSpecialDefenseUp::
@@ -2879,9 +2880,20 @@ BattleScript_EffectChargeBeam::
 
 BattleScript_EffectGyroBall::
 BattleScript_EffectPunishment::
-BattleScript_EffectWringOut::
+BattleScript_EffectCrushGrip::
 	overrideeffect
 	goto BattleScript_EffectHit
+
+BattleScript_EffectHeartSwap::
+	attackcanceler
+	attackstring
+	ppreduce
+	attackanimation
+	waitanimation
+	overrideeffect
+	resultmessage
+	waitmessage 0x40
+	goto BattleScript_MoveEnd
 
 BattleScript_EffectCloseCombat::
 	setmoveeffect MOVE_EFFECT_DEF_SPDEF_MINUS_1 | MOVE_EFFECT_AFFECTS_USER | MOVE_EFFECT_CERTAIN

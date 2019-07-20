@@ -952,6 +952,9 @@ static const u8 sText_Trainer2WinText[];
 static const u8 sText_TwoInGameTrainersDefeated[];
 static const u8 sText_Trainer2LoseText[];
 
+//4g
+static const u8 sText_HeartSwapText[];
+
 const u8 * const gBattleStringsTable[BATTLESTRINGS_COUNT] =
 {
     [STRINGID_TRAINER1LOSETEXT - 12] = sText_Trainer1LoseText,
@@ -1323,6 +1326,9 @@ const u8 * const gBattleStringsTable[BATTLESTRINGS_COUNT] =
     [STRINGID_PKMNBOXLANETTESPCFULL - 12] = gText_PkmnBoxLanettesPCFull,
     [STRINGID_TRAINER1WINTEXT - 12] = sText_Trainer1WinText,
     [STRINGID_TRAINER2WINTEXT - 12] = sText_Trainer2WinText,
+
+    //4g
+    [STRINGID_HEARTSWAP - 12] = sText_HeartSwapText,
 };
 
 const u16 gMissStringIds[] =
@@ -1756,6 +1762,8 @@ const u8 gText_BattleRecordedOnPass[] = _("Le résultat de {B_PLAYER_NAME} est\n
 static const u8 sText_LinkTrainerWantsToBattlePause[] = _("{B_LINK_OPPONENT1_NAME}\nveut se battre!{PAUSE 49}");
 static const u8 sText_TwoLinkTrainersWantToBattlePause[] = _("{B_LINK_OPPONENT1_NAME} et {B_LINK_OPPONENT2_NAME}\nveulent se battre!{PAUSE 49}");
 
+//4g
+static const u8 sText_HeartSwapText[] = _("{B_ATK_NAME_WITH_PREFIX} échange\nles changements de stats avec la cible!");
 
 #else
 
@@ -1920,6 +1928,9 @@ const u8 gText_RecordBattleToPass[] = _("Would you like to record your battle\no
 const u8 gText_BattleRecordedOnPass[] = _("{B_PLAYER_NAME}'s battle result was recorded\non the FRONTIER PASS.");
 static const u8 sText_LinkTrainerWantsToBattlePause[] = _("{B_LINK_OPPONENT1_NAME}\nwants to battle!{PAUSE 49}");
 static const u8 sText_TwoLinkTrainersWantToBattlePause[] = _("{B_LINK_OPPONENT1_NAME} and {B_LINK_OPPONENT2_NAME}\nwant to battle!{PAUSE 49}");
+
+//4g
+static const u8 sText_HeartSwapText[] = _("{B_ATK_NAME_WITH_PREFIX} switched\nstat changes with the target!");
 
 #endif
 
