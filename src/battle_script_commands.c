@@ -10796,6 +10796,46 @@ static void atkFB_jumpifcondition(void)
             gBattlescriptCurrInstr = T1_READ_PTR(gBattlescriptCurrInstr + 1);
         }
     }
+    else if (gBattleMoves[gCurrentMove].effect == EFFECT_CAPTIVATE)
+    {
+        // copy from atk97_tryinfatuating
+        struct Pokemon *monAttacker, *monTarget;
+        u16 speciesAttacker, speciesTarget;
+        u32 personalityAttacker, personalityTarget;
+
+        if (GetBattlerSide(gBattlerAttacker) == B_SIDE_PLAYER)
+            monAttacker = &gPlayerParty[gBattlerPartyIndexes[gBattlerAttacker]];
+        else
+            monAttacker = &gEnemyParty[gBattlerPartyIndexes[gBattlerAttacker]];
+
+        if (GetBattlerSide(gBattlerTarget) == B_SIDE_PLAYER)
+            monTarget = &gPlayerParty[gBattlerPartyIndexes[gBattlerTarget]];
+        else
+            monTarget = &gEnemyParty[gBattlerPartyIndexes[gBattlerTarget]];
+
+        speciesAttacker = GetMonData(monAttacker, MON_DATA_SPECIES);
+        personalityAttacker = GetMonData(monAttacker, MON_DATA_PERSONALITY);
+
+        speciesTarget = GetMonData(monTarget, MON_DATA_SPECIES);
+        personalityTarget = GetMonData(monTarget, MON_DATA_PERSONALITY);
+
+        if (gBattleMons[gBattlerTarget].ability == ABILITY_OBLIVIOUS)
+        {
+            gBattlescriptCurrInstr = BattleScript_ObliviousPreventsAttraction;
+            gLastUsedAbility = ABILITY_OBLIVIOUS;
+            RecordAbilityBattle(gBattlerTarget, ABILITY_OBLIVIOUS);
+        }
+        else
+        {
+            if (GetGenderFromSpeciesAndPersonality(speciesAttacker, personalityAttacker) == GetGenderFromSpeciesAndPersonality(speciesTarget, personalityTarget)
+                || GetGenderFromSpeciesAndPersonality(speciesAttacker, personalityAttacker) == MON_GENDERLESS
+                || GetGenderFromSpeciesAndPersonality(speciesTarget, personalityTarget) == MON_GENDERLESS)
+            {
+                flag++;
+                gBattlescriptCurrInstr = T1_READ_PTR(gBattlescriptCurrInstr + 1);
+            }
+        }
+    }
     
     if (!flag)
         gBattlescriptCurrInstr += 5;

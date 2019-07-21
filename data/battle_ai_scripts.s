@@ -217,6 +217,7 @@ AI_CheckBadMove_CheckEffect: @ 82DC045
 	if_effect EFFECT_AQUA_RING, AI_CBM_AquaRing
 	if_effect EFFECT_FEINT, AI_CBM_Feint
 	if_effect EFFECT_METAL_BURST, AI_CBM_MetalBurst
+	if_effect EFFECT_CAPTIVATE, AI_CBM_Captivate
 	end
 
 AI_CBM_Sleep: @ 82DC2D4
@@ -483,6 +484,14 @@ AI_CBM_Attract_CheckIfTargetIsMale: @ 82DC627
 
 AI_CBM_Attract_End: @ 82DC634
 	end
+
+AI_CBM_Captivate:
+	get_ability AI_TARGET
+	if_equal ABILITY_OBLIVIOUS, Score_Minus10
+	get_gender AI_USER
+	if_equal 0, AI_CBM_Attract_CheckIfTargetIsFemale
+	if_equal 254, AI_CBM_Attract_CheckIfTargetIsMale
+	goto Score_Minus10
 
 AI_CBM_Safeguard: @ 82DC635
 	if_side_affecting AI_USER, SIDE_STATUS_SAFEGUARD, Score_Minus8
@@ -2912,6 +2921,8 @@ AI_SetupFirstTurn_SetupEffectsToEncourage:
     .byte EFFECT_CALM_MIND
     .byte EFFECT_CAMOUFLAGE
 	.byte EFFECT_AQUA_RING
+	@4g
+	.byte EFFECT_CAPTIVATE
     .byte -1
 
 AI_PreferStrongestMove:
@@ -3252,6 +3263,8 @@ AI_HPAware_DiscouragedEffectsWhenMediumHP: @ 82DE22D
     .byte EFFECT_BULK_UP
     .byte EFFECT_CALM_MIND
     .byte EFFECT_DRAGON_DANCE
+	@4g
+	.byte EFFECT_CAPTIVATE
     .byte -1
 
 AI_HPAware_DiscouragedEffectsWhenLowHP: @ 82DE258
@@ -3302,6 +3315,8 @@ AI_HPAware_DiscouragedEffectsWhenLowHP: @ 82DE258
     .byte EFFECT_BULK_UP
     .byte EFFECT_CALM_MIND
     .byte EFFECT_DRAGON_DANCE
+	@4g
+	.byte EFFECT_CAPTIVATE
     .byte -1
 
 AI_HPAware_DiscouragedEffectsWhenTargetHighHP: @ 82DE288
@@ -3347,6 +3362,8 @@ AI_HPAware_DiscouragedEffectsWhenTargetMediumHP: @ 82DE289
     .byte EFFECT_BULK_UP
     .byte EFFECT_CALM_MIND
     .byte EFFECT_DRAGON_DANCE
+	@4g
+	.byte EFFECT_CAPTIVATE
     .byte -1
 
 AI_HPAware_DiscouragedEffectsWhenTargetLowHP: @ 82DE2B1
@@ -3409,6 +3426,8 @@ AI_HPAware_DiscouragedEffectsWhenTargetLowHP: @ 82DE2B1
     .byte EFFECT_BULK_UP
     .byte EFFECT_CALM_MIND
     .byte EFFECT_DRAGON_DANCE
+	@4g
+	.byte EFFECT_CAPTIVATE
     .byte -1
 
 AI_Unknown:

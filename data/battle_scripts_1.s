@@ -246,6 +246,7 @@ gBattleScriptsForMoveEffects:: @ 82D86A8
 	.4byte BattleScript_EffectTrumpCard
 	.4byte BattleScript_EffectLastResort
 	.4byte BattleScript_EffectMetalBurst
+	.4byte BattleScript_EffectCaptivate
 
 BattleScript_EffectSpeedUp::
 BattleScript_EffectSpecialDefenseUp::
@@ -256,7 +257,6 @@ BattleScript_EffectSpecialDefenseDown::
 BattleScript_EffectHighCritical::
 BattleScript_EffectAccuracyUp2::
 BattleScript_EffectEvasionUp2::
-BattleScript_EffectSpecialAttackDown2::
 BattleScript_EffectAccuracyDown2::
 BattleScript_EffectEvasionDown2::
 BattleScript_EffectEvasionDownHit::
@@ -1037,6 +1037,10 @@ BattleScript_EffectSpeedDown2::
 
 BattleScript_EffectSpecialDefenseDown2::
 	setstatchanger STAT_SPDEF, 2, TRUE
+	goto BattleScript_EffectStatDown
+
+BattleScript_EffectSpecialAttackDown2::
+	setstatchanger STAT_SPATK, 2, TRUE
 	goto BattleScript_EffectStatDown
 
 BattleScript_EffectReflect::
@@ -2901,6 +2905,7 @@ BattleScript_EffectHeartSwap::
 	attackcanceler
 	attackstring
 	ppreduce
+	accuracycheck BattleScript_MoveMissedPause, ACC_CURR_MOVE
 	attackanimation
 	waitanimation
 	overrideeffect
@@ -2985,6 +2990,10 @@ BattleScript_AquaRingTurnHeal::
 BattleScript_EffectMetalBurst::
 	jumpifcondition BattleScript_EffectCounter
 	goto BattleScript_EffectMirrorCoat
+
+BattleScript_EffectCaptivate::
+	jumpifcondition BattleScript_ButItFailedAtkStringPpReduce
+	goto BattleScript_EffectSpecialAttackDown2
 
 BattleScript_FaintAttacker::
 	playfaintcry BS_ATTACKER
