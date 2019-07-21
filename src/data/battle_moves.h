@@ -5451,15 +5451,15 @@ const struct BattleMove gBattleMoves[MOVES_COUNT] =
 
 	[MOVE_AVALANCHE] =
     {
-        .effect = EFFECT_SPLASH,
-        .power = 0,
-        .type = TYPE_NORMAL,
-        .accuracy = 0,
-        .pp = 40,
+        .effect = EFFECT_REVENGE,
+        .power = 60,
+        .type = TYPE_ICE,
+        .accuracy = 100,
+        .pp = 10,
         .secondaryEffectChance = 0,
-        .target = MOVE_TARGET_USER,
-        .priority = 0,
-        .flags = FLAG_IS_STATUS,
+        .target = MOVE_TARGET_SELECTED,
+        .priority = -4,
+        .flags = FLAG_MAKES_CONTACT | FLAG_MIRROR_MOVE_AFFECTED | FLAG_KINGSROCK_AFFECTED,
     },
 
     [MOVE_ICE_SHARD] =
