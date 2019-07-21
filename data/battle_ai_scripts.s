@@ -216,6 +216,7 @@ AI_CheckBadMove_CheckEffect: @ 82DC045
 	if_effect EFFECT_CRUSH_GRIP, AI_CBM_CrushGrip
 	if_effect EFFECT_AQUA_RING, AI_CBM_AquaRing
 	if_effect EFFECT_FEINT, AI_CBM_Feint
+	if_effect EFFECT_METAL_BURST, AI_CBM_MetalBurst
 	end
 
 AI_CBM_Sleep: @ 82DC2D4
@@ -617,6 +618,10 @@ AI_CBM_AquaRing:
 
 AI_CBM_Feint:
 	if_doesnt_have_move_with_effect AI_TARGET, EFFECT_PROTECT, Score_Minus10
+	end
+
+AI_CBM_MetalBurst:
+	if_user_faster Score_Minus10
 	end
 
 Score_Minus1:

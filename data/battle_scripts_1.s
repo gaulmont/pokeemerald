@@ -244,7 +244,8 @@ gBattleScriptsForMoveEffects:: @ 82D86A8
 	.4byte BattleScript_EffectFeint
 	.4byte BattleScript_EffectBrine
 	.4byte BattleScript_EffectTrumpCard
-	.4byte BattleSCript_EffectLastResort
+	.4byte BattleScript_EffectLastResort
+	.4byte BattleScript_EffectMetalBurst
 
 BattleScript_EffectSpeedUp::
 BattleScript_EffectSpecialDefenseUp::
@@ -2885,7 +2886,7 @@ BattleScript_EffectChargeBeam::
 	setmoveeffect MOVE_EFFECT_SP_ATK_PLUS_1 | MOVE_EFFECT_AFFECTS_USER
 	goto BattleScript_EffectHit
 
-BattleSCript_EffectLastResort::
+BattleScript_EffectLastResort::
 BattleScript_EffectTrumpCard::
 BattleScript_EffectBrine::
 BattleScript_EffectSuckerPunch::
@@ -2980,6 +2981,10 @@ BattleScript_AquaRingTurnHeal::
 	healthbarupdate BS_ATTACKER
 	datahpupdate BS_ATTACKER
 	end2
+
+BattleScript_EffectMetalBurst::
+	jumpifcondition BattleScript_EffectCounter
+	goto BattleScript_EffectMirrorCoat
 
 BattleScript_FaintAttacker::
 	playfaintcry BS_ATTACKER

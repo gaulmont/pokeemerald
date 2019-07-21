@@ -331,6 +331,7 @@ static void atkF8_trainerslideout(void);
 //custom
 static void atkF9_trysetstatus3(void);
 static void atkFA_overrideeffect(void);
+static void atkFB_jumpifcondition(void);
 
 void (* const gBattleScriptingCommandsTable[])(void) =
 {
@@ -585,7 +586,8 @@ void (* const gBattleScriptingCommandsTable[])(void) =
     atkF8_trainerslideout,
     //custom
     atkF9_trysetstatus3,
-    atkFA_overrideeffect
+    atkFA_overrideeffect,
+    atkFB_jumpifcondition
 };
 
 struct StatFractions
@@ -8230,7 +8232,10 @@ static void atkA1_counterdamagecalculator(void)
         && sideAttacker != sideTarget
         && gBattleMons[gProtectStructs[gBattlerAttacker].physicalBattlerId].hp)
     {
-        gBattleMoveDamage = gProtectStructs[gBattlerAttacker].physicalDmg * 2;
+        if (gBattleMoves[gCurrentMove].effect == EFFECT_METAL_BURST)
+            gBattleMoveDamage = gProtectStructs[gBattlerAttacker].physicalDmg * 1.5;
+        else
+            gBattleMoveDamage = gProtectStructs[gBattlerAttacker].physicalDmg * 2;
 
         if (gSideTimers[sideTarget].followmeTimer && gBattleMons[gSideTimers[sideTarget].followmeTarget].hp)
             gBattlerTarget = gSideTimers[sideTarget].followmeTarget;
@@ -8253,7 +8258,10 @@ static void atkA2_mirrorcoatdamagecalculator(void) // a copy of atkA1 with the p
 
     if (gProtectStructs[gBattlerAttacker].specialDmg && sideAttacker != sideTarget && gBattleMons[gProtectStructs[gBattlerAttacker].specialBattlerId].hp)
     {
-        gBattleMoveDamage = gProtectStructs[gBattlerAttacker].specialDmg * 2;
+        if (gBattleMoves[gCurrentMove].effect == EFFECT_METAL_BURST)
+            gBattleMoveDamage = gProtectStructs[gBattlerAttacker].specialDmg * 1.5;
+        else
+            gBattleMoveDamage = gProtectStructs[gBattlerAttacker].specialDmg * 2;
 
         if (gSideTimers[sideTarget].followmeTimer && gBattleMons[gSideTimers[sideTarget].followmeTarget].hp)
             gBattlerTarget = gSideTimers[sideTarget].followmeTarget;
@@ -10716,7 +10724,7 @@ static void atkFA_overrideeffect(void)
         if (i != ++notLastResortMovesUsed)
             gMoveResultFlags |= MOVE_RESULT_FAILED;
     }
-
+    
     gBattlescriptCurrInstr++;
 }
 
@@ -10770,4 +10778,25 @@ u8 GetBattlerSpeed(u8 battlerId)
         speedBattler /= 4;
 
     return speedBattler;
+}
+
+static void atkFB_jumpifcondition(void)
+{
+    u8 flag = 0;
+    if (gBattleMoves[gCurrentMove].effect == EFFECT_METAL_BURST)
+    {
+        u8 sideAttacker = GetBattlerSide(gBattlerAttacker);
+        u8 sideTarget = GetBattlerSide(gProtectStructs[gBattlerAttacker].physicalBattlerId);
+
+        if (gProtectStructs[gBattlerAttacker].physicalDmg
+        && sideAttacker != sideTarget
+        && gBattleMons[gProtectStructs[gBattlerAttacker].physicalBattlerId].hp)
+        {
+            flag++;
+            gBattlescriptCurrInstr = T1_READ_PTR(gBattlescriptCurrInstr + 1);
+        }
+    }
+    
+    if (!flag)
+        gBattlescriptCurrInstr += 5;
 }

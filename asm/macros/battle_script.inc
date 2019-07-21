@@ -1257,6 +1257,11 @@
 	.macro overrideeffect
 	.byte 0xfa
 	.endm
+
+	.macro jumpifcondition param0:req
+	.byte 0xfb
+	.4byte \param0
+	.endm
 	
 @ various command changed to more readable macros
 	.macro cancelmultiturnmoves battler:req
