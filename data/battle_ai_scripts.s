@@ -617,7 +617,7 @@ AI_CBM_AquaRing:
 
 AI_CBM_Feint:
 	if_doesnt_have_move_with_effect AI_TARGET, EFFECT_PROTECT, Score_Minus10
-	end	
+	end
 
 Score_Minus1:
 	score -1

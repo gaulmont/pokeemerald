@@ -10674,6 +10674,48 @@ static void atkFA_overrideeffect(void)
             default: gDynamicBasePower = 40; break;
         }
     }
+    else if (gBattleMoves[gCurrentMove].effect == EFFECT_LAST_RESORT)
+    {
+        s32 i, j;
+        u8 notLastResortMovesUsed = 0;
+        u8 hasOnlyLastResort = 0;
+        u8 doesntHaveLastResort = 0;
+        
+        // only know LastResort
+        if ((gBattleMons[gBattlerAttacker].moves[0] == MOVE_LAST_RESORT) == (gBattleMons[gBattlerAttacker].moves[1] == MOVE_NONE))
+            hasOnlyLastResort++;
+
+        // check if knows LastResort
+        for (i = 0; i < MAX_MON_MOVES; i++)
+        {
+            if (gBattleMons[gBattlerAttacker].moves[i] == MOVE_LAST_RESORT)
+                break;
+        }
+        if (i == MAX_MON_MOVES)
+            doesntHaveLastResort++;
+
+        // if OK, check if all moves are in battleHistory
+        if (!hasOnlyLastResort && !doesntHaveLastResort)
+        {
+            for (i = 0; i < MAX_MON_MOVES; i++) // check mon's moves
+            {
+                if (gBattleMons[gBattlerAttacker].moves[i] == MOVE_NONE)
+                    break;
+
+                if (gBattleMons[gBattlerAttacker].moves[i] == MOVE_LAST_RESORT)
+                    continue;
+
+                for (j = 0; j < MAX_MON_MOVES; j++)
+                {
+                    if (gBattleMons[gBattlerAttacker].moves[i] == gBattleResources->battleHistory->usedMoves[gBattlerAttacker].moves[j])
+                        notLastResortMovesUsed++;
+                }
+            }
+        }
+
+        if (i != ++notLastResortMovesUsed)
+            gMoveResultFlags |= MOVE_RESULT_FAILED;
+    }
 
     gBattlescriptCurrInstr++;
 }
