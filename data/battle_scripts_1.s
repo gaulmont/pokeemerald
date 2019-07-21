@@ -2882,10 +2882,12 @@ BattleScript_EffectChargeBeam::
 	setmoveeffect MOVE_EFFECT_SP_ATK_PLUS_1 | MOVE_EFFECT_AFFECTS_USER
 	goto BattleScript_EffectHit
 
+BattleScript_EffectSuckerPunch::
 BattleScript_EffectGyroBall::
 BattleScript_EffectPunishment::
 BattleScript_EffectCrushGrip::
 	overrideeffect
+	jumpifmovehadnoeffect BattleScript_ButItFailedAtkStringPpReduce
 	goto BattleScript_EffectHit
 
 BattleScript_EffectHeartSwap::
@@ -2900,11 +2902,20 @@ BattleScript_EffectHeartSwap::
 	goto BattleScript_MoveEnd
 
 BattleScript_EffectFeint::
-BattleScript_EffectSuckerPunch::
-	overrideeffect
-	jumpifmovehadnoeffect BattleScript_ButItFailedAtkStringPpReduce
-	goto BattleScript_EffectHit
+	attackcanceler
+	attackstring
+	ppreduce
+	critcalc
+	damagecalc
+	typecalc
+	adjustnormaldamage
 
+	overrideeffect
+	jumpifmovehadnoeffect BattleScript_ButItFailed
+	accuracycheck BattleScript_MoveMissedPause, ACC_CURR_MOVE
+
+	goto BattleScript_HitFromAtkAnimation
+	
 BattleScript_EffectAcupressure::
 	attackcanceler
 	jumpifstatus2 BS_TARGET, STATUS2_SUBSTITUTE, BattleScript_MakeMoveMissed
