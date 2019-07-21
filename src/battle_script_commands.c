@@ -1103,7 +1103,7 @@ static bool8 AccuracyCalcHelper(u16 move)
 
     if ((WEATHER_HAS_EFFECT && (gBattleWeather & WEATHER_RAIN_ANY) && gBattleMoves[move].effect == EFFECT_THUNDER)
      || (gBattleMoves[move].effect == EFFECT_ALWAYS_HIT || gBattleMoves[move].effect == EFFECT_VITAL_THROW)
-     || (gBattleMoves[move].effect == EFFECT_HEART_SWAP))
+     || (gBattleMoves[move].effect == EFFECT_HEART_SWAP || gBattleMoves[move].effect == EFFECT_TRUMP_CARD))
     {
         JumpIfMoveFailed(7, move);
         return TRUE;
@@ -10580,13 +10580,13 @@ static void atkF9_trysetstatus3(void)
 
 static void atkFA_overrideeffect(void)
 {
-    if (gCurrentMove == MOVE_WRING_OUT || gCurrentMove == MOVE_CRUSH_GRIP)
+    if (gBattleMoves[gCurrentMove].effect == EFFECT_CRUSH_GRIP)
     {
         gDynamicBasePower = 120 * (gBattleMons[gBattlerTarget].hp / gBattleMons[gBattlerTarget].maxHP);
         if (gDynamicBasePower == 0)
             gDynamicBasePower = 1;
     }
-    else if (gCurrentMove == MOVE_PUNISHMENT)
+    else if (gBattleMoves[gCurrentMove].effect == MOVE_PUNISHMENT)
     {
         u8 positiveStages = 0;
         
@@ -10599,11 +10599,11 @@ static void atkFA_overrideeffect(void)
 
         gDynamicBasePower = 60 + (20 * min(7, positiveStages));
     }
-    else if (gCurrentMove == MOVE_GYRO_BALL)
+    else if (gBattleMoves[gCurrentMove].effect == EFFECT_GYRO_BALL)
     {
         gDynamicBasePower = min(150, 25 * (GetBattlerSpeed(gBattlerTarget) / GetBattlerSpeed(gBattlerAttacker)));
     }
-    else if (gCurrentMove == MOVE_HEART_SWAP)
+    else if (gBattleMoves[gCurrentMove].effect == EFFECT_HEART_SWAP)
     {
         s8 tempStageValue;
 
@@ -10615,14 +10615,14 @@ static void atkFA_overrideeffect(void)
             gBattleMons[gBattlerTarget].statStages[i] = tempStageValue;
         }
     }
-    else if (gCurrentMove == MOVE_SUCKER_PUNCH)
+    else if (gBattleMoves[gCurrentMove].effect == EFFECT_SUCKER_PUNCH)
     {
         if ((GetBattlerTurnOrderNum(BS_ATTACKER) < GetBattlerTurnOrderNum(BS_TARGET)) || IS_MOVE_STATUS(gBattleMoves[gChosenMoveByBattler[gBattlerTarget]]))
         {
             gMoveResultFlags |= MOVE_RESULT_FAILED;
         }
     }
-    else if (gCurrentMove == MOVE_ACUPRESSURE)
+    else if (gBattleMoves[gCurrentMove].effect == EFFECT_ACUPRESSURE)
     {        
         u8 i, counter = 0;
         for (i = STAT_ATK; i < NUM_BATTLE_STATS; i++)
@@ -10646,7 +10646,7 @@ static void atkFA_overrideeffect(void)
             SET_STATCHANGER(counter, 2, FALSE);
         }
     }
-    else if (gCurrentMove == MOVE_FEINT)
+    else if (gBattleMoves[gCurrentMove].effect == EFFECT_FEINT)
     {
         if (gProtectStructs[gBattlerTarget].protected)
         {            
@@ -10656,11 +10656,22 @@ static void atkFA_overrideeffect(void)
         else
             gMoveResultFlags |= MOVE_RESULT_FAILED;
     }
-    else if (gCurrentMove == MOVE_BRINE)
+    else if (gBattleMoves[gCurrentMove].effect == EFFECT_BRINE)
     {
         if (gBattleMons[gBattlerTarget].hp < (gBattleMons[gBattlerTarget].maxHP / 2))
         {            
-            gBattleMovePower *= 2;
+            gBattleScripting.dmgMultiplier = 2;
+        }
+    }
+    else if (gBattleMoves[gCurrentMove].effect == EFFECT_TRUMP_CARD)
+    {
+        switch (gBattleMons[gBattlerAttacker].pp[gCurrMovePos] - 1)
+        {
+            case 0: gDynamicBasePower = 200; break;
+            case 1: gDynamicBasePower = 80; break;
+            case 2: gDynamicBasePower = 60; break;
+            case 3: gDynamicBasePower = 50; break;
+            default: gDynamicBasePower = 40; break;
         }
     }
 

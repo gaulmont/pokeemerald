@@ -243,6 +243,7 @@ gBattleScriptsForMoveEffects:: @ 82D86A8
 	.4byte BattleScript_EffectAquaRing
 	.4byte BattleScript_EffectFeint
 	.4byte BattleScript_EffectBrine
+	.4byte BattleScript_EffectTrumpCard
 
 BattleScript_EffectSpeedUp::
 BattleScript_EffectSpecialDefenseUp::
@@ -2883,6 +2884,7 @@ BattleScript_EffectChargeBeam::
 	setmoveeffect MOVE_EFFECT_SP_ATK_PLUS_1 | MOVE_EFFECT_AFFECTS_USER
 	goto BattleScript_EffectHit
 
+BattleScript_EffectTrumpCard::
 BattleScript_EffectBrine::
 BattleScript_EffectSuckerPunch::
 BattleScript_EffectGyroBall::
