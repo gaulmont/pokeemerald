@@ -241,6 +241,7 @@ gBattleScriptsForMoveEffects:: @ 82D86A8
 	.4byte BattleScript_EffectSuckerPunch
 	.4byte BattleScript_EffectAcupressure
 	.4byte BattleScript_EffectAquaRing
+	.4byte BattleScript_EffectFeint
 
 BattleScript_EffectSpeedUp::
 BattleScript_EffectSpecialDefenseUp::
@@ -2898,6 +2899,7 @@ BattleScript_EffectHeartSwap::
 	waitmessage 0x40
 	goto BattleScript_MoveEnd
 
+BattleScript_EffectFeint::
 BattleScript_EffectSuckerPunch::
 	overrideeffect
 	jumpifmovehadnoeffect BattleScript_ButItFailedAtkStringPpReduce

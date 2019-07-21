@@ -4736,15 +4736,15 @@ const struct BattleMove gBattleMoves[MOVES_COUNT] =
 
 	[MOVE_FEINT] =
     {
-        .effect = EFFECT_SPLASH,
-        .power = 0,
+        .effect = EFFECT_FEINT,
+        .power = 50,
         .type = TYPE_NORMAL,
-        .accuracy = 0,
-        .pp = 40,
+        .accuracy = 100,
+        .pp = 10,
         .secondaryEffectChance = 0,
-        .target = MOVE_TARGET_USER,
-        .priority = 0,
-        .flags = FLAG_IS_STATUS,
+        .target = MOVE_TARGET_SELECTED,
+        .priority = 2,
+        .flags = FLAG_MIRROR_MOVE_AFFECTED,
     },
 
 	[MOVE_PLUCK] =

@@ -10646,6 +10646,16 @@ static void atkFA_overrideeffect(void)
             SET_STATCHANGER(counter, 2, FALSE);
         }
     }
+    else if (gCurrentMove == MOVE_FEINT)
+    {
+        if (gProtectStructs[gBattlerTarget].protected)
+        {            
+            if (gBattleMons[gBattlerTarget].type1 != TYPE_GHOST && gBattleMons[gBattlerTarget].type2 != TYPE_GHOST)
+                gProtectStructs[gBattlerTarget].protected = 0;
+        }
+        else
+            gMoveResultFlags |= MOVE_RESULT_FAILED;
+    }
 
     gBattlescriptCurrInstr++;
 }
