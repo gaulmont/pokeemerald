@@ -801,6 +801,7 @@ AI_CheckViability:
 	if_effect EFFECT_PUNISHMENT, AI_CV_Punishment
 	if_effect EFFECT_GYRO_BALL, AI_CV_GyroBall
 	if_effect EFFECT_HEART_SWAP, AI_CV_PsychUp
+	if_effect EFFECT_BRINE, AI_CV_Brine
 	end
 
 AI_CV_Sleep: @ 82DCA92
@@ -2807,6 +2808,10 @@ AI_CV_Punishment:
 AI_CV_GyroBall:
 	if_user_faster Score_Minus3
 	if_stat_level_more_than AI_TARGET, STAT_SPEED, 7, Score_Plus2
+	end
+
+AI_CV_Brine:
+	if_hp_less_than AI_TARGET, 51, Score_Plus3
 	end
 
 AI_TryToFaint:

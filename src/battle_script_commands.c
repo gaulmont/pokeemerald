@@ -10656,6 +10656,13 @@ static void atkFA_overrideeffect(void)
         else
             gMoveResultFlags |= MOVE_RESULT_FAILED;
     }
+    else if (gCurrentMove == MOVE_BRINE)
+    {
+        if (gBattleMons[gBattlerTarget].hp < (gBattleMons[gBattlerTarget].maxHP / 2))
+        {            
+            gBattleMovePower *= 2;
+        }
+    }
 
     gBattlescriptCurrInstr++;
 }
