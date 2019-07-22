@@ -247,6 +247,7 @@ gBattleScriptsForMoveEffects:: @ 82D86A8
 	.4byte BattleScript_EffectLastResort
 	.4byte BattleScript_EffectMetalBurst
 	.4byte BattleScript_EffectCaptivate
+	.4byte BattleScript_EffectWorrySeed
 
 BattleScript_EffectSpeedUp::
 BattleScript_EffectSpecialDefenseUp::
@@ -2901,17 +2902,34 @@ BattleScript_EffectCrushGrip::
 	jumpifmovehadnoeffect BattleScript_ButItFailedAtkStringPpReduce
 	goto BattleScript_EffectHit
 
+BattleScript_EffectWorrySeed::
 BattleScript_EffectHeartSwap::
 	attackcanceler
 	attackstring
 	ppreduce
 	accuracycheck BattleScript_MoveMissedPause, ACC_CURR_MOVE
+	overrideeffect	
+	jumpifmovehadnoeffect BattleScript_ButItFailed
 	attackanimation
 	waitanimation
-	overrideeffect
+
+	jumpifmove MOVE_HEART_SWAP, BattleScript_EffectHeartSwapMessage
+	jumpifmove MOVE_WORRY_SEED, BattleScript_EffectWorrySeedMessage
+
 	resultmessage
 	waitmessage 0x40
 	goto BattleScript_MoveEnd
+
+BattleScript_EffectHeartSwapMessage::
+	printstring STRINGID_HEARTSWAP
+	waitmessage 0x40
+	goto BattleScript_MoveEnd
+
+BattleScript_EffectWorrySeedMessage::
+	printstring STRINGID_WORRYSEED
+	waitmessage 0x40
+	goto BattleScript_MoveEnd
+
 
 BattleScript_EffectFeint::
 	attackcanceler

@@ -956,6 +956,7 @@ static const u8 sText_Trainer2LoseText[];
 static const u8 sText_HeartSwapText[];
 static const u8 sText_AquaRingSetupText[];
 static const u8 sText_AquaRingHealText[];
+static const u8 sText_WorrySeedText[];
 
 const u8 * const gBattleStringsTable[BATTLESTRINGS_COUNT] =
 {
@@ -1332,6 +1333,7 @@ const u8 * const gBattleStringsTable[BATTLESTRINGS_COUNT] =
     [STRINGID_HEARTSWAP - 12] = sText_HeartSwapText,
     [STRINGID_AQUA_RING_SETUP - 12] = sText_AquaRingSetupText,
     [STRINGID_AQUA_RING_HEAL - 12] = sText_AquaRingHealText,
+    [STRINGID_WORRYSEED - 12] = sText_WorrySeedText,
 };
 
 const u16 gMissStringIds[] =
@@ -1769,6 +1771,7 @@ static const u8 sText_TwoLinkTrainersWantToBattlePause[] = _("{B_LINK_OPPONENT1_
 static const u8 sText_HeartSwapText[] = _("{B_ATK_NAME_WITH_PREFIX} échange\nles changements de stats avec la cible!");
 static const u8 sText_AquaRingSetupText[] = _("{B_ATK_NAME_WITH_PREFIX} s'entoure\nd'un voile d'eau!");
 static const u8 sText_AquaRingHealText[] = _("Le voile d'eau restaure les PV de\n{B_ATK_NAME_WITH_PREFIX}!");
+static const u8 sText_WorrySeedText[] = _("{B_DEF_NAME_WITH_PREFIX} acquiert\n{B_DEF_ABILITY}!");
 
 #else
 
@@ -1937,6 +1940,7 @@ static const u8 sText_TwoLinkTrainersWantToBattlePause[] = _("{B_LINK_OPPONENT1_
 static const u8 sText_HeartSwapText[] = _("{B_ATK_NAME_WITH_PREFIX} switched\nstat changes with the target!");
 static const u8 sText_AquaRingSetupText[] = _("{B_ATK_NAME_WITH_PREFIX} surronded\nitself with a veil of water!");
 static const u8 sText_AquaRingHealText[] = _("AQUA RING restored\n{B_ATK_NAME_WITH_PREFIX}'s HP!");
+static const u8 sText_WorrySeedText[] = _("{B_DEF_NAME_WITH_PREFIX} acquired\n{B_DEF_ABILITY}!");
 
 #endif
 

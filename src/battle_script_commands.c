@@ -2135,11 +2135,6 @@ static void atk0F_resultmessage(void)
             {
                 stringId = STRINGID_BUTITFAILED;
             }
-            //4g
-            else if (gCurrentMove == MOVE_HEART_SWAP)
-            {
-                stringId = STRINGID_HEARTSWAP;
-            }
             else
             {
                 gBattleCommunication[MSG_DISPLAY] = 0;
@@ -10723,6 +10718,17 @@ static void atkFA_overrideeffect(void)
 
         if (i != ++notLastResortMovesUsed)
             gMoveResultFlags |= MOVE_RESULT_FAILED;
+    }
+    else if (gBattleMoves[gCurrentMove].effect == EFFECT_WORRY_SEED)
+    {
+        if ((gBattleMons[gBattlerTarget].ability == ABILITY_TRUANT)
+        || (gBattleMons[gBattlerTarget].ability == ABILITY_MULTITYPE)
+        || (gBattleMons[gBattlerTarget].ability == ABILITY_INSOMNIA))
+        {
+            gMoveResultFlags |= MOVE_RESULT_FAILED;
+        }
+        else
+            gBattleMons[gBattlerTarget].ability = ABILITY_INSOMNIA;
     }
     
     gBattlescriptCurrInstr++;

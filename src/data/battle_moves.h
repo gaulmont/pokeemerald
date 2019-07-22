@@ -5048,15 +5048,15 @@ const struct BattleMove gBattleMoves[MOVES_COUNT] =
 
 	[MOVE_WORRY_SEED] =
     {
-        .effect = EFFECT_SPLASH,
+        .effect = EFFECT_WORRY_SEED,
         .power = 0,
-        .type = TYPE_NORMAL,
-        .accuracy = 0,
-        .pp = 40,
+        .type = TYPE_GRASS,
+        .accuracy = 100,
+        .pp = 10,
         .secondaryEffectChance = 0,
-        .target = MOVE_TARGET_USER,
+        .target = MOVE_TARGET_SELECTED,
         .priority = 0,
-        .flags = FLAG_IS_STATUS,
+        .flags = FLAG_IS_STATUS | FLAG_PROTECT_AFFECTED | FLAG_MAGICCOAT_AFFECTED | FLAG_MIRROR_MOVE_AFFECTED,
     },
 
 	[MOVE_SUCKER_PUNCH] =

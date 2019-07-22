@@ -218,6 +218,7 @@ AI_CheckBadMove_CheckEffect: @ 82DC045
 	if_effect EFFECT_FEINT, AI_CBM_Feint
 	if_effect EFFECT_METAL_BURST, AI_CBM_MetalBurst
 	if_effect EFFECT_CAPTIVATE, AI_CBM_Captivate
+	if_effect EFFECT_WORRY_SEED, AI_CBM_WorrySeed
 	end
 
 AI_CBM_Sleep: @ 82DC2D4
@@ -485,14 +486,6 @@ AI_CBM_Attract_CheckIfTargetIsMale: @ 82DC627
 AI_CBM_Attract_End: @ 82DC634
 	end
 
-AI_CBM_Captivate:
-	get_ability AI_TARGET
-	if_equal ABILITY_OBLIVIOUS, Score_Minus10
-	get_gender AI_USER
-	if_equal 0, AI_CBM_Attract_CheckIfTargetIsFemale
-	if_equal 254, AI_CBM_Attract_CheckIfTargetIsMale
-	goto Score_Minus10
-
 AI_CBM_Safeguard: @ 82DC635
 	if_side_affecting AI_USER, SIDE_STATUS_SAFEGUARD, Score_Minus8
 	end
@@ -631,6 +624,22 @@ AI_CBM_Feint:
 
 AI_CBM_MetalBurst:
 	if_user_faster Score_Minus10
+	end
+
+AI_CBM_Captivate:
+	get_ability AI_TARGET
+	if_equal ABILITY_OBLIVIOUS, Score_Minus10
+	get_gender AI_USER
+	if_equal 0, AI_CBM_Attract_CheckIfTargetIsFemale
+	if_equal 254, AI_CBM_Attract_CheckIfTargetIsMale
+	goto Score_Minus10
+
+AI_CBM_WorrySeed:
+	if_status AI_TARGET, STATUS1_SLEEP, Score_Minus1
+	get_ability AI_TARGET
+	if_equal ABILITY_TRUANT, Score_Minus10
+	if_equal ABILITY_MULTITYPE, Score_Minus10
+	if_equal ABILITY_INSOMNIA, Score_Minus10
 	end
 
 Score_Minus1:
@@ -816,6 +825,7 @@ AI_CheckViability:
 	if_effect EFFECT_GYRO_BALL, AI_CV_GyroBall
 	if_effect EFFECT_HEART_SWAP, AI_CV_PsychUp
 	if_effect EFFECT_BRINE, AI_CV_Brine
+	if_effect EFFECT_WORRY_SEED, AI_CV_WorrySeed
 	end
 
 AI_CV_Sleep: @ 82DCA92
@@ -2826,6 +2836,10 @@ AI_CV_GyroBall:
 
 AI_CV_Brine:
 	if_hp_less_than AI_TARGET, 51, Score_Plus3
+	end
+
+AI_CV_WorrySeed:
+	if_has_move AI_TARGET, MOVE_REST, Score_Plus2
 	end
 
 AI_TryToFaint:
