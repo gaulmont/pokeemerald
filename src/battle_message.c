@@ -957,6 +957,7 @@ static const u8 sText_HeartSwapText[];
 static const u8 sText_AquaRingSetupText[];
 static const u8 sText_AquaRingHealText[];
 static const u8 sText_WorrySeedText[];
+static const u8 sText_GastroAcidText[];
 
 const u8 * const gBattleStringsTable[BATTLESTRINGS_COUNT] =
 {
@@ -1334,6 +1335,7 @@ const u8 * const gBattleStringsTable[BATTLESTRINGS_COUNT] =
     [STRINGID_AQUA_RING_SETUP - 12] = sText_AquaRingSetupText,
     [STRINGID_AQUA_RING_HEAL - 12] = sText_AquaRingHealText,
     [STRINGID_WORRYSEED - 12] = sText_WorrySeedText,
+    [STRINGID_GASTROACID - 12] = sText_GastroAcidText,
 };
 
 const u16 gMissStringIds[] =
@@ -1772,6 +1774,7 @@ static const u8 sText_HeartSwapText[] = _("{B_ATK_NAME_WITH_PREFIX} échange\nle
 static const u8 sText_AquaRingSetupText[] = _("{B_ATK_NAME_WITH_PREFIX} s'entoure\nd'un voile d'eau!");
 static const u8 sText_AquaRingHealText[] = _("Le voile d'eau restaure les PV de\n{B_ATK_NAME_WITH_PREFIX}!");
 static const u8 sText_WorrySeedText[] = _("{B_DEF_NAME_WITH_PREFIX} acquiert\n{B_DEF_ABILITY}!");
+static const u8 sText_GastroAcidText[] = _("La capacité spéciale du\n{B_DEF_NAME_WITH_PREFIX} est supprimée!");
 
 #else
 
@@ -1941,6 +1944,7 @@ static const u8 sText_HeartSwapText[] = _("{B_ATK_NAME_WITH_PREFIX} switched\nst
 static const u8 sText_AquaRingSetupText[] = _("{B_ATK_NAME_WITH_PREFIX} surronded\nitself with a veil of water!");
 static const u8 sText_AquaRingHealText[] = _("AQUA RING restored\n{B_ATK_NAME_WITH_PREFIX}'s HP!");
 static const u8 sText_WorrySeedText[] = _("{B_DEF_NAME_WITH_PREFIX} acquired\n{B_DEF_ABILITY}!");
+static const u8 sText_GastroAcidText[] = _("The {B_DEF_NAME_WITH_PREFIX}'s\nability was suppressed!");
 
 #endif
 

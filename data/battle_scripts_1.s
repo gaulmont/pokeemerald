@@ -248,6 +248,7 @@ gBattleScriptsForMoveEffects:: @ 82D86A8
 	.4byte BattleScript_EffectMetalBurst
 	.4byte BattleScript_EffectCaptivate
 	.4byte BattleScript_EffectWorrySeed
+	.4byte BattleScript_EffectGastroAcid
 
 BattleScript_EffectSpeedUp::
 BattleScript_EffectSpecialDefenseUp::
@@ -2902,6 +2903,7 @@ BattleScript_EffectCrushGrip::
 	jumpifmovehadnoeffect BattleScript_ButItFailedAtkStringPpReduce
 	goto BattleScript_EffectHit
 
+BattleScript_EffectGastroAcid::
 BattleScript_EffectWorrySeed::
 BattleScript_EffectHeartSwap::
 	attackcanceler
@@ -2915,6 +2917,7 @@ BattleScript_EffectHeartSwap::
 
 	jumpifmove MOVE_HEART_SWAP, BattleScript_EffectHeartSwapMessage
 	jumpifmove MOVE_WORRY_SEED, BattleScript_EffectWorrySeedMessage
+	jumpifmove MOVE_GASTRO_ACID, BattleScript_EffectGastroAcidMessage
 
 	resultmessage
 	waitmessage 0x40
@@ -2922,14 +2925,15 @@ BattleScript_EffectHeartSwap::
 
 BattleScript_EffectHeartSwapMessage::
 	printstring STRINGID_HEARTSWAP
-	waitmessage 0x40
-	goto BattleScript_MoveEnd
+	return
 
 BattleScript_EffectWorrySeedMessage::
 	printstring STRINGID_WORRYSEED
-	waitmessage 0x40
-	goto BattleScript_MoveEnd
+	return
 
+BattleScript_EffectGastroAcidMessage::
+	printstring STRINGID_GASTROACID
+	return
 
 BattleScript_EffectFeint::
 	attackcanceler

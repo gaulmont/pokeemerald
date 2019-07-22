@@ -10731,6 +10731,16 @@ static void atkFA_overrideeffect(void)
         else
             gBattleMons[gBattlerTarget].ability = ABILITY_INSOMNIA;
     }
+    else if (gBattleMoves[gCurrentMove].effect == EFFECT_GASTRO_ACID)
+    {
+        if ((gBattleMons[gBattlerTarget].ability == 0)
+        || (gBattleMons[gBattlerTarget].ability == ABILITY_MULTITYPE))
+        {
+            gMoveResultFlags |= MOVE_RESULT_FAILED;
+        }
+        else
+            gBattleMons[gBattlerTarget].ability = 0;
+    }
     
     gBattlescriptCurrInstr++;
 }
