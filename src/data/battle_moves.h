@@ -4944,7 +4944,7 @@ const struct BattleMove gBattleMoves[MOVES_COUNT] =
 
 	[MOVE_GASTRO_ACID] =
     {
-        .effect = EFFECT_GASTO_ACID,
+        .effect = EFFECT_GASTRO_ACID,
         .power = 0,
         .type = TYPE_POISON,
         .accuracy = 100,
