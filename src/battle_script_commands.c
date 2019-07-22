@@ -10721,7 +10721,8 @@ static void atkFA_overrideeffect(void)
     }
     else if (gBattleMoves[gCurrentMove].effect == EFFECT_WORRY_SEED)
     {
-        if ((gBattleMons[gBattlerTarget].ability == ABILITY_TRUANT)
+        if ((gBattleMons[gBattlerTarget].ability == 0)
+        || (gBattleMons[gBattlerTarget].ability == ABILITY_TRUANT)
         || (gBattleMons[gBattlerTarget].ability == ABILITY_MULTITYPE)
         || (gBattleMons[gBattlerTarget].ability == ABILITY_INSOMNIA))
         {
