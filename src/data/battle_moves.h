@@ -4762,15 +4762,15 @@ const struct BattleMove gBattleMoves[MOVES_COUNT] =
 
 	[MOVE_TAIL_WIND] =
     {
-        .effect = EFFECT_SPLASH,
+        .effect = EFFECT_TAIL_WIND,
         .power = 0,
-        .type = TYPE_NORMAL,
+        .type = TYPE_FLYING,
         .accuracy = 0,
-        .pp = 40,
+        .pp = 30,
         .secondaryEffectChance = 0,
         .target = MOVE_TARGET_USER,
         .priority = 0,
-        .flags = FLAG_IS_STATUS,
+        .flags = FLAG_IS_STATUS | EFFECT_SNATCH ,
     },
 
 	[MOVE_ACUPRESSURE] =

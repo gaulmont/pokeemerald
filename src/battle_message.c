@@ -157,7 +157,7 @@ static const u8 sText_PkmnHitWithRecoil[] = _("{B_ATK_NAME_WITH_PREFIX} se bless
 static const u8 sText_PkmnProtectedItself2[] = _("{B_ATK_NAME_WITH_PREFIX} est prêt à\nse protéger!");
 static const u8 sText_PkmnBuffetedBySandstorm[] = _("{B_ATK_NAME_WITH_PREFIX} est secoué\npar la tempête de sable!");
 static const u8 sText_PkmnPeltedByHail[] = _("{B_ATK_NAME_WITH_PREFIX} est frappé par\nla GRELE!");
-static const u8 sText_PkmnsXWoreOff[] = _("{B_BUFF1} du POKéMON {B_SCR_ACTIVE_NAME_WITH_PREFIX} \nprend fin!");
+static const u8 sText_PkmnsXWoreOff[] = _("{B_BUFF1} du {B_SCR_ACTIVE_NAME_WITH_PREFIX} \nprend fin!");
 static const u8 sText_PkmnSeeded[] = _("{B_DEF_NAME_WITH_PREFIX} est infecté!");
 static const u8 sText_PkmnEvadedAttack[] = _("{B_DEF_NAME_WITH_PREFIX} évite l'attaque!");
 static const u8 sText_PkmnSappedByLeechSeed[] = _("VAMPIGRAINE draine\nl'énergie de {B_ATK_NAME_WITH_PREFIX}!");
@@ -958,6 +958,7 @@ static const u8 sText_AquaRingSetupText[];
 static const u8 sText_AquaRingHealText[];
 static const u8 sText_WorrySeedText[];
 static const u8 sText_GastroAcidText[];
+static const u8 sText_TailWindText[];
 
 const u8 * const gBattleStringsTable[BATTLESTRINGS_COUNT] =
 {
@@ -1336,6 +1337,7 @@ const u8 * const gBattleStringsTable[BATTLESTRINGS_COUNT] =
     [STRINGID_AQUA_RING_HEAL - 12] = sText_AquaRingHealText,
     [STRINGID_WORRYSEED - 12] = sText_WorrySeedText,
     [STRINGID_GASTROACID - 12] = sText_GastroAcidText,
+    [STRINGID_TAILWIND - 12] = sText_TailWindText,
 };
 
 const u16 gMissStringIds[] =
@@ -1775,6 +1777,7 @@ static const u8 sText_AquaRingSetupText[] = _("{B_ATK_NAME_WITH_PREFIX} s'entour
 static const u8 sText_AquaRingHealText[] = _("Le voile d'eau restaure les PV de\n{B_ATK_NAME_WITH_PREFIX}!");
 static const u8 sText_WorrySeedText[] = _("{B_DEF_NAME_WITH_PREFIX} acquiert\n{B_DEF_ABILITY}!");
 static const u8 sText_GastroAcidText[] = _("La capacité spéciale du\n{B_DEF_NAME_WITH_PREFIX} est supprimée!");
+static const u8 sText_TailWindText[] = _("Un {B_CURRENT_MOVE} souffle\nsur l'équipe!");
 
 #else
 
@@ -1945,6 +1948,7 @@ static const u8 sText_AquaRingSetupText[] = _("{B_ATK_NAME_WITH_PREFIX} surronde
 static const u8 sText_AquaRingHealText[] = _("AQUA RING restored\n{B_ATK_NAME_WITH_PREFIX}'s HP!");
 static const u8 sText_WorrySeedText[] = _("{B_DEF_NAME_WITH_PREFIX} acquired\n{B_DEF_ABILITY}!");
 static const u8 sText_GastroAcidText[] = _("The {B_DEF_NAME_WITH_PREFIX}'s\nability was suppressed!");
+static const u8 sText_TailWindText[] = _("The {B_CURRENT_MOVE} blew\nfrom behind the team!");
 
 #endif
 

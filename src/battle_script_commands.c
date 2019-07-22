@@ -1105,7 +1105,8 @@ static bool8 AccuracyCalcHelper(u16 move)
 
     if ((WEATHER_HAS_EFFECT && (gBattleWeather & WEATHER_RAIN_ANY) && gBattleMoves[move].effect == EFFECT_THUNDER)
      || (gBattleMoves[move].effect == EFFECT_ALWAYS_HIT || gBattleMoves[move].effect == EFFECT_VITAL_THROW)
-     || (gBattleMoves[move].effect == EFFECT_HEART_SWAP || gBattleMoves[move].effect == EFFECT_TRUMP_CARD))
+     || (gBattleMoves[move].effect == EFFECT_HEART_SWAP || gBattleMoves[move].effect == EFFECT_TRUMP_CARD)
+     || (gBattleMoves[move].effect == EFFECT_TAIL_WIND || gBattleMoves[move].effect == EFFECT_TRUMP_CARD))
     {
         JumpIfMoveFailed(7, move);
         return TRUE;
@@ -10740,6 +10741,25 @@ static void atkFA_overrideeffect(void)
         }
         else
             gBattleMons[gBattlerTarget].ability = 0;
+    }
+    else if (gBattleMoves[gCurrentMove].effect == EFFECT_TAIL_WIND)
+    {
+        if (gSideStatuses[GET_BATTLER_SIDE(gBattlerAttacker)] & SIDE_STATUS_TAIL_WIND)
+        {
+            gMoveResultFlags |= MOVE_RESULT_FAILED;
+            gBattleCommunication[MULTISTRING_CHOOSER] = 0;
+        }
+        else
+        {
+            gSideStatuses[GET_BATTLER_SIDE(gBattlerAttacker)] |= SIDE_STATUS_TAIL_WIND;
+            gSideTimers[GET_BATTLER_SIDE(gBattlerAttacker)].tailWindTimer = 3;
+            gSideTimers[GET_BATTLER_SIDE(gBattlerAttacker)].tailWindBattlerId = gBattlerAttacker;
+
+            if (gBattleTypeFlags & BATTLE_TYPE_DOUBLE && CountAliveMonsInBattle(BATTLE_ALIVE_ATK_SIDE) == 2)
+                gBattleCommunication[MULTISTRING_CHOOSER] = 4;
+            else
+                gBattleCommunication[MULTISTRING_CHOOSER] = 3;
+        }
     }
     
     gBattlescriptCurrInstr++;

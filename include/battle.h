@@ -163,6 +163,9 @@ struct SideTimer
     u8 followmeTimer;
     u8 followmeTarget;
     u8 spikesAmount;
+    //4g
+    u8 tailWindTimer;
+    u8 tailWindBattlerId;
 };
 
 struct WishFutureKnock

@@ -249,6 +249,7 @@ gBattleScriptsForMoveEffects:: @ 82D86A8
 	.4byte BattleScript_EffectCaptivate
 	.4byte BattleScript_EffectWorrySeed
 	.4byte BattleScript_EffectGastroAcid
+	.4byte BattleScript_EffectTailWind
 
 BattleScript_EffectSpeedUp::
 BattleScript_EffectSpecialDefenseUp::
@@ -2903,6 +2904,7 @@ BattleScript_EffectCrushGrip::
 	jumpifmovehadnoeffect BattleScript_ButItFailedAtkStringPpReduce
 	goto BattleScript_EffectHit
 
+BattleScript_EffectTailWind::
 BattleScript_EffectGastroAcid::
 BattleScript_EffectWorrySeed::
 BattleScript_EffectHeartSwap::
@@ -2918,22 +2920,31 @@ BattleScript_EffectHeartSwap::
 	jumpifmove MOVE_HEART_SWAP, BattleScript_EffectHeartSwapMessage
 	jumpifmove MOVE_WORRY_SEED, BattleScript_EffectWorrySeedMessage
 	jumpifmove MOVE_GASTRO_ACID, BattleScript_EffectGastroAcidMessage
+	jumpifmove MOVE_TAIL_WIND, BattleScript_EffectTailWindMessage
 
-	resultmessage
+	@resultmessage
 	waitmessage 0x40
 	goto BattleScript_MoveEnd
 
 BattleScript_EffectHeartSwapMessage::
 	printstring STRINGID_HEARTSWAP
-	return
+	waitmessage 0x40
+	goto BattleScript_MoveEnd
 
 BattleScript_EffectWorrySeedMessage::
 	printstring STRINGID_WORRYSEED
-	return
+	waitmessage 0x40
+	goto BattleScript_MoveEnd
 
 BattleScript_EffectGastroAcidMessage::
 	printstring STRINGID_GASTROACID
-	return
+	waitmessage 0x40
+	goto BattleScript_MoveEnd
+
+BattleScript_EffectTailWindMessage::
+	printstring STRINGID_TAILWIND
+	waitmessage 0x40
+	goto BattleScript_MoveEnd
 
 BattleScript_EffectFeint::
 	attackcanceler

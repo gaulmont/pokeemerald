@@ -1,7 +1,7 @@
 #ifndef GUARD_CONSTANTS_BATTLE_STRING_IDS_H
 #define GUARD_CONSTANTS_BATTLE_STRING_IDS_H
 
-#define BATTLESTRINGS_COUNT     374
+#define BATTLESTRINGS_COUNT     375
 
 #define BATTLESTRINGS_ID_ADDER  12 // all battlestrings have its ID + 12, because first 5 are reserved
 
@@ -388,5 +388,6 @@
 #define STRINGID_AQUA_RING_HEAL             383
 #define STRINGID_WORRYSEED                  384
 #define STRINGID_GASTROACID                 385
+#define STRINGID_TAILWIND                   386
 
 #endif // GUARD_CONSTANTS_BATTLE_STRING_IDS_H
