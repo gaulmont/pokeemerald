@@ -10785,6 +10785,9 @@ u8 GetBattlerSpeed(u8 battlerId)
         speedMultiplierBattler = 1;
     }
 
+    if (gSideStatuses[GET_BATTLER_SIDE(battlerId)] & SIDE_STATUS_TAIL_WIND)
+        speedMultiplierBattler *= 2;
+
     speedBattler = (gBattleMons[battlerId].speed * speedMultiplierBattler)
                 * (gStatStageRatios[gBattleMons[battlerId].statStages[STAT_SPEED]][0])
                 / (gStatStageRatios[gBattleMons[battlerId].statStages[STAT_SPEED]][1]);
