@@ -1106,7 +1106,7 @@ static bool8 AccuracyCalcHelper(u16 move)
     if ((WEATHER_HAS_EFFECT && (gBattleWeather & WEATHER_RAIN_ANY) && gBattleMoves[move].effect == EFFECT_THUNDER)
      || (gBattleMoves[move].effect == EFFECT_ALWAYS_HIT || gBattleMoves[move].effect == EFFECT_VITAL_THROW)
      || (gBattleMoves[move].effect == EFFECT_HEART_SWAP || gBattleMoves[move].effect == EFFECT_TRUMP_CARD)
-     || (gBattleMoves[move].effect == EFFECT_TAIL_WIND || gBattleMoves[move].effect == EFFECT_TRUMP_CARD))
+     || (gBattleMoves[move].effect == EFFECT_TAIL_WIND || gBattleMoves[move].effect == EFFECT_MIRACLE_EYE))
     {
         JumpIfMoveFailed(7, move);
         return TRUE;
@@ -1144,7 +1144,7 @@ static void atk01_accuracycheck(void)
         if (AccuracyCalcHelper(move))
             return;
 
-        if (gBattleMons[gBattlerTarget].status2 & STATUS2_FORESIGHT)
+        if (gBattleMons[gBattlerTarget].status2 & STATUS2_FORESIGHT || gStatuses3[gBattlerTarget] & STATUS3_MIRACLE_EYE)
         {
             u8 acc = gBattleMons[gBattlerAttacker].statStages[STAT_ACC];
             buff = acc;
@@ -1417,6 +1417,13 @@ static void atk06_typecalc(void)
                 //Roost
                 if ((GetBattlerTurnOrderNum(BS_TARGET) < gCurrentTurnActionNumber && gLastMoves[BS_TARGET] == MOVE_ROOST)
                 && (TYPE_EFFECT_DEF_TYPE(i) == TYPE_FLYING))
+                {
+                    i += 3;
+                    continue;
+                }
+
+                if (TYPE_EFFECT_ATK_TYPE(i) == TYPE_PSYCHIC && TYPE_EFFECT_DEF_TYPE(i) == TYPE_DARK
+                && gStatuses3[gBattlerTarget] & STATUS3_MIRACLE_EYE)
                 {
                     i += 3;
                     continue;

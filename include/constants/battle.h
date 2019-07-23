@@ -152,7 +152,7 @@
 
 //custom
 #define STATUS3_AQUA_RING               0x200000
-#define STATUS3_1                       0x400000
+#define STATUS3_MIRACLE_EYE             0x400000
 #define STATUS3_2                       0x800000
 #define STATUS3_3                       0x1000000
 #define STATUS3_4                       0x2000000

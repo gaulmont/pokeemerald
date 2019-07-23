@@ -4645,15 +4645,15 @@ const struct BattleMove gBattleMoves[MOVES_COUNT] =
 
 	[MOVE_MIRACLE_EYE] =
     {
-        .effect = EFFECT_SPLASH,
+        .effect = EFFECT_MIRACLE_EYE,
         .power = 0,
-        .type = TYPE_NORMAL,
+        .type = TYPE_PSYCHIC,
         .accuracy = 0,
         .pp = 40,
         .secondaryEffectChance = 0,
-        .target = MOVE_TARGET_USER,
+        .target = MOVE_TARGET_SELECTED,
         .priority = 0,
-        .flags = FLAG_IS_STATUS,
+        .flags = FLAG_IS_STATUS | FLAG_PROTECT_AFFECTED | FLAG_MIRROR_MOVE_AFFECTED,
     },
 
 	[MOVE_WAKE_UP_SLAP] =

@@ -250,6 +250,7 @@ gBattleScriptsForMoveEffects:: @ 82D86A8
 	.4byte BattleScript_EffectWorrySeed
 	.4byte BattleScript_EffectGastroAcid
 	.4byte BattleScript_EffectTailWind
+	.4byte BattleScript_EffectMiracleEye
 
 BattleScript_EffectSpeedUp::
 BattleScript_EffectSpecialDefenseUp::
@@ -3008,6 +3009,17 @@ BattleScript_EffectAquaRing::
 	attackanimation
 	waitanimation
 	printstring STRINGID_AQUA_RING_SETUP
+	waitmessage 0x40
+	goto BattleScript_MoveEnd
+
+BattleScript_EffectMiracleEye::
+	attackcanceler
+	attackstring
+	ppreduce
+	trysetstatus3 BS_TARGET, STATUS3_MIRACLE_EYE, BattleScript_ButItFailed
+	attackanimation
+	waitanimation
+	printstring STRINGID_PKMNIDENTIFIED
 	waitmessage 0x40
 	goto BattleScript_MoveEnd
 
