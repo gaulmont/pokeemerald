@@ -219,6 +219,8 @@ AI_CheckBadMove_CheckEffect: @ 82DC045
 	if_effect EFFECT_METAL_BURST, AI_CBM_MetalBurst
 	if_effect EFFECT_CAPTIVATE, AI_CBM_Captivate
 	if_effect EFFECT_WORRY_SEED, AI_CBM_WorrySeed
+	if_effect EFFECT_TAIL_WIND, AI_CBM_TailWind	
+	if_effect EFFECT_MIRACLE_EYE, AI_CBM_MiracleEye
 	end
 
 AI_CBM_Sleep: @ 82DC2D4
@@ -642,6 +644,14 @@ AI_CBM_WorrySeed:
 	if_equal ABILITY_INSOMNIA, Score_Minus10
 	end
 
+AI_CBM_TailWind:
+	if_side_affecting AI_USER, SIDE_STATUS_TAIL_WIND, Score_Minus10
+	end
+
+AI_CBM_MiracleEye:
+	if_status3 AI_TARGET, STATUS3_MIRACLE_EYE, Score_Minus10
+	end
+
 Score_Minus1:
 	score -1
 	end
@@ -826,6 +836,8 @@ AI_CheckViability:
 	if_effect EFFECT_HEART_SWAP, AI_CV_PsychUp
 	if_effect EFFECT_BRINE, AI_CV_Brine
 	if_effect EFFECT_WORRY_SEED, AI_CV_WorrySeed
+	if_effect EFFECT_TAIL_WIND, AI_CV_TailWind
+	if_effect EFFECT_MIRACLE_EYE, AI_CV_MiracleEye
 	end
 
 AI_CV_Sleep: @ 82DCA92
@@ -2840,6 +2852,17 @@ AI_CV_Brine:
 
 AI_CV_WorrySeed:
 	if_has_move AI_TARGET, MOVE_REST, Score_Plus2
+	end
+
+AI_CV_TailWind:
+	if_has_move AI_USER, MOVE_GYRO_BALL, Score_Minus1
+	if_has_move AI_USER_PARTNER, MOVE_GYRO_BALL, Score_Minus1
+	if_user_faster Score_Minus1
+	end
+
+AI_CV_MiracleEye:
+	if_stat_level_more_than AI_TARGET, STAT_EVASION, 6, Score_Plus2
+	if_no_type AI_TARGET, TYPE_DARK, Score_Minus2
 	end
 
 AI_TryToFaint:
