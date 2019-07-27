@@ -10791,6 +10791,21 @@ static void atkFA_overrideeffect(void)
                 gBattleCommunication[MULTISTRING_CHOOSER] = 3;
         }
     }
+    else if (gBattleMoves[gCurrentMove].effect == EFFECT_BUG_BITE)
+    {
+        if (FIRST_BERRY_INDEX <= gBattleMons[gBattlerTarget].item && gBattleMons[gBattlerTarget].item <= LAST_BERRY_INDEX) 
+        {
+            u16 tempItem = gBattleMons[gBattlerAttacker].item;
+            gBattleMons[gBattlerAttacker].item = gBattleMons[gBattlerTarget].item;
+            ItemBattleEffects(1, gBattlerAttacker, TRUE);
+            gBattleMons[gBattlerAttacker].item = tempItem;
+
+            gBattleMons[gBattlerTarget].item = 0;
+            gActiveBattler = gBattlerTarget;
+            BtlController_EmitSetMonData(0, REQUEST_HELDITEM_BATTLE, 0, 2, &gBattleMons[gBattlerTarget].item);
+            MarkBattlerForControllerExec(gBattlerAttacker);
+        }
+    }
     
     gBattlescriptCurrInstr++;
 }

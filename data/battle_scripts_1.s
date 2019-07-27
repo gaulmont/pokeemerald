@@ -252,7 +252,9 @@ gBattleScriptsForMoveEffects:: @ 82D86A8
 	.4byte BattleScript_EffectTailWind
 	.4byte BattleScript_EffectMiracleEye
 	.4byte BattleScript_EffectLuckyChant
+	.4byte BattleScript_EffectBugBite
 
+BattleScript_EffectBugBite::
 BattleScript_EffectSpeedUp::
 BattleScript_EffectSpecialDefenseUp::
 BattleScript_EffectAccuracyUp::
@@ -306,6 +308,9 @@ BattleScript_HitFromAtkAnimation::
 	seteffectwithchance
 	tryfaintmon BS_TARGET, FALSE, NULL
 	
+	jumpifmove MOVE_BUG_BITE, Custom_BugBite
+	jumpifmove MOVE_PLUCK, Custom_Pluck
+
 	jumpifmove MOVE_VOLT_TACKLE, Custom_VoltTackle
 	jumpifmove MOVE_FLARE_BLITZ, Custom_FlareBlitz
 	
@@ -316,6 +321,11 @@ BattleScript_HitFromAtkAnimation::
 BattleScript_MoveEnd::
 	moveendall
 	end
+
+Custom_BugBite::
+Custom_Pluck::
+	overrideeffect
+	goto BattleScript_MoveEnd
 
 Custom_ThunderFang::
 Custom_VoltTackle::
