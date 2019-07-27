@@ -4957,15 +4957,15 @@ const struct BattleMove gBattleMoves[MOVES_COUNT] =
 
 	[MOVE_LUCKY_CHANT] =
     {
-        .effect = EFFECT_SPLASH,
+        .effect = EFFECT_LUCKY_CHANT,
         .power = 0,
         .type = TYPE_NORMAL,
         .accuracy = 0,
-        .pp = 40,
+        .pp = 30,
         .secondaryEffectChance = 0,
         .target = MOVE_TARGET_USER,
         .priority = 0,
-        .flags = FLAG_IS_STATUS,
+        .flags = FLAG_IS_STATUS | FLAG_SNATCH_AFFECTED,
     },
 
 	[MOVE_ME_FIRST] =

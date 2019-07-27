@@ -202,6 +202,7 @@
 #define SIDE_STATUS_SPIKES_DAMAGED   (1 << 9)
 //4g
 #define SIDE_STATUS_TAIL_WIND        (1 << 10)
+#define SIDE_STATUS_LUCKY_CHANT      (1 << 11)
 
 // Flags describing move's result
 #define MOVE_RESULT_MISSED             (1 << 0)

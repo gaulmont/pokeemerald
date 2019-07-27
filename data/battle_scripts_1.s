@@ -251,6 +251,7 @@ gBattleScriptsForMoveEffects:: @ 82D86A8
 	.4byte BattleScript_EffectGastroAcid
 	.4byte BattleScript_EffectTailWind
 	.4byte BattleScript_EffectMiracleEye
+	.4byte BattleScript_EffectLuckyChant
 
 BattleScript_EffectSpeedUp::
 BattleScript_EffectSpecialDefenseUp::
@@ -2905,6 +2906,7 @@ BattleScript_EffectCrushGrip::
 	jumpifmovehadnoeffect BattleScript_ButItFailedAtkStringPpReduce
 	goto BattleScript_EffectHit
 
+BattleScript_EffectLuckyChant::
 BattleScript_EffectTailWind::
 BattleScript_EffectGastroAcid::
 BattleScript_EffectWorrySeed::
@@ -2922,6 +2924,7 @@ BattleScript_EffectHeartSwap::
 	jumpifmove MOVE_WORRY_SEED, BattleScript_EffectWorrySeedMessage
 	jumpifmove MOVE_GASTRO_ACID, BattleScript_EffectGastroAcidMessage
 	jumpifmove MOVE_TAIL_WIND, BattleScript_EffectTailWindMessage
+	jumpifmove MOVE_LUCKY_CHANT, BattleScript_EffectLuckyChantMessage
 
 	@resultmessage
 	waitmessage 0x40
@@ -2944,6 +2947,11 @@ BattleScript_EffectGastroAcidMessage::
 
 BattleScript_EffectTailWindMessage::
 	printstring STRINGID_TAILWIND
+	waitmessage 0x40
+	goto BattleScript_MoveEnd
+
+BattleScript_EffectLuckyChantMessage::
+	printstring STRINGID_LUCKYCHANT
 	waitmessage 0x40
 	goto BattleScript_MoveEnd
 

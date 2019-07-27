@@ -221,6 +221,7 @@ AI_CheckBadMove_CheckEffect: @ 82DC045
 	if_effect EFFECT_WORRY_SEED, AI_CBM_WorrySeed
 	if_effect EFFECT_TAIL_WIND, AI_CBM_TailWind	
 	if_effect EFFECT_MIRACLE_EYE, AI_CBM_MiracleEye
+	if_effect EFFECT_LUCKY_CHANT, AI_CBM_LuckyChant
 	end
 
 AI_CBM_Sleep: @ 82DC2D4
@@ -650,6 +651,10 @@ AI_CBM_TailWind:
 
 AI_CBM_MiracleEye:
 	if_status3 AI_TARGET, STATUS3_MIRACLE_EYE, Score_Minus10
+	end
+
+AI_CBM_LuckyChant:
+	if_side_affecting AI_USER, SIDE_STATUS_LUCKY_CHANT, Score_Minus10
 	end
 
 Score_Minus1:

@@ -1104,9 +1104,12 @@ static bool8 AccuracyCalcHelper(u16 move)
     gHitMarker &= ~HITMARKER_IGNORE_UNDERWATER;
 
     if ((WEATHER_HAS_EFFECT && (gBattleWeather & WEATHER_RAIN_ANY) && gBattleMoves[move].effect == EFFECT_THUNDER)
-     || (gBattleMoves[move].effect == EFFECT_ALWAYS_HIT || gBattleMoves[move].effect == EFFECT_VITAL_THROW)
-     || (gBattleMoves[move].effect == EFFECT_HEART_SWAP || gBattleMoves[move].effect == EFFECT_TRUMP_CARD)
-     || (gBattleMoves[move].effect == EFFECT_TAIL_WIND || gBattleMoves[move].effect == EFFECT_MIRACLE_EYE))
+     || (gBattleMoves[move].effect == EFFECT_ALWAYS_HIT || gBattleMoves[move].effect == EFFECT_VITAL_THROW
+     || gBattleMoves[move].effect == EFFECT_HEART_SWAP
+     || gBattleMoves[move].effect == EFFECT_TRUMP_CARD
+     || gBattleMoves[move].effect == EFFECT_TAIL_WIND
+     || gBattleMoves[move].effect == EFFECT_MIRACLE_EYE
+     || gBattleMoves[move].effect == EFFECT_LUCKY_CHANT))
     {
         JumpIfMoveFailed(7, move);
         return TRUE;
@@ -1299,6 +1302,7 @@ static void atk04_critcalc(void)
     if ((gBattleMons[gBattlerTarget].ability != ABILITY_BATTLE_ARMOR && gBattleMons[gBattlerTarget].ability != ABILITY_SHELL_ARMOR)
      && !(gStatuses3[gBattlerAttacker] & STATUS3_CANT_SCORE_A_CRIT)
      && !(gBattleTypeFlags & (BATTLE_TYPE_WALLY_TUTORIAL | BATTLE_TYPE_FIRST_BATTLE))
+     && !(gSideStatuses[GET_BATTLER_SIDE(gBattlerTarget)] & SIDE_STATUS_LUCKY_CHANT)
      && !(Random() % sCriticalHitChance[critChance]))
         gCritMultiplier = 2;
     else
@@ -10761,6 +10765,25 @@ static void atkFA_overrideeffect(void)
             gSideStatuses[GET_BATTLER_SIDE(gBattlerAttacker)] |= SIDE_STATUS_TAIL_WIND;
             gSideTimers[GET_BATTLER_SIDE(gBattlerAttacker)].tailWindTimer = 3;
             gSideTimers[GET_BATTLER_SIDE(gBattlerAttacker)].tailWindBattlerId = gBattlerAttacker;
+
+            if (gBattleTypeFlags & BATTLE_TYPE_DOUBLE && CountAliveMonsInBattle(BATTLE_ALIVE_ATK_SIDE) == 2)
+                gBattleCommunication[MULTISTRING_CHOOSER] = 4;
+            else
+                gBattleCommunication[MULTISTRING_CHOOSER] = 3;
+        }
+    }
+    else if (gBattleMoves[gCurrentMove].effect == EFFECT_LUCKY_CHANT)
+    {
+        if (gSideStatuses[GET_BATTLER_SIDE(gBattlerAttacker)] & SIDE_STATUS_LUCKY_CHANT)
+        {
+            gMoveResultFlags |= MOVE_RESULT_FAILED;
+            gBattleCommunication[MULTISTRING_CHOOSER] = 0;
+        }
+        else
+        {
+            gSideStatuses[GET_BATTLER_SIDE(gBattlerAttacker)] |= SIDE_STATUS_LUCKY_CHANT;
+            gSideTimers[GET_BATTLER_SIDE(gBattlerAttacker)].luckyChantTimer = 5;
+            gSideTimers[GET_BATTLER_SIDE(gBattlerAttacker)].luckyChantBattlerId = gBattlerAttacker;
 
             if (gBattleTypeFlags & BATTLE_TYPE_DOUBLE && CountAliveMonsInBattle(BATTLE_ALIVE_ATK_SIDE) == 2)
                 gBattleCommunication[MULTISTRING_CHOOSER] = 4;
