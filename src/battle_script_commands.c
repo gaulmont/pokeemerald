@@ -7082,7 +7082,7 @@ static void atk81_trysetrest(void)
         else
             gBattleCommunication[MULTISTRING_CHOOSER] = 0;
 
-        gBattleMons[gBattlerTarget].status1 = 3;
+        gBattleMons[gBattlerTarget].status1 = STATUS1_SLEEP  & 3;
         BtlController_EmitSetMonData(0, REQUEST_STATUS_BATTLE, 0, 4, &gBattleMons[gActiveBattler].status1);
         MarkBattlerForControllerExec(gActiveBattler);
         gBattlescriptCurrInstr += 5;
