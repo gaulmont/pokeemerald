@@ -10806,6 +10806,13 @@ static void atkFA_overrideeffect(void)
             MarkBattlerForControllerExec(gBattlerAttacker);
         }
     }
+    else if (gBattleMoves[gCurrentMove].effect == EFFECT_ASSURANCE)
+    {
+        if (TARGET_TURN_DAMAGED) 
+        {
+            gDynamicBasePower = 2 * gBattleMoves[gCurrentMove].power;
+        }
+    }
     
     gBattlescriptCurrInstr++;
 }
