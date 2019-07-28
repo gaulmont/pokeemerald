@@ -10601,7 +10601,7 @@ static void atkFA_overrideeffect(void)
         if (gDynamicBasePower == 0)
             gDynamicBasePower = 1;
     }
-    else if (gBattleMoves[gCurrentMove].effect == MOVE_PUNISHMENT)
+    else if (gBattleMoves[gCurrentMove].effect == EFFECT_PUNISHMENT)
     {
         u8 positiveStages = 0;
         
