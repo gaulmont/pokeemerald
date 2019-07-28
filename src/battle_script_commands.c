@@ -10808,6 +10808,13 @@ static void atkFA_overrideeffect(void)
             MarkBattlerForControllerExec(gBattlerTarget);
         }
     }
+    else if (gBattleMoves[gCurrentMove].effect == EFFECT_PSYCHO_SHIFT)
+    {
+        gBattleMons[gBattlerAttacker].status1 = 0;
+        gActiveBattler = gBattlerAttacker;
+        BtlController_EmitSetMonData(0, REQUEST_STATUS_BATTLE, 0, 4, &gBattleMons[gActiveBattler].status1);
+        MarkBattlerForControllerExec(gActiveBattler);
+    }
 
     gBattlescriptCurrInstr++;
 }

@@ -253,6 +253,7 @@ gBattleScriptsForMoveEffects:: @ 82D86A8
 	.4byte BattleScript_EffectLuckyChant
 	.4byte BattleScript_EffectAssurance
 	.4byte BattleScript_EffectWakeUpSlap
+	.4byte BattleScript_EffectPsychoShift
 
 BattleScript_EffectSpeedUp::
 BattleScript_EffectSpecialDefenseUp::
@@ -2908,6 +2909,51 @@ BattleScript_EffectCrushGrip::
 	overrideeffect
 	jumpifmovehadnoeffect BattleScript_ButItFailedAtkStringPpReduce
 	goto BattleScript_EffectHit
+
+BattleScript_EffectPsychoShift::
+	attackcanceler
+	attackstring
+	ppreduce
+	accuracycheck BattleScript_MoveMissedPause, ACC_CURR_MOVE
+	jumpifstatus BS_TARGET, STATUS1_ANY, BattleScript_ButItFailed
+	jumpifstatus BS_ATTACKER, STATUS1_SLEEP, PsychoShiftSleep
+	jumpifstatus BS_ATTACKER, STATUS1_BURN, PsychoShiftBurn
+	jumpifstatus BS_ATTACKER, STATUS1_PARALYSIS, PsychoShiftParalysis
+	jumpifstatus BS_ATTACKER, STATUS1_POISON, PsychoShiftPoison
+	jumpifstatus BS_ATTACKER, STATUS1_TOXIC_POISON, PsychoShiftToxicPoison
+	goto BattleScript_ButItFailed
+
+PsychoShiftSleep:
+	setmoveeffect MOVE_EFFECT_SLEEP
+	goto PsychoShiftEnd
+
+PsychoShiftBurn:
+	call BattleScript_MoveEffectBurn
+	setmoveeffect MOVE_EFFECT_BURN
+	goto PsychoShiftEnd
+
+PsychoShiftParalysis:
+	setmoveeffect MOVE_EFFECT_PARALYSIS
+	goto PsychoShiftEnd
+
+PsychoShiftPoison:
+	setmoveeffect MOVE_EFFECT_POISON
+	goto PsychoShiftEnd
+
+PsychoShiftToxicPoison:
+	setmoveeffect MOVE_EFFECT_TOXIC
+	goto PsychoShiftEnd
+
+PsychoShiftEnd:
+	attackanimation
+	waitanimation
+
+	seteffectprimary
+	overrideeffect
+	updatestatusicon BS_ATTACKER
+
+	goto BattleScript_MoveEnd
+
 
 BattleScript_EffectLuckyChant::
 BattleScript_EffectTailWind::
