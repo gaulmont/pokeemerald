@@ -2880,7 +2880,7 @@ void SetMoveEffect(bool8 primary, u8 certain)
                 BattleScriptPush(gBattlescriptCurrInstr + 1);
                 gBattlescriptCurrInstr = sMoveEffectBS_Ptrs[gBattleCommunication[MOVE_EFFECT_BYTE]];
                 break;
-            case MOVE_EFFECT_DEF_SPDEF_MINUS_1:
+            case MOVE_EFFECT_DEF_SPDEF_MINUS_1: // Custom Close Combat
                 BattleScriptPush(gBattlescriptCurrInstr + 1);
                 gBattlescriptCurrInstr = BattleScript_DefSpDefDown;
                 break;
@@ -7082,7 +7082,7 @@ static void atk81_trysetrest(void)
         else
             gBattleCommunication[MULTISTRING_CHOOSER] = 0;
 
-        gBattleMons[gBattlerTarget].status1 = STATUS1_SLEEP  & 3;
+        gBattleMons[gBattlerTarget].status1 = STATUS1_SLEEP & 3;
         BtlController_EmitSetMonData(0, REQUEST_STATUS_BATTLE, 0, 4, &gBattleMons[gActiveBattler].status1);
         MarkBattlerForControllerExec(gActiveBattler);
         gBattlescriptCurrInstr += 5;
@@ -10791,29 +10791,24 @@ static void atkFA_overrideeffect(void)
                 gBattleCommunication[MULTISTRING_CHOOSER] = 3;
         }
     }
-    else if (gBattleMoves[gCurrentMove].effect == EFFECT_BUG_BITE)
-    {
-        if (FIRST_BERRY_INDEX <= gBattleMons[gBattlerTarget].item && gBattleMons[gBattlerTarget].item <= LAST_BERRY_INDEX) 
-        {
-            u16 tempItem = gBattleMons[gBattlerAttacker].item;
-            gBattleMons[gBattlerAttacker].item = gBattleMons[gBattlerTarget].item;
-            ItemBattleEffects(1, gBattlerAttacker, TRUE);
-            gBattleMons[gBattlerAttacker].item = tempItem;
-
-            gBattleMons[gBattlerTarget].item = 0;
-            gActiveBattler = gBattlerTarget;
-            BtlController_EmitSetMonData(0, REQUEST_HELDITEM_BATTLE, 0, 2, &gBattleMons[gBattlerTarget].item);
-            MarkBattlerForControllerExec(gBattlerAttacker);
-        }
-    }
     else if (gBattleMoves[gCurrentMove].effect == EFFECT_ASSURANCE)
     {
         if (TARGET_TURN_DAMAGED) 
         {
-            gDynamicBasePower = 2 * gBattleMoves[gCurrentMove].power;
+            gBattleScripting.dmgMultiplier = 2;
         }
     }
-    
+    else if (gBattleMoves[gCurrentMove].effect == EFFECT_WAKE_UP_SLAP)
+    {
+        if (gBattleMons[gBattlerTarget].status1 & STATUS1_SLEEP)
+        {
+            gBattleScripting.dmgMultiplier = 2;
+            gBattleMons[gBattlerTarget].status1 = 1;
+            BtlController_EmitSetMonData(0, REQUEST_STATUS_BATTLE, 0, 4, &gBattleMons[gBattlerTarget].status1);
+            MarkBattlerForControllerExec(gBattlerTarget);
+        }
+    }
+
     gBattlescriptCurrInstr++;
 }
 

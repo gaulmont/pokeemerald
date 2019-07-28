@@ -229,7 +229,6 @@ gBattleScriptsForMoveEffects:: @ 82D86A8
 	.4byte BattleScript_EffectCalmMind
 	.4byte BattleScript_EffectDragonDance
 	.4byte BattleScript_EffectCamouflage
-
 	@4g
 	.4byte BattleScript_EffectHammerArm
 	.4byte BattleScript_EffectChargeBeam
@@ -252,9 +251,9 @@ gBattleScriptsForMoveEffects:: @ 82D86A8
 	.4byte BattleScript_EffectTailWind
 	.4byte BattleScript_EffectMiracleEye
 	.4byte BattleScript_EffectLuckyChant
-	.4byte BattleScript_EffectBugBite
+	.4byte BattleScript_EffectAssurance
+	.4byte BattleScript_EffectWakeUpSlap
 
-BattleScript_EffectBugBite::
 BattleScript_EffectSpeedUp::
 BattleScript_EffectSpecialDefenseUp::
 BattleScript_EffectAccuracyUp::
@@ -307,9 +306,6 @@ BattleScript_HitFromAtkAnimation::
 	waitmessage 0x40
 	seteffectwithchance
 	tryfaintmon BS_TARGET, FALSE, NULL
-	
-	jumpifmove MOVE_BUG_BITE, Custom_BugBite
-	jumpifmove MOVE_PLUCK, Custom_Pluck
 
 	jumpifmove MOVE_VOLT_TACKLE, Custom_VoltTackle
 	jumpifmove MOVE_FLARE_BLITZ, Custom_FlareBlitz
@@ -321,11 +317,6 @@ BattleScript_HitFromAtkAnimation::
 BattleScript_MoveEnd::
 	moveendall
 	end
-
-Custom_BugBite::
-Custom_Pluck::
-	overrideeffect
-	goto BattleScript_MoveEnd
 
 Custom_ThunderFang::
 Custom_VoltTackle::
@@ -2905,6 +2896,8 @@ BattleScript_EffectChargeBeam::
 	setmoveeffect MOVE_EFFECT_SP_ATK_PLUS_1 | MOVE_EFFECT_AFFECTS_USER
 	goto BattleScript_EffectHit
 
+BattleScript_EffectWakeUpSlap::
+BattleScript_EffectAssurance::
 BattleScript_EffectLastResort::
 BattleScript_EffectTrumpCard::
 BattleScript_EffectBrine::
@@ -2935,9 +2928,6 @@ BattleScript_EffectHeartSwap::
 	jumpifmove MOVE_GASTRO_ACID, BattleScript_EffectGastroAcidMessage
 	jumpifmove MOVE_TAIL_WIND, BattleScript_EffectTailWindMessage
 	jumpifmove MOVE_LUCKY_CHANT, BattleScript_EffectLuckyChantMessage
-
-	@resultmessage
-	waitmessage 0x40
 	goto BattleScript_MoveEnd
 
 BattleScript_EffectHeartSwapMessage::
