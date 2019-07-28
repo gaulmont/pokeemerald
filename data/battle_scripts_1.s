@@ -2057,10 +2057,15 @@ BattleScript_BeatUpEnd::
 BattleScript_EffectSemiInvulnerable::
 	jumpifstatus2 BS_ATTACKER, STATUS2_MULTIPLETURNS, BattleScript_SecondTurnSemiInvulnerable
 	jumpifword CMP_COMMON_BITS, gHitMarker, HITMARKER_NO_ATTACKSTRING, BattleScript_SecondTurnSemiInvulnerable
+	jumpifmove MOVE_SHADOW_FORCE, BattleScript_FirstTurnShadowForce
 	jumpifmove MOVE_FLY, BattleScript_FirstTurnFly
 	jumpifmove MOVE_DIVE, BattleScript_FirstTurnDive
 	jumpifmove MOVE_BOUNCE, BattleScript_FirstTurnBounce
 	setbyte sTWOTURN_STRINGID, 0x5
+	goto BattleScript_FirstTurnSemiInvulnerable
+
+BattleScript_FirstTurnShadowForce::
+	setbyte sTWOTURN_STRINGID, 0x8
 	goto BattleScript_FirstTurnSemiInvulnerable
 
 BattleScript_FirstTurnBounce::

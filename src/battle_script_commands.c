@@ -1070,6 +1070,13 @@ bool8 JumpIfMoveAffectedByProtect(u16 move)
 
 static bool8 AccuracyCalcHelper(u16 move)
 {
+    if (gStatuses3[gBattlerTarget] & STATUS3_SHADOW_FORCE)
+    {
+        gMoveResultFlags |= MOVE_RESULT_MISSED;
+        JumpIfMoveFailed(7, move);
+        return TRUE;
+    }
+
     if (gStatuses3[gBattlerTarget] & STATUS3_ALWAYS_HITS && gDisableStructs[gBattlerTarget].battlerWithSureHit == gBattlerAttacker)
     {
         JumpIfMoveFailed(7, move);
@@ -1126,7 +1133,7 @@ static void atk01_accuracycheck(void)
     {
         if (gStatuses3[gBattlerTarget] & STATUS3_ALWAYS_HITS && move == NO_ACC_CALC_CHECK_LOCK_ON && gDisableStructs[gBattlerTarget].battlerWithSureHit == gBattlerAttacker)
             gBattlescriptCurrInstr += 7;
-        else if (gStatuses3[gBattlerTarget] & (STATUS3_ON_AIR | STATUS3_UNDERGROUND | STATUS3_UNDERWATER))
+        else if (gStatuses3[gBattlerTarget] & STATUS3_SEMI_INVULNERABLE)
             gBattlescriptCurrInstr = T1_READ_PTR(gBattlescriptCurrInstr + 1);
         else if (!JumpIfMoveAffectedByProtect(0))
             gBattlescriptCurrInstr += 7;
@@ -9292,6 +9299,9 @@ static void atkC5_setsemiinvulnerablebit(void)
     case MOVE_DIVE:
         gStatuses3[gBattlerAttacker] |= STATUS3_UNDERWATER;
         break;
+    case MOVE_SHADOW_FORCE:
+        gStatuses3[gBattlerAttacker] |= STATUS3_SHADOW_FORCE;
+        break;
     }
 
     gBattlescriptCurrInstr++;
@@ -9310,6 +9320,9 @@ static void atkC6_clearsemiinvulnerablebit(void)
         break;
     case MOVE_DIVE:
         gStatuses3[gBattlerAttacker] &= ~STATUS3_UNDERWATER;
+        break;
+    case MOVE_SHADOW_FORCE:
+        gStatuses3[gBattlerAttacker] &= ~STATUS3_SHADOW_FORCE;
         break;
     }
 

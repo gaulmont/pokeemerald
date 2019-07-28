@@ -960,6 +960,7 @@ static const u8 sText_WorrySeedText[];
 static const u8 sText_GastroAcidText[];
 static const u8 sText_TailWindText[];
 static const u8 sText_LuckyChantText[];
+static const u8 sText_PkmnVanishedText[];
 
 const u8 * const gBattleStringsTable[BATTLESTRINGS_COUNT] =
 {
@@ -1340,6 +1341,7 @@ const u8 * const gBattleStringsTable[BATTLESTRINGS_COUNT] =
     [STRINGID_GASTROACID - 12] = sText_GastroAcidText,
     [STRINGID_TAILWIND - 12] = sText_TailWindText,
     [STRINGID_LUCKYCHANT - 12] = sText_LuckyChantText,
+    [STRINGID_PKMNVANISHED - 12] = sText_PkmnVanishedText,
 };
 
 const u16 gMissStringIds[] =
@@ -1442,7 +1444,8 @@ const u16 gStatDownStringIds[] =
 const u16 gFirstTurnOfTwoStringIds[] =
 {
     STRINGID_PKMNWHIPPEDWHIRLWIND, STRINGID_PKMNTOOKSUNLIGHT, STRINGID_PKMNLOWEREDHEAD, STRINGID_PKMNISGLOWING,
-    STRINGID_PKMNFLEWHIGH, STRINGID_PKMNDUGHOLE, STRINGID_PKMNHIDUNDERWATER, STRINGID_PKMNSPRANGUP
+    STRINGID_PKMNFLEWHIGH, STRINGID_PKMNDUGHOLE, STRINGID_PKMNHIDUNDERWATER, STRINGID_PKMNSPRANGUP,
+    STRINGID_PKMNVANISHED
 };
 
 const u16 gWrappedStringIds[] =
@@ -1781,6 +1784,7 @@ static const u8 sText_WorrySeedText[] = _("{B_DEF_NAME_WITH_PREFIX} acquiert\n{B
 static const u8 sText_GastroAcidText[] = _("La capacité spéciale du\n{B_DEF_NAME_WITH_PREFIX} est supprimée!");
 static const u8 sText_TailWindText[] = _("Un {B_CURRENT_MOVE} souffle\nsur l'équipe!");
 static const u8 sText_LuckyChantText[] = _("L'{B_CURRENT_MOVE} immunise votre équipe\ncontre les coups critiques!");
+static const u8 sText_PkmnVanishedText[] = _("{B_ATK_NAME_WITH_PREFIX} a disparu\ninstantanément!");
 
 #else
 
@@ -1953,6 +1957,7 @@ static const u8 sText_WorrySeedText[] = _("{B_DEF_NAME_WITH_PREFIX} acquired\n{B
 static const u8 sText_GastroAcidText[] = _("The {B_DEF_NAME_WITH_PREFIX}'s\nability was suppressed!");
 static const u8 sText_TailWindText[] = _("The {B_CURRENT_MOVE} blew\nfrom behind the team!");
 static const u8 sText_LuckyChantText[] = _("The {B_CURRENT_MOVE} shielded your\nteam from critical hits!");
+static const u8 sText_PkmnVanishedText[] = _("{B_ATK_NAME_WITH_PREFIX} vanished\n instantly!");
 
 #endif
 

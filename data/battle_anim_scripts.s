@@ -10292,7 +10292,10 @@ Move_MAGMA_STORM:
 Move_DARK_VOID:
 Move_SEED_FLARE:
 Move_OMINOUS_WIND:
+	goto Move_COUNT
+
 Move_SHADOW_FORCE:
+	goto Move_FLY
 
 Move_COUNT:
 	loadspritegfx ANIM_TAG_IMPACT
