@@ -3412,6 +3412,23 @@ static void ExpandBattleTextBuffPlaceholders(const u8 *src, u8 *dst)
             srcID += 2;
             break;
         case B_BUFF_MON_NICK_WITH_PREFIX: // poke nick with prefix
+            #ifdef FRENCH
+            if (GetBattlerSide(src[srcID + 1]) == B_SIDE_PLAYER)
+            {
+                GetMonData(&gPlayerParty[src[srcID + 2]], MON_DATA_NICKNAME, text);
+            }
+            else
+            {
+                GetMonData(&gEnemyParty[src[srcID + 2]], MON_DATA_NICKNAME, text);
+                StringGetEnd10(text);
+                StringAppend(dst, text);
+                
+                if (gBattleTypeFlags & BATTLE_TYPE_TRAINER)
+                    StringAppend(dst, sText_FoePkmnPrefix);
+                else
+                    StringAppend(dst, sText_WildPkmnPrefix);
+            }
+            #else
             if (GetBattlerSide(src[srcID + 1]) == B_SIDE_PLAYER)
             {
                 GetMonData(&gPlayerParty[src[srcID + 2]], MON_DATA_NICKNAME, text);
@@ -3427,6 +3444,8 @@ static void ExpandBattleTextBuffPlaceholders(const u8 *src, u8 *dst)
             }
             StringGetEnd10(text);
             StringAppend(dst, text);
+            #endif
+            
             srcID += 3;
             break;
         case B_BUFF_STAT: // stats
