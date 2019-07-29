@@ -4911,7 +4911,7 @@ const struct BattleMove gBattleMoves[MOVES_COUNT] =
         .accuracy = 100,
         .pp = 15,
         .secondaryEffectChance = 0,
-        .target = MOVE_TARGET_OPPONENTS_FIELD,
+        .target = MOVE_TARGET_USER,
         .priority = 0,
         .flags = FLAG_IS_STATUS | FLAG_PROTECT_AFFECTED | FLAG_MAGICCOAT_AFFECTED | FLAG_MIRROR_MOVE_AFFECTED,
     },

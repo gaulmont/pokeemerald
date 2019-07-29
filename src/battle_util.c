@@ -413,6 +413,13 @@ u8 TrySetCantSelectMoveBattleScript(void)
         }
     }
 
+    if (gDisableStructs[gBattlerTarget].healBlockTimer && IsHealBlockableMove(gCurrentMove))
+    {
+        gHitMarker |= HITMARKER_UNABLE_TO_USE_MOVE;
+        gBattlescriptCurrInstr = BattleScript_MoveEnd;
+        return;
+    }
+
     return limitations;
 }
 
@@ -865,7 +872,7 @@ u8 DoBattlerEndTurnEffects(void)
                 if ((gStatuses3[gActiveBattler] & STATUS3_ROOTED)
                  && gBattleMons[gActiveBattler].hp != gBattleMons[gActiveBattler].maxHP
                  && gBattleMons[gActiveBattler].hp != 0
-                 && !(gStatuses3[gActiveBattler] & STATUS3_HEAL_BLOCK))
+                 && !(gDisableStructs[gActiveBattler].healBlockTimer))
                 {
                     gBattleMoveDamage = gBattleMons[gActiveBattler].maxHP / 16;
                     if (gBattleMoveDamage == 0)
@@ -902,7 +909,10 @@ u8 DoBattlerEndTurnEffects(void)
                         gBattleMoveDamage = 1;
                     gBattleScripting.animArg1 = gBattlerTarget;
                     gBattleScripting.animArg2 = gBattlerAttacker;
+                    if (gDisableStructs[gBattlerTarget].healBlockTimer)
+                        gDummyBattleFlag = 1;
                     BattleScriptExecute(BattleScript_LeechSeedTurnDrain);
+                    gDummyBattleFlag = 0;
                     effect++;
                 }
                 gBattleStruct->turnEffectsTracker++;
@@ -1158,7 +1168,7 @@ u8 DoBattlerEndTurnEffects(void)
                 if ((gStatuses3[gActiveBattler] & STATUS3_AQUA_RING)
                  && gBattleMons[gActiveBattler].hp != gBattleMons[gActiveBattler].maxHP
                  && gBattleMons[gActiveBattler].hp != 0
-                 && !(gStatuses3[gActiveBattler] & STATUS3_HEAL_BLOCK))
+                 && !(gDisableStructs[gActiveBattler].healBlockTimer))
                 {
                     gBattleMoveDamage = gBattleMons[gActiveBattler].maxHP / 16;
                     if (gBattleMoveDamage == 0)
@@ -1172,7 +1182,6 @@ u8 DoBattlerEndTurnEffects(void)
             case ENDTURN_HEALBLOCK:  // 4g Heal_Block
                 if (gDisableStructs[gActiveBattler].healBlockTimer && --gDisableStructs[gActiveBattler].healBlockTimer == 0)
                 {
-                    gStatuses3[gActiveBattler] &= ~STATUS3_HEAL_BLOCK;
                     BattleScriptExecute(BattleScript_PersonnalEffectWoreOff);
                     PREPARE_MON_NICK_WITH_PREFIX_BUFFER(gBattleTextBuff1, gActiveBattler, gBattlerPartyIndexes[gActiveBattler]);
                     PREPARE_MOVE_BUFFER(gBattleTextBuff2, MOVE_HEAL_BLOCK);
@@ -2029,7 +2038,7 @@ u8 AbilityBattleEffects(u8 caseID, u8 battler, u8 ability, u8 special, u16 moveA
                 switch (gLastUsedAbility)
                 {
                 case ABILITY_RAIN_DISH:
-                    if (gStatuses3[battler] & STATUS3_HEAL_BLOCK)
+                    if (gDisableStructs[battler].healBlockTimer)
                         break;
 
                     if (WEATHER_HAS_EFFECT && (gBattleWeather & WEATHER_RAIN_ANY)
@@ -2165,7 +2174,7 @@ u8 AbilityBattleEffects(u8 caseID, u8 battler, u8 ability, u8 special, u16 moveA
                     }
                     else
                     {
-                        if (gStatuses3[battler] & STATUS3_HEAL_BLOCK)
+                        if (gDisableStructs[battler].healBlockTimer)
                             break;
                         
                         gBattleMoveDamage = gBattleMons[battler].maxHP / 4;
@@ -2733,7 +2742,7 @@ u8 ItemBattleEffects(u8 caseID, u8 battlerId, bool8 moveTurn)
             switch (battlerHoldEffect)
             {
             case HOLD_EFFECT_RESTORE_HP:
-                if (gStatuses3[gActiveBattler] & STATUS3_HEAL_BLOCK)
+                if (gDisableStructs[gActiveBattler].healBlockTimer)
                     break;
                 
                 if (gBattleMons[battlerId].hp <= gBattleMons[battlerId].maxHP / 2 && !moveTurn)
@@ -2800,7 +2809,7 @@ u8 ItemBattleEffects(u8 caseID, u8 battlerId, bool8 moveTurn)
                 }
                 break;
             case HOLD_EFFECT_LEFTOVERS:
-                if (gStatuses3[gActiveBattler] & STATUS3_HEAL_BLOCK)
+                if (gDisableStructs[gActiveBattler].healBlockTimer)
                     break;
                 
                 if (gBattleMons[battlerId].hp < gBattleMons[battlerId].maxHP && !moveTurn)
@@ -3310,7 +3319,7 @@ u8 ItemBattleEffects(u8 caseID, u8 battlerId, bool8 moveTurn)
                 }
                 break;
             case HOLD_EFFECT_SHELL_BELL:
-                if (gStatuses3[gActiveBattler] & STATUS3_HEAL_BLOCK)
+                if (gDisableStructs[gBattlerAttacker].healBlockTimer)
                     break;
                 
                 if (!(gMoveResultFlags & MOVE_RESULT_NO_EFFECT)
@@ -3554,4 +3563,21 @@ u8 IsMonDisobedient(void)
             return 1;
         }
     }
+}
+
+u8 IsHealBlockableMove(u16 move)
+{
+    switch(gBattleMoves[move].effect)
+    {
+        case EFFECT_RESTORE_HP:
+        case EFFECT_WISH:
+        case EFFECT_HEALING_WISH:
+        case EFFECT_SOFTBOILED:
+        case EFFECT_MOONLIGHT:
+        case EFFECT_MORNING_SUN:
+        case EFFECT_REST:
+        case EFFECT_SYNTHESIS:
+            return 1;
+    }
+    return 0;                
 }

@@ -3088,7 +3088,6 @@ BattleScript_EffectHealBlock::
 	attackcanceler
 	attackstring
 	ppreduce
-	trysetstatus3 BS_TARGET, STATUS3_HEAL_BLOCK, BattleScript_ButItFailed
 	overrideeffect
 	attackanimation
 	waitanimation
@@ -3576,7 +3575,7 @@ BattleScript_LeechSeedTurnDrain::
 	datahpupdate BS_ATTACKER
 	copyword gBattleMoveDamage, gHpDealt
 	jumpifability BS_ATTACKER, ABILITY_LIQUID_OOZE, BattleScript_LeechSeedTurnPrintLiquidOoze
-	jumpifstatus3 BS_TARGET, STATUS3_HEAL_BLOCK, BattleScript_LeechSeedPrint
+	jumpifword CMP_EQUAL, gDummyBattleFlag, 0x1, BattleScript_LeechSeedPrint
 	manipulatedamage ATK80_DMG_CHANGE_SIGN
 	setbyte cMULTISTRING_CHOOSER, 0x3
 	goto BattleScript_LeechSeedTurnPrintAndUpdateHp
