@@ -254,6 +254,8 @@ gBattleScriptsForMoveEffects:: @ 82D86A8
 	.4byte BattleScript_EffectAssurance
 	.4byte BattleScript_EffectWakeUpSlap
 	.4byte BattleScript_EffectPsychoShift
+	.4byte BattleScript_EffectHealBlock
+	.4byte BattleScript_EffectHealingWish
 
 BattleScript_EffectSpeedUp::
 BattleScript_EffectSpecialDefenseUp::
@@ -314,7 +316,7 @@ BattleScript_HitFromAtkAnimation::
 	jumpifmove MOVE_THUNDER_FANG, Custom_ThunderFang
 	jumpifmove MOVE_ICE_FANG, Custom_IceFang
 	jumpifmove MOVE_FIRE_FANG, Custom_FireFang
-
+BattleScript_EffectHealingWish:
 BattleScript_MoveEnd::
 	moveendall
 	end
@@ -3082,6 +3084,18 @@ BattleScript_EffectMiracleEye::
 	waitmessage 0x40
 	goto BattleScript_MoveEnd
 
+BattleScript_EffectHealBlock::
+	attackcanceler
+	attackstring
+	ppreduce
+	trysetstatus3 BS_TARGET, STATUS3_HEAL_BLOCK, BattleScript_ButItFailed
+	overrideeffect
+	attackanimation
+	waitanimation
+	printstring STRINGID_HEALBLOCK_SETUP
+	waitmessage 0x40
+	goto BattleScript_MoveEnd
+
 BattleScript_AquaRingTurnHeal::
 	playanimation BS_ATTACKER, B_ANIM_AQUA_RING_HEAL, NULL
 	printstring STRINGID_AQUA_RING_HEAL
@@ -3538,6 +3552,11 @@ BattleScript_SideStatusWoreOff::
 	waitmessage 0x40
 	end2
 
+BattleScript_PersonnalEffectWoreOff::
+	printstring STRINGID_PKMNSYWOREOFF
+	waitmessage 0x40
+	end2
+
 BattleScript_SafeguardProtected::
 	pause 0x20
 	printstring STRINGID_PKMNUSEDSAFEGUARD
@@ -3557,6 +3576,7 @@ BattleScript_LeechSeedTurnDrain::
 	datahpupdate BS_ATTACKER
 	copyword gBattleMoveDamage, gHpDealt
 	jumpifability BS_ATTACKER, ABILITY_LIQUID_OOZE, BattleScript_LeechSeedTurnPrintLiquidOoze
+	jumpifstatus3 BS_TARGET, STATUS3_HEAL_BLOCK, BattleScript_LeechSeedPrint
 	manipulatedamage ATK80_DMG_CHANGE_SIGN
 	setbyte cMULTISTRING_CHOOSER, 0x3
 	goto BattleScript_LeechSeedTurnPrintAndUpdateHp
@@ -3566,6 +3586,7 @@ BattleScript_LeechSeedTurnPrintAndUpdateHp::
 	orword gHitMarker, HITMARKER_IGNORE_SUBSTITUTE | HITMARKER_x100000
 	healthbarupdate BS_TARGET
 	datahpupdate BS_TARGET
+BattleScript_LeechSeedPrint::
 	printfromtable gLeechSeedStringIds
 	waitmessage 0x40
 	tryfaintmon BS_ATTACKER, FALSE, NULL

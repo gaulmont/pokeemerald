@@ -948,6 +948,25 @@ static void atk00_attackcanceler(void)
         return;
     if (AbilityBattleEffects(ABILITYEFFECT_MOVES_BLOCK, gBattlerTarget, 0, 0, 0))
         return;
+
+    if (gStatuses3[gBattlerAttacker] & STATUS3_HEAL_BLOCK)
+    {
+        switch(gBattleMoves[gCurrentMove].effect)
+        {
+            case EFFECT_RESTORE_HP:
+            case EFFECT_WISH:
+            case EFFECT_HEALING_WISH:
+            case EFFECT_SOFTBOILED:
+            case EFFECT_MOONLIGHT:
+            case EFFECT_MORNING_SUN:
+            case EFFECT_REST:
+            case EFFECT_SYNTHESIS:
+                gHitMarker |= HITMARKER_UNABLE_TO_USE_MOVE;
+                gBattlescriptCurrInstr = BattleScript_MoveEnd;
+                return;
+        }
+    }
+
     if (!gBattleMons[gBattlerAttacker].pp[gCurrMovePos] && gCurrentMove != MOVE_STRUGGLE && !(gHitMarker & (HITMARKER_x800000 | HITMARKER_NO_ATTACKSTRING))
      && !(gBattleMons[gBattlerAttacker].status2 & STATUS2_MULTIPLETURNS))
     {
@@ -7237,9 +7256,14 @@ static void atk87_stockpiletohpheal(void)
 
 static void atk88_negativedamage(void)
 {
-    gBattleMoveDamage = -(gHpDealt / 2);
-    if (gBattleMoveDamage == 0)
-        gBattleMoveDamage = -1;
+    if (gStatuses3[gBattlerAttacker] & STATUS3_HEAL_BLOCK)
+        gBattleMoveDamage = 0;
+    else
+    {
+        gBattleMoveDamage = -(gHpDealt / 2);
+        if (gBattleMoveDamage == 0)
+            gBattleMoveDamage = -1;
+    }
 
     gBattlescriptCurrInstr++;
 }
@@ -10827,6 +10851,10 @@ static void atkFA_overrideeffect(void)
         gActiveBattler = gBattlerAttacker;
         BtlController_EmitSetMonData(0, REQUEST_STATUS_BATTLE, 0, 4, &gBattleMons[gActiveBattler].status1);
         MarkBattlerForControllerExec(gActiveBattler);
+    }
+    else if (gBattleMoves[gCurrentMove].effect == EFFECT_HEAL_BLOCK)
+    {
+        gDisableStructs[gBattlerTarget].healBlockTimer = 1;
     }
 
     gBattlescriptCurrInstr++;

@@ -961,6 +961,8 @@ static const u8 sText_GastroAcidText[];
 static const u8 sText_TailWindText[];
 static const u8 sText_LuckyChantText[];
 static const u8 sText_PkmnVanishedText[];
+static const u8 sText_PkmnsYWoreOffText[];
+static const u8 sText_HealBlockSetupText[];
 
 const u8 * const gBattleStringsTable[BATTLESTRINGS_COUNT] =
 {
@@ -1342,6 +1344,9 @@ const u8 * const gBattleStringsTable[BATTLESTRINGS_COUNT] =
     [STRINGID_TAILWIND - 12] = sText_TailWindText,
     [STRINGID_LUCKYCHANT - 12] = sText_LuckyChantText,
     [STRINGID_PKMNVANISHED - 12] = sText_PkmnVanishedText,
+    [STRINGID_PKMNSYWOREOFF - 12] = sText_PkmnsYWoreOffText,
+    [STRINGID_HEALBLOCK_SETUP - 12] = sText_HealBlockSetupText,
+
 };
 
 const u16 gMissStringIds[] =
@@ -1785,6 +1790,8 @@ static const u8 sText_GastroAcidText[] = _("La capacité spéciale du\n{B_DEF_NA
 static const u8 sText_TailWindText[] = _("Un {B_CURRENT_MOVE} souffle\nsur l'équipe!");
 static const u8 sText_LuckyChantText[] = _("L'{B_CURRENT_MOVE} immunise votre équipe\ncontre les coups critiques!");
 static const u8 sText_PkmnVanishedText[] = _("{B_ATK_NAME_WITH_PREFIX} a disparu\ninstantanément!");
+static const u8 sText_PkmnsYWoreOffText[] = _("{B_BUFF2} du {B_BUFF1} \nprend fin!");
+static const u8 sText_HealBlockSetupText[] =_("{B_DEF_NAME_WITH_PREFIX} ne peut\npas guérir!");
 
 #else
 
@@ -1958,6 +1965,8 @@ static const u8 sText_GastroAcidText[] = _("The {B_DEF_NAME_WITH_PREFIX}'s\nabil
 static const u8 sText_TailWindText[] = _("The {B_CURRENT_MOVE} blew\nfrom behind the team!");
 static const u8 sText_LuckyChantText[] = _("The {B_CURRENT_MOVE} shielded your\nteam from critical hits!");
 static const u8 sText_PkmnVanishedText[] = _("{B_ATK_NAME_WITH_PREFIX} vanished\n instantly!");
+static const u8 sText_PkmnsYWoreOffText[] = _("{B_BUFF1}'s {B_BUFF2}\nwore off!");
+static const u8 sText_HealBlockSetupText[] =_("The {B_DEF_NAME_WITH_PREFIX} was\nprevented from healing!");
 
 #endif
 

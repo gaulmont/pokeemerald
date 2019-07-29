@@ -47,6 +47,7 @@ extern const u8 BattleScript_SunlightContinues[];
 extern const u8 BattleScript_SunlightFaded[];
 extern const u8 BattleScript_OverworldWeatherStarts[];
 extern const u8 BattleScript_SideStatusWoreOff[];
+extern const u8 BattleScript_PersonnalEffectWoreOff[];
 extern const u8 BattleScript_SafeguardProtected[];
 extern const u8 BattleScript_SafeguardEnds[];
 extern const u8 BattleScript_LeechSeedTurnDrain[];

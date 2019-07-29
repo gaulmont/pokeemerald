@@ -841,6 +841,7 @@ enum
     ENDTURN_ITEMS2,
     //4g
     ENDTURN_AQUARING,
+    ENDTURN_HEALBLOCK,
     ENDTURN_BATTLER_COUNT
 };
 
@@ -863,7 +864,8 @@ u8 DoBattlerEndTurnEffects(void)
             case ENDTURN_INGRAIN:  // ingrain
                 if ((gStatuses3[gActiveBattler] & STATUS3_ROOTED)
                  && gBattleMons[gActiveBattler].hp != gBattleMons[gActiveBattler].maxHP
-                 && gBattleMons[gActiveBattler].hp != 0)
+                 && gBattleMons[gActiveBattler].hp != 0
+                 && !(gStatuses3[gActiveBattler] & STATUS3_HEAL_BLOCK))
                 {
                     gBattleMoveDamage = gBattleMons[gActiveBattler].maxHP / 16;
                     if (gBattleMoveDamage == 0)
@@ -1152,16 +1154,28 @@ u8 DoBattlerEndTurnEffects(void)
                 }
                 gBattleStruct->turnEffectsTracker++;
                 break;
-            case ENDTURN_AQUARING:  // 4g Aqua_Ring
+            case ENDTURN_AQUARING:  // 4g Aqua_Ring                
                 if ((gStatuses3[gActiveBattler] & STATUS3_AQUA_RING)
                  && gBattleMons[gActiveBattler].hp != gBattleMons[gActiveBattler].maxHP
-                 && gBattleMons[gActiveBattler].hp != 0)
+                 && gBattleMons[gActiveBattler].hp != 0
+                 && !(gStatuses3[gActiveBattler] & STATUS3_HEAL_BLOCK))
                 {
                     gBattleMoveDamage = gBattleMons[gActiveBattler].maxHP / 16;
                     if (gBattleMoveDamage == 0)
                         gBattleMoveDamage = 1;
                     gBattleMoveDamage *= -1;
                     BattleScriptExecute(BattleScript_AquaRingTurnHeal);
+                    effect++;
+                }
+                gBattleStruct->turnEffectsTracker++;
+                break;
+            case ENDTURN_HEALBLOCK:  // 4g Heal_Block
+                if (gDisableStructs[gActiveBattler].healBlockTimer && --gDisableStructs[gActiveBattler].healBlockTimer == 0)
+                {
+                    gStatuses3[gActiveBattler] &= ~STATUS3_HEAL_BLOCK;
+                    BattleScriptExecute(BattleScript_PersonnalEffectWoreOff);
+                    PREPARE_MON_NICK_WITH_PREFIX_BUFFER(gBattleTextBuff1, gActiveBattler, gBattlerPartyIndexes[gActiveBattler]);
+                    PREPARE_MOVE_BUFFER(gBattleTextBuff2, MOVE_HEAL_BLOCK);
                     effect++;
                 }
                 gBattleStruct->turnEffectsTracker++;
@@ -2015,6 +2029,9 @@ u8 AbilityBattleEffects(u8 caseID, u8 battler, u8 ability, u8 special, u16 moveA
                 switch (gLastUsedAbility)
                 {
                 case ABILITY_RAIN_DISH:
+                    if (gStatuses3[battler] & STATUS3_HEAL_BLOCK)
+                        break;
+
                     if (WEATHER_HAS_EFFECT && (gBattleWeather & WEATHER_RAIN_ANY)
                      && gBattleMons[battler].maxHP > gBattleMons[battler].hp)
                     {
@@ -2148,6 +2165,9 @@ u8 AbilityBattleEffects(u8 caseID, u8 battler, u8 ability, u8 special, u16 moveA
                     }
                     else
                     {
+                        if (gStatuses3[battler] & STATUS3_HEAL_BLOCK)
+                            break;
+                        
                         gBattleMoveDamage = gBattleMons[battler].maxHP / 4;
                         if (gBattleMoveDamage == 0)
                             gBattleMoveDamage = 1;
@@ -2713,6 +2733,9 @@ u8 ItemBattleEffects(u8 caseID, u8 battlerId, bool8 moveTurn)
             switch (battlerHoldEffect)
             {
             case HOLD_EFFECT_RESTORE_HP:
+                if (gStatuses3[gActiveBattler] & STATUS3_HEAL_BLOCK)
+                    break;
+                
                 if (gBattleMons[battlerId].hp <= gBattleMons[battlerId].maxHP / 2 && !moveTurn)
                 {
                     gBattleMoveDamage = battlerHoldEffectParam;
@@ -2777,6 +2800,9 @@ u8 ItemBattleEffects(u8 caseID, u8 battlerId, bool8 moveTurn)
                 }
                 break;
             case HOLD_EFFECT_LEFTOVERS:
+                if (gStatuses3[gActiveBattler] & STATUS3_HEAL_BLOCK)
+                    break;
+                
                 if (gBattleMons[battlerId].hp < gBattleMons[battlerId].maxHP && !moveTurn)
                 {
                     gBattleMoveDamage = gBattleMons[battlerId].maxHP / 16;
@@ -3284,6 +3310,9 @@ u8 ItemBattleEffects(u8 caseID, u8 battlerId, bool8 moveTurn)
                 }
                 break;
             case HOLD_EFFECT_SHELL_BELL:
+                if (gStatuses3[gActiveBattler] & STATUS3_HEAL_BLOCK)
+                    break;
+                
                 if (!(gMoveResultFlags & MOVE_RESULT_NO_EFFECT)
                     && gSpecialStatuses[gBattlerTarget].dmg != 0
                     && gSpecialStatuses[gBattlerTarget].dmg != 0xFFFF
