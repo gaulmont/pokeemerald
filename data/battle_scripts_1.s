@@ -257,6 +257,8 @@ gBattleScriptsForMoveEffects:: @ 82D86A8
 	.4byte BattleScript_EffectHealBlock
 	.4byte BattleScript_EffectHealingWish
 	.4byte BattleScript_EffectPowerTrick
+	.4byte BattleScript_EffectPowerSwap
+	.4byte BattleScript_EffectGuardSwap
 
 BattleScript_EffectSpeedUp::
 BattleScript_EffectSpecialDefenseUp::
@@ -3086,17 +3088,8 @@ BattleScript_EffectMiracleEye::
 	goto BattleScript_MoveEnd
 
 BattleScript_EffectHealBlock::
-	attackcanceler
-	attackstring
-	ppreduce
-	overrideeffect
-	jumpifmovehadnoeffect BattleScript_ButItFailed
-	attackanimation
-	waitanimation
-	printstring STRINGID_HEALBLOCK_SETUP
-	waitmessage 0x40
-	goto BattleScript_MoveEnd
-
+BattleScript_EffectPowerSwap::
+BattleScript_EffectGuardSwap::
 BattleScript_EffectPowerTrick::
 	attackcanceler
 	attackstring
@@ -3105,6 +3098,20 @@ BattleScript_EffectPowerTrick::
 	jumpifmovehadnoeffect BattleScript_ButItFailed
 	attackanimation
 	waitanimation
+
+	jumpifmove MOVE_HEAL_BLOCK, HealBlockMsg
+	jumpifmove MOVE_POWER_TRICK, PowerTrickMsg
+
+	printstring STRINGID_HEARTSWAP
+	waitmessage 0x40
+	goto BattleScript_MoveEnd
+
+HealBlockMsg::
+	printstring STRINGID_HEALBLOCK_SETUP
+	waitmessage 0x40
+	goto BattleScript_MoveEnd
+
+PowerTrickMsg::
 	printstring STRINGID_SWAPPED_ATK_DEF
 	waitmessage 0x40
 	goto BattleScript_MoveEnd

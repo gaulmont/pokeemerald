@@ -1125,7 +1125,10 @@ static bool8 AccuracyCalcHelper(u16 move)
      || gBattleMoves[move].effect == EFFECT_TRUMP_CARD
      || gBattleMoves[move].effect == EFFECT_TAIL_WIND
      || gBattleMoves[move].effect == EFFECT_MIRACLE_EYE
-     || gBattleMoves[move].effect == EFFECT_LUCKY_CHANT))
+     || gBattleMoves[move].effect == EFFECT_LUCKY_CHANT
+     || gBattleMoves[move].effect == EFFECT_POWER_TRICK
+     || gBattleMoves[move].effect == EFFECT_POWER_SWAP
+     || gBattleMoves[move].effect == EFFECT_GUARD_SWAP))
     {
         JumpIfMoveFailed(7, move);
         return TRUE;
@@ -10855,6 +10858,30 @@ static void atkFA_overrideeffect(void)
     else if (gBattleMoves[gCurrentMove].effect == EFFECT_POWER_TRICK)
     {
         gStatuses3[gBattlerAttacker] ^= STATUS3_POWER_TRICK;
+    }
+    else if (gBattleMoves[gCurrentMove].effect == EFFECT_POWER_SWAP)
+    {
+        s8 tempStageValue;
+
+        tempStageValue = gBattleMons[gBattlerAttacker].statStages[STAT_ATK];
+        gBattleMons[gBattlerAttacker].statStages[STAT_ATK] = gBattleMons[gBattlerTarget].statStages[STAT_ATK];
+        gBattleMons[gBattlerTarget].statStages[STAT_ATK] = tempStageValue;
+
+        tempStageValue = gBattleMons[gBattlerAttacker].statStages[STAT_SPATK];
+        gBattleMons[gBattlerAttacker].statStages[STAT_SPATK] = gBattleMons[gBattlerTarget].statStages[STAT_SPATK];
+        gBattleMons[gBattlerTarget].statStages[STAT_SPATK] = tempStageValue;
+    }
+    else if (gBattleMoves[gCurrentMove].effect == EFFECT_GUARD_SWAP)
+    {
+        s8 tempStageValue;
+
+        tempStageValue = gBattleMons[gBattlerAttacker].statStages[STAT_DEF];
+        gBattleMons[gBattlerAttacker].statStages[STAT_DEF] = gBattleMons[gBattlerTarget].statStages[STAT_DEF];
+        gBattleMons[gBattlerTarget].statStages[STAT_DEF] = tempStageValue;
+
+        tempStageValue = gBattleMons[gBattlerAttacker].statStages[STAT_SPDEF];
+        gBattleMons[gBattlerAttacker].statStages[STAT_SPDEF] = gBattleMons[gBattlerTarget].statStages[STAT_SPDEF];
+        gBattleMons[gBattlerTarget].statStages[STAT_SPDEF] = tempStageValue;
     }
 
     gBattlescriptCurrInstr++;

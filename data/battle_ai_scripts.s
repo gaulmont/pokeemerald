@@ -843,6 +843,8 @@ AI_CheckViability:
 	if_effect EFFECT_WORRY_SEED, AI_CV_WorrySeed
 	if_effect EFFECT_TAIL_WIND, AI_CV_TailWind
 	if_effect EFFECT_MIRACLE_EYE, AI_CV_MiracleEye
+	if_effect EFFECT_POWER_SWAP, AI_CV_PsychUp
+	if_effect EFFECT_GUARD_SWAP, AI_CV_PsychUp
 	end
 
 AI_CV_Sleep: @ 82DCA92
