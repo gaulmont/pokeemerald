@@ -3684,6 +3684,10 @@ BattleScript_EncoredNoMore::
 	waitmessage 0x40
 	end2
 
+BattleScript_PkmnCantUseMove::
+	printstring STRINGID_PKMNCANTUSEMOVE
+	endselectionscript
+
 BattleScript_DestinyBondTakesLife::
 	printstring STRINGID_PKMNTOOKFOE
 	waitmessage 0x40

@@ -402,7 +402,7 @@ u8 TrySetCantSelectMoveBattleScript(void)
 
     if (gDisableStructs[gActiveBattler].healBlockTimer && IsHealBlockableMove(move))
     {
-        gSelectionBattleScripts[gActiveBattler] = BattleScript_SelectingDisabledMove;
+        gSelectionBattleScripts[gActiveBattler] = BattleScript_PkmnCantUseMove;
         limitations++;
     }
 

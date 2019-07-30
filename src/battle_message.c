@@ -963,6 +963,7 @@ static const u8 sText_LuckyChantText[];
 static const u8 sText_PkmnVanishedText[];
 static const u8 sText_PkmnsYWoreOffText[];
 static const u8 sText_HealBlockSetupText[];
+static const u8 sText_PkmnCantUseMove[];
 
 const u8 * const gBattleStringsTable[BATTLESTRINGS_COUNT] =
 {
@@ -1346,7 +1347,7 @@ const u8 * const gBattleStringsTable[BATTLESTRINGS_COUNT] =
     [STRINGID_PKMNVANISHED - 12] = sText_PkmnVanishedText,
     [STRINGID_PKMNSYWOREOFF - 12] = sText_PkmnsYWoreOffText,
     [STRINGID_HEALBLOCK_SETUP - 12] = sText_HealBlockSetupText,
-
+    [STRINGID_PKMNCANTUSEMOVE - 12] = sText_PkmnCantUseMove,
 };
 
 const u16 gMissStringIds[] =
@@ -1792,6 +1793,7 @@ static const u8 sText_LuckyChantText[] = _("L'{B_CURRENT_MOVE} immunise votre é
 static const u8 sText_PkmnVanishedText[] = _("{B_ATK_NAME_WITH_PREFIX} a disparu\ninstantanément!");
 static const u8 sText_PkmnsYWoreOffText[] = _("{B_BUFF2} du {B_BUFF1} \nprend fin!");
 static const u8 sText_HealBlockSetupText[] =_("{B_DEF_NAME_WITH_PREFIX} ne peut\npas guérir!");
+static const u8 sText_PkmnCantUseMove[] = _("{B_ATK_NAME_WITH_PREFIX} ne peut pas utiliser\ncette capacité!\p");
 
 #else
 
@@ -1967,6 +1969,7 @@ static const u8 sText_LuckyChantText[] = _("The {B_CURRENT_MOVE} shielded your\n
 static const u8 sText_PkmnVanishedText[] = _("{B_ATK_NAME_WITH_PREFIX} vanished\n instantly!");
 static const u8 sText_PkmnsYWoreOffText[] = _("{B_BUFF1}'s {B_BUFF2}\nwore off!");
 static const u8 sText_HealBlockSetupText[] =_("The {B_DEF_NAME_WITH_PREFIX} was\nprevented from healing!");
+static const u8 sText_PkmnCantUseMove[] = _("{B_ATK_NAME_WITH_PREFIX} cannot use\nthis move!\p");
 
 #endif
 
