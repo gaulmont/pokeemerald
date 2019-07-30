@@ -400,6 +400,12 @@ u8 TrySetCantSelectMoveBattleScript(void)
         }
     }
 
+    if (gDisableStructs[gActiveBattler].healBlockTimer && IsHealBlockableMove(move))
+    {
+        gSelectionBattleScripts[gActiveBattler] = BattleScript_SelectingDisabledMove;
+        limitations++;
+    }
+
     if (gBattleMons[gActiveBattler].pp[gBattleBufferB[gActiveBattler][2]] == 0)
     {
         if (gBattleTypeFlags & BATTLE_TYPE_PALACE)
@@ -411,13 +417,6 @@ u8 TrySetCantSelectMoveBattleScript(void)
             gSelectionBattleScripts[gActiveBattler] = BattleScript_SelectingMoveWithNoPP;
             limitations++;
         }
-    }
-
-    if (gDisableStructs[gBattlerTarget].healBlockTimer && IsHealBlockableMove(gCurrentMove))
-    {
-        gHitMarker |= HITMARKER_UNABLE_TO_USE_MOVE;
-        gBattlescriptCurrInstr = BattleScript_MoveEnd;
-        return;
     }
 
     return limitations;
@@ -453,6 +452,8 @@ u8 CheckMoveLimitations(u8 battlerId, u8 unusableMoves, u8 check)
         if (gDisableStructs[battlerId].encoreTimer && gDisableStructs[battlerId].encoredMove != gBattleMons[battlerId].moves[i])
             unusableMoves |= gBitTable[i];
         if (holdEffect == HOLD_EFFECT_CHOICE_BAND && *choicedMove != 0 && *choicedMove != 0xFFFF && *choicedMove != gBattleMons[battlerId].moves[i])
+            unusableMoves |= gBitTable[i];
+        if (gDisableStructs[gBattlerTarget].healBlockTimer && IsHealBlockableMove(gBattleMons[battlerId].moves[i]))
             unusableMoves |= gBitTable[i];
     }
     return unusableMoves;
@@ -910,9 +911,9 @@ u8 DoBattlerEndTurnEffects(void)
                     gBattleScripting.animArg1 = gBattlerTarget;
                     gBattleScripting.animArg2 = gBattlerAttacker;
                     if (gDisableStructs[gBattlerTarget].healBlockTimer)
-                        gDummyBattleFlag = 1;
+                        gDummyBattleFlag |= 1;
                     BattleScriptExecute(BattleScript_LeechSeedTurnDrain);
-                    gDummyBattleFlag = 0;
+                    gDummyBattleFlag &= ~1;
                     effect++;
                 }
                 gBattleStruct->turnEffectsTracker++;
@@ -1412,6 +1413,7 @@ enum
     CANCELLER_PARALYSED,
     CANCELLER_IN_LOVE,
     CANCELLER_BIDE,
+    CANCELLER_HEALBLOCK,
     CANCELLER_THAW,
     CANCELLER_END,
 };
@@ -1658,6 +1660,18 @@ u8 AtkCanceller_UnableToUseMove(void)
                         gBattlescriptCurrInstr = BattleScript_BideNoEnergyToAttack;
                     }
                 }
+                effect = 1;
+            }
+            gBattleStruct->atkCancellerTracker++;
+            break;
+        case CANCELLER_HEALBLOCK:
+            if (gDisableStructs[gBattlerAttacker].healBlockTimer && IsHealBlockableMove(gCurrentMove))
+            {
+                gBattleMons[gBattlerAttacker].status2 &= ~(STATUS2_RECHARGE);
+                gDisableStructs[gBattlerAttacker].rechargeTimer = 0;
+                CancelMultiTurnMoves(gBattlerAttacker);
+                gBattlescriptCurrInstr = BattleScript_MoveUsedIsImprisoned;
+                gHitMarker |= HITMARKER_UNABLE_TO_USE_MOVE;
                 effect = 1;
             }
             gBattleStruct->atkCancellerTracker++;

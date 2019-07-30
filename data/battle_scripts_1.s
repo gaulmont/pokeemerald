@@ -3089,6 +3089,7 @@ BattleScript_EffectHealBlock::
 	attackstring
 	ppreduce
 	overrideeffect
+	jumpifmovehadnoeffect BattleScript_ButItFailed
 	attackanimation
 	waitanimation
 	printstring STRINGID_HEALBLOCK_SETUP
@@ -3575,8 +3576,8 @@ BattleScript_LeechSeedTurnDrain::
 	datahpupdate BS_ATTACKER
 	copyword gBattleMoveDamage, gHpDealt
 	jumpifability BS_ATTACKER, ABILITY_LIQUID_OOZE, BattleScript_LeechSeedTurnPrintLiquidOoze
-	jumpifword CMP_EQUAL, gDummyBattleFlag, 0x1, BattleScript_LeechSeedPrint
 	manipulatedamage ATK80_DMG_CHANGE_SIGN
+	setconditionnaldamage ATKFC_LEECH_SEED
 	setbyte cMULTISTRING_CHOOSER, 0x3
 	goto BattleScript_LeechSeedTurnPrintAndUpdateHp
 BattleScript_LeechSeedTurnPrintLiquidOoze::
@@ -3585,7 +3586,6 @@ BattleScript_LeechSeedTurnPrintAndUpdateHp::
 	orword gHitMarker, HITMARKER_IGNORE_SUBSTITUTE | HITMARKER_x100000
 	healthbarupdate BS_TARGET
 	datahpupdate BS_TARGET
-BattleScript_LeechSeedPrint::
 	printfromtable gLeechSeedStringIds
 	waitmessage 0x40
 	tryfaintmon BS_ATTACKER, FALSE, NULL

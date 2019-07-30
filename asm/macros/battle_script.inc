@@ -1262,6 +1262,11 @@
 	.byte 0xfb
 	.4byte \param0
 	.endm
+
+	.macro setconditionnaldamage param0:req
+	.byte 0xfc
+	.byte \param0
+	.endm
 	
 @ various command changed to more readable macros
 	.macro cancelmultiturnmoves battler:req

@@ -332,6 +332,7 @@ static void atkF8_trainerslideout(void);
 static void atkF9_trysetstatus3(void);
 static void atkFA_overrideeffect(void);
 static void atkFB_jumpifcondition(void);
+static void atkFC_setconditionnaldamage(void);
 
 void (* const gBattleScriptingCommandsTable[])(void) =
 {
@@ -587,7 +588,8 @@ void (* const gBattleScriptingCommandsTable[])(void) =
     //custom
     atkF9_trysetstatus3,
     atkFA_overrideeffect,
-    atkFB_jumpifcondition
+    atkFB_jumpifcondition,
+    atkFC_setconditionnaldamage
 };
 
 struct StatFractions
@@ -948,6 +950,12 @@ static void atk00_attackcanceler(void)
         return;
     if (AbilityBattleEffects(ABILITYEFFECT_MOVES_BLOCK, gBattlerTarget, 0, 0, 0))
         return;
+
+    if (gDisableStructs[gBattlerAttacker].healBlockTimer && IsHealBlockableMove(gCurrentMove))
+    {
+        gBattlescriptCurrInstr = BattleScript_ButItFailed;
+        return;
+    }
 
     if (!gBattleMons[gBattlerAttacker].pp[gCurrMovePos] && gCurrentMove != MOVE_STRUGGLE && !(gHitMarker & (HITMARKER_x800000 | HITMARKER_NO_ATTACKSTRING))
      && !(gBattleMons[gBattlerAttacker].status2 & STATUS2_MULTIPLETURNS))
@@ -7068,6 +7076,9 @@ static void atk80_manipulatedamage(void)
     case ATK80_DMG_DOUBLED:
         gBattleMoveDamage *= 2;
         break;
+    case ATK80_DMG_NULLED:
+        gBattleMoveDamage = 0;
+        break;
     }
 
     gBattlescriptCurrInstr += 2;
@@ -10959,4 +10970,19 @@ static void atkFB_jumpifcondition(void)
     
     if (!flag)
         gBattlescriptCurrInstr += 5;
+}
+
+static void atkFC_setconditionnaldamage(void)
+{
+    u8 effect = T1_READ_8(gBattlescriptCurrInstr + 1);
+
+    switch(effect)
+    {
+        case ATKFC_LEECH_SEED:
+            if (gDisableStructs[gBattlerTarget].healBlockTimer)
+                gBattleMoveDamage = 0;
+            break;
+    }
+
+    gBattlescriptCurrInstr += 2;
 }
