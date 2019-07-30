@@ -259,9 +259,9 @@ static const u8 sText_TheWallShattered[] = _("Le mur vole en éclats!");
 static const u8 sText_ButNoEffect[] = _("Mais ça n'a aucun effet!");
 static const u8 sText_PkmnHasNoMovesLeft[] = _("{B_ACTIVE_NAME_WITH_PREFIX} n'a plus\nde capacités!\p");
 static const u8 sText_PkmnMoveIsDisabled[] = _("Il y a une ENTRAVE sur {B_CURRENT_MOVE}\ndu {B_ACTIVE_NAME_WITH_PREFIX}!\p");
-static const u8 sText_PkmnCantUseMoveTorment[] = _("La TOURMENTE empêche\n{B_ACTIVE_NAME_WITH_PREFIX} d'utiliser une\lcapacité deux fois de suite!\p");
-static const u8 sText_PkmnCantUseMoveTaunt[] = _("{B_ACTIVE_NAME_WITH_PREFIX} ne peut pas\nutiliser {B_CURRENT_MOVE} aprês PROVOC!\p");
-static const u8 sText_PkmnCantUseMoveSealed[] = _("{B_ACTIVE_NAME_WITH_PREFIX} ne peut pas\nutiliser {B_CURRENT_MOVE}!");
+static const u8 sText_PkmnCantUseMoveTextTorment[] = _("La TOURMENTE empêche\n{B_ACTIVE_NAME_WITH_PREFIX} d'utiliser une\lcapacité deux fois de suite!\p");
+static const u8 sText_PkmnCantUseMoveTextTaunt[] = _("{B_ACTIVE_NAME_WITH_PREFIX} ne peut pas\nutiliser {B_CURRENT_MOVE} aprês PROVOC!\p");
+static const u8 sText_PkmnCantUseMoveTextSealed[] = _("{B_ACTIVE_NAME_WITH_PREFIX} ne peut pas\nutiliser {B_CURRENT_MOVE}!");
 static const u8 sText_PkmnMadeItRain[] = _("{B_SCR_ACTIVE_ABILITY} du\n{B_SCR_ACTIVE_NAME_WITH_PREFIX} fait tomber\lla pluie!");
 static const u8 sText_PkmnRaisedSpeed[] = _("{B_SCR_ACTIVE_ABILITY} de {B_SCR_ACTIVE_NAME_WITH_PREFIX}\naugmente sa VITESSE!");
 static const u8 sText_PkmnProtectedBy[] = _("{B_DEF_NAME_WITH_PREFIX} est protégé\npar {B_DEF_ABILITY}!");
@@ -700,9 +700,9 @@ static const u8 sText_TheWallShattered[] = _("The wall shattered!");
 static const u8 sText_ButNoEffect[] = _("But it had no effect!");
 static const u8 sText_PkmnHasNoMovesLeft[] = _("{B_ACTIVE_NAME_WITH_PREFIX} has no\nmoves left!\p");
 static const u8 sText_PkmnMoveIsDisabled[] = _("{B_ACTIVE_NAME_WITH_PREFIX}'s {B_CURRENT_MOVE}\nis disabled!\p");
-static const u8 sText_PkmnCantUseMoveTorment[] = _("{B_ACTIVE_NAME_WITH_PREFIX} can't use the same\nmove in a row due to the TORMENT!\p");
-static const u8 sText_PkmnCantUseMoveTaunt[] = _("{B_ACTIVE_NAME_WITH_PREFIX} can't use\n{B_CURRENT_MOVE} after the TAUNT!\p");
-static const u8 sText_PkmnCantUseMoveSealed[] = _("{B_ACTIVE_NAME_WITH_PREFIX} can't use the\nsealed {B_CURRENT_MOVE}!\p");
+static const u8 sText_PkmnCantUseMoveTextTorment[] = _("{B_ACTIVE_NAME_WITH_PREFIX} can't use the same\nmove in a row due to the TORMENT!\p");
+static const u8 sText_PkmnCantUseMoveTextTaunt[] = _("{B_ACTIVE_NAME_WITH_PREFIX} can't use\n{B_CURRENT_MOVE} after the TAUNT!\p");
+static const u8 sText_PkmnCantUseMoveTextSealed[] = _("{B_ACTIVE_NAME_WITH_PREFIX} can't use the\nsealed {B_CURRENT_MOVE}!\p");
 static const u8 sText_PkmnMadeItRain[] = _("{B_SCR_ACTIVE_NAME_WITH_PREFIX}'s {B_SCR_ACTIVE_ABILITY}\nmade it rain!");
 static const u8 sText_PkmnRaisedSpeed[] = _("{B_SCR_ACTIVE_NAME_WITH_PREFIX}'s {B_SCR_ACTIVE_ABILITY}\nraised its SPEED!");
 static const u8 sText_PkmnProtectedBy[] = _("{B_DEF_NAME_WITH_PREFIX} was protected\nby {B_DEF_ABILITY}!");
@@ -963,7 +963,8 @@ static const u8 sText_LuckyChantText[];
 static const u8 sText_PkmnVanishedText[];
 static const u8 sText_PkmnsYWoreOffText[];
 static const u8 sText_HealBlockSetupText[];
-static const u8 sText_PkmnCantUseMove[];
+static const u8 sText_PkmnCantUseMoveText[];
+static const u8 sText_PkmnSwappedAtkDefText[];
 
 const u8 * const gBattleStringsTable[BATTLESTRINGS_COUNT] =
 {
@@ -1125,10 +1126,10 @@ const u8 * const gBattleStringsTable[BATTLESTRINGS_COUNT] =
     [STRINGID_PKMNSTATUSNORMAL - 12] = sText_PkmnStatusNormal,
     [STRINGID_PKMNHASNOMOVESLEFT - 12] = sText_PkmnHasNoMovesLeft,
     [STRINGID_PKMNSUBJECTEDTOTORMENT - 12] = sText_PkmnSubjectedToTorment,
-    [STRINGID_PKMNCANTUSEMOVETORMENT - 12] = sText_PkmnCantUseMoveTorment,
+    [STRINGID_PKMNCANTUSEMOVETORMENT - 12] = sText_PkmnCantUseMoveTextTorment,
     [STRINGID_PKMNTIGHTENINGFOCUS - 12] = sText_PkmnTighteningFocus,
     [STRINGID_PKMNFELLFORTAUNT - 12] = sText_PkmnFellForTaunt,
-    [STRINGID_PKMNCANTUSEMOVETAUNT - 12] = sText_PkmnCantUseMoveTaunt,
+    [STRINGID_PKMNCANTUSEMOVETAUNT - 12] = sText_PkmnCantUseMoveTextTaunt,
     [STRINGID_PKMNREADYTOHELP - 12] = sText_PkmnReadyToHelp,
     [STRINGID_PKMNSWITCHEDITEMS - 12] = sText_PkmnSwitchedItems,
     [STRINGID_PKMNCOPIEDFOE - 12] = sText_PkmnCopiedFoe,
@@ -1141,7 +1142,7 @@ const u8 * const gBattleStringsTable[BATTLESTRINGS_COUNT] =
     [STRINGID_PKMNKNOCKEDOFF - 12] = sText_PkmnKnockedOff,
     [STRINGID_PKMNSWAPPEDABILITIES - 12] = sText_PkmnSwappedAbilities,
     [STRINGID_PKMNSEALEDOPPONENTMOVE - 12] = sText_PkmnSealedOpponentMove,
-    [STRINGID_PKMNCANTUSEMOVESEALED - 12] = sText_PkmnCantUseMoveSealed,
+    [STRINGID_PKMNCANTUSEMOVESEALED - 12] = sText_PkmnCantUseMoveTextSealed,
     [STRINGID_PKMNWANTSGRUDGE - 12] = sText_PkmnWantsGrudge,
     [STRINGID_PKMNLOSTPPGRUDGE - 12] = sText_PkmnLostPPGrudge,
     [STRINGID_PKMNSHROUDEDITSELF - 12] = sText_PkmnShroudedItself,
@@ -1347,7 +1348,8 @@ const u8 * const gBattleStringsTable[BATTLESTRINGS_COUNT] =
     [STRINGID_PKMNVANISHED - 12] = sText_PkmnVanishedText,
     [STRINGID_PKMNSYWOREOFF - 12] = sText_PkmnsYWoreOffText,
     [STRINGID_HEALBLOCK_SETUP - 12] = sText_HealBlockSetupText,
-    [STRINGID_PKMNCANTUSEMOVE - 12] = sText_PkmnCantUseMove,
+    [STRINGID_PKMNCANTUSEMOVE - 12] = sText_PkmnCantUseMoveText,
+    [STRINGID_SWAPPED_ATK_DEF - 12] = sText_PkmnSwappedAtkDefText,
 };
 
 const u16 gMissStringIds[] =
@@ -1793,7 +1795,8 @@ static const u8 sText_LuckyChantText[] = _("L'{B_CURRENT_MOVE} immunise votre é
 static const u8 sText_PkmnVanishedText[] = _("{B_ATK_NAME_WITH_PREFIX} a disparu\ninstantanément!");
 static const u8 sText_PkmnsYWoreOffText[] = _("{B_BUFF2} du {B_BUFF1} \nprend fin!");
 static const u8 sText_HealBlockSetupText[] =_("{B_DEF_NAME_WITH_PREFIX} ne peut\npas guérir!");
-static const u8 sText_PkmnCantUseMove[] = _("{B_ATK_NAME_WITH_PREFIX} ne peut pas utiliser\ncette capacité!\p");
+static const u8 sText_PkmnCantUseMoveText[] = _("{B_ATK_NAME_WITH_PREFIX} ne peut pas utiliser\ncette capacité!\p");
+static const u8 sText_PkmnSwappedAtkDefText[] = _("{B_ATK_NAME_WITH_PREFIX} échange son\nATTAQUE et sa DEFENSE!");
 
 #else
 
@@ -1969,7 +1972,8 @@ static const u8 sText_LuckyChantText[] = _("The {B_CURRENT_MOVE} shielded your\n
 static const u8 sText_PkmnVanishedText[] = _("{B_ATK_NAME_WITH_PREFIX} vanished\n instantly!");
 static const u8 sText_PkmnsYWoreOffText[] = _("{B_BUFF1}'s {B_BUFF2}\nwore off!");
 static const u8 sText_HealBlockSetupText[] =_("The {B_DEF_NAME_WITH_PREFIX} was\nprevented from healing!");
-static const u8 sText_PkmnCantUseMove[] = _("{B_ATK_NAME_WITH_PREFIX} cannot use\nthis move!\p");
+static const u8 sText_PkmnCantUseMoveText[] = _("{B_ATK_NAME_WITH_PREFIX} cannot use\nthis move!\p");
+static const u8 sText_PkmnSwappedAtkDefText[] = _("{B_ATK_NAME_WITH_PREFIX} switched its\nATTACK and DEFENSE!");
 
 #endif
 

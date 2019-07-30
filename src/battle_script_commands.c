@@ -10852,6 +10852,10 @@ static void atkFA_overrideeffect(void)
         else
             gDisableStructs[gBattlerTarget].healBlockTimer = 5;
     }
+    else if (gBattleMoves[gCurrentMove].effect == EFFECT_POWER_TRICK)
+    {
+        gStatuses3[gBattlerAttacker] ^= STATUS3_POWER_TRICK;
+    }
 
     gBattlescriptCurrInstr++;
 }

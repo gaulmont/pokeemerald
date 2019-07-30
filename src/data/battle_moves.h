@@ -4931,15 +4931,15 @@ const struct BattleMove gBattleMoves[MOVES_COUNT] =
 
 	[MOVE_POWER_TRICK] =
     {
-        .effect = EFFECT_SPLASH,
+        .effect = EFFECT_POWER_TRICK,
         .power = 0,
-        .type = TYPE_NORMAL,
+        .type = TYPE_PSYCHIC,
         .accuracy = 0,
-        .pp = 40,
+        .pp = 10,
         .secondaryEffectChance = 0,
         .target = MOVE_TARGET_USER,
         .priority = 0,
-        .flags = FLAG_IS_STATUS,
+        .flags = FLAG_IS_STATUS | FLAG_SNATCH_AFFECTED,
     },
 
 	[MOVE_GASTRO_ACID] =

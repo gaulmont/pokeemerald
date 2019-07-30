@@ -1,7 +1,7 @@
 #ifndef GUARD_CONSTANTS_BATTLE_STRING_IDS_H
 #define GUARD_CONSTANTS_BATTLE_STRING_IDS_H
 
-#define BATTLESTRINGS_COUNT     380
+#define BATTLESTRINGS_COUNT     381
 
 #define BATTLESTRINGS_ID_ADDER  12 // all battlestrings have its ID + 12, because first 5 are reserved
 
@@ -394,5 +394,6 @@
 #define STRINGID_PKMNSYWOREOFF              389
 #define STRINGID_HEALBLOCK_SETUP            390
 #define STRINGID_PKMNCANTUSEMOVE            391
+#define STRINGID_SWAPPED_ATK_DEF            392
 
 #endif // GUARD_CONSTANTS_BATTLE_STRING_IDS_H
