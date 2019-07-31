@@ -957,6 +957,12 @@ static void atk00_attackcanceler(void)
         return;
     }
 
+    if ((gSideStatuses[GetBattlerSide(gActiveBattler)] & SIDE_STATUS_GRAVITY) && IsGravityAffectedMove(gCurrentMove))
+    {
+        gBattlescriptCurrInstr = BattleScript_PkmnCantUseMoveInBattle;
+        return;
+    }
+
     if (!gBattleMons[gBattlerAttacker].pp[gCurrMovePos] && gCurrentMove != MOVE_STRUGGLE && !(gHitMarker & (HITMARKER_x800000 | HITMARKER_NO_ATTACKSTRING))
      && !(gBattleMons[gBattlerAttacker].status2 & STATUS2_MULTIPLETURNS))
     {
@@ -1171,13 +1177,18 @@ static void atk01_accuracycheck(void)
         if (gBattleMons[gBattlerTarget].status2 & STATUS2_FORESIGHT || gStatuses3[gBattlerTarget] & STATUS3_MIRACLE_EYE)
         {
             u8 acc = gBattleMons[gBattlerAttacker].statStages[STAT_ACC];
+            if (gSideStatuses[GetBattlerSide(gBattlerAttacker)] & SIDE_STATUS_GRAVITY)
+                acc *= 5/3;
             buff = acc;
         }
         else
         {
             u8 acc = gBattleMons[gBattlerAttacker].statStages[STAT_ACC];
+            if (gSideStatuses[GetBattlerSide(gBattlerAttacker)] & SIDE_STATUS_GRAVITY)
+                acc *= 5/3;
             buff = acc + 6 - gBattleMons[gBattlerTarget].statStages[STAT_EVASION];
         }
+
 
         if (buff < 0)
             buff = 0;
@@ -5580,8 +5591,10 @@ static void atk52_switchineffects(void)
 
     if (!(gSideStatuses[GetBattlerSide(gActiveBattler)] & SIDE_STATUS_SPIKES_DAMAGED)
         && (gSideStatuses[GetBattlerSide(gActiveBattler)] & SIDE_STATUS_SPIKES)
-        && !IS_BATTLER_OF_TYPE(gActiveBattler, TYPE_FLYING)
-        && gBattleMons[gActiveBattler].ability != ABILITY_LEVITATE)
+        && ((!IS_BATTLER_OF_TYPE(gActiveBattler, TYPE_FLYING) || gBattleMons[gActiveBattler].ability != ABILITY_LEVITATE)
+             || (gSideStatuses[GetBattlerSide(gActiveBattler)] & SIDE_STATUS_GRAVITY)
+             || (gStatuses3[gActiveBattler] & STATUS3_ROOTED))
+        )
     {
         u8 spikesDmg;
 
@@ -10906,6 +10919,8 @@ static void atkFA_overrideeffect(void)
     }
     else if (gBattleMoves[gCurrentMove].effect == EFFECT_GRAVITY)
     {
+        u8 i;
+        
         if (gSideStatuses[GET_BATTLER_SIDE(gBattlerAttacker)] & SIDE_STATUS_GRAVITY)
             gMoveResultFlags |= MOVE_RESULT_FAILED;
         else
@@ -10915,12 +10930,15 @@ static void atkFA_overrideeffect(void)
             gSideTimers[GET_BATTLER_SIDE(gBattlerAttacker)].gravityTimer = 5;
             gSideTimers[GET_BATTLER_SIDE(gBattlerAttacker)].gravityBattlerId = gBattlerAttacker;
             gSideTimers[GET_BATTLER_SIDE(gBattlerAttacker)^1].gravityTimer = 5;
-            gSideTimers[GET_BATTLER_SIDE(gBattlerAttacker)^1].gravityBattlerId = gBattlerAttacker;
+            gSideTimers[GET_BATTLER_SIDE(gBattlerAttacker)^1].gravityBattlerId = 0xFF;
 
             if (gBattleTypeFlags & BATTLE_TYPE_DOUBLE && CountAliveMonsInBattle(BATTLE_ALIVE_ATK_SIDE) == 2)
                 gBattleCommunication[MULTISTRING_CHOOSER] = 4;
             else
                 gBattleCommunication[MULTISTRING_CHOOSER] = 3;
+
+            for (i = 0; i < gBattlersCount; i++)
+                CancelMultiTurnMoves(i);
         }
     }
 

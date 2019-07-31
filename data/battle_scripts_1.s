@@ -3908,6 +3908,13 @@ BattleScript_NoPPForMove::
 	waitmessage 0x40
 	goto BattleScript_MoveEnd
 
+BattleScript_PkmnCantUseMoveInBattle::
+	attackstring
+	pause 0x20
+	printstring STRINGID_PKMNCANTUSEMOVEINBATTLE
+	waitmessage 0x40
+	goto BattleScript_MoveEnd
+
 BattleScript_SelectingTormentedMove::
 	printselectionstring STRINGID_PKMNCANTUSEMOVETORMENT
 	endselectionscript

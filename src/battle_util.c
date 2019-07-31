@@ -714,20 +714,19 @@ u8 DoFieldEndTurnEffects(void)
             while (gBattleStruct->turnSideTracker < 2)
             {
                 side = gBattleStruct->turnSideTracker;
-                gActiveBattler = gBattlerAttacker = gSideTimers[side].gravityBattlerId;
+                gActiveBattler = gBattlerAttacker;
                 if (gSideStatuses[side] & SIDE_STATUS_GRAVITY)
                 {
-                    if (--gSideTimers[side].gravityTimer == 0)
+                    gSideTimers[side].gravityTimer--;
+                    if (gSideTimers[side].gravityTimer == 0)
                     {
                         gSideStatuses[side] &= ~SIDE_STATUS_GRAVITY;
-                        BattleScriptExecute(BattleScript_SideStatusWoreOff);
-                        gBattleCommunication[MULTISTRING_CHOOSER] = side;
-                        PREPARE_MOVE_BUFFER(gBattleTextBuff1, MOVE_GRAVITY);
-                        effect++;
-                    }
-                    if (--gSideTimers[side^1].gravityTimer == 0)
-                    {
-                        gSideStatuses[side^1] &= ~SIDE_STATUS_GRAVITY;
+                        if (gActiveBattler == gSideTimers[side].gravityBattlerId)
+                        {
+                            BattleScriptExecute(BattleScript_SideStatusWoreOff);
+                            gBattleCommunication[MULTISTRING_CHOOSER] = side;
+                            PREPARE_MOVE_BUFFER(gBattleTextBuff1, MOVE_GRAVITY);
+                        }
                         effect++;
                     }
                 }
@@ -3634,6 +3633,21 @@ u8 IsHealBlockableMove(u16 move)
         case EFFECT_MORNING_SUN:
         case EFFECT_REST:
         case EFFECT_SYNTHESIS:
+            return 1;
+    }
+    return 0;                
+}
+
+u8 IsGravityAffectedMove(u16 move)
+{
+    switch(move)
+    {
+        case MOVE_FLY:
+        case MOVE_BOUNCE:
+        case MOVE_SPLASH:
+        case MOVE_JUMP_KICK:
+        case MOVE_HI_JUMP_KICK:
+        case MOVE_MAGNET_RISE:
             return 1;
     }
     return 0;                
