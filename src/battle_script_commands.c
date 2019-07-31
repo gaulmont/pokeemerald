@@ -1129,7 +1129,8 @@ static bool8 AccuracyCalcHelper(u16 move)
      || gBattleMoves[move].effect == EFFECT_POWER_TRICK
      || gBattleMoves[move].effect == EFFECT_POWER_SWAP
      || gBattleMoves[move].effect == EFFECT_GUARD_SWAP
-     || gBattleMoves[move].effect == EFFECT_MAGNET_RISE))
+     || gBattleMoves[move].effect == EFFECT_MAGNET_RISE
+     || gBattleMoves[move].effect == EFFECT_GRAVITY))
     {
         JumpIfMoveFailed(7, move);
         return TRUE;
@@ -1416,8 +1417,8 @@ static void atk06_typecalc(void)
         gBattleMoveDamage = gBattleMoveDamage / 10;
     }
 
-    if (((gStatuses3[gBattlerTarget] & STATUS3_ROOTED) ? FALSE
-        : (gBattleMons[gBattlerTarget].ability == ABILITY_LEVITATE) || gDisableStructs[gBattlerTarget].magnetRiseTimer)
+    if (( (gStatuses3[gBattlerTarget] & STATUS3_ROOTED) || (gSideStatuses[GET_BATTLER_SIDE(gBattlerTarget)] & SIDE_STATUS_GRAVITY) ) ? FALSE
+        : ( (gBattleMons[gBattlerTarget].ability == ABILITY_LEVITATE) || gDisableStructs[gBattlerTarget].magnetRiseTimer)
         && moveType == TYPE_GROUND)
     {
         if (gBattleMons[gBattlerTarget].ability == ABILITY_LEVITATE)
@@ -1451,8 +1452,8 @@ static void atk06_typecalc(void)
                     continue;
                 }
 
-                if ((TYPE_EFFECT_ATK_TYPE(i) == TYPE_GROUND) && (TYPE_EFFECT_MULTIPLIER(i) == TYPE_MUL_NO_EFFECT)
-                && (gStatuses3[gBattlerTarget] & STATUS3_ROOTED))
+                if ( (TYPE_EFFECT_ATK_TYPE(i) == TYPE_GROUND) && (TYPE_EFFECT_MULTIPLIER(i) == TYPE_MUL_NO_EFFECT)
+                && ((gStatuses3[gBattlerTarget] & STATUS3_ROOTED) || (gSideStatuses[GET_BATTLER_SIDE(gBattlerTarget)] & SIDE_STATUS_GRAVITY)) )
                 {
                     i += 3;
                     continue;
@@ -10902,6 +10903,25 @@ static void atkFA_overrideeffect(void)
             gMoveResultFlags |= MOVE_RESULT_FAILED;
         else
             gDisableStructs[gBattlerAttacker].magnetRiseTimer = 5;
+    }
+    else if (gBattleMoves[gCurrentMove].effect == EFFECT_GRAVITY)
+    {
+        if (gSideStatuses[GET_BATTLER_SIDE(gBattlerAttacker)] & SIDE_STATUS_GRAVITY)
+            gMoveResultFlags |= MOVE_RESULT_FAILED;
+        else
+        {
+            gSideStatuses[GET_BATTLER_SIDE(gBattlerAttacker)] |= SIDE_STATUS_GRAVITY;
+            gSideStatuses[GET_BATTLER_SIDE(gBattlerAttacker)^1] |= SIDE_STATUS_GRAVITY;
+            gSideTimers[GET_BATTLER_SIDE(gBattlerAttacker)].gravityTimer = 5;
+            gSideTimers[GET_BATTLER_SIDE(gBattlerAttacker)].gravityBattlerId = gBattlerAttacker;
+            gSideTimers[GET_BATTLER_SIDE(gBattlerAttacker)^1].gravityTimer = 5;
+            gSideTimers[GET_BATTLER_SIDE(gBattlerAttacker)^1].gravityBattlerId = gBattlerAttacker;
+
+            if (gBattleTypeFlags & BATTLE_TYPE_DOUBLE && CountAliveMonsInBattle(BATTLE_ALIVE_ATK_SIDE) == 2)
+                gBattleCommunication[MULTISTRING_CHOOSER] = 4;
+            else
+                gBattleCommunication[MULTISTRING_CHOOSER] = 3;
+        }
     }
 
     gBattlescriptCurrInstr++;

@@ -4632,11 +4632,11 @@ const struct BattleMove gBattleMoves[MOVES_COUNT] =
 
 	[MOVE_GRAVITY] =
     {
-        .effect = EFFECT_SPLASH,
+        .effect = EFFECT_GRAVITY,
         .power = 0,
-        .type = TYPE_NORMAL,
+        .type = TYPE_PSYCHIC,
         .accuracy = 0,
-        .pp = 40,
+        .pp = 5,
         .secondaryEffectChance = 0,
         .target = MOVE_TARGET_USER,
         .priority = 0,

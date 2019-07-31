@@ -203,6 +203,7 @@
 //4g
 #define SIDE_STATUS_TAIL_WIND        (1 << 10)
 #define SIDE_STATUS_LUCKY_CHANT      (1 << 11)
+#define SIDE_STATUS_GRAVITY          (1 << 12)
 
 // Flags describing move's result
 #define MOVE_RESULT_MISSED             (1 << 0)

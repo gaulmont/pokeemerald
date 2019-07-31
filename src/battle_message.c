@@ -966,6 +966,7 @@ static const u8 sText_HealBlockSetupText[];
 static const u8 sText_PkmnCantUseMoveText[];
 static const u8 sText_PkmnSwappedAtkDefText[];
 static const u8 sText_MagnetRiseSetupText[];
+static const u8 sText_GravitySetupText[];
 
 const u8 * const gBattleStringsTable[BATTLESTRINGS_COUNT] =
 {
@@ -1352,6 +1353,7 @@ const u8 * const gBattleStringsTable[BATTLESTRINGS_COUNT] =
     [STRINGID_PKMNCANTUSEMOVE - 12] = sText_PkmnCantUseMoveText,
     [STRINGID_SWAPPED_ATK_DEF - 12] = sText_PkmnSwappedAtkDefText,
     [STRINGID_MAGNETRISE_SETUP - 12] = sText_MagnetRiseSetupText,
+    [STRINGID_GRAVITY_SETUP - 12] = sText_GravitySetupText,
 };
 
 const u16 gMissStringIds[] =
@@ -1800,6 +1802,7 @@ static const u8 sText_HealBlockSetupText[] =_("{B_DEF_NAME_WITH_PREFIX} ne peut\
 static const u8 sText_PkmnCantUseMoveText[] = _("{B_ATK_NAME_WITH_PREFIX} ne peut pas utiliser\ncette capacité!\p");
 static const u8 sText_PkmnSwappedAtkDefText[] = _("{B_ATK_NAME_WITH_PREFIX} échange son\nATTAQUE et sa DEFENSE!");
 static const u8 sText_MagnetRiseSetupText[] = _("{B_ATK_NAME_WITH_PREFIX} lévite sur un\nchamp magnétique!");
+static const u8 sText_GravitySetupText[] = _("La {B_CURRENT_MOVE} est intensifiée!");
 
 #else
 
@@ -1978,6 +1981,7 @@ static const u8 sText_HealBlockSetupText[] =_("The {B_DEF_NAME_WITH_PREFIX} was\
 static const u8 sText_PkmnCantUseMoveText[] = _("{B_ATK_NAME_WITH_PREFIX} cannot use\nthis move!\p");
 static const u8 sText_PkmnSwappedAtkDefText[] = _("{B_ATK_NAME_WITH_PREFIX} switched its\nATTACK and DEFENSE!");
 static const u8 sText_MagnetRiseSetupText[] = _("{B_ATK_NAME_WITH_PREFIX} levitated\non electromagnetism!");
+static const u8 sText_GravitySetupText[] = _("{B_CURRENT_MOVE} intensifies!");
 
 #endif
 

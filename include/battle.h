@@ -170,6 +170,8 @@ struct SideTimer
     u8 tailWindBattlerId;
     u8 luckyChantTimer;
     u8 luckyChantBattlerId;
+    u8 gravityTimer;
+    u8 gravityBattlerId;
 };
 
 struct WishFutureKnock

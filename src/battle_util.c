@@ -510,6 +510,7 @@ enum
     ENDTURN_SAFEGUARD,
     ENDTURN_TAIL_WIND,
     ENDTURN_LUCKY_CHANT,
+    ENDTURN_GRAVITY,
     ENDTURN_WISH,
     ENDTURN_RAIN,
     ENDTURN_SANDSTORM,
@@ -696,6 +697,37 @@ u8 DoFieldEndTurnEffects(void)
                         BattleScriptExecute(BattleScript_SideStatusWoreOff);
                         gBattleCommunication[MULTISTRING_CHOOSER] = side;
                         PREPARE_MOVE_BUFFER(gBattleTextBuff1, MOVE_LUCKY_CHANT);
+                        effect++;
+                    }
+                }
+                gBattleStruct->turnSideTracker++;
+                if (effect)
+                    break;
+            }
+            if (!effect)
+            {
+                gBattleStruct->turnCountersTracker++;
+                gBattleStruct->turnSideTracker = 0;
+            }
+            break;
+        case ENDTURN_GRAVITY:
+            while (gBattleStruct->turnSideTracker < 2)
+            {
+                side = gBattleStruct->turnSideTracker;
+                gActiveBattler = gBattlerAttacker = gSideTimers[side].gravityBattlerId;
+                if (gSideStatuses[side] & SIDE_STATUS_GRAVITY)
+                {
+                    if (--gSideTimers[side].gravityTimer == 0)
+                    {
+                        gSideStatuses[side] &= ~SIDE_STATUS_GRAVITY;
+                        BattleScriptExecute(BattleScript_SideStatusWoreOff);
+                        gBattleCommunication[MULTISTRING_CHOOSER] = side;
+                        PREPARE_MOVE_BUFFER(gBattleTextBuff1, MOVE_GRAVITY);
+                        effect++;
+                    }
+                    if (--gSideTimers[side^1].gravityTimer == 0)
+                    {
+                        gSideStatuses[side^1] &= ~SIDE_STATUS_GRAVITY;
                         effect++;
                     }
                 }

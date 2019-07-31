@@ -260,6 +260,7 @@ gBattleScriptsForMoveEffects:: @ 82D86A8
 	.4byte BattleScript_EffectPowerSwap
 	.4byte BattleScript_EffectGuardSwap
 	.4byte BattleScript_EffectMagnetRise
+	.4byte BattleScript_EffectGravity
 
 BattleScript_EffectSpeedUp::
 BattleScript_EffectSpecialDefenseUp::
@@ -3088,6 +3089,7 @@ BattleScript_EffectMiracleEye::
 	waitmessage 0x40
 	goto BattleScript_MoveEnd
 
+BattleScript_EffectGravity::
 BattleScript_EffectMagnetRise::
 BattleScript_EffectHealBlock::
 BattleScript_EffectPowerSwap::
@@ -3101,11 +3103,17 @@ BattleScript_EffectPowerTrick::
 	attackanimation
 	waitanimation
 
+	jumpifmove MOVE_GRAVITY, GravityMsg
 	jumpifmove MOVE_MAGNET_RISE, MagnetRiseMsg
 	jumpifmove MOVE_HEAL_BLOCK, HealBlockMsg
 	jumpifmove MOVE_POWER_TRICK, PowerTrickMsg
 
 	printstring STRINGID_HEARTSWAP
+	waitmessage 0x40
+	goto BattleScript_MoveEnd
+
+GravityMsg::
+	printstring STRINGID_GRAVITY_SETUP
 	waitmessage 0x40
 	goto BattleScript_MoveEnd
 
