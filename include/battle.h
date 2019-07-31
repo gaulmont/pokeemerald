@@ -104,6 +104,7 @@ struct DisableStruct
     u8 mimickedMoves:4;
     u8 rechargeTimer;
     u8 healBlockTimer:4;
+    u8 magnetRiseTimer:4;
 };
 
 struct ProtectStruct

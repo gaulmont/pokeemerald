@@ -850,6 +850,7 @@ enum
     //4g
     ENDTURN_AQUARING,
     ENDTURN_HEALBLOCK,
+    ENDTURN_MAGNETRISE,
     ENDTURN_BATTLER_COUNT
 };
 
@@ -1184,8 +1185,18 @@ u8 DoBattlerEndTurnEffects(void)
                 if (gDisableStructs[gActiveBattler].healBlockTimer && --gDisableStructs[gActiveBattler].healBlockTimer == 0)
                 {
                     BattleScriptExecute(BattleScript_PersonnalEffectWoreOff);
-                    PREPARE_MON_NICK_WITH_PREFIX_BUFFER(gBattleTextBuff1, gActiveBattler, gBattlerPartyIndexes[gActiveBattler]);
+                    PREPARE_MON_NICK_BUFFER(gBattleTextBuff1, gActiveBattler, gBattlerPartyIndexes[gActiveBattler]);
                     PREPARE_MOVE_BUFFER(gBattleTextBuff2, MOVE_HEAL_BLOCK);
+                    effect++;
+                }
+                gBattleStruct->turnEffectsTracker++;
+                break;
+            case ENDTURN_MAGNETRISE:  // 4g Magnet_Rise
+                if (gDisableStructs[gActiveBattler].magnetRiseTimer && --gDisableStructs[gActiveBattler].magnetRiseTimer == 0)
+                {
+                    BattleScriptExecute(BattleScript_PersonnalEffectWoreOff);
+                    PREPARE_MON_NICK_BUFFER(gBattleTextBuff1, gActiveBattler, gBattlerPartyIndexes[gActiveBattler]);
+                    PREPARE_MOVE_BUFFER(gBattleTextBuff2, MOVE_MAGNET_RISE);
                     effect++;
                 }
                 gBattleStruct->turnEffectsTracker++;

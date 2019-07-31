@@ -965,6 +965,7 @@ static const u8 sText_PkmnsYWoreOffText[];
 static const u8 sText_HealBlockSetupText[];
 static const u8 sText_PkmnCantUseMoveText[];
 static const u8 sText_PkmnSwappedAtkDefText[];
+static const u8 sText_MagnetRiseSetupText[];
 
 const u8 * const gBattleStringsTable[BATTLESTRINGS_COUNT] =
 {
@@ -1350,6 +1351,7 @@ const u8 * const gBattleStringsTable[BATTLESTRINGS_COUNT] =
     [STRINGID_HEALBLOCK_SETUP - 12] = sText_HealBlockSetupText,
     [STRINGID_PKMNCANTUSEMOVE - 12] = sText_PkmnCantUseMoveText,
     [STRINGID_SWAPPED_ATK_DEF - 12] = sText_PkmnSwappedAtkDefText,
+    [STRINGID_MAGNETRISE_SETUP - 12] = sText_MagnetRiseSetupText,
 };
 
 const u16 gMissStringIds[] =
@@ -1793,10 +1795,11 @@ static const u8 sText_GastroAcidText[] = _("La capacité spéciale du\n{B_DEF_NA
 static const u8 sText_TailWindText[] = _("Un {B_CURRENT_MOVE} souffle\nsur l'équipe!");
 static const u8 sText_LuckyChantText[] = _("L'{B_CURRENT_MOVE} immunise votre équipe\ncontre les coups critiques!");
 static const u8 sText_PkmnVanishedText[] = _("{B_ATK_NAME_WITH_PREFIX} a disparu\ninstantanément!");
-static const u8 sText_PkmnsYWoreOffText[] = _("{B_BUFF2} du {B_BUFF1} \nprend fin!");
+static const u8 sText_PkmnsYWoreOffText[] = _("{B_BUFF2} du {B_BUFF1}\nprend fin!");
 static const u8 sText_HealBlockSetupText[] =_("{B_DEF_NAME_WITH_PREFIX} ne peut\npas guérir!");
 static const u8 sText_PkmnCantUseMoveText[] = _("{B_ATK_NAME_WITH_PREFIX} ne peut pas utiliser\ncette capacité!\p");
 static const u8 sText_PkmnSwappedAtkDefText[] = _("{B_ATK_NAME_WITH_PREFIX} échange son\nATTAQUE et sa DEFENSE!");
+static const u8 sText_MagnetRiseSetupText[] = _("{B_ATK_NAME_WITH_PREFIX} lévite sur un\nchamp magnétique!");
 
 #else
 
@@ -1974,6 +1977,7 @@ static const u8 sText_PkmnsYWoreOffText[] = _("{B_BUFF1}'s {B_BUFF2}\nwore off!"
 static const u8 sText_HealBlockSetupText[] =_("The {B_DEF_NAME_WITH_PREFIX} was\nprevented from healing!");
 static const u8 sText_PkmnCantUseMoveText[] = _("{B_ATK_NAME_WITH_PREFIX} cannot use\nthis move!\p");
 static const u8 sText_PkmnSwappedAtkDefText[] = _("{B_ATK_NAME_WITH_PREFIX} switched its\nATTACK and DEFENSE!");
+static const u8 sText_MagnetRiseSetupText[] = _("{B_ATK_NAME_WITH_PREFIX} levitated\non electromagnetism!");
 
 #endif
 

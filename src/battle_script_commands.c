@@ -1128,7 +1128,8 @@ static bool8 AccuracyCalcHelper(u16 move)
      || gBattleMoves[move].effect == EFFECT_LUCKY_CHANT
      || gBattleMoves[move].effect == EFFECT_POWER_TRICK
      || gBattleMoves[move].effect == EFFECT_POWER_SWAP
-     || gBattleMoves[move].effect == EFFECT_GUARD_SWAP))
+     || gBattleMoves[move].effect == EFFECT_GUARD_SWAP
+     || gBattleMoves[move].effect == EFFECT_MAGNET_RISE))
     {
         JumpIfMoveFailed(7, move);
         return TRUE;
@@ -1415,14 +1416,19 @@ static void atk06_typecalc(void)
         gBattleMoveDamage = gBattleMoveDamage / 10;
     }
 
-    if (gBattleMons[gBattlerTarget].ability == ABILITY_LEVITATE && moveType == TYPE_GROUND)
+    if (((gStatuses3[gBattlerTarget] & STATUS3_ROOTED) ? FALSE
+        : (gBattleMons[gBattlerTarget].ability == ABILITY_LEVITATE) || gDisableStructs[gBattlerTarget].magnetRiseTimer)
+        && moveType == TYPE_GROUND)
     {
-        gLastUsedAbility = gBattleMons[gBattlerTarget].ability;
+        if (gBattleMons[gBattlerTarget].ability == ABILITY_LEVITATE)
+        {
+            gLastUsedAbility = gBattleMons[gBattlerTarget].ability;
+            RecordAbilityBattle(gBattlerTarget, gLastUsedAbility);
+            gBattleCommunication[6] = moveType;
+        }
         gMoveResultFlags |= (MOVE_RESULT_MISSED | MOVE_RESULT_DOESNT_AFFECT_FOE);
         gLastLandedMoves[gBattlerTarget] = 0;
         gLastHitByType[gBattlerTarget] = 0;
-        gBattleCommunication[6] = moveType;
-        RecordAbilityBattle(gBattlerTarget, gLastUsedAbility);
     }
     else
     {
@@ -1440,6 +1446,13 @@ static void atk06_typecalc(void)
                 //Roost
                 if ((GetBattlerTurnOrderNum(BS_TARGET) < gCurrentTurnActionNumber && gLastMoves[BS_TARGET] == MOVE_ROOST)
                 && (TYPE_EFFECT_DEF_TYPE(i) == TYPE_FLYING))
+                {
+                    i += 3;
+                    continue;
+                }
+
+                if ((TYPE_EFFECT_ATK_TYPE(i) == TYPE_GROUND) && (TYPE_EFFECT_MULTIPLIER(i) == TYPE_MUL_NO_EFFECT)
+                && (gStatuses3[gBattlerTarget] & STATUS3_ROOTED))
                 {
                     i += 3;
                     continue;
@@ -10882,6 +10895,13 @@ static void atkFA_overrideeffect(void)
         tempStageValue = gBattleMons[gBattlerAttacker].statStages[STAT_SPDEF];
         gBattleMons[gBattlerAttacker].statStages[STAT_SPDEF] = gBattleMons[gBattlerTarget].statStages[STAT_SPDEF];
         gBattleMons[gBattlerTarget].statStages[STAT_SPDEF] = tempStageValue;
+    }
+    else if (gBattleMoves[gCurrentMove].effect == EFFECT_MAGNET_RISE)
+    {
+        if (gDisableStructs[gBattlerAttacker].magnetRiseTimer)
+            gMoveResultFlags |= MOVE_RESULT_FAILED;
+        else
+            gDisableStructs[gBattlerAttacker].magnetRiseTimer = 5;
     }
 
     gBattlescriptCurrInstr++;

@@ -2978,7 +2978,6 @@ s32 CalculateBaseDamage(struct BattlePokemon *attacker, struct BattlePokemon *de
     else
         attack = attacker->attack;
 
-    
     if (gStatuses3[gBattlerTarget] & STATUS3_POWER_TRICK)
         defense = defender->attack;
     else
