@@ -10193,6 +10193,7 @@ Move_LEAF_STORM:
 	loadspritegfx ANIM_TAG_AIR_WAVE_2
 	loadspritegfx ANIM_TAG_IMPACT
 	loadspritegfx ANIM_TAG_THIN_RING
+	loadspritegfx ANIM_TAG_SPINNING_GREEN_ORBS
 	
 	createvisualtask AnimTask_BlendParticle, 5, ANIM_TAG_AIR_WAVE_2, 0, 6, 6, RGB(0, 31, 0)
 	createvisualtask AnimTask_BlendParticle, 5, ANIM_TAG_THIN_RING, 0, 6, 15, RGB_WHITE
@@ -10213,7 +10214,8 @@ Move_LEAF_STORM:
 	delay 7
 	createsprite gUnknown_08593850, ANIM_ATTACKER, 40, 0, 0, 0, 0
 	playsewithpan SE_W048, 192
-	waitforvisualfinish	
+	waitforvisualfinish
+	createsprite greenSpinningOrbSpriteTemplate, ANIM_ATTACKER, 0, 0, 0, 96
 	call Aeroblast1
 	createvisualtask AnimTask_ShakeMon, 5, ANIM_TARGET, 5, 0, 50, 1
 	call Aeroblast1

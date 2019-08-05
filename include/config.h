@@ -18,7 +18,7 @@
 // NOTE: Don't try to enable assert right now as many pointers
 // still exist in defines and WILL likely result in a broken ROM.
 
-#define FRENCH
+//#define FRENCH
 #define ENGLISH
 
 #ifdef ENGLISH

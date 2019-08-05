@@ -18,6 +18,7 @@
 
 EWRAM_DATA s16 gUnknown_0203A0F8[4] = {0};
 
+void AnimSpinningOrb(struct Sprite *);
 void AnimMovePowderParticle(struct Sprite *);
 void AnimPowerAbsorptionOrb(struct Sprite *);
 void AnimSolarbeamBigOrb(struct Sprite *);
@@ -149,6 +150,51 @@ static void sub_8103300(struct Sprite *);
 static void sub_8103320(struct Sprite *);
 static void sub_81033F0(struct Sprite *);
 static void sub_810342C(struct Sprite *);
+
+// CUSTOM
+
+const union AnimCmd gSpinningOrb[] =
+{
+    ANIMCMD_FRAME(0, 5),
+    ANIMCMD_FRAME(16, 5),
+    ANIMCMD_FRAME(32, 5),
+    ANIMCMD_FRAME(48, 5),
+    ANIMCMD_JUMP(0),
+};
+
+const union AnimCmd *const gSpinningOrbAnimCmds[] =
+{
+    gSpinningOrb,
+};
+
+const struct SpriteTemplate greenSpinningOrbSpriteTemplate =
+{
+    .tileTag = ANIM_TAG_SPINNING_GREEN_ORBS,
+    .paletteTag = ANIM_TAG_SPINNING_GREEN_ORBS,    
+    .oam = &gUnknown_08524914,
+    .anims = gSpinningOrbAnimCmds,
+    .images = NULL,
+    .affineAnims = gDummySpriteAffineAnimTable,
+    .callback = AnimSpinningOrb,
+};
+
+void AnimSpinningOrb(struct Sprite* sprite)
+{
+    InitSpritePosToAnimAttacker(sprite, TRUE);
+    sprite->data[0] = gBattleAnimArgs[2];
+    sprite->data[2] = GetBattlerSpriteCoord(gBattleAnimAttacker, BATTLER_COORD_X);
+    sprite->data[4] = GetBattlerSpriteCoord(gBattleAnimAttacker, BATTLER_COORD_Y);
+    sprite->data[5] = gBattlerSpriteIds[gBattleAnimAttacker];
+    
+    sprite->callback = WaitAnimForDuration;
+    StoreSpriteCallbackInData6(sprite, DestroyAnimSprite);
+}
+
+
+
+
+
+
 
 const union AnimCmd gUnknown_085920F0[] =
 {
