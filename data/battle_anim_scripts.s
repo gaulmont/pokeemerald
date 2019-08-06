@@ -10082,8 +10082,23 @@ Move_ROCK_POLISH:
 Move_POISON_JAB:
 Move_DARK_PULSE:
 Move_NIGHT_SLASH:
-Move_AQUA_TAIL:
 	goto Move_COUNT
+Move_AQUA_TAIL:
+	loadspritegfx ANIM_TAG_GENERIC_WAVE
+	loadspritegfx ANIM_TAG_SMALL_BUBBLES
+	loadspritegfx ANIM_TAG_WATER_IMPACT
+	createsprite gVerticalDipSpriteTemplate, ANIM_ATTACKER, 2, 6, 1, ANIM_ATTACKER
+	playsewithpan SE_W029, SOUND_PAN_ATTACKER
+	createsprite genericWaveSpriteTemplate, ANIM_ATTACKER, -4, 0, 16, 0x7C
+	delay 80
+	createvisualtask AnimTask_BlendParticle, 5, ANIM_TAG_GENERIC_WAVE, 2, 0, 16, RGB_WHITEALPHA
+
+	createvisualtask AnimTask_ShakeMon, 2, ANIM_TARGET, 3, 0, 6, 1
+	createvisualtask sub_81085C8, 5
+	playsewithpan SE_W057, SOUND_PAN_TARGET
+
+	waitforvisualfinish
+	end
 
 Move_SEED_BOMB:	
 	loadspritegfx ANIM_TAG_SEED

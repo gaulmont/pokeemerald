@@ -281,6 +281,7 @@ extern const struct OamData gUnknown_085249F4;
 extern const struct OamData gUnknown_0852493C;
 extern const struct OamData gUnknown_08524A5C;
 extern const struct OamData gUnknown_08524A74;
+extern const struct OamData gUnknown_085249FC;
 
 extern const struct CompressedSpriteSheet gBattleAnimPicTable[];
 extern const struct CompressedSpritePalette gBattleAnimPaletteTable[];

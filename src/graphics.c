@@ -567,6 +567,9 @@ const u32 gBattleAnimSpritePal_BlueRing2[] = INCBIN_U32("graphics/battle_anims/s
 const u32 gBattleAnimSpritePal_PurpleRing[] = INCBIN_U32("graphics/battle_anims/sprites/purple_ring.gbapal.lz");
 const u32 gBattleAnimSpritePal_BlueRing[] = INCBIN_U32("graphics/battle_anims/sprites/blue_ring.gbapal.lz");
 
+const u32 gBattleAnimSpriteGfx_GenericWave[] = INCBIN_U32("graphics/battle_anims/sprites/genericwave.4bpp.lz");
+const u32 gBattleAnimSpritePal_GenericWave[] = INCBIN_U32("graphics/battle_anims/sprites/genericwave.gbapal.lz");
+
 const u32 gBattleAnimSpriteGfx_GreenLightWall[] = INCBIN_U32("graphics/battle_anims/sprites/green_light_wall.4bpp.lz");
 const u32 gBattleAnimSpritePal_GreenLightWall[] = INCBIN_U32("graphics/battle_anims/sprites/green_light_wall.gbapal.lz");
 

@@ -19,6 +19,8 @@
 EWRAM_DATA s16 gUnknown_0203A0F8[4] = {0};
 
 void AnimSpinningOrb(struct Sprite *);
+void AnimGenericWave(struct Sprite *);
+void WaitAnimForDuration(struct Sprite *);
 void AnimMovePowderParticle(struct Sprite *);
 void AnimPowerAbsorptionOrb(struct Sprite *);
 void AnimSolarbeamBigOrb(struct Sprite *);
@@ -151,8 +153,11 @@ static void sub_8103320(struct Sprite *);
 static void sub_81033F0(struct Sprite *);
 static void sub_810342C(struct Sprite *);
 
+// ********************************************
 // CUSTOM
+// ********************************************
 
+// Spinning Orbs
 const union AnimCmd gSpinningOrb[] =
 {
     ANIMCMD_FRAME(0, 5),
@@ -178,6 +183,17 @@ const struct SpriteTemplate greenSpinningOrbSpriteTemplate =
     .callback = AnimSpinningOrb,
 };
 
+const struct SpriteTemplate fireSpinningOrbSpriteTemplate =
+{
+    .tileTag = ANIM_TAG_SPINNING_FIRE,
+    .paletteTag = ANIM_TAG_SPINNING_FIRE,    
+    .oam = &gUnknown_08524914,
+    .anims = gSpinningOrbAnimCmds,
+    .images = NULL,
+    .affineAnims = gDummySpriteAffineAnimTable,
+    .callback = AnimSpinningOrb,
+};
+
 void AnimSpinningOrb(struct Sprite* sprite)
 {
     InitSpritePosToAnimAttacker(sprite, TRUE);
@@ -190,11 +206,60 @@ void AnimSpinningOrb(struct Sprite* sprite)
     StoreSpriteCallbackInData6(sprite, DestroyAnimSprite);
 }
 
+// Generic Wave
 
+//AnimCmd
+const union AnimCmd gGenericWave[] =
+{
+    ANIMCMD_FRAME(0, 4),
+    ANIMCMD_FRAME(32, 16),
+    ANIMCMD_FRAME(64, 8),
+    ANIMCMD_FRAME(96, 36),
+    ANIMCMD_END,
+};
 
+const union AnimCmd *const gGenericWaveAnimCmds[] =
+{
+    gGenericWave,
+};
 
+//AffineAnim
+const union AffineAnimCmd sSpriteAffineAnim_GenericWave[] =
+{
+    AFFINEANIMCMD_FRAME(0, 0, 0, 0),
+    AFFINEANIMCMD_FRAME(10, 10, 0, 32),
+    AFFINEANIMCMD_FRAME(2, 2, 0, 56),
+    AFFINEANIMCMD_JUMP(2),
+};
 
+const union AffineAnimCmd *const sSpriteAffineAnimTable_GenericWave[] =
+{
+    sSpriteAffineAnim_GenericWave,
+};
 
+//Sprite Template & callback
+const struct SpriteTemplate genericWaveSpriteTemplate =
+{
+    .tileTag = ANIM_TAG_GENERIC_WAVE,
+    .paletteTag = ANIM_TAG_GENERIC_WAVE,    
+    .oam = &gUnknown_085249FC,
+    .anims = gGenericWaveAnimCmds,
+    .images = NULL,
+    .affineAnims = sSpriteAffineAnimTable_GenericWave,
+    .callback = AnimGenericWave,
+};
+
+void AnimGenericWave(struct Sprite* sprite)
+{
+    InitSpritePosToAnimAttacker(sprite, TRUE);
+    sprite->data[0] = gBattleAnimArgs[2];
+    sprite->data[2] = GetBattlerSpriteCoord(gBattleAnimAttacker, BATTLER_COORD_X);
+    sprite->data[4] = GetBattlerSpriteCoord(gBattleAnimAttacker, BATTLER_COORD_Y);
+    sprite->data[5] = gBattlerSpriteIds[gBattleAnimAttacker];
+    
+    sprite->callback = WaitAnimForDuration;
+    StoreSpriteCallbackInData6(sprite, DestroyAnimSprite);
+}
 
 const union AnimCmd gUnknown_085920F0[] =
 {
