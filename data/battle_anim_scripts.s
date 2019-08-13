@@ -2930,7 +2930,7 @@ Move_MINIMIZE:
 Move_METRONOME:
 	loadspritegfx ANIM_TAG_FINGER
 	loadspritegfx ANIM_TAG_THOUGHT_BUBBLE
-	createsprite gUnknown_08593114, ANIM_ATTACKER, 11, 0, 100
+	createsprite gUnknown_08593114, ANIM_ATTACKER, 11, 0, 100, 0
 	playsewithpan SE_W118, SOUND_PAN_ATTACKER
 	delay 6
 	createsprite gUnknown_085931BC, ANIM_ATTACKER, 12, 0
@@ -3716,7 +3716,7 @@ Move_TAUNT:
 	loadspritegfx ANIM_TAG_FINGER_2
 	loadspritegfx ANIM_TAG_THOUGHT_BUBBLE
 	loadspritegfx ANIM_TAG_ANGER
-	createsprite gUnknown_08593114, ANIM_ATTACKER, 11, 0, 45
+	createsprite gUnknown_08593114, ANIM_ATTACKER, 11, 0, 45, 0
 	playsewithpan SE_W118, SOUND_PAN_ATTACKER
 	delay 6
 	createsprite gUnknown_0859324C, ANIM_ATTACKER, 12, 0
@@ -10097,7 +10097,25 @@ Move_POWER_SWAP:
 Move_GUARD_SWAP:
 Move_PUNISHMENT:
 Move_LAST_RESORT:
+	goto Move_COUNT
+
 Move_WORRY_SEED:
+	loadspritegfx ANIM_TAG_SEED
+	loadspritegfx ANIM_TAG_THOUGHT_BUBBLE
+	loadspritegfx ANIM_TAG_EXPLOSION
+	playsewithpan SE_W077, SOUND_PAN_ATTACKER
+	createsprite gLeechSeedSpriteTemplate, ANIM_TARGET, 2, 15, 0, 0, 18, 24, -32, 1
+	delay 24
+	createvisualtask AnimTask_ShakeMon2, 2, ANIM_TARGET, 4, 0, 4, 1
+	createsprite gUnknown_08593114, ANIM_TARGET, 11, 1, 30, 0
+	playsewithpan SE_W118, SOUND_PAN_ATTACKER
+	delay 6
+	createsprite gUnknown_08593114, ANIM_TARGET, 11, 1, 30, 1
+	playsewithpan SE_W118, SOUND_PAN_ATTACKER
+	delay 3
+	waitforvisualfinish
+	end
+
 Move_SUCKER_PUNCH:
 Move_HEART_SWAP:
 Move_AQUA_RING:
@@ -10151,6 +10169,7 @@ Move_SEED_BOMB:
 	delay 3
 	waitforvisualfinish
 	end
+
 Move_AIR_SLASH:
 Move_X_SCISSOR:
 Move_BUG_BUZZ:

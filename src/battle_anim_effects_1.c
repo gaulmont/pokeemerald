@@ -5568,6 +5568,16 @@ void sub_810310C(u8 battler, struct Sprite* sprite)
     sprite->pos1.y = GetBattlerSpriteCoord(battler, 3) - (s16)GetBattlerSpriteCoordAttr(battler, BATTLER_COORD_ATTR_HEIGHT) / 4;
 }
 
+void custom_sub_810310C(u8 battler, struct Sprite* sprite)
+{
+    if (GetBattlerSide(battler) == B_SIDE_PLAYER)
+        sprite->pos1.x = GetBattlerSpriteCoordAttr(battler, BATTLER_COORD_ATTR_LEFT) - 8;
+    else
+        sprite->pos1.x = GetBattlerSpriteCoordAttr(battler, BATTLER_COORD_ATTR_RIGHT) + 8;
+
+    sprite->pos1.y = GetBattlerSpriteCoord(battler, 3) - (s16)GetBattlerSpriteCoordAttr(battler, BATTLER_COORD_ATTR_HEIGHT) / 4;
+}
+
 void sub_8103164(struct Sprite* sprite)
 {
     u8 a;
@@ -5577,8 +5587,17 @@ void sub_8103164(struct Sprite* sprite)
     else
         battler = gBattleAnimTarget;
 
-    sub_810310C(battler, sprite);
-    a = (GetBattlerSide(battler) == B_SIDE_PLAYER) ? 0 : 1;
+    if (gBattleAnimArgs[2] == 0)
+    {
+        sub_810310C(battler, sprite);
+        a = (GetBattlerSide(battler) == B_SIDE_PLAYER) ? 0 : 1;
+    }
+    else
+    {
+        custom_sub_810310C(battler, sprite);
+        a = (GetBattlerSide(battler) == B_SIDE_PLAYER) ? 1 : 0;
+    }
+
     sprite->data[0] = gBattleAnimArgs[1];
     sprite->data[1] = a + 2;
     StartSpriteAnim(sprite, a);
