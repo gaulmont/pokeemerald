@@ -6199,6 +6199,9 @@ Move_BONE_RUSH:
 	blendoff
 	end
 
+Move_TOXIC_SPIKES:
+	loadspritegfx ANIM_TAG_SPIKES
+	createvisualtask AnimTask_BlendParticle, 5, ANIM_TAG_SPIKES, 0, 0, 8, RGB(14, 0, 31)
 Move_SPIKES:
 	loadspritegfx ANIM_TAG_SPIKES
 	monbg ANIM_DEF_PARTNER
@@ -10071,7 +10074,6 @@ Move_PUNISHMENT:
 Move_LAST_RESORT:
 Move_WORRY_SEED:
 Move_SUCKER_PUNCH:
-Move_TOXIC_SPIKES:
 Move_HEART_SWAP:
 Move_AQUA_RING:
 Move_MAGNET_RISE:
