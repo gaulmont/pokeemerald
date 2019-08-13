@@ -10191,7 +10191,25 @@ Move_ICE_SHARD:
 Move_SHADOW_CLAW:
 Move_THUNDER_FANG:
 Move_ICE_FANG:
-Move_FIRE_FANG:
+Move_FIRE_FANG:	
+	loadspritegfx ANIM_TAG_IMPACT
+	loadspritegfx ANIM_TAG_SHARP_TEETH
+	loadspritegfx ANIM_TAG_SMALL_EMBER
+	monbg ANIM_TARGET
+	setalpha 12, 8
+	playsewithpan SE_W172, SOUND_PAN_TARGET
+	createsprite gUnknown_08597080, ANIM_ATTACKER, 2, 0, -32, 0, 0, 819, 10
+	createsprite gUnknown_08597080, ANIM_ATTACKER, 2, 0, 32, 4, 0, -819, 10
+	delay 10
+	playsewithpan SE_W007, SOUND_PAN_TARGET
+	createsprite gBasicHitSplatSpriteTemplate, ANIM_TARGET, 2, 0, 0, 1, 0
+	createvisualtask AnimTask_ShakeMon2, 2, ANIM_TARGET, 3, 0, 14, 1
+	call FireMoveEffect
+	waitforvisualfinish
+	clearmonbg ANIM_TARGET
+	blendoff
+	end
+	
 Move_SHADOW_SNEAK:
 Move_MUD_BOMB:
 Move_PSYCHO_CUT:
