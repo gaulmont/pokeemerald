@@ -3175,6 +3175,12 @@ static void sub_810618C(struct Sprite *sprite)
 
 void sub_81061C4(struct Sprite *sprite)
 {
+    if (gBattleAnimArgs[2] == 1)
+    {
+        sprite->pos1.x = GetBattlerSpriteCoord(gBattleAnimAttacker, 0);
+        sprite->pos1.y = GetBattlerSpriteCoord(gBattleAnimAttacker, 1);
+    }
+    
     if (sprite->data[0] == 0)
     {
         sprite->data[1] = gBattleAnimArgs[0];
