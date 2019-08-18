@@ -919,7 +919,12 @@ void HandleSpeciesGfxDataChange(u8 battlerAtk, u8 battlerDef, bool8 notTransform
         dst = (void *)(VRAM + 0x10000 + gSprites[gBattlerSpriteIds[battlerAtk]].oam.tileNum * 32);
         DmaCopy32(3, src, dst, 0x800);
         paletteOffset = 0x100 + battlerAtk * 16;
-        lzPaletteData = GetMonSpritePalFromSpeciesAndPersonality(targetSpecies, otId, personalityValue);
+
+        if (notTransform)
+            lzPaletteData = GetMonSpritePalFromSpeciesAndPersonality(targetSpecies, otId, personalityValue);
+        else
+            lzPaletteData = GetMonSpritePalFromSpeciesAndPersonality(targetSpecies, GetMonData(&gEnemyParty[gBattlerPartyIndexes[battlerDef]], MON_DATA_OT_ID), GetMonData(&gEnemyParty[gBattlerPartyIndexes[battlerDef]], MON_DATA_PERSONALITY));
+
         LZDecompressWram(lzPaletteData, gDecompressionBuffer);
         LoadPalette(gDecompressionBuffer, paletteOffset, 32);
 
