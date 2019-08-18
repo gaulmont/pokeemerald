@@ -10372,7 +10372,6 @@ Move_CAPTIVATE:
 	createsprite gBattleAnimSpriteTemplate_85939B8, ANIM_ATTACKER, 3, 416, -38, 1
 	delay 8
 
-
 	createsprite gBattleAnimSpriteTemplate_85939B8, ANIM_ATTACKER, 3, -256, -40, 1
 	delay 8
 
@@ -10384,9 +10383,6 @@ Move_CAPTIVATE:
 	delay 8
 
 	createsprite gBattleAnimSpriteTemplate_85939B8, ANIM_ATTACKER, 3, -384, -31, 1
-
-
-
 
 	waitforvisualfinish
 	end
