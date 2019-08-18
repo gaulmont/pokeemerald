@@ -2863,7 +2863,9 @@ void SetMoveEffect(bool8 primary, u8 certain)
                     else if (gBattleMons[gBattlerAttacker].item != 0
                         || gBattleMons[gBattlerTarget].item == ITEM_ENIGMA_BERRY
                         || IS_ITEM_MAIL(gBattleMons[gBattlerTarget].item)
-                        || gBattleMons[gBattlerTarget].item == 0)
+                        || gBattleMons[gBattlerTarget].item == 0
+                        || gBattleMons[gBattlerTarget].ability == ABILITY_MULTITYPE
+                        || gBattleMons[gBattlerTarget].item == ITEM_GRISEOUS_ORB)
                     {
                         gBattlescriptCurrInstr++;
                     }
