@@ -59,6 +59,26 @@ extern const u8* const gBattleScriptsForMoveEffects[];
 
 #define DEFENDER_IS_PROTECTED ((gProtectStructs[gBattlerTarget].protected) && (gBattleMoves[gCurrentMove].flags & FLAG_PROTECT_AFFECTED))
 
+static const u16 sPlateToType[][2] =
+{
+    {ITEM_FIST_PLATE,   TYPE_FIGHTING},
+    {ITEM_SKY_PLATE,    TYPE_FLYING},
+    {ITEM_TOXIC_PLATE,  TYPE_POISON},
+    {ITEM_EARTH_PLATE,  TYPE_GROUND},
+    {ITEM_STONE_PLATE,  TYPE_ROCK},
+    {ITEM_INSECT_PLATE, TYPE_BUG},
+    {ITEM_SPOOKY_PLATE, TYPE_GHOST},
+    {ITEM_IRON_PLATE,   TYPE_STEEL},
+    {ITEM_FLAME_PLATE,  TYPE_FIRE},
+    {ITEM_SPLASH_PLATE, TYPE_WATER},
+    {ITEM_MEADOW_PLATE, TYPE_GRASS},
+    {ITEM_ZAP_PLATE,    TYPE_ELECTRIC},
+    {ITEM_MIND_PLATE,   TYPE_PSYCHIC},
+    {ITEM_ICICLE_PLATE, TYPE_ICE},
+    {ITEM_DRACO_PLATE,  TYPE_DRAGON},
+    {ITEM_DREAD_PLATE,  TYPE_DARK},
+};
+
 // this file's functions
 static bool8 IsTwoTurnsMove(u16 move);
 static void TrySetDestinyBondToHappen(void);
@@ -10943,13 +10963,13 @@ static void atkFA_overrideeffect(void)
     }
     else if (gBattleMoves[gCurrentMove].effect == EFFECT_JUDGEMENT)
     {
-        if (ITEM_FLAME_PLATE <= gBattlerAttacker.item && gBattlerAttacker.item <= ITEM_IRON_PLATE)
+        if (ITEM_FLAME_PLATE <= gBattleMons[gBattlerAttacker].item &&  gBattleMons[gBattlerAttacker].item <= ITEM_IRON_PLATE)
         {
             u8 i;
 
             for (i = 0; i < NUMBER_OF_MON_TYPES; i++)
             {
-                if (gBattlerAttacker.item == sPlateToType[i][0])
+                if (gBattleMons[gBattlerAttacker].item == sPlateToType[i][0])
                 {
                     gBattleStruct->dynamicMoveType == sPlateToType[i][1];
                     break;
