@@ -3928,7 +3928,7 @@ const struct BattleMove gBattleMoves[MOVES_COUNT] =
 
     [MOVE_NEEDLE_ARM] =
     {
-        .effect = EFFECT_FLINCH_MINIMIZE_HIT,
+        .effect = EFFECT_FLINCH_HIT,
         .power = 60,
         .type = TYPE_GRASS,
         .accuracy = 100,
@@ -4032,7 +4032,7 @@ const struct BattleMove gBattleMoves[MOVES_COUNT] =
 
     [MOVE_ASTONISH] =
     {
-        .effect = EFFECT_FLINCH_MINIMIZE_HIT,
+        .effect = EFFECT_FLINCH_HIT,
         .power = 30,
         .type = TYPE_GHOST,
         .accuracy = 100,
@@ -4240,7 +4240,7 @@ const struct BattleMove gBattleMoves[MOVES_COUNT] =
 
     [MOVE_EXTRASENSORY] =
     {
-        .effect = EFFECT_FLINCH_MINIMIZE_HIT,
+        .effect = EFFECT_FLINCH_HIT,
         .power = 80,
         .type = TYPE_PSYCHIC,
         .accuracy = 100,
