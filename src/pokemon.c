@@ -3068,6 +3068,8 @@ s32 CalculateBaseDamage(struct BattlePokemon *attacker, struct BattlePokemon *de
         gBattleMovePower = (150 * gBattleMovePower) / 100;
     if (gBattleMoves[gCurrentMove].effect == EFFECT_EXPLOSION)
         defense /= 2;
+    if ((gBattleWeather & WEATHER_SANDSTORM_ANY) && (defender-> type1 == TYPE_ROCK || defender-> type2 == TYPE_ROCK))
+        spDefense = (150 * spDefense) / 100;
 
     if (IS_MOVE_PHYSICAL(gBattleMoves[move]))
     {
