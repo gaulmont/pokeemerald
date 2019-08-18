@@ -1221,7 +1221,7 @@ static void atk01_accuracycheck(void)
 
         if (gBattleMons[gBattlerTarget].status2 & STATUS2_FORESIGHT || gStatuses3[gBattlerTarget] & STATUS3_MIRACLE_EYE)
         {
-            u8 acc = gBattleMons[gBattlerAttacker].statStages[STAT_ACC];
+            u8 acc = min(6, gBattleMons[gBattlerAttacker].statStages[STAT_ACC]);
             if (gSideStatuses[GetBattlerSide(gBattlerAttacker)] & SIDE_STATUS_GRAVITY)
                 acc *= 5/3;
             buff = acc;
