@@ -1171,6 +1171,7 @@ static bool8 AccuracyCalcHelper(u16 move)
 
     if ((WEATHER_HAS_EFFECT && (gBattleWeather & WEATHER_RAIN_ANY) && gBattleMoves[move].effect == EFFECT_THUNDER)
      || (gBattleMoves[move].effect == EFFECT_ALWAYS_HIT || gBattleMoves[move].effect == EFFECT_VITAL_THROW
+     || gBattleMoves[move].effect == EFFECT_LOCK_ON
      || gBattleMoves[move].effect == EFFECT_HEART_SWAP
      || gBattleMoves[move].effect == EFFECT_TRUMP_CARD
      || gBattleMoves[move].effect == EFFECT_TAIL_WIND
@@ -8602,7 +8603,11 @@ static bool8 IsTwoTurnsMove(u16 move)
 static bool8 IsInvalidForSleepTalkOrAssist(u16 move)
 {
     if (move == 0 || move == MOVE_SLEEP_TALK || move == MOVE_ASSIST
-        || move == MOVE_MIRROR_MOVE || move == MOVE_METRONOME)
+        || move == MOVE_MIRROR_MOVE || move == MOVE_METRONOME
+        || move == MOVE_COPYCAT
+        || move == MOVE_METRONOME
+        || move == MOVE_ME_FIRST
+        || move == MOVE_SHADOW_FORCE)
         return TRUE;
     else
         return FALSE;
