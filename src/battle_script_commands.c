@@ -6924,7 +6924,8 @@ static void atk77_setprotectlike(void) // protect and endure
             gProtectStructs[gBattlerAttacker].endured = 1;
             gBattleCommunication[MULTISTRING_CHOOSER] = 1;
         }
-        gDisableStructs[gBattlerAttacker].protectUses++;
+        if (gDisableStructs[gBattlerAttacker].protectUses < 4)
+            gDisableStructs[gBattlerAttacker].protectUses++;
     }
     else
     {
