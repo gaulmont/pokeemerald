@@ -10941,6 +10941,22 @@ static void atkFA_overrideeffect(void)
                 CancelMultiTurnMoves(i);
         }
     }
+    else if (gBattleMoves[gCurrentMove].effect == EFFECT_JUDGEMENT)
+    {
+        if (ITEM_FLAME_PLATE <= gBattlerAttacker.item && gBattlerAttacker.item <= ITEM_IRON_PLATE)
+        {
+            u8 i;
+
+            for (i = 0; i < NUMBER_OF_MON_TYPES; i++)
+            {
+                if (gBattlerAttacker.item == sPlateToType[i][0])
+                {
+                    gBattleStruct->dynamicMoveType == sPlateToType[i][1];
+                    break;
+                }
+            }
+        }
+    }
 
     gBattlescriptCurrInstr++;
 }
