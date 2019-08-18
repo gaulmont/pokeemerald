@@ -7045,7 +7045,7 @@ static void atk7C_trymirrormove(void)
             move = *(i * 2 + gBattlerAttacker * 8 + (u8*)(gBattleStruct->lastTakenMoveFrom) + 0)
                 | (*(i * 2 + gBattlerAttacker * 8 + (u8*)(gBattleStruct->lastTakenMoveFrom) + 1) << 8);
 
-            if (move != 0 && move != 0xFFFF)
+            if (move != 0 && move != 0xFFFF && move != MOVE_MIRROR_COAT)
             {
                 movesArray[validMovesCount] = move;
                 validMovesCount++;
