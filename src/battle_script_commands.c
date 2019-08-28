@@ -5656,9 +5656,7 @@ static void atk52_switchineffects(void)
 
     if (!(gSideStatuses[GetBattlerSide(gActiveBattler)] & SIDE_STATUS_SPIKES_DAMAGED)
         && (gSideStatuses[GetBattlerSide(gActiveBattler)] & SIDE_STATUS_SPIKES)
-        && ((!IS_BATTLER_OF_TYPE(gActiveBattler, TYPE_FLYING) || gBattleMons[gActiveBattler].ability != ABILITY_LEVITATE)
-             || (gSideStatuses[GetBattlerSide(gActiveBattler)] & SIDE_STATUS_GRAVITY)
-             || (gStatuses3[gActiveBattler] & STATUS3_ROOTED))
+        && (IS_GROUNDED(gActiveBattler))
         )
     {
         u8 spikesDmg;
