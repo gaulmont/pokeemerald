@@ -1402,7 +1402,7 @@ static void atk05_damagecalc(void)
     if (gStatuses3[gBattlerAttacker] & STATUS3_CHARGED_UP && gBattleMoves[gCurrentMove].type == TYPE_ELECTRIC)
         gBattleScripting.dmgMultiplier = 2;
     if (gProtectStructs[gBattlerAttacker].helpingHand)
-        gBattleMoveDamage = gBattleMoveDamage * 15 / 10;
+        gBattleMovePower = gBattleMovePower * 15 / 10;
 
     gBattlescriptCurrInstr++;
 }
