@@ -562,6 +562,10 @@ BattleScript_EffectSpecialAttackUp::
 	setstatchanger STAT_SPATK, 1, FALSE
 	goto BattleScript_EffectStatUp
 
+BattleScript_EffectSpecialDefenseUp::
+	setstatchanger STAT_SPDEF, 1, FALSE
+	goto BattleScript_EffectStatUp
+
 BattleScript_EffectEvasionUp::
 	setstatchanger STAT_EVASION, 1, FALSE
 BattleScript_EffectStatUp::
@@ -2401,7 +2405,7 @@ BattleScript_EffectCharge::
 	waitanimation
 	printstring STRINGID_PKMNCHARGINGPOWER
 	waitmessage 0x40
-	goto BattleScript_MoveEnd
+	goto BattleScript_EffectSpecialDefenseUp
 
 BattleScript_EffectTaunt::
 	attackcanceler

@@ -1173,7 +1173,7 @@ static bool8 AccuracyCalcHelper(u16 move)
      || (gBattleMoves[move].effect == EFFECT_ALWAYS_HIT || gBattleMoves[move].effect == EFFECT_VITAL_THROW
      
      || (WEATHER_HAS_EFFECT && (gBattleWeather & WEATHER_HAIL_ANY) && move == MOVE_BLIZZARD)
-     
+
      || gBattleMoves[move].effect == EFFECT_LOCK_ON
      || gBattleMoves[move].effect == EFFECT_HEART_SWAP
      || gBattleMoves[move].effect == EFFECT_TRUMP_CARD
@@ -1400,7 +1400,7 @@ static void atk05_damagecalc(void)
     gBattleMoveDamage = gBattleMoveDamage * gCritMultiplier * gBattleScripting.dmgMultiplier;
 
     if (gStatuses3[gBattlerAttacker] & STATUS3_CHARGED_UP && gBattleMoves[gCurrentMove].type == TYPE_ELECTRIC)
-        gBattleMoveDamage *= 2;
+        gBattleScripting.dmgMultiplier = 2;
     if (gProtectStructs[gBattlerAttacker].helpingHand)
         gBattleMoveDamage = gBattleMoveDamage * 15 / 10;
 
