@@ -1171,6 +1171,9 @@ static bool8 AccuracyCalcHelper(u16 move)
 
     if ((WEATHER_HAS_EFFECT && (gBattleWeather & WEATHER_RAIN_ANY) && gBattleMoves[move].effect == EFFECT_THUNDER)
      || (gBattleMoves[move].effect == EFFECT_ALWAYS_HIT || gBattleMoves[move].effect == EFFECT_VITAL_THROW
+     
+     || (WEATHER_HAS_EFFECT && (gBattleWeather & WEATHER_HAIL_ANY) && move == MOVE_BLIZZARD)
+     
      || gBattleMoves[move].effect == EFFECT_LOCK_ON
      || gBattleMoves[move].effect == EFFECT_HEART_SWAP
      || gBattleMoves[move].effect == EFFECT_TRUMP_CARD
