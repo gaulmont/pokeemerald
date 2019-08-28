@@ -10266,7 +10266,9 @@ static void atkEF_snatchsetbattlers(void)
 {
     gEffectBattler = gBattlerAttacker;
 
-    if (gBattlerAttacker == gBattlerTarget)
+    if (gEffectBattler == EFFECT_ACUPRESSURE)
+        gBattlerTarget = gBattleScripting.battler;
+    else if (gBattlerAttacker == gBattlerTarget)
         gBattlerAttacker = gBattlerTarget = gBattleScripting.battler;
     else
         gBattlerTarget = gBattleScripting.battler;
