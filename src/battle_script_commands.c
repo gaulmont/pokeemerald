@@ -7260,6 +7260,8 @@ static void atk85_stockpile(void)
     else
     {
         gDisableStructs[gBattlerAttacker].stockpileCounter++;
+        SET_STATCHANGER(STAT_DEF, 1, FALSE);
+        SET_STATCHANGER(STAT_SPDEF, 1, FALSE);
 
         PREPARE_BYTE_NUMBER_BUFFER(gBattleTextBuff1, 1, gDisableStructs[gBattlerAttacker].stockpileCounter)
 
@@ -7289,6 +7291,8 @@ static void atk86_stockpiletobasedamage(void)
                 gBattleMoveDamage = gBattleMoveDamage * 15 / 10;
         }
 
+        SET_STATCHANGER(STAT_DEF, gDisableStructs[gBattlerAttacker].stockpileCounter, TRUE);
+        SET_STATCHANGER(STAT_SPDEF, gDisableStructs[gBattlerAttacker].stockpileCounter, TRUE);
         gDisableStructs[gBattlerAttacker].stockpileCounter = 0;
         gBattlescriptCurrInstr += 5;
     }
@@ -7305,6 +7309,8 @@ static void atk87_stockpiletohpheal(void)
     }
     else if (gBattleMons[gBattlerAttacker].maxHP == gBattleMons[gBattlerAttacker].hp)
     {
+        SET_STATCHANGER(STAT_DEF, gDisableStructs[gBattlerAttacker].stockpileCounter, TRUE);
+        SET_STATCHANGER(STAT_SPDEF, gDisableStructs[gBattlerAttacker].stockpileCounter, TRUE);
         gDisableStructs[gBattlerAttacker].stockpileCounter = 0;
         gBattlescriptCurrInstr = jumpPtr;
         gBattlerTarget = gBattlerAttacker;
@@ -7319,6 +7325,8 @@ static void atk87_stockpiletohpheal(void)
         gBattleMoveDamage *= -1;
 
         gBattleScripting.animTurn = gDisableStructs[gBattlerAttacker].stockpileCounter;
+        SET_STATCHANGER(STAT_DEF, gDisableStructs[gBattlerAttacker].stockpileCounter, TRUE);
+        SET_STATCHANGER(STAT_SPDEF, gDisableStructs[gBattlerAttacker].stockpileCounter, TRUE);
         gDisableStructs[gBattlerAttacker].stockpileCounter = 0;
         gBattlescriptCurrInstr += 5;
         gBattlerTarget = gBattlerAttacker;

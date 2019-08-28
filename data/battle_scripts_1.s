@@ -2185,11 +2185,13 @@ BattleScript_EffectStockpile::
 	attackanimation
 	waitanimation
 	printfromtable gStockpileUsedStringIds
+	statbuffchange MOVE_EFFECT_AFFECTS_USER | STAT_CHANGE_BS_PTR, BattleScript_MoveEnd
 	waitmessage 0x40
 	goto BattleScript_MoveEnd
 
 BattleScript_EffectSpitUp::
 	attackcanceler
+	critcalc
 	jumpifbyte CMP_EQUAL, gBattleCommunication + 6, 0x1, BattleScript_82D9FA2
 	attackstring
 	ppreduce
@@ -2197,6 +2199,7 @@ BattleScript_EffectSpitUp::
 	stockpiletobasedamage BattleScript_SpitUpFail
 	typecalc
 	adjustsetdamage
+	statbuffchange MOVE_EFFECT_AFFECTS_USER | STAT_CHANGE_BS_PTR, BattleScript_HitFromAtkAnimation
 	goto BattleScript_HitFromAtkAnimation
 BattleScript_SpitUpFail::
 	pause 0x20
@@ -2218,6 +2221,7 @@ BattleScript_EffectSwallow::
 	attackstring
 	ppreduce
 	stockpiletohpheal BattleScript_SwallowFail
+	statbuffchange MOVE_EFFECT_AFFECTS_USER | STAT_CHANGE_BS_PTR, BattleScript_PresentHealTarget
 	goto BattleScript_PresentHealTarget
 
 BattleScript_SwallowFail::
