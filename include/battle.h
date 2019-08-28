@@ -16,6 +16,11 @@
 #define GET_BATTLER_SIDE(battler)         (GetBattlerPosition(battler) & BIT_SIDE)
 #define GET_BATTLER_SIDE2(battler)        (GET_BATTLER_POSITION(battler) & BIT_SIDE)
 
+#define IS_GROUNDED(battler) 	((gBattleMons[battler].item == ITEM_IRON_BALL) || (gStatuses3[battler] & STATUS3_ROOTED) || (gSideStatuses[GET_BATTLER_SIDE(battler)] & SIDE_STATUS_GRAVITY)) ? TRUE 	\
+								: ((gBattleMons[battler].type1 == TYPE_FLYING) || (gBattleMons[battler].type2 == TYPE_FLYING)							\
+								|| (gBattleMons[battler].ability == ABILITY_LEVITATE) || (gBattleMons[battler].item == ITEM_AIR_BALLOON)				\
+								|| (gStatuses3[battler] & STATUS3_MAGNET_RISE))		                                                                    \
+
 // Battle Actions
 // These determine what each battler will do in a turn
 #define B_ACTION_USE_MOVE               0
