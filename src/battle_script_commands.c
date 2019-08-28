@@ -3005,7 +3005,22 @@ void SetMoveEffect(bool8 primary, u8 certain)
                     }
                     break;
                 }
-                if (gBattleMons[gEffectBattler].item)
+                else if (gBattleMons[gEffectBattler].ability == ABILITY_MULTITYPE)
+                {
+                    if (gBattleMons[gEffectBattler].item == 0)
+                    {
+                        gBattlescriptCurrInstr++;
+                    }
+                    else
+                    {
+                        gLastUsedAbility = ABILITY_MULTITYPE;
+                        gBattlescriptCurrInstr = BattleScript_StickyHoldActivates;
+                        RecordAbilityBattle(gEffectBattler, ABILITY_STICKY_HOLD);
+                    }
+                    break;
+                }
+
+                if (gBattleMons[gEffectBattler].item && gBattleMons[gEffectBattler].item != ITEM_GRISEOUS_ORB)
                 {
                     side = GetBattlerSide(gEffectBattler);
 
