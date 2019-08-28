@@ -508,7 +508,7 @@ enum
     ENDTURN_LIGHT_SCREEN,
     ENDTURN_MIST,
     ENDTURN_SAFEGUARD,
-    ENDTURN_TAIL_WIND,
+    ENDTURN_TAILWIND,
     ENDTURN_LUCKY_CHANT,
     ENDTURN_GRAVITY,
     ENDTURN_WISH,
@@ -658,19 +658,19 @@ u8 DoFieldEndTurnEffects(void)
                 gBattleStruct->turnSideTracker = 0;
             }
             break;
-        case ENDTURN_TAIL_WIND:
+        case ENDTURN_TAILWIND:
             while (gBattleStruct->turnSideTracker < 2)
             {
                 side = gBattleStruct->turnSideTracker;
                 gActiveBattler = gBattlerAttacker = gSideTimers[side].tailWindBattlerId;
-                if (gSideStatuses[side] & SIDE_STATUS_TAIL_WIND)
+                if (gSideStatuses[side] & SIDE_STATUS_TAILWIND)
                 {
                     if (--gSideTimers[side].tailWindTimer == 0)
                     {
-                        gSideStatuses[side] &= ~SIDE_STATUS_TAIL_WIND;
+                        gSideStatuses[side] &= ~SIDE_STATUS_TAILWIND;
                         BattleScriptExecute(BattleScript_SideStatusWoreOff);
                         gBattleCommunication[MULTISTRING_CHOOSER] = side;
-                        PREPARE_MOVE_BUFFER(gBattleTextBuff1, MOVE_TAIL_WIND);
+                        PREPARE_MOVE_BUFFER(gBattleTextBuff1, MOVE_TAILWIND);
                         effect++;
                     }
                 }

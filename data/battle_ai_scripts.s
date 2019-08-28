@@ -219,7 +219,7 @@ AI_CheckBadMove_CheckEffect: @ 82DC045
 	if_effect EFFECT_METAL_BURST, AI_CBM_MetalBurst
 	if_effect EFFECT_CAPTIVATE, AI_CBM_Captivate
 	if_effect EFFECT_WORRY_SEED, AI_CBM_WorrySeed
-	if_effect EFFECT_TAIL_WIND, AI_CBM_TailWind	
+	if_effect EFFECT_TAILWIND, AI_CBM_TailWind	
 	if_effect EFFECT_MIRACLE_EYE, AI_CBM_MiracleEye
 	if_effect EFFECT_LUCKY_CHANT, AI_CBM_LuckyChant
 	end
@@ -646,7 +646,7 @@ AI_CBM_WorrySeed:
 	end
 
 AI_CBM_TailWind:
-	if_side_affecting AI_USER, SIDE_STATUS_TAIL_WIND, Score_Minus10
+	if_side_affecting AI_USER, SIDE_STATUS_TAILWIND, Score_Minus10
 	end
 
 AI_CBM_MiracleEye:
@@ -841,7 +841,7 @@ AI_CheckViability:
 	if_effect EFFECT_HEART_SWAP, AI_CV_PsychUp
 	if_effect EFFECT_BRINE, AI_CV_Brine
 	if_effect EFFECT_WORRY_SEED, AI_CV_WorrySeed
-	if_effect EFFECT_TAIL_WIND, AI_CV_TailWind
+	if_effect EFFECT_TAILWIND, AI_CV_TailWind
 	if_effect EFFECT_MIRACLE_EYE, AI_CV_MiracleEye
 	if_effect EFFECT_POWER_SWAP, AI_CV_PsychUp
 	if_effect EFFECT_GUARD_SWAP, AI_CV_PsychUp

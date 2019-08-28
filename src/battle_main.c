@@ -4693,10 +4693,10 @@ u8 GetWhoStrikesFirst(u8 battler1, u8 battler2, bool8 ignoreChosenMoves)
         speedMultiplierBattler2 = 1;
     }
 
-    if (gSideStatuses[GET_BATTLER_SIDE(battler1)] & SIDE_STATUS_TAIL_WIND)
+    if (gSideStatuses[GET_BATTLER_SIDE(battler1)] & SIDE_STATUS_TAILWIND)
         speedMultiplierBattler1 *= 2;
         
-    if (gSideStatuses[GET_BATTLER_SIDE(battler2)] & SIDE_STATUS_TAIL_WIND)
+    if (gSideStatuses[GET_BATTLER_SIDE(battler2)] & SIDE_STATUS_TAILWIND)
         speedMultiplierBattler2 *= 2;
 
     speedBattler1 = (gBattleMons[battler1].speed * speedMultiplierBattler1)

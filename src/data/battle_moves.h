@@ -4760,9 +4760,9 @@ const struct BattleMove gBattleMoves[MOVES_COUNT] =
         .flags = FLAG_MAKES_CONTACT | FLAG_PROTECT_AFFECTED | FLAG_MIRROR_MOVE_AFFECTED | FLAG_KINGSROCK_AFFECTED,
     },
 
-	[MOVE_TAIL_WIND] =
+	[MOVE_TAILWIND] =
     {
-        .effect = EFFECT_TAIL_WIND,
+        .effect = EFFECT_TAILWIND,
         .power = 0,
         .type = TYPE_FLYING,
         .accuracy = 0,

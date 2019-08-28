@@ -383,7 +383,7 @@ gBattleAnims_Moves::
 	.4byte Move_NATURAL_GIFT
 	.4byte Move_FEINT
 	.4byte Move_PLUCK
-	.4byte Move_TAIL_WIND
+	.4byte Move_TAILWIND
 	.4byte Move_ACUPRESSURE
 	.4byte Move_METAL_BURST
 	.4byte Move_U_TURN
@@ -10075,7 +10075,7 @@ Move_BRINE:
 Move_NATURAL_GIFT:
 Move_FEINT:
 Move_PLUCK:
-Move_TAIL_WIND:
+Move_TAILWIND:
 Move_ACUPRESSURE:
 Move_METAL_BURST:
 Move_U_TURN:

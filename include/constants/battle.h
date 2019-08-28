@@ -201,7 +201,7 @@
 #define SIDE_STATUS_MIST             (1 << 8)
 #define SIDE_STATUS_SPIKES_DAMAGED   (1 << 9)
 //4g
-#define SIDE_STATUS_TAIL_WIND        (1 << 10)
+#define SIDE_STATUS_TAILWIND        (1 << 10)
 #define SIDE_STATUS_LUCKY_CHANT      (1 << 11)
 #define SIDE_STATUS_GRAVITY          (1 << 12)
 

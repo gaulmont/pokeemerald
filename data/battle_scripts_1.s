@@ -2991,7 +2991,7 @@ BattleScript_EffectHeartSwap::
 	jumpifmove MOVE_HEART_SWAP, BattleScript_EffectHeartSwapMessage
 	jumpifmove MOVE_WORRY_SEED, BattleScript_EffectWorrySeedMessage
 	jumpifmove MOVE_GASTRO_ACID, BattleScript_EffectGastroAcidMessage
-	jumpifmove MOVE_TAIL_WIND, BattleScript_EffectTailWindMessage
+	jumpifmove MOVE_TAILWIND, BattleScript_EffectTailWindMessage
 	jumpifmove MOVE_LUCKY_CHANT, BattleScript_EffectLuckyChantMessage
 	goto BattleScript_MoveEnd
 

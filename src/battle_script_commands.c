@@ -1177,7 +1177,7 @@ static bool8 AccuracyCalcHelper(u16 move)
      || gBattleMoves[move].effect == EFFECT_LOCK_ON
      || gBattleMoves[move].effect == EFFECT_HEART_SWAP
      || gBattleMoves[move].effect == EFFECT_TRUMP_CARD
-     || gBattleMoves[move].effect == EFFECT_TAIL_WIND
+     || gBattleMoves[move].effect == EFFECT_TAILWIND
      || gBattleMoves[move].effect == EFFECT_MIRACLE_EYE
      || gBattleMoves[move].effect == EFFECT_LUCKY_CHANT
      || gBattleMoves[move].effect == EFFECT_POWER_TRICK
@@ -10892,16 +10892,16 @@ static void atkFA_overrideeffect(void)
         else
             gBattleMons[gBattlerTarget].ability = 0;
     }
-    else if (gBattleMoves[gCurrentMove].effect == EFFECT_TAIL_WIND)
+    else if (gBattleMoves[gCurrentMove].effect == EFFECT_TAILWIND)
     {
-        if (gSideStatuses[GET_BATTLER_SIDE(gBattlerAttacker)] & SIDE_STATUS_TAIL_WIND)
+        if (gSideStatuses[GET_BATTLER_SIDE(gBattlerAttacker)] & SIDE_STATUS_TAILWIND)
         {
             gMoveResultFlags |= MOVE_RESULT_FAILED;
             gBattleCommunication[MULTISTRING_CHOOSER] = 0;
         }
         else
         {
-            gSideStatuses[GET_BATTLER_SIDE(gBattlerAttacker)] |= SIDE_STATUS_TAIL_WIND;
+            gSideStatuses[GET_BATTLER_SIDE(gBattlerAttacker)] |= SIDE_STATUS_TAILWIND;
             gSideTimers[GET_BATTLER_SIDE(gBattlerAttacker)].tailWindTimer = 3;
             gSideTimers[GET_BATTLER_SIDE(gBattlerAttacker)].tailWindBattlerId = gBattlerAttacker;
 
@@ -11060,7 +11060,7 @@ u8 GetBattlerSpeed(u8 battlerId)
         speedMultiplierBattler = 1;
     }
 
-    if (gSideStatuses[GET_BATTLER_SIDE(battlerId)] & SIDE_STATUS_TAIL_WIND)
+    if (gSideStatuses[GET_BATTLER_SIDE(battlerId)] & SIDE_STATUS_TAILWIND)
         speedMultiplierBattler *= 2;
 
     speedBattler = (gBattleMons[battlerId].speed * speedMultiplierBattler)
