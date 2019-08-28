@@ -3507,7 +3507,7 @@ const struct BattleMove gBattleMoves[MOVES_COUNT] =
         .secondaryEffectChance = 0,
         .target = MOVE_TARGET_SELECTED,
         .priority = 0,
-        .flags = FLAG_IS_STATUS | FLAG_PROTECT_AFFECTED,
+        .flags = FLAG_IS_STATUS | FLAG_PROTECT_AFFECTED | FLAG_MIRROR_MOVE_AFFECTED,
     },
 
     [MOVE_HELPING_HAND] =

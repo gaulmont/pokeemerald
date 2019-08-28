@@ -9547,8 +9547,9 @@ static void atkD0_settaunt(void)
 {
     if (gDisableStructs[gBattlerTarget].tauntTimer == 0)
     {
-        gDisableStructs[gBattlerTarget].tauntTimer = 2;
-        gDisableStructs[gBattlerTarget].tauntTimer2 = 2;
+        u8 timer = Random() % 3 + 3;
+        gDisableStructs[gBattlerTarget].tauntTimer = timer;
+        gDisableStructs[gBattlerTarget].tauntTimer2 = timer;
         gBattlescriptCurrInstr += 5;
     }
     else
