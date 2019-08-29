@@ -3149,8 +3149,13 @@ u32 BattleStringExpandPlaceholders(const u8 *src, u8 *dst)
                             if ((gBattleScripting.multiplayerId != 0 && (gPotentialItemEffectBattler & BIT_SIDE))
                                 || (gBattleScripting.multiplayerId == 0 && !(gPotentialItemEffectBattler & BIT_SIDE)))
                             {
+                                #ifdef FRENCH
+                                StringCopy(text, sText_BerrySuffix);
+                                StringAppend(text, gEnigmaBerries[gPotentialItemEffectBattler].name);
+                                #else
                                 StringCopy(text, gEnigmaBerries[gPotentialItemEffectBattler].name);
                                 StringAppend(text, sText_BerrySuffix);
+                                #endif
                                 toCpy = text;
                             }
                             else
@@ -3162,8 +3167,13 @@ u32 BattleStringExpandPlaceholders(const u8 *src, u8 *dst)
                         {
                             if (gLinkPlayers[gBattleScripting.multiplayerId].id == gPotentialItemEffectBattler)
                             {
+                                #ifdef FRENCH
+                                StringCopy(text, sText_BerrySuffix);
+                                StringAppend(text, gEnigmaBerries[gPotentialItemEffectBattler].name);
+                                #else
                                 StringCopy(text, gEnigmaBerries[gPotentialItemEffectBattler].name);
                                 StringAppend(text, sText_BerrySuffix);
+                                #endif
                                 toCpy = text;
                             }
                             else
@@ -3478,7 +3488,7 @@ static void ExpandBattleTextBuffPlaceholders(const u8 *src, u8 *dst)
             srcID += 2;
             break;
         case B_BUFF_MON_NICK_WITH_PREFIX: // poke nick with prefix
-            #ifdef FRENCH
+            /*#ifdef FRENCH
             if (GetBattlerSide(src[srcID + 1]) == B_SIDE_PLAYER)
             {
                 GetMonData(&gPlayerParty[src[srcID + 2]], MON_DATA_NICKNAME, text);
@@ -3494,7 +3504,7 @@ static void ExpandBattleTextBuffPlaceholders(const u8 *src, u8 *dst)
                 else
                     StringAppend(dst, sText_WildPkmnPrefix);
             }
-            #else
+            #else*/
             if (GetBattlerSide(src[srcID + 1]) == B_SIDE_PLAYER)
             {
                 GetMonData(&gPlayerParty[src[srcID + 2]], MON_DATA_NICKNAME, text);
@@ -3510,7 +3520,7 @@ static void ExpandBattleTextBuffPlaceholders(const u8 *src, u8 *dst)
             }
             StringGetEnd10(text);
             StringAppend(dst, text);
-            #endif
+            //#endif
             
             srcID += 3;
             break;
@@ -3546,8 +3556,13 @@ static void ExpandBattleTextBuffPlaceholders(const u8 *src, u8 *dst)
                 {
                     if (gLinkPlayers[gBattleScripting.multiplayerId].id == gPotentialItemEffectBattler)
                     {
+                        #ifdef FRENCH
+                        StringCopy(dst, sText_BerrySuffix);
+                        StringAppend(dst, gEnigmaBerries[gPotentialItemEffectBattler].name);
+                        #else
                         StringCopy(dst, gEnigmaBerries[gPotentialItemEffectBattler].name);
                         StringAppend(dst, sText_BerrySuffix);
+                        #endif
                     }
                     else
                     {
