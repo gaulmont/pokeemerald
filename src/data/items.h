@@ -170,6 +170,163 @@ const struct Item gItems[] =
         .secondaryId = 11,
     },
 
+    //4g
+    [ITEM_DUSK_BALL] =
+    {
+        .name = _("DUSK BALL"),
+        .itemId = ITEM_DUSK_BALL,
+        .price = 0,
+        .description = sDummyDesc,
+        .pocket = POCKET_POKE_BALLS,
+        .type = 4,
+        .fieldUseFunc = ItemUseOutOfBattle_CannotUse,
+        .secondaryId = 0,
+    },
+	
+    [ITEM_FAST_BALL] =
+    {
+        .name = _("FAST BALL"),
+        .itemId = ITEM_FAST_BALL,
+        .price = 0,
+        .description = sDummyDesc,
+        .pocket = POCKET_POKE_BALLS,
+        .type = 4,
+        .fieldUseFunc = ItemUseOutOfBattle_CannotUse,
+        .secondaryId = 0,
+    },
+	
+    [ITEM_FRIEND_BALL] =
+    {
+        .name = _("FRIEND BALL"),
+        .itemId = ITEM_FRIEND_BALL,
+        .price = 0,
+        .description = sDummyDesc,
+        .pocket = POCKET_POKE_BALLS,
+        .type = 4,
+        .fieldUseFunc = ItemUseOutOfBattle_CannotUse,
+        .secondaryId = 0,
+    },
+	
+    [ITEM_HEAL_BALL] =
+    {
+        .name = _("HEAL BALL"),
+        .itemId = ITEM_HEAL_BALL,
+        .price = 0,
+        .description = sDummyDesc,
+        .pocket = POCKET_POKE_BALLS,
+        .type = 4,
+        .fieldUseFunc = ItemUseOutOfBattle_CannotUse,
+        .secondaryId = 0,
+    },
+	
+    [ITEM_HEAVY_BALL] =
+    {
+        .name = _("HEAVY BALL"),
+        .itemId = ITEM_HEAVY_BALL,
+        .price = 0,
+        .description = sDummyDesc,
+        .pocket = POCKET_POKE_BALLS,
+        .type = 4,
+        .fieldUseFunc = ItemUseOutOfBattle_CannotUse,
+        .secondaryId = 0,
+    },
+	
+    [ITEM_LEVEL_BALL] =
+    {
+        .name = _("LEVEL BALL"),
+        .itemId = ITEM_LEVEL_BALL,
+        .price = 0,
+        .description = sDummyDesc,
+        .pocket = POCKET_POKE_BALLS,
+        .type = 4,
+        .fieldUseFunc = ItemUseOutOfBattle_CannotUse,
+        .secondaryId = 0,
+    },
+	
+    [ITEM_LOVE_BALL] =
+    {
+        .name = _("LOVE BALL"),
+        .itemId = ITEM_LOVE_BALL,
+        .price = 0,
+        .description = sDummyDesc,
+        .pocket = POCKET_POKE_BALLS,
+        .type = 4,
+        .fieldUseFunc = ItemUseOutOfBattle_CannotUse,
+        .secondaryId = 0,
+    },
+	
+    [ITEM_LURE_BALL] =
+    {
+        .name = _("LURE BALL"),
+        .itemId = ITEM_LURE_BALL,
+        .price = 0,
+        .description = sDummyDesc,
+        .pocket = POCKET_POKE_BALLS,
+        .type = 4,
+        .fieldUseFunc = ItemUseOutOfBattle_CannotUse,
+        .secondaryId = 0,
+    },
+	
+    [ITEM_MOON_BALL] =
+    {
+        .name = _("MOON BALL"),
+        .itemId = ITEM_MOON_BALL,
+        .price = 0,
+        .description = sDummyDesc,
+        .pocket = POCKET_POKE_BALLS,
+        .type = 4,
+        .fieldUseFunc = ItemUseOutOfBattle_CannotUse,
+        .secondaryId = 0,
+    },
+	
+    [ITEM_QUICK_BALL] =
+    {
+        .name = _("QUICK BALL"),
+        .itemId = ITEM_QUICK_BALL,
+        .price = 0,
+        .description = sDummyDesc,
+        .pocket = POCKET_POKE_BALLS,
+        .type = 4,
+        .fieldUseFunc = ItemUseOutOfBattle_CannotUse,
+        .secondaryId = 0,
+    },
+	
+    [ITEM_CHERISH_BALL] =
+    {
+        .name = _("CHERISH BALL"),
+        .itemId = ITEM_CHERISH_BALL,
+        .price = 0,
+        .description = sDummyDesc,
+        .pocket = POCKET_POKE_BALLS,
+        .type = 4,
+        .fieldUseFunc = ItemUseOutOfBattle_CannotUse,
+        .secondaryId = 0,
+    },
+	
+    [ITEM_PARK_BALL] =
+    {
+        .name = _("PARK BALL"),
+        .itemId = ITEM_PARK_BALL,
+        .price = 0,
+        .description = sDummyDesc,
+        .pocket = POCKET_POKE_BALLS,
+        .type = 4,
+        .fieldUseFunc = ItemUseOutOfBattle_CannotUse,
+        .secondaryId = 0,
+    },
+	
+    [ITEM_SPORT_BALL] =
+    {
+        .name = _("SPORT BALL"),
+        .itemId = ITEM_SPORT_BALL,
+        .price = 0,
+        .description = sDummyDesc,
+        .pocket = POCKET_POKE_BALLS,
+        .type = 4,
+        .fieldUseFunc = ItemUseOutOfBattle_CannotUse,
+        .secondaryId = 0,
+    },
+	
 // Medicine
 
     [ITEM_POTION] =
