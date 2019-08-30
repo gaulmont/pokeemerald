@@ -1250,7 +1250,7 @@ static const u8 sTM27Desc[] = _(
 static const u8 sTM28Desc[] = _(
     "Creuse sous terre\n"
     "au 1{SUPER_ER} tour et\n"
-    "frappe au 2($84).");
+    "frappe au 2{SUPER_E}.");
 
 static const u8 sTM29Desc[] = _(
     "Puissante attaque\n"
