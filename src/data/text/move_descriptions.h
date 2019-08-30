@@ -364,7 +364,7 @@ static const u8 sFissureDescription[] = _(
     "une crevasse et le met K.O.");
 
 static const u8 sDigDescription[] = _(
-    "Creuse sous terre au 1($2C)\n"
+    "Creuse sous terre au 1{SUPER_ER}\n"
     "tour et frappe au 2{SUPER_E}.");
 
 static const u8 sToxicDescription[] = _(
@@ -733,7 +733,7 @@ static const u8 sProtectDescription[] = _(
 
 static const u8 sMachPunchDescription[] = _(
     "Coup de poing fulgurant.\n"
-    "Permet de frapper le 1($2C).");
+    "Permet de frapper le 1{SUPER_ER}.");
 
 static const u8 sScaryFaceDescription[] = _(
     "Effraie avec une grimace\n"
