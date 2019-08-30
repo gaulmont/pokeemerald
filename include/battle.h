@@ -17,9 +17,9 @@
 #define GET_BATTLER_SIDE2(battler)        (GET_BATTLER_POSITION(battler) & BIT_SIDE)
 
 #define IS_GROUNDED(battler) 	((gBattleMons[battler].item == ITEM_IRON_BALL) || (gStatuses3[battler] & STATUS3_ROOTED) || (gSideStatuses[GET_BATTLER_SIDE(battler)] & SIDE_STATUS_GRAVITY)) ? TRUE 	\
-								: ((gBattleMons[battler].type1 == TYPE_FLYING) || (gBattleMons[battler].type2 == TYPE_FLYING)							\
-								|| (gBattleMons[battler].ability == ABILITY_LEVITATE)                                                   				\
-								|| (gDisableStructs[battler].magnetRiseTimer))		                                                                    \
+								: (!(gBattleMons[battler].type1 == TYPE_FLYING) && !(gBattleMons[battler].type2 == TYPE_FLYING)							\
+								&& !(gBattleMons[battler].ability == ABILITY_LEVITATE)                                                   				\
+								&& !(gDisableStructs[battler].magnetRiseTimer))		                                                                    \
 
 // Battle Actions
 // These determine what each battler will do in a turn
@@ -177,6 +177,7 @@ struct SideTimer
     u8 luckyChantBattlerId;
     u8 gravityTimer;
     u8 gravityBattlerId;
+    u8 toxicSpikesAmount;
 };
 
 struct WishFutureKnock

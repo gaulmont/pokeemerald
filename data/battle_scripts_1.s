@@ -261,7 +261,8 @@ gBattleScriptsForMoveEffects:: @ 82D86A8
 	.4byte BattleScript_EffectGuardSwap
 	.4byte BattleScript_EffectMagnetRise
 	.4byte BattleScript_EffectGravity
-	.4byte BattleScript_EffectJudgement
+	.4byte BattleScript_EffectJudgment
+	.4byte BattleScript_EffectToxicSpikes
 
 BattleScript_EffectSpeedUp::
 BattleScript_EffectSpecialDefenseUp::
@@ -1644,6 +1645,17 @@ BattleScript_EffectSpikes::
 	waitmessage 0x40
 	goto BattleScript_MoveEnd
 
+BattleScript_EffectToxicSpikes::
+	attackcanceler
+	attackstring
+	ppreduce
+	overrideeffect
+	attackanimation
+	waitanimation
+	printstring STRINGID_SPIKESSCATTERED
+	waitmessage 0x40
+	goto BattleScript_MoveEnd
+
 BattleScript_EffectForesight::
 	attackcanceler
 	accuracycheck BattleScript_PrintMoveMissed, ACC_CURR_MOVE
@@ -2915,11 +2927,11 @@ BattleScript_EffectChargeBeam::
 	setmoveeffect MOVE_EFFECT_SP_ATK_PLUS_1 | MOVE_EFFECT_AFFECTS_USER
 	goto BattleScript_EffectHit
 
-BattleScript_EffectJudgement::
+@EffectHit
+BattleScript_EffectJudgment::
 BattleScript_EffectWakeUpSlap::
 BattleScript_EffectAssurance::
 BattleScript_EffectLastResort::
-BattleScript_EffectTrumpCard::
 BattleScript_EffectBrine::
 BattleScript_EffectSuckerPunch::
 BattleScript_EffectGyroBall::
@@ -2928,6 +2940,33 @@ BattleScript_EffectCrushGrip::
 	overrideeffect
 	jumpifmovehadnoeffect BattleScript_ButItFailedAtkStringPpReduce
 	goto BattleScript_EffectHit
+
+@AlwaysHit
+
+BattleScript_EffectTrumpCard::
+	overrideeffect
+	jumpifmovehadnoeffect BattleScript_ButItFailedAtkStringPpReduce
+	attackcanceler
+	attackstring
+	ppreduce
+	critcalc
+	damagecalc
+	typecalc
+	adjustnormaldamage
+	attackanimation
+	waitanimation
+	effectivenesssound
+	hitanimation BS_TARGET
+	waitstate
+	healthbarupdate BS_TARGET
+	datahpupdate BS_TARGET
+	critmessage
+	waitmessage 0x40
+	resultmessage
+	waitmessage 0x40
+	seteffectwithchance
+	tryfaintmon BS_TARGET, FALSE, NULL
+	goto BattleScript_MoveEnd
 
 BattleScript_EffectPsychoShift::
 	attackcanceler
@@ -2973,16 +3012,14 @@ PsychoShiftEnd:
 
 	goto BattleScript_MoveEnd
 
-
+@Status Cannot miss
 BattleScript_EffectLuckyChant::
 BattleScript_EffectTailWind::
-BattleScript_EffectGastroAcid::
 BattleScript_EffectWorrySeed::
 BattleScript_EffectHeartSwap::
 	attackcanceler
 	attackstring
 	ppreduce
-	accuracycheck BattleScript_MoveMissedPause, ACC_CURR_MOVE
 	overrideeffect	
 	jumpifmovehadnoeffect BattleScript_ButItFailed
 	attackanimation
@@ -3018,6 +3055,24 @@ BattleScript_EffectTailWindMessage::
 BattleScript_EffectLuckyChantMessage::
 	printstring STRINGID_LUCKYCHANT
 	waitmessage 0x40
+	goto BattleScript_MoveEnd
+
+@Status Can Miss
+BattleScript_EffectGastroAcid::
+	attackcanceler
+	attackstring
+	ppreduce
+	accuracycheck BattleScript_MoveMissedPause, ACC_CURR_MOVE
+	overrideeffect	
+	jumpifmovehadnoeffect BattleScript_ButItFailed
+	attackanimation
+	waitanimation
+
+	jumpifmove MOVE_HEART_SWAP, BattleScript_EffectHeartSwapMessage
+	jumpifmove MOVE_WORRY_SEED, BattleScript_EffectWorrySeedMessage
+	jumpifmove MOVE_GASTRO_ACID, BattleScript_EffectGastroAcidMessage
+	jumpifmove MOVE_TAILWIND, BattleScript_EffectTailWindMessage
+	jumpifmove MOVE_LUCKY_CHANT, BattleScript_EffectLuckyChantMessage
 	goto BattleScript_MoveEnd
 
 BattleScript_EffectFeint::
@@ -3114,9 +3169,6 @@ BattleScript_EffectPowerTrick::
 	jumpifmove MOVE_MAGNET_RISE, MagnetRiseMsg
 	jumpifmove MOVE_HEAL_BLOCK, HealBlockMsg
 	jumpifmove MOVE_POWER_TRICK, PowerTrickMsg
-
-	printstring STRINGID_HEARTSWAP
-	waitmessage 0x40
 	goto BattleScript_MoveEnd
 
 GravityMsg::

@@ -1170,21 +1170,9 @@ static bool8 AccuracyCalcHelper(u16 move)
     gHitMarker &= ~HITMARKER_IGNORE_UNDERWATER;
 
     if ((WEATHER_HAS_EFFECT && (gBattleWeather & WEATHER_RAIN_ANY) && gBattleMoves[move].effect == EFFECT_THUNDER)
-     || (gBattleMoves[move].effect == EFFECT_ALWAYS_HIT || gBattleMoves[move].effect == EFFECT_VITAL_THROW
-     
+     || (gBattleMoves[move].effect == EFFECT_ALWAYS_HIT || gBattleMoves[move].effect == EFFECT_VITAL_THROW     
      || (WEATHER_HAS_EFFECT && (gBattleWeather & WEATHER_HAIL_ANY) && move == MOVE_BLIZZARD)
-
-     || gBattleMoves[move].effect == EFFECT_LOCK_ON
-     || gBattleMoves[move].effect == EFFECT_HEART_SWAP
-     || gBattleMoves[move].effect == EFFECT_TRUMP_CARD
-     || gBattleMoves[move].effect == EFFECT_TAILWIND
-     || gBattleMoves[move].effect == EFFECT_MIRACLE_EYE
-     || gBattleMoves[move].effect == EFFECT_LUCKY_CHANT
-     || gBattleMoves[move].effect == EFFECT_POWER_TRICK
-     || gBattleMoves[move].effect == EFFECT_POWER_SWAP
-     || gBattleMoves[move].effect == EFFECT_GUARD_SWAP
-     || gBattleMoves[move].effect == EFFECT_MAGNET_RISE
-     || gBattleMoves[move].effect == EFFECT_GRAVITY))
+     || gBattleMoves[move].effect == EFFECT_LOCK_ON))
     {
         JumpIfMoveFailed(7, move);
         return TRUE;
@@ -5681,6 +5669,42 @@ static void atk52_switchineffects(void)
         else
             gBattlescriptCurrInstr = BattleScript_SpikesOnFaintedBattler;
     }
+    else if (!(gSideStatuses[GetBattlerSide(gActiveBattler)] & SIDE_STATUS_TOXIC_SPIKES_DONE)
+        && (gSideStatuses[GetBattlerSide(gActiveBattler)] & SIDE_STATUS_TOXIC_SPIKES)
+        && (gBattleMons[gActiveBattler].type1 != TYPE_STEEL) && (gBattleMons[gActiveBattler].type2 != TYPE_STEEL)
+        && (IS_GROUNDED(gActiveBattler)))
+    {
+        gSideStatuses[GetBattlerSide(gActiveBattler)] |= SIDE_STATUS_TOXIC_SPIKES_DONE;
+        if (gBattleMons[gActiveBattler].type1 == TYPE_POISON || gBattleMons[gActiveBattler].type2 == TYPE_POISON)
+        {
+            gSideStatuses[GetBattlerSide(gActiveBattler)] &= ~(SIDE_STATUS_TOXIC_SPIKES);
+            gSideTimers[GetBattlerSide(gActiveBattler)].toxicSpikesAmount = 0;
+        }
+        else
+        {
+            if (gBattleMons[gActiveBattler].status1 == STATUS1_NONE)
+            {
+                if (gSideTimers[GetBattlerSide(gActiveBattler)].toxicSpikesAmount == 1)
+                    gBattleMons[gActiveBattler].status1 |= STATUS1_POISON;
+                else
+                    gBattleMons[gActiveBattler].status1 |= STATUS1_TOXIC_POISON;
+
+                gEffectBattler = gActiveBattler;
+                
+                gBattleScripting.battler = gActiveBattler;
+                BattleScriptPushCursor();
+                
+                gBattleCommunication[MULTISTRING_CHOOSER] = 0;
+                if (gBattleMons[gActiveBattler].status1 & STATUS1_POISON)
+                    gBattlescriptCurrInstr = BattleScript_MoveEffectPoison;
+                else 
+                    gBattlescriptCurrInstr = BattleScript_MoveEffectToxic;
+
+                BtlController_EmitSetMonData(0, REQUEST_STATUS_BATTLE, 0, 4, &gBattleMons[gActiveBattler].status1);
+                MarkBattlerForControllerExec(gActiveBattler);
+            }
+        }
+    }
     else
     {
         // There is a hack here to ensure the truant counter will be 0 when the battler's next turn starts.
@@ -5694,6 +5718,7 @@ static void atk52_switchineffects(void)
             && !ItemBattleEffects(ITEMEFFECT_ON_SWITCH_IN, gActiveBattler, FALSE))
         {
             gSideStatuses[GetBattlerSide(gActiveBattler)] &= ~(SIDE_STATUS_SPIKES_DAMAGED);
+            gSideStatuses[GetBattlerSide(gActiveBattler)] &= ~(SIDE_STATUS_TOXIC_SPIKES_DONE);
 
             for (i = 0; i < gBattlersCount; i++)
             {
@@ -9255,6 +9280,13 @@ static void atkBE_rapidspinfree(void)
         BattleScriptPushCursor();
         gBattlescriptCurrInstr = BattleScript_SpikesFree;
     }
+    else if (gSideStatuses[GetBattlerSide(gBattlerAttacker)] & SIDE_STATUS_TOXIC_SPIKES)
+    {
+        gSideStatuses[GetBattlerSide(gBattlerAttacker)] &= ~(SIDE_STATUS_TOXIC_SPIKES);
+        gSideTimers[GetBattlerSide(gBattlerAttacker)].toxicSpikesAmount = 0;
+        BattleScriptPushCursor();
+        gBattlescriptCurrInstr = BattleScript_SpikesFree;
+    }
     else
     {
         gBattlescriptCurrInstr++;
@@ -11020,7 +11052,7 @@ static void atkFA_overrideeffect(void)
                 CancelMultiTurnMoves(i);
         }
     }
-    else if (gBattleMoves[gCurrentMove].effect == EFFECT_JUDGEMENT)
+    else if (gBattleMoves[gCurrentMove].effect == EFFECT_JUDGMENT)
     {
         if (ITEM_FLAME_PLATE <= gBattleMons[gBattlerAttacker].item &&  gBattleMons[gBattlerAttacker].item <= ITEM_IRON_PLATE)
         {
@@ -11035,6 +11067,14 @@ static void atkFA_overrideeffect(void)
                 }
             }
         }
+    }
+    else if (gBattleMoves[gCurrentMove].effect == EFFECT_TOXIC_SPIKES)
+    {
+        gSideStatuses[GET_BATTLER_SIDE(gBattlerTarget)] |= SIDE_STATUS_TOXIC_SPIKES;
+
+        if (gSideTimers[GET_BATTLER_SIDE(gBattlerTarget)].toxicSpikesAmount < 2)
+            gSideTimers[GET_BATTLER_SIDE(gBattlerTarget)].toxicSpikesAmount++;
+        gBattleMons[gBattlerAttacker].pp[0] = gSideTimers[GET_BATTLER_SIDE(gBattlerTarget)].toxicSpikesAmount;
     }
 
     gBattlescriptCurrInstr++;

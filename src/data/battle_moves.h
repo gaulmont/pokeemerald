@@ -5074,15 +5074,15 @@ const struct BattleMove gBattleMoves[MOVES_COUNT] =
 
 	[MOVE_TOXIC_SPIKES] =
     {
-        .effect = EFFECT_SPLASH,
+        .effect = EFFECT_TOXIC_SPIKES,
         .power = 0,
-        .type = TYPE_NORMAL,
+        .type = TYPE_POISON,
         .accuracy = 0,
-        .pp = 40,
+        .pp = 20,
         .secondaryEffectChance = 0,
-        .target = MOVE_TARGET_USER,
+        .target = MOVE_TARGET_OPPONENTS_FIELD,
         .priority = 0,
-        .flags = FLAG_IS_STATUS,
+        .flags = FLAG_IS_STATUS | FLAG_MAGICCOAT_AFFECTED,
     },
 
 	[MOVE_HEART_SWAP] =
@@ -5841,7 +5841,7 @@ const struct BattleMove gBattleMoves[MOVES_COUNT] =
 
 	[MOVE_JUDGMENT] =
     {
-        .effect = EFFECT_JUDGEMENT,
+        .effect = EFFECT_JUDGMENT,
         .power = 100,
         .type = TYPE_NORMAL,
         .accuracy = 100,

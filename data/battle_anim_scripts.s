@@ -6200,8 +6200,26 @@ Move_BONE_RUSH:
 	end
 
 Move_TOXIC_SPIKES:
+	loadspritegfx ANIM_TAG_TOXIC_BUBBLE
 	loadspritegfx ANIM_TAG_SPIKES
 	createvisualtask AnimTask_BlendParticle, 5, ANIM_TAG_SPIKES, 0, 0, 8, RGB(14, 0, 31)
+	monbg ANIM_DEF_PARTNER
+	playsewithpan SE_W026, SOUND_PAN_ATTACKER
+	waitplaysewithpan SE_W030, SOUND_PAN_TARGET, 28
+	createsprite gUnknown_085CE11C, ANIM_TARGET, 2, 20, 0, 0, 24, 30
+	delay 10
+	playsewithpan SE_W026, SOUND_PAN_ATTACKER
+	waitplaysewithpan SE_W030, SOUND_PAN_TARGET, 28
+	createsprite gUnknown_085CE11C, ANIM_TARGET, 2, 20, 0, -24, 24, 30
+	delay 10
+	waitplaysewithpan SE_W030, SOUND_PAN_TARGET, 28
+	createsprite gUnknown_085CE11C, ANIM_TARGET, 2, 20, 0, 24, 24, 30
+	delay 40
+	call Toxic1
+	waitforvisualfinish
+	clearmonbg ANIM_DEF_PARTNER
+	end
+
 Move_SPIKES:
 	loadspritegfx ANIM_TAG_SPIKES
 	monbg ANIM_DEF_PARTNER
