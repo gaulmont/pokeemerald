@@ -205,7 +205,7 @@ static const u8 sDisableDescription[] = _(
 
 static const u8 sAcidDescription[] = _(
     "Pulvérise un acide. Peut\n"
-    "baisser la DEFENSE ennemie.");
+    "baisser la DEF. SPE. ennemie.");
 
 static const u8 sEmberDescription[] = _(
     "Une faible attaque de feu\n"
@@ -969,7 +969,7 @@ static const u8 sSunnyDayDescription[] = _(
 
 static const u8 sCrunchDescription[] = _(
     "Utilise des crocs pointus.\n"
-    "Peut baisser la DEF. SPE.");
+    "Peut baisser la DEFENSE.");
 
 static const u8 sMirrorCoatDescription[] = _(
     "Renvoie l'attaque spéciale\n"
@@ -2079,7 +2079,7 @@ static const u8 sDisableDescription[] = _(
 
 static const u8 sAcidDescription[] = _(
     "Sprays a hide-melting acid.\n"
-    "May lower DEFENSE.");
+    "May lower SP. DEF.");
 
 static const u8 sEmberDescription[] = _(
     "A weak fire attack that may\n"
@@ -2843,7 +2843,7 @@ static const u8 sSunnyDayDescription[] = _(
 
 static const u8 sCrunchDescription[] = _(
     "Crunches with sharp fangs.\n"
-    "May lower SP. DEF.");
+    "May lower DEFENSE.");
 
 static const u8 sMirrorCoatDescription[] = _(
     "Counters the foe's special\n"
