@@ -5680,7 +5680,7 @@ static void atk52_switchineffects(void)
             gSideStatuses[GetBattlerSide(gActiveBattler)] &= ~(SIDE_STATUS_TOXIC_SPIKES);
             gSideTimers[GetBattlerSide(gActiveBattler)].toxicSpikesAmount = 0;
         }
-        else
+        else if (gBattleMons[gActiveBattler].type1 != TYPE_STEEL && gBattleMons[gActiveBattler].type2 != TYPE_STEEL)
         {
             if (gBattleMons[gActiveBattler].status1 == STATUS1_NONE)
             {
@@ -11074,7 +11074,6 @@ static void atkFA_overrideeffect(void)
 
         if (gSideTimers[GET_BATTLER_SIDE(gBattlerTarget)].toxicSpikesAmount < 2)
             gSideTimers[GET_BATTLER_SIDE(gBattlerTarget)].toxicSpikesAmount++;
-        gBattleMons[gBattlerAttacker].pp[0] = gSideTimers[GET_BATTLER_SIDE(gBattlerTarget)].toxicSpikesAmount;
     }
 
     gBattlescriptCurrInstr++;
