@@ -1652,6 +1652,7 @@ BattleScript_EffectToxicSpikes::
 	attackstring
 	ppreduce
 	overrideeffect
+	jumpifmovehadnoeffect BattleScript_ButItFailed
 	attackanimation
 	waitanimation
 	printstring STRINGID_SPIKESSCATTERED

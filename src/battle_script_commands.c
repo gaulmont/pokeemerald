@@ -11130,9 +11130,11 @@ static void atkFA_overrideeffect(void)
     }
     else if (gBattleMoves[gCurrentMove].effect == EFFECT_STEALTH_ROCK)
     {
-        gSideStatuses[GET_BATTLER_SIDE(gBattlerTarget)] |= SIDE_STATUS_STEALTH_ROCK;
+        if (gSideStatuses[GET_BATTLER_SIDE(gBattlerTarget)] & SIDE_STATUS_STEALTH_ROCK)
+            gMoveResultFlags |= MOVE_RESULT_FAILED;
+        else
+            gSideStatuses[GET_BATTLER_SIDE(gBattlerTarget)] |= SIDE_STATUS_STEALTH_ROCK;
     }
-
     gBattlescriptCurrInstr++;
 }
 
