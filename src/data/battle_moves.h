@@ -4781,7 +4781,7 @@ const struct BattleMove gBattleMoves[MOVES_COUNT] =
         .accuracy = 0,
         .pp = 30,
         .secondaryEffectChance = 0,
-        .target = MOVE_TARGET_USER_OR_ALLY,
+        .target = MOVE_TARGET_USER_OR_SELECTED,
         .priority = 0,
         .flags = FLAG_IS_STATUS,
     },

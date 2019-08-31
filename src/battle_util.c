@@ -3431,7 +3431,6 @@ u8 GetMoveTarget(u16 move, u8 setTarget)
 
     switch (moveTarget)
     {
-    case MOVE_TARGET_USER_OR_ALLY:
     case MOVE_TARGET_SELECTED:
         side = GetBattlerSide(gBattlerAttacker) ^ BIT_SIDE;
         if (gSideTimers[side].followmeTimer && gBattleMons[gSideTimers[side].followmeTarget].hp)
