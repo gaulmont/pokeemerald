@@ -9340,6 +9340,12 @@ static void atkBE_rapidspinfree(void)
         BattleScriptPushCursor();
         gBattlescriptCurrInstr = BattleScript_SpikesFree;
     }
+    else if (gSideStatuses[GetBattlerSide(gBattlerAttacker)] & SIDE_STATUS_STEALTH_ROCK)
+    {
+        gSideStatuses[GetBattlerSide(gBattlerAttacker)] &= ~(SIDE_STATUS_TOXIC_SPIKES);
+        BattleScriptPushCursor();
+        gBattlescriptCurrInstr = BattleScript_SpikesFree;
+    }
     else
     {
         gBattlescriptCurrInstr++;
