@@ -10406,6 +10406,31 @@ Move_CAPTIVATE:
 	end
 
 Move_STEALTH_ROCK:
+	loadspritegfx ANIM_TAG_ROCKS
+	monbg ANIM_DEF_PARTNER
+	playsewithpan SE_W026, SOUND_PAN_ATTACKER
+	waitplaysewithpan SE_W030, SOUND_PAN_TARGET, 28
+	createsprite gStealthRockSpriteTemplate, ANIM_TARGET, 2, 20, 0, 0, 24, 30
+	delay 10
+	playsewithpan SE_W026, SOUND_PAN_ATTACKER
+	waitplaysewithpan SE_W030, SOUND_PAN_TARGET, 28
+	createsprite gStealthRockSpriteTemplate, ANIM_TARGET, 2, 20, 0, -24, 24, 30
+	delay 10
+	waitplaysewithpan SE_W030, SOUND_PAN_TARGET, 28
+	createsprite gStealthRockSpriteTemplate, ANIM_TARGET, 2, 20, 0, -16, 24, 30
+	delay 10
+	waitplaysewithpan SE_W030, SOUND_PAN_TARGET, 28
+	createsprite gStealthRockSpriteTemplate, ANIM_TARGET, 2, 20, 0, 0, 24, 30
+	delay 10
+	waitplaysewithpan SE_W030, SOUND_PAN_TARGET, 28
+	createsprite gStealthRockSpriteTemplate, ANIM_TARGET, 2, 20, 0, 16, 24, 30
+	delay 10
+	waitplaysewithpan SE_W030, SOUND_PAN_TARGET, 28
+	createsprite gStealthRockSpriteTemplate, ANIM_TARGET, 2, 20, 0, 24, 24, 30
+	waitforvisualfinish
+	clearmonbg ANIM_DEF_PARTNER
+	end
+
 Move_GRASS_KNOT:
 Move_CHATTER:
 Move_JUDGMENT:

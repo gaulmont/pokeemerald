@@ -258,6 +258,28 @@ const struct SpriteTemplate gUnknown_085CE11C =
     .callback = sub_815A6C4,
 };
 
+const union AnimCmd gLittleRockAnimCmdTable[] =
+{
+    ANIMCMD_FRAME(48, 1),
+    ANIMCMD_END,
+};
+
+const union AnimCmd *const gLittleRockAnim[] =
+{
+    gLittleRockAnimCmdTable,
+};
+
+const struct SpriteTemplate gStealthRockSpriteTemplate =
+{
+    .tileTag = ANIM_TAG_ROCKS,
+    .paletteTag = ANIM_TAG_ROCKS,
+    .oam = &gUnknown_08524914,
+    .anims = gLittleRockAnim,
+    .images = NULL,
+    .affineAnims = gDummySpriteAffineAnimTable,
+    .callback = sub_815A6C4,
+};
+
 const union AnimCmd gUnknown_085CE134[] =
 {
     ANIMCMD_FRAME(0, 3),
