@@ -222,6 +222,8 @@ AI_CheckBadMove_CheckEffect: @ 82DC045
 	if_effect EFFECT_TAILWIND, AI_CBM_TailWind	
 	if_effect EFFECT_MIRACLE_EYE, AI_CBM_MiracleEye
 	if_effect EFFECT_LUCKY_CHANT, AI_CBM_LuckyChant
+	if_effect EFFECT_TOXIC_SPIKES, AI_CMB_ToxicSpikes
+	if_effect EFFECT_STEALTH_ROCK, AI_CBM_StealthRock
 	end
 
 AI_CBM_Sleep: @ 82DC2D4
@@ -656,6 +658,12 @@ AI_CBM_MiracleEye:
 AI_CBM_LuckyChant:
 	if_side_affecting AI_USER, SIDE_STATUS_LUCKY_CHANT, Score_Minus10
 	end
+
+AI_CMB_ToxicSpikes:
+	if_side_affecting AI_TARGET, SIDE_STATUS_TOXIC_SPIKES, Score_Minus10
+
+AI_CBM_StealthRock:
+	if_side_affecting AI_TARGET, SIDE_STATUS_STEALTH_ROCK, Score_Minus10
 
 Score_Minus1:
 	score -1
