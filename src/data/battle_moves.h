@@ -5802,15 +5802,15 @@ const struct BattleMove gBattleMoves[MOVES_COUNT] =
 
 	[MOVE_STEALTH_ROCK] =
     {
-        .effect = EFFECT_SPLASH,
+        .effect = EFFECT_STEALTH_ROCK,
         .power = 0,
-        .type = TYPE_NORMAL,
+        .type = TYPE_ROCK,
         .accuracy = 0,
-        .pp = 40,
+        .pp = 20,
         .secondaryEffectChance = 0,
-        .target = MOVE_TARGET_USER,
+        .target = MOVE_TARGET_OPPONENTS_FIELD,
         .priority = 0,
-        .flags = FLAG_IS_STATUS,
+        .flags = FLAG_IS_STATUS | FLAG_MAGICCOAT_AFFECTED,
     },
 
 	[MOVE_GRASS_KNOT] =

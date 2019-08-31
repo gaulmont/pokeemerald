@@ -93,7 +93,7 @@ static void DrawLevelUpWindow2(void);
 static bool8 sub_804F344(void);
 static void PutMonIconOnLvlUpBox(void);
 static void PutLevelAndGenderOnLvlUpBox(void);
-
+static s32 ModulateByType(u8, u8, u8, s32);
 static void SpriteCB_MonIconOnLvlUpBox(struct Sprite* sprite);
 
 //Custom
@@ -5705,6 +5705,34 @@ static void atk52_switchineffects(void)
             }
         }
     }
+    else if (!(gSideStatuses[GetBattlerSide(gActiveBattler)] & SIDE_STATUS_STEALTH_ROCK_DONE)
+        && (gSideStatuses[GetBattlerSide(gActiveBattler)] & SIDE_STATUS_STEALTH_ROCK))
+    {
+        u8 i=0;
+
+        gSideStatuses[GetBattlerSide(gActiveBattler)] |= SIDE_STATUS_STEALTH_ROCK_DONE;
+
+        gBattleMons[gActiveBattler].status2 &= ~(STATUS2_DESTINY_BOND);
+        gHitMarker &= ~(HITMARKER_DESTINYBOND);
+
+        gBattleMoveDamage = gBattleMons[gActiveBattler].maxHP / 8;
+        
+        gBattleMoveDamage = ModulateByType(TYPE_ROCK, gBattleMons[gActiveBattler].type1, gBattleMons[gActiveBattler].type2, gBattleMoveDamage);
+        
+        if (gBattleMoveDamage > 0)
+        {
+            gBattleScripting.battler = gActiveBattler;
+            BattleScriptPushCursor();
+
+            if (gBattlescriptCurrInstr[1] == BS_TARGET)
+                gBattlescriptCurrInstr = BattleScript_SpikesOnTarget;
+            else if (gBattlescriptCurrInstr[1] == BS_ATTACKER)
+                gBattlescriptCurrInstr = BattleScript_SpikesOnAttacker;
+            else
+                gBattlescriptCurrInstr = BattleScript_SpikesOnFaintedBattler;
+        }
+
+    }
     else
     {
         // There is a hack here to ensure the truant counter will be 0 when the battler's next turn starts.
@@ -5719,6 +5747,7 @@ static void atk52_switchineffects(void)
         {
             gSideStatuses[GetBattlerSide(gActiveBattler)] &= ~(SIDE_STATUS_SPIKES_DAMAGED);
             gSideStatuses[GetBattlerSide(gActiveBattler)] &= ~(SIDE_STATUS_TOXIC_SPIKES_DONE);
+            gSideStatuses[GetBattlerSide(gActiveBattler)] &= ~(SIDE_STATUS_STEALTH_ROCK_DONE);
 
             for (i = 0; i < gBattlersCount; i++)
             {
@@ -5748,6 +5777,30 @@ static void atk52_switchineffects(void)
             }
             gBattlescriptCurrInstr += 2;
         }
+    }
+}
+
+static s32 ModulateByType(u8 atkType, u8 defType1, u8 defType2, s32 var)
+{
+    s32 i = 0;
+
+    while (TYPE_EFFECT_ATK_TYPE(i) != TYPE_ENDTABLE)
+    {
+        if (TYPE_EFFECT_ATK_TYPE(i) == TYPE_FORESIGHT)
+        {
+            i += 3;
+            continue;
+        }
+        else if (TYPE_EFFECT_ATK_TYPE(i) == atkType)
+        {
+            // Check type1.
+            if (TYPE_EFFECT_DEF_TYPE(i) == defType1)
+                var = (var * TYPE_EFFECT_MULTIPLIER(i)) / 10;
+            // Check type2.
+            if (TYPE_EFFECT_DEF_TYPE(i) == defType2 && defType1 != defType2)
+                var = (var * TYPE_EFFECT_MULTIPLIER(i)) / 10;
+        }
+        i += 3;
     }
 }
 
@@ -11074,6 +11127,10 @@ static void atkFA_overrideeffect(void)
 
         if (gSideTimers[GET_BATTLER_SIDE(gBattlerTarget)].toxicSpikesAmount < 2)
             gSideTimers[GET_BATTLER_SIDE(gBattlerTarget)].toxicSpikesAmount++;
+    }
+    else if (gBattleMoves[gCurrentMove].effect == EFFECT_STEALTH_ROCK)
+    {
+        gSideStatuses[GET_BATTLER_SIDE(gBattlerTarget)] |= SIDE_STATUS_STEALTH_ROCK;
     }
 
     gBattlescriptCurrInstr++;

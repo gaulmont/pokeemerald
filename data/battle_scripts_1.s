@@ -263,6 +263,7 @@ gBattleScriptsForMoveEffects:: @ 82D86A8
 	.4byte BattleScript_EffectGravity
 	.4byte BattleScript_EffectJudgment
 	.4byte BattleScript_EffectToxicSpikes
+	.4byte BattleScript_EffectStealthRock
 
 BattleScript_EffectSpeedUp::
 BattleScript_EffectSpecialDefenseUp::
@@ -1645,6 +1646,7 @@ BattleScript_EffectSpikes::
 	waitmessage 0x40
 	goto BattleScript_MoveEnd
 
+BattleScript_EffectStealthRock::
 BattleScript_EffectToxicSpikes::
 	attackcanceler
 	attackstring
