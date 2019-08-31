@@ -468,9 +468,9 @@ struct BattleStruct
 #define IS_TYPE_PHYSICAL(moveType)(moveType < TYPE_MYSTERY)
 #define IS_TYPE_SPECIAL(moveType)(moveType > TYPE_MYSTERY)
 
-#define IS_MOVE_PHYSICAL(move)((move.flags & FLAG_IS_SPECIAL) == 0)
-#define IS_MOVE_SPECIAL(move)((move.flags & FLAG_IS_SPECIAL) != 0)
-#define IS_MOVE_STATUS(move)((move.flags & FLAG_IS_STATUS) != 0)
+#define IS_MOVE_PHYSICAL(move)(!(move.flags & FLAG_IS_SPECIAL))
+#define IS_MOVE_SPECIAL(move)(move.flags & FLAG_IS_SPECIAL)
+#define IS_MOVE_STATUS(move)(move.flags & FLAG_IS_STATUS)
 
 #define TARGET_TURN_DAMAGED ((gSpecialStatuses[gBattlerTarget].physicalDmg != 0 || gSpecialStatuses[gBattlerTarget].specialDmg != 0))
 
