@@ -2240,7 +2240,7 @@ void CreateMonWithEVSpread(struct Pokemon *mon, u16 species, u8 level, u8 fixedI
     u16 evAmount;
     u8 evsBits;
 
-    CreateMon(mon, species, level, fixedIV, 0, 0, 0, 0);
+    CreateMon(mon, species, level, fixedIV, 0, 0, OT_ID_PLAYER_ID, 0);
 
     evsBits = evSpread;
 
@@ -2272,7 +2272,7 @@ void CreateBattleTowerMon(struct Pokemon *mon, struct BattleTowerPokemon *src)
     u8 language;
     u8 value;
 
-    CreateMon(mon, src->species, src->level, 0, 1, src->personality, 1, src->otId);
+    CreateMon(mon, src->species, src->level, 0, 1, src->personality, OT_ID_PRESET, src->otId);
 
     for (i = 0; i < MAX_MON_MOVES; i++)
         SetMonMoveSlot(mon, src->moves[i], i);
@@ -2334,7 +2334,7 @@ void CreateBattleTowerMon2(struct Pokemon *mon, struct BattleTowerPokemon *src, 
     else
         level = src->level;
 
-    CreateMon(mon, src->species, level, 0, 1, src->personality, 1, src->otId);
+    CreateMon(mon, src->species, level, 0, 1, src->personality, OT_ID_PRESET, src->otId);
 
     for (i = 0; i < MAX_MON_MOVES; i++)
         SetMonMoveSlot(mon, src->moves[i], i);
@@ -2396,7 +2396,7 @@ void CreateApprenticeMon(struct Pokemon *mon, const struct Apprentice *src, u8 m
               0x1F,
               TRUE,
               personality,
-              TRUE,
+              OT_ID_PRESET,
               otId);
 
     SetMonData(mon, MON_DATA_HELD_ITEM, &src->party[monId].item);
@@ -2426,7 +2426,7 @@ void CreateMonWithEVSpreadNatureOTID(struct Pokemon *mon, u16 species, u8 level,
         i = Random32();
     } while (nature != GetNatureFromPersonality(i));
 
-    CreateMon(mon, species, level, fixedIV, TRUE, i, TRUE, otId);
+    CreateMon(mon, species, level, fixedIV, TRUE, i, OT_ID_PRESET, otId);
     evsBits = evSpread;
     for (i = 0; i < NUM_STATS; i++)
     {
@@ -4331,7 +4331,7 @@ u8 GetMonsStateToDoubles_2(void)
     return (aliveCount > 1) ? PLAYER_HAS_TWO_USABLE_MONS : PLAYER_HAS_ONE_USABLE_MON;
 }
 
-u8 GetAbilityBySpecies(u16 species, bool8 abilityNum)
+u8 GetAbilityBySpecies(u16 species, u8 abilityNum)
 {
     if (abilityNum)
         gLastUsedAbility = gBaseStats[species].abilities[1];
@@ -4365,7 +4365,7 @@ void CreateSecretBaseEnemyParty(struct SecretBase *secretBaseRecord)
                 15,
                 1,
                 gBattleResources->secretBase->party.personality[i],
-                2,
+                OT_ID_RANDOM_NO_SHINY,
                 0);
 
             SetMonData(&gEnemyParty[i], MON_DATA_HELD_ITEM, &gBattleResources->secretBase->party.heldItems[i]);
