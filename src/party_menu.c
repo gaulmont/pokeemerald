@@ -1709,7 +1709,7 @@ static void DisplayAlreadyHoldingItemSwitchMessage(struct Pokemon *mon, u16 item
 {
     GetMonNickname(mon, gStringVar1);
     CopyItemName(item, gStringVar2);
-    StringExpandPlaceholders(gStringVar4, gText_PkmnAlreadyHoldingItemSwitch);
+    StringExpandPlaceholders(gStringVar4, gText_SwitchPkmnItem);
     DisplayPartyMenuMessage(gStringVar4, keepOpen);
     schedule_bg_copy_tilemap_to_vram(2);
 }
@@ -3592,7 +3592,7 @@ static void CursorCb_Trade2(u8 taskId)
     default: // CAN_TRADE_MON
         PlaySE(SE_SELECT);
         GetMonNickname(&gPlayerParty[gPartyMenu.slotId], gStringVar1);
-        StringExpandPlaceholders(gStringVar4, gJPText_AreYouSureYouWantToSpinTradeMon);
+        StringExpandPlaceholders(gStringVar4, gJPText_PutVar1IntoSpinner);
         DisplayPartyMenuMessage(gStringVar4, TRUE);
         gTasks[taskId].func = Task_SpinTradeYesNo;
         return;
