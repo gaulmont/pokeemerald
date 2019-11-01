@@ -150,18 +150,18 @@ gSpecials:: @ 81DBA64
 	def_special sub_80F8864
 	def_special CountPlayerContestPaintings
 	def_special ShowContestWinner
-	def_special MauvilleGymSpecial2
-	def_special MauvilleGymSpecial1
+	def_special MauvilleGymSetDefaultBarriers
+	def_special MauvilleGymPressSwitch
 	def_special ShowFieldMessageStringVar4
 	def_special DrawWholeMapView
 	def_special StorePlayerCoordsInVars
-	def_special MauvilleGymSpecial3
-	def_special PetalburgGymSpecial1
-	def_special PetalburgGymSpecial2
+	def_special MauvilleGymDeactivatePuzzle
+	def_special PetalburgGymSlideOpenRoomDoors
+	def_special PetalburgGymUnlockRoomDoors
 	def_special GetPlayerTrainerIdOnesDigit
 	def_special GetPlayerBigGuyGirlString
 	def_special GetRivalSonDaughterString
-	def_special SetFlagInVar
+	def_special SetHiddenItemFlag
 	def_special CableCarWarp
 	def_special CableCar
 	def_special Overworld_PlaySpecialMapMusic
@@ -170,7 +170,7 @@ gSpecials:: @ 81DBA64
 	def_special ChooseStarter
 	def_special StartWallyTutorialBattle
 	def_special ChangePokemonNickname
-	def_special sub_81B94B0
+	def_special ChoosePartyMon
 	def_special GetFirstFreePokeblockSlot
 	def_special DoBerryBlending
 	def_special PlayRoulette
@@ -210,8 +210,8 @@ gSpecials:: @ 81DBA64
 	def_special ShowLinkBattleRecords
 	def_special IsEnoughForCostInVar0x8005
 	def_special SubtractMoneyFromVar0x8005
-	def_special ExecuteWhiteOut
-	def_special sp0C8_whiteout_maybe
+	def_special TryFieldPoisonWhiteOut
+	def_special SetCB2WhiteOut
 	def_special RotatingGate_InitPuzzle
 	def_special RotatingGate_InitPuzzleAndGraphics
 	def_special SetSSTidalFlag
@@ -230,11 +230,11 @@ gSpecials:: @ 81DBA64
 	def_special SetDeptStoreFloor
 	def_special DoLotteryCornerComputerEffect
 	def_special EndLotteryCornerComputerEffect
-	def_special sub_81B951C
-	def_special sub_81B968C
-	def_special sub_81B9770
-	def_special sub_81B9718
-	def_special sub_81B96D0
+	def_special ChooseMonForMoveRelearner
+	def_special MoveDeleterChooseMoveToForget
+	def_special MoveDeleterForgetMove
+	def_special BufferMoveDeleterNicknameAndMove
+	def_special GetNumMovesSelectedMonHas
 	def_special TeachMoveRelearnerMove
 	def_special GetRecordedCyclingRoadResults
 	def_special Special_BeginCyclingRoadChallenge
@@ -338,11 +338,11 @@ gSpecials:: @ 81DBA64
 	def_special SetRoute123Weather
 	def_special ScriptGetMultiplayerId
 	def_special ScriptGetPartyMonSpecies
-	def_special sub_81B98DC
+	def_special IsSelectedMonEgg
 	def_special TryInitBattleTowerAwardManEventObject
 	def_special MoveOutOfSecretBaseFromOutside
 	def_special LoadPlayerBag
-	def_special sub_80B05B4
+	def_special Script_FadeOutMapMusic
 	def_special SetPacifidlogTMReceivedDay
 	def_special GetDaysUntilPacifidlogTMAvailable
 	def_special HasAllHoennMons
@@ -352,14 +352,14 @@ gSpecials:: @ 81DBA64
 	def_special DoesPartyHaveEnigmaBerry
 	def_special ScriptRandom
 	def_special sub_81AFDD0
-	def_special sub_80EDCE8
+	def_special TryPutTreasureInvestigatorsOnAir
 	def_special sub_80EE2CC
 	def_special sub_80EE72C
 	def_special sub_80EE7C0
 	def_special ShowGlassWorkshopMenu
 	def_special PutFanClubSpecialOnTheAir
-	def_special sub_80EED10
-	def_special sub_80EED34
+	def_special IncrementDailyPlantedBerries
+	def_special IncrementDailyPickedBerries
 	def_special InitSecretBaseVars
 	def_special SetSecretBaseSecretsTvFlags_SandOrnament
 	def_special sub_80EB300
@@ -457,10 +457,10 @@ gSpecials:: @ 81DBA64
 	def_special ShowScrollableMultichoice
 	def_special sub_813A630
 	def_special BufferBattleTowerElevatorFloors
-	def_special sub_81C6A94
+	def_special TryStoreHeldItemsInPyramidBag
 	def_special sub_81C4F24
-	def_special sub_81B95E0
-	def_special sub_81B9620
+	def_special DoBattlePyramidMonsHaveHeldItem
+	def_special BattlePyramidChooseMonHeldItems
 	def_special SetBattleTowerLinkPlayerGfx
 	def_special ShowNatureGirlMessage
 	def_special ShowBattlePointsWindow
@@ -485,11 +485,11 @@ gSpecials:: @ 81DBA64
 	def_special BufferBattleFrontierTutorMoveName
 	def_special CloseBattleFrontierTutorWindow
 	def_special sub_813ADD4
-	def_special sub_81B892C
+	def_special ChooseMonForMoveTutor
 	def_special GetBattleFrontierTutorMoveIndex
 	def_special sub_813AF48
 	def_special DoDeoxysRockInteraction
-	def_special sub_813B1D0
+	def_special SetDeoxysRockPalette
 	def_special CreateObedientEnemyMon
 	def_special StartMirageTowerDisintegration
 	def_special StartMirageTowerShake
@@ -529,7 +529,7 @@ gSpecials:: @ 81DBA64
 	def_special ShowTrainerHillRecords
 	def_special sub_80B4808
 	def_special ResetHealLocationFromDewford
-	def_special sub_81B9918
+	def_special IsLastMonThatKnowsSurf
 	def_special CountPartyAliveNonEggMons
 	def_special TryPrepareSecondApproachingTrainer
 	def_special RemoveRecordsWindow
