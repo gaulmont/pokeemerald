@@ -13,7 +13,7 @@ SlateportCity_House1_EventScript_209AA5:: @ 8209AA5
 
 SlateportCity_House1_EventScript_209AC6:: @ 8209AC6
 	msgbox SlateportCity_House1_Text_209BFF, MSGBOX_DEFAULT
-	special sub_81B94B0
+	special ChoosePartyMon
 	waitstate
 	compare VAR_0x8004, 255
 	goto_if_ne SlateportCity_House1_EventScript_209AF3
@@ -28,7 +28,7 @@ SlateportCity_House1_EventScript_209AE9:: @ 8209AE9
 
 SlateportCity_House1_EventScript_209AF3:: @ 8209AF3
 	specialvar VAR_RESULT, ScriptGetPartyMonSpecies
-	compare VAR_RESULT, 412
+	compare VAR_RESULT, SPECIES_EGG
 	goto_if_eq SlateportCity_House1_EventScript_209B46
 	special TV_CopyNicknameToStringVar1AndEnsureTerminated
 	special TV_CheckMonOTIDEqualsPlayerID
@@ -57,7 +57,7 @@ SlateportCity_House1_EventScript_209B50:: @ 8209B50
 
 SlateportCity_House1_EventScript_209B5A:: @ 8209B5A
 	msgbox SlateportCity_House1_Text_209CA4, MSGBOX_DEFAULT
-	call Common_EventScript_NameReceivedPokemon
+	call Common_EventScript_NameReceivedPartyMon
 	specialvar VAR_RESULT, TV_PutNameRaterShowOnTheAirIfNicknameChanged
 	special TV_CopyNicknameToStringVar1AndEnsureTerminated
 	compare VAR_RESULT, 1

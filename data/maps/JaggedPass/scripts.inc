@@ -5,7 +5,7 @@ JaggedPass_MapScripts:: @ 8230656
 	.byte 0
 
 JaggedPass_MapScript1_230666: @ 8230666
-	setstepcallback 1
+	setstepcallback STEP_CB_ASH
 	compare VAR_JAGGED_PASS_STATE, 0
 	call_if_eq JaggedPass_EventScript_230674
 	end
@@ -42,19 +42,19 @@ JaggedPass_EventScript_2306A8:: @ 82306A8
 
 JaggedPass_EventScript_2306BB:: @ 82306BB
 	lockall
-	setvar VAR_0x8004, 1
-	setvar VAR_0x8005, 1
-	setvar VAR_0x8006, 8
-	setvar VAR_0x8007, 5
-	special sub_8139560
+	setvar VAR_0x8004, 1  @ vertical pan
+	setvar VAR_0x8005, 1  @ horizontal pan
+	setvar VAR_0x8006, 8  @ num shakes
+	setvar VAR_0x8007, 5  @ shake delay
+	special ShakeCamera
 	waitstate
 	msgbox JaggedPass_Text_230DBA, MSGBOX_DEFAULT
 	closemessage
-	setvar VAR_0x8004, 1
-	setvar VAR_0x8005, 1
-	setvar VAR_0x8006, 16
-	setvar VAR_0x8007, 3
-	special sub_8139560
+	setvar VAR_0x8004, 1   @ vertical pan
+	setvar VAR_0x8005, 1   @ horizontal pan
+	setvar VAR_0x8006, 16  @ num shakes
+	setvar VAR_0x8007, 3   @ shake delay
+	special ShakeCamera
 	waitstate
 	playse SE_KOUKA_M
 	setmetatile 16, 17, METATILE_Lavaridge_CaveEntrance_Top, 1

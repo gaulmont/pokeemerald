@@ -5,14 +5,14 @@ PacifidlogTown_House3_EventScript_203C11:: @ 8203C11
 	lock
 	faceplayer
 	goto_if_set FLAG_PACIFIDLOG_NPC_TRADE_COMPLETED, PacifidlogTown_House3_EventScript_203CAB
-	setvar VAR_0x8008, 2
+	setvar VAR_0x8008, INGAME_TRADE_HORSEA
 	copyvar VAR_0x8004, VAR_0x8008
 	specialvar VAR_RESULT, GetInGameTradeSpeciesInfo
 	copyvar VAR_0x8009, VAR_RESULT
 	msgbox PacifidlogTown_House3_Text_203CBE, MSGBOX_YESNO
 	compare VAR_RESULT, 0
 	goto_if_eq PacifidlogTown_House3_EventScript_203C93
-	special sub_81B94B0
+	special ChoosePartyMon
 	waitstate
 	copyvar VAR_0x800A, VAR_0x8004
 	compare VAR_0x8004, 255

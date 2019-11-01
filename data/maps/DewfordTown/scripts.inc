@@ -12,12 +12,12 @@ DewfordTown_EventScript_1E9511:: @ 81E9511
 	goto_if_unset FLAG_DELIVERED_STEVEN_LETTER, DewfordTown_EventScript_1E9585
 	message DewfordTown_Text_1E9C8A
 	waitmessage
-	multichoicedefault 21, 6, 0, 2, 0
+	multichoicedefault 21, 6, MULTI_BRINEY_ON_DEWFORD, 2, 0
 	switch VAR_RESULT
 	case 0, DewfordTown_EventScript_1E955A
 	case 1, DewfordTown_EventScript_1E956A
 	case 2, DewfordTown_EventScript_1E957A
-	case 127, DewfordTown_EventScript_1E957A
+	case MULTI_B_PRESSED, DewfordTown_EventScript_1E957A
 	end
 
 DewfordTown_EventScript_1E955A:: @ 81E955A
@@ -97,7 +97,7 @@ DewfordTown_EventScript_1E9620:: @ 81E9620
 DewfordTown_EventScript_1E962A:: @ 81E962A
 	message DewfordTown_Text_1E9FB8
 	waitmessage
-	multichoice 20, 8, 50, 1
+	multichoice 20, 8, MULTI_HOWS_FISHING, 1
 	compare VAR_RESULT, 0
 	goto_if_eq DewfordTown_EventScript_1E964C
 	compare VAR_RESULT, 1
@@ -115,7 +115,7 @@ DewfordTown_EventScript_1E9656:: @ 81E9656
 	end
 
 DewfordTown_EventScript_1E9660:: @ 81E9660
-	call DewfordTown_EventScript_271E95
+	call EventScript_BackupMrBrineyLocation
 	setobjectpriority 2, MAP_DEWFORD_TOWN, 0
 	setobjectpriority EVENT_OBJ_ID_PLAYER, MAP_DEWFORD_TOWN, 0
 	applymovement 2, DewfordTown_Movement_1E991D
@@ -124,12 +124,12 @@ DewfordTown_EventScript_1E9660:: @ 81E9660
 	applymovement EVENT_OBJ_ID_PLAYER, DewfordTown_Movement_1E9911
 	waitmovement 0
 	hideobjectat EVENT_OBJ_ID_PLAYER, MAP_DEWFORD_TOWN
-	call DewfordTown_EventScript_2720A0
+	call Common_EventScript_PlayBrineysBoatMusic
 	applymovement 4, DewfordTown_Movement_1E97A2
 	applymovement EVENT_OBJ_ID_PLAYER, DewfordTown_Movement_1E97A2
 	waitmovement 0
 	showobjectat EVENT_OBJ_ID_PLAYER, MAP_ROUTE104
-	call DewfordTown_EventScript_2720A8
+	call Common_EventScript_StopBrineysBoatMusic
 	applymovement EVENT_OBJ_ID_PLAYER, DewfordTown_Movement_1E9914
 	waitmovement 0
 	showobjectat EVENT_OBJ_ID_PLAYER, MAP_ROUTE104
@@ -147,7 +147,7 @@ DewfordTown_EventScript_1E9660:: @ 81E9660
 	end
 
 DewfordTown_EventScript_1E96E7:: @ 81E96E7
-	call DewfordTown_EventScript_271E95
+	call EventScript_BackupMrBrineyLocation
 	setobjectpriority 2, MAP_DEWFORD_TOWN, 0
 	setobjectpriority EVENT_OBJ_ID_PLAYER, MAP_DEWFORD_TOWN, 1
 	applymovement 2, DewfordTown_Movement_1E991D
@@ -156,11 +156,11 @@ DewfordTown_EventScript_1E96E7:: @ 81E96E7
 	applymovement EVENT_OBJ_ID_PLAYER, DewfordTown_Movement_1E9911
 	waitmovement 0
 	hideobjectat EVENT_OBJ_ID_PLAYER, MAP_DEWFORD_TOWN
-	call DewfordTown_EventScript_2720A0
+	call Common_EventScript_PlayBrineysBoatMusic
 	applymovement 4, DewfordTown_Movement_1E9865
 	applymovement EVENT_OBJ_ID_PLAYER, DewfordTown_Movement_1E9865
 	waitmovement 0
-	call DewfordTown_EventScript_2720A8
+	call Common_EventScript_StopBrineysBoatMusic
 	showobjectat EVENT_OBJ_ID_PLAYER, MAP_ROUTE109
 	applymovement EVENT_OBJ_ID_PLAYER, DewfordTown_Movement_1E9918
 	waitmovement 0
@@ -169,7 +169,7 @@ DewfordTown_EventScript_1E96E7:: @ 81E96E7
 	setobjectpriority 2, MAP_ROUTE109, 0
 	applymovement 2, DewfordTown_Movement_1E991F
 	waitmovement 0
-	clearflag FLAG_HIDE_ROUTE_108_MR_BRINEY
+	clearflag FLAG_HIDE_ROUTE_109_MR_BRINEY
 	addobject 1
 	clearflag FLAG_HIDE_ROUTE_109_MR_BRINEY_BOAT
 	setflag FLAG_HIDE_MR_BRINEY_BOAT_DEWFORD_TOWN
@@ -185,11 +185,11 @@ DewfordTown_EventScript_1E96E7:: @ 81E96E7
 	end
 
 DewfordTown_EventScript_1E9790:: @ 81E9790
-	msgbox DewfordTown_Text_1EEC1D, MSGBOX_DEFAULT
+	msgbox DewfordTown_Text_BrineyLandedInSlateportDeliverGoods, MSGBOX_DEFAULT
 	return
 
 DewfordTown_EventScript_1E9799:: @ 81E9799
-	msgbox DewfordTown_Text_1EEDA7, MSGBOX_DEFAULT
+	msgbox DewfordTown_Text_BrineyLandedInSlateport, MSGBOX_DEFAULT
 	return
 
 DewfordTown_Movement_1E97A2: @ 81E97A2
@@ -619,7 +619,7 @@ DewfordTown_EventScript_1E9952:: @ 81E9952
 	end
 
 DewfordTown_EventScript_1E997D:: @ 81E997D
-	incrementgamestat 2
+	incrementgamestat GAME_STAT_STARTED_TRENDS
 	compare VAR_0x8004, 0
 	goto_if_eq DewfordTown_EventScript_1E999E
 	msgbox DewfordTown_Text_1EA2AA, MSGBOX_DEFAULT
@@ -654,7 +654,7 @@ DewfordTown_Text_1E9A7F: @ 81E9A7F
 	.string "DEWFORD HALL\n"
 	.string "“Everyone's information exchange!”$"
 
-Route104_Text_1E9AAF: @ 81E9AAF
+Route104_Text_LandedInDewfordDeliverLetter: @ 81E9AAF
 	.string "MR. BRINEY: Ahoy!\n"
 	.string "We've hit land in DEWFORD.\p"
 	.string "I suppose you're off to deliver that\n"
@@ -675,8 +675,7 @@ DewfordTown_Text_1E9BD9: @ 81E9BD9
 	.string "MR. BRINEY: Then you go on and deliver\n"
 	.string "the LETTER. I'll be waiting.$"
 
-Route104_Text_1E9C1D: @ 81E9C1D
-Route109_Text_1E9C1D: @ 81E9C1D
+DewfordTown_Text_BrineyLandedInDewford: @ 81E9C1D
 	.string "MR. BRINEY: Ahoy!\n"
 	.string "We've hit land in DEWFORD!\p"
 	.string "You just go on and tell me whenever\n"

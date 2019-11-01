@@ -227,7 +227,7 @@ struct ContestPokemon
     u8 aiPool_Cute:1; // 0x10
     u8 aiPool_Smart:1; // 0x20
     u8 aiPool_Tough:1; // 0x40
-    /*0x1E*/ u16 moves[4]; // moves
+    /*0x1E*/ u16 moves[MAX_MON_MOVES]; // moves
     /*0x26*/ u8 cool; // cool
     /*0x27*/ u8 beauty; // beauty
     /*0x28*/ u8 cute; // cute
@@ -466,7 +466,7 @@ void CB2_StartContest(void);
 void sub_80DA8C8(u8 partyIndex);
 void sub_80DAB8C(u8 contestType, u8 rank);
 void sub_80DACBC(u8 contestType, u8 rank, bool32 isPostgame);
-u8 sub_80DAE0C(struct Pokemon *pkmn);
+u8 GetContestEntryEligibility(struct Pokemon *pkmn);
 void sub_80DB09C(u8 contestCategory);
 bool8 IsSpeciesNotUnown(u16 species);
 bool8 Contest_IsMonsTurnDisabled(u8 a);

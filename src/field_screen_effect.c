@@ -48,7 +48,7 @@ static bool32 WaitForWeatherFadeIn(void);
 static void task0A_mpl_807E31C(u8 taskId);
 static void sub_80AFA0C(u8 taskId);
 static void sub_80AFA88(u8 taskId);
-static void task50_0807F0C8(u8);
+static void Task_EnableScriptAfterMusicFade(u8 taskId);
 
 // const
 const u16 sFlashLevelPixelRadii[] = { 200, 72, 64, 56, 48, 40, 32, 24, 0 };
@@ -556,7 +556,7 @@ void sub_80AF848(void)
     gFieldCallback = sub_80AF3E8;
 }
 
-void sub_80AF87C(void)
+void DoMossdeepGymWarp(void)
 {
     sub_8085540(1);
     ScriptContext2_Enable();
@@ -638,7 +638,7 @@ static void Task_ReturnToWorldFromLinkRoom(u8 taskId)
     }
 }
 
-void sub_80AF9F8(void)
+void ReturnFromLinkRoom(void)
 {
     CreateTask(Task_ReturnToWorldFromLinkRoom, 10);
 }
@@ -970,7 +970,7 @@ static u8 sub_80B003C(s32 centerX, s32 centerY, s32 initialFlashRadius, s32 dest
 #undef tFlashRadiusDelta
 #undef tClearScanlineEffect
 
-void sub_80B009C(u8 flashLevel)
+void AnimateFlash(u8 flashLevel)
 {
     u8 curFlashLevel = Overworld_GetFlashLevel();
     u8 value = 0;
@@ -1124,7 +1124,7 @@ static void sub_80B0318(u8 taskId)
         SetGpuReg(REG_OFFSET_BLDALPHA, BLDALPHA_BLEND(12, 7));
         SetGpuReg(REG_OFFSET_WININ, WININ_WIN0_BG_ALL | WININ_WIN0_OBJ | WININ_WIN0_CLR);
         SetGpuReg(REG_OFFSET_WINOUT, WINOUT_WIN01_BG1 | WINOUT_WIN01_BG2 | WINOUT_WIN01_BG3 | WINOUT_WIN01_OBJ);
-        sub_8199C30(0, 0, 0, 0x1E, 0x14, 0xF);
+        SetBgTilemapPalette(0, 0, 0, 0x1E, 0x14, 0xF);
         schedule_bg_copy_tilemap_to_vram(0);
         SetFlash2ScanlineEffectWindowBoundaries(&gScanlineEffectRegBuffers[0][0], data[2], data[3], 1);
         CpuFastSet(&gScanlineEffectRegBuffers[0], &gScanlineEffectRegBuffers[1], 480);
@@ -1231,13 +1231,13 @@ void sub_80B058C(void)
     gTasks[taskId].data[0] = 6;
 }
 
-void sub_80B05B4(void)
+void Script_FadeOutMapMusic(void)
 {
     Overworld_FadeOutMapMusic();
-    CreateTask(task50_0807F0C8, 80);
+    CreateTask(Task_EnableScriptAfterMusicFade, 80);
 }
 
-static void task50_0807F0C8(u8 taskId)
+static void Task_EnableScriptAfterMusicFade(u8 taskId)
 {
     if (BGMusicStopped() == TRUE)
     {

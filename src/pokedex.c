@@ -8,7 +8,7 @@
 #include "graphics.h"
 #include "international_string_util.h"
 #include "main.h"
-#include "alloc.h"
+#include "malloc.h"
 #include "menu.h"
 #include "m4a.h"
 #include "overworld.h"
@@ -1347,13 +1347,13 @@ void CB2_Pokedex(void)
             sPokedexView->selectedScreen = 0;
             if (!IsNationalPokedexEnabled())
             {
-                sPokedexView->seenCount = GetHoennPokedexCount(0);
-                sPokedexView->ownCount = GetHoennPokedexCount(1);
+                sPokedexView->seenCount = GetHoennPokedexCount(FLAG_GET_SEEN);
+                sPokedexView->ownCount = GetHoennPokedexCount(FLAG_GET_CAUGHT);
             }
             else
             {
-                sPokedexView->seenCount = GetNationalPokedexCount(0);
-                sPokedexView->ownCount = GetNationalPokedexCount(1);
+                sPokedexView->seenCount = GetNationalPokedexCount(FLAG_GET_SEEN);
+                sPokedexView->ownCount = GetNationalPokedexCount(FLAG_GET_CAUGHT);
             }
             sPokedexView->initialVOffset = 8;
             gMain.state++;
@@ -2583,7 +2583,7 @@ static void CreateInterfaceSprites(u8 a)
             spriteId = CreateSprite(&gUnknown_0855D20C, 17, 91, 1);
             StartSpriteAnim(&gSprites[spriteId], 1);
 
-            r6 = GetHoennPokedexCount(0);
+            r6 = GetHoennPokedexCount(FLAG_GET_SEEN);
             _a = 0;
 
             spriteId = CreateSprite(&gUnknown_0855D23C, 40, 45, 1);
@@ -2626,7 +2626,7 @@ static void CreateInterfaceSprites(u8 a)
             r5 = (sPokedexView->seenCount % 100) % 10;
             StartSpriteAnim(&gSprites[spriteId], r5);
 
-            r6 = GetHoennPokedexCount(1);
+            r6 = GetHoennPokedexCount(FLAG_GET_CAUGHT);
             _a = 0;
 
             spriteId = CreateSprite(&gUnknown_0855D23C, 40, 81, 1);
@@ -3889,7 +3889,7 @@ void sub_80C020C(u32 num, u32 value, u32 c, u32 d)
         value = NationalToHoennOrder(num);
     else
         value = num;
-    ConvertIntToDecimalStringN(StringCopy(str, gText_UnkCtrlF908Clear01), value, 2, 3);
+    ConvertIntToDecimalStringN(StringCopy(str, gText_UnkCtrlF908Clear01), value, STR_CONV_MODE_LEADING_ZEROS, 3);
     sub_80BE8DC(str, 0x60, 0x19);
     natNum = NationalPokedexNumToSpecies(num);
     if (natNum)
