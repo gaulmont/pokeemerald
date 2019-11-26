@@ -65,7 +65,7 @@ GCC_VER = $(shell $(CC) -dumpversion)
 # LOCALE SELECTION
 # 0 = english
 # 1 = french
-locale.sh LOCALE
+shell locale.sh LOCALE
 
 
 
