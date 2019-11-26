@@ -2,10 +2,10 @@ arg=$1
 
 case $arg in
 0)
-	lang="us"
+	lang="en_us"
 	;;
 1)
-	lang="fr"
+	lang="fr_fr"
 	;;
 esac
 
