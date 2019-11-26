@@ -153,12 +153,12 @@ AUTO_GEN_TARGETS :=
 
 $(shell mkdir -p $(SUBDIRS))
 
-all: 
 # LOCALE SELECTION
 # 0 = english
-# 1 = french
-	$(shell ~/locale.sh $(LOCALE))
-	@$(MAKE) rom
+# 1 = french	
+$(shell /locale.sh $(LOCALE))
+
+all: rom
 
 tools: $(TOOLDIRS)
 
