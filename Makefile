@@ -156,7 +156,7 @@ $(shell mkdir -p $(SUBDIRS))
 # LOCALE SELECTION
 # 0 = english
 # 1 = french	
-$(shell /locale.sh $(LOCALE))
+$(shell ./locale.sh $(LOCALE))
 
 all: rom
 
