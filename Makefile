@@ -60,16 +60,6 @@ MID_BUILDDIR = $(OBJ_DIR)/$(MID_SUBDIR)
 ASFLAGS := -mcpu=arm7tdmi --defsym MODERN=$(MODERN)
 
 GCC_VER = $(shell $(CC) -dumpversion)
-
-
-# LOCALE SELECTION
-# 0 = english
-# 1 = french
-shell locale.sh LOCALE
-
-
-
-
 ifeq ($(MODERN),0)
 CC1             := tools/agbcc/bin/agbcc$(EXE)
 override CFLAGS += -mthumb-interwork -Wimplicit -Wparentheses -Werror -O2 -fhex-asm
@@ -163,7 +153,12 @@ AUTO_GEN_TARGETS :=
 
 $(shell mkdir -p $(SUBDIRS))
 
-all: rom
+all: 
+# LOCALE SELECTION
+# 0 = english
+# 1 = french
+	shell locale.sh LOCALE
+	rom
 
 tools: $(TOOLDIRS)
 
