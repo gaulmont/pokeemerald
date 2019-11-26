@@ -157,8 +157,8 @@ all:
 # LOCALE SELECTION
 # 0 = english
 # 1 = french
-	$(shell /locale $(LOCALE))
-	rom
+	$(shell ~/locale.sh $(LOCALE))
+	@$(MAKE) rom
 
 tools: $(TOOLDIRS)
 
