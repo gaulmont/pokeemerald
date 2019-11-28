@@ -1,0 +1,171 @@
+SkyPillar_Outside_MapScripts:: @ 82392A8
+	map_script MAP_SCRIPT_ON_TRANSITION, SkyPillar_Outside_OnTransition
+	map_script MAP_SCRIPT_ON_LOAD, SkyPillar_Outside_MapScript1_2392DD
+	map_script MAP_SCRIPT_ON_FRAME_TABLE, SkyPillar_Outside_MapScript2_2392FA
+	.byte 0
+
+SkyPillar_Outside_OnTransition: @ 82392B8
+	compare VAR_SOOTOPOLIS_CITY_STATE, 3
+	call_if_eq SkyPillar_Outside_EventScript_2392CF
+	compare VAR_SOOTOPOLIS_CITY_STATE, 4
+	call_if_ge SkyPillar_Outside_EventScript_2392D3
+	end
+
+SkyPillar_Outside_EventScript_2392CF:: @ 82392CF
+	setflag FLAG_HIDE_MAP_NAME_POPUP
+	return
+
+SkyPillar_Outside_EventScript_2392D3:: @ 82392D3
+	call_if_set FLAG_SYS_WEATHER_CTRL, Common_EventScript_SetWeather15
+	return
+
+SkyPillar_Outside_MapScript1_2392DD: @ 82392DD
+	call_if_set FLAG_WALLACE_GOES_TO_SKY_PILLAR, SkyPillar_Outside_EventScript_2392E7
+	end
+
+SkyPillar_Outside_EventScript_2392E7:: @ 82392E7
+	setmetatile 14, 4, METATILE_Pacifidlog_SkyPillar_DoorOpen_Top, 0
+	setmetatile 14, 5, METATILE_Pacifidlog_SkyPillar_DoorOpen_Bottom, 0
+	return
+
+SkyPillar_Outside_MapScript2_2392FA: @ 82392FA
+	map_script_2 VAR_SOOTOPOLIS_CITY_STATE, 3, SkyPillar_Outside_EventScript_239304
+	.2byte 0
+
+SkyPillar_Outside_EventScript_239304:: @ 8239304
+	lockall
+	applymovement 1, SkyPillar_Outside_Movement_2393D3
+	waitmovement 0
+	applymovement EVENT_OBJ_ID_PLAYER, Common_Movement_WalkInPlaceFastestLeft
+	waitmovement 0
+	msgbox SkyPillar_Outside_Text_239416, MSGBOX_DEFAULT
+	closemessage
+	delay 30
+	setvar VAR_0x8004, 1  @ vertical pan
+	setvar VAR_0x8005, 1  @ horizontal pan
+	setvar VAR_0x8006, 8  @ num shakes
+	setvar VAR_0x8007, 3  @ shake delay
+	special ShakeCamera
+	waitstate
+	delay 40
+	msgbox SkyPillar_Outside_Text_2394BC, MSGBOX_DEFAULT
+	closemessage
+	applymovement EVENT_OBJ_ID_PLAYER, SkyPillar_Outside_Movement_2393EB
+	applymovement 1, SkyPillar_Outside_Movement_2393DE
+	waitmovement 0
+	setvar VAR_0x8004, 1   @ vertical pan
+	setvar VAR_0x8005, 3   @ horizontal pan
+	setvar VAR_0x8006, 20  @ num shakes
+	setvar VAR_0x8007, 5   @ shake delay
+	special ShakeCamera
+	waitstate
+	delay 20
+	applymovement 1, Common_Movement_WalkInPlaceFastestLeft
+	waitmovement 0
+	delay 10
+	applymovement 1, Common_Movement_WalkInPlaceFastestRight
+	waitmovement 0
+	delay 20
+	applymovement 1, Common_Movement_WalkInPlaceFastestDown
+	waitmovement 0
+	delay 30
+	msgbox SkyPillar_Outside_Text_23950C, MSGBOX_DEFAULT
+	closemessage
+	setflag FLAG_SYS_WEATHER_CTRL
+	setweather WEATHER_ALTERNATING
+	doweather
+	special WaitWeather
+	waitstate
+	delay 30
+	msgbox SkyPillar_Outside_Text_23953A, MSGBOX_DEFAULT
+	closemessage
+	playse SE_KAIDAN
+	fadescreenswapbuffers 1
+	clearflag FLAG_HIDE_MAP_NAME_POPUP
+	setvar VAR_SOOTOPOLIS_CITY_STATE, 4
+	removeobject 1
+	clearflag FLAG_HIDE_SOOTOPOLIS_CITY_WALLACE
+	fadescreenswapbuffers 0
+	releaseall
+	end
+
+SkyPillar_Outside_Movement_2393D3: @ 82393D3
+	walk_down
+	walk_down
+	walk_down
+	walk_down
+	walk_down
+	walk_down
+	walk_down
+	walk_right
+	walk_right
+	walk_right
+	step_end
+
+SkyPillar_Outside_Movement_2393DE: @ 82393DE
+	walk_left
+	walk_left
+	walk_left
+	walk_up
+	walk_up
+	walk_up
+	walk_up
+	walk_right
+	walk_up
+	walk_up
+	walk_up
+	walk_up
+	step_end
+
+SkyPillar_Outside_Movement_2393EB: @ 82393EB
+	walk_left
+	walk_left
+	walk_left
+	walk_left
+	walk_up
+	walk_up
+	walk_up
+	walk_up
+	walk_right
+	walk_up
+	walk_up
+	walk_up
+	step_end
+
+SkyPillar_Outside_EventScript_2393F8:: @ 82393F8
+	end
+
+SkyPillar_Outside_EventScript_2393F9:: @ 82393F9
+	msgbox SkyPillar_Outside_Text_239402, MSGBOX_SIGN
+	end
+
+SkyPillar_Outside_Text_239402: @ 8239402
+	.string "La porte est fermée.$"
+
+SkyPillar_Outside_Text_239416: @ 8239416
+	.string "MARC: Oh, je suis terriblement désolé!\p"
+	.string "Dans ma hâte, je ne m'étais pas rendu\n"
+	.string "compte que tu ne me suivais pas!\p"
+	.string "J'ai ouvert la porte d'accès au\n"
+	.string "PILIER CELESTE.\p"
+	.string "{PLAYER}{KUN}, allons-y!$"
+
+SkyPillar_Outside_Text_2394BC: @ 82394BC
+	.string "MARC: C'est un tremblement de terre!\p"
+	.string "Il n'y a pas un instant à perdre!\n"
+	.string "Nous devons nous dépêcher!$"
+
+SkyPillar_Outside_Text_23950C: @ 823950C
+	.string "MARC: Hum…\n"
+	.string "La situation est de pire en pire…$"
+
+SkyPillar_Outside_Text_23953A: @ 823953A
+	.string "MARC: Ça ne va pas…\p"
+	.string "Les changements climatiques se font\n"
+	.string "même sentir ici…\p"
+	.string "{PLAYER}{KUN}.\p"
+	.string "RAYQUAZA doit se trouver plus loin.\p"
+	.string "Je suis inquiet pour ATALANOPOLIS,\n"
+	.string "je dois y retourner.\p"
+	.string "Tout repose entre tes mains.\n"
+	.string "Nous comptons sur toi!$"

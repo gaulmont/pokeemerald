@@ -1,0 +1,535 @@
+RusturfTunnel_MapScripts:: @ 822CE27
+	map_script MAP_SCRIPT_ON_TRANSITION, RusturfTunnel_OnTransition
+	map_script MAP_SCRIPT_ON_FRAME_TABLE, RusturfTunnel_MapScript2_22CE32
+	.byte 0
+
+RusturfTunnel_MapScript2_22CE32: @ 822CE32
+	map_script_2 VAR_RUSTURF_TUNNEL_STATE, 4, RusturfTunnel_EventScript_22CEAE
+	map_script_2 VAR_RUSTURF_TUNNEL_STATE, 5, RusturfTunnel_EventScript_22CEAE
+	.2byte 0
+
+RusturfTunnel_OnTransition: @ 822CE44
+	compare VAR_RUSTURF_TUNNEL_STATE, 2
+	call_if_eq RusturfTunnel_EventScript_22CE50
+	end
+
+RusturfTunnel_EventScript_22CE50:: @ 822CE50
+	setobjectxyperm 7, 13, 4
+	setobjectxyperm 6, 13, 5
+	return
+
+RusturfTunnel_EventScript_22CE5F:: @ 822CE5F
+	lock
+	faceplayer
+	msgbox RusturfTunnel_Text_22D7A3, MSGBOX_DEFAULT
+	closemessage
+	applymovement VAR_LAST_TALKED, Common_Movement_FaceOriginalDirection
+	waitmovement 0
+	release
+	end
+
+RusturfTunnel_EventScript_22CE76:: @ 822CE76
+	lock
+	faceplayer
+	goto_if_set FLAG_TEMP_1, RusturfTunnel_EventScript_22CE99
+	setflag FLAG_TEMP_1
+	msgbox RusturfTunnel_Text_22D510, MSGBOX_DEFAULT
+	closemessage
+	applymovement VAR_LAST_TALKED, Common_Movement_FaceOriginalDirection
+	waitmovement 0
+	release
+	end
+
+RusturfTunnel_EventScript_22CE99:: @ 822CE99
+	msgbox RusturfTunnel_Text_22D5F3, MSGBOX_DEFAULT
+	closemessage
+	applymovement VAR_LAST_TALKED, Common_Movement_FaceOriginalDirection
+	waitmovement 0
+	release
+	end
+
+RusturfTunnel_EventScript_22CEAE:: @ 822CEAE
+	lockall
+	compare VAR_TEMP_1, 1
+	call_if_eq RusturfTunnel_EventScript_22CFA7
+	compare VAR_TEMP_1, 2
+	call_if_eq RusturfTunnel_EventScript_22CFBC
+	compare VAR_TEMP_1, 3
+	call_if_eq RusturfTunnel_EventScript_22CFC7
+	call RusturfTunnel_EventScript_22CFFF
+	msgbox RusturfTunnel_Text_22D65C, MSGBOX_DEFAULT
+	compare VAR_TEMP_1, 2
+	call_if_eq RusturfTunnel_EventScript_22CFC8
+	compare VAR_TEMP_1, 3
+	call_if_eq RusturfTunnel_EventScript_22CFC8
+	giveitem_std ITEM_HM04
+	setflag FLAG_RECEIVED_HM04
+	msgbox RusturfTunnel_Text_22D6D2, MSGBOX_DEFAULT
+	closemessage
+	compare VAR_TEMP_1, 1
+	call_if_eq RusturfTunnel_EventScript_22CF5D
+	compare VAR_TEMP_1, 2
+	call_if_eq RusturfTunnel_EventScript_22CF6F
+	compare VAR_TEMP_1, 3
+	call_if_eq RusturfTunnel_EventScript_22CF8B
+	msgbox RusturfTunnel_Text_22D745, MSGBOX_DEFAULT
+	closemessage
+	compare VAR_TEMP_1, 1
+	call_if_eq RusturfTunnel_EventScript_22CFD4
+	compare VAR_TEMP_1, 2
+	call_if_eq RusturfTunnel_EventScript_22CFE6
+	compare VAR_TEMP_1, 3
+	call_if_eq RusturfTunnel_EventScript_22CFE6
+	call RusturfTunnel_EventScript_272216
+	releaseall
+	end
+
+RusturfTunnel_EventScript_22CF5D:: @ 822CF5D
+	applymovement EVENT_OBJ_ID_PLAYER, RusturfTunnel_Movement_22D042
+	applymovement 1, RusturfTunnel_Movement_22D067
+	waitmovement 0
+	return
+
+RusturfTunnel_EventScript_22CF6F:: @ 822CF6F
+	applymovement EVENT_OBJ_ID_PLAYER, RusturfTunnel_Movement_22D045
+	applymovement 1, RusturfTunnel_Movement_22D06C
+	waitmovement 0
+	applymovement 10, Common_Movement_WalkInPlaceFastestDown
+	waitmovement 0
+	return
+
+RusturfTunnel_EventScript_22CF8B:: @ 822CF8B
+	applymovement EVENT_OBJ_ID_PLAYER, RusturfTunnel_Movement_22D045
+	applymovement 1, RusturfTunnel_Movement_22D06C
+	waitmovement 0
+	applymovement 10, Common_Movement_WalkInPlaceFastestDown
+	waitmovement 0
+	return
+
+RusturfTunnel_EventScript_22CFA7:: @ 822CFA7
+	applymovement 1, Common_Movement_WalkInPlaceFastestUp
+	waitmovement 0
+	applymovement EVENT_OBJ_ID_PLAYER, Common_Movement_WalkInPlaceFastestDown
+	waitmovement 0
+	return
+
+RusturfTunnel_EventScript_22CFBC:: @ 822CFBC
+	applymovement 1, RusturfTunnel_Movement_22D048
+	waitmovement 0
+	return
+
+RusturfTunnel_EventScript_22CFC7:: @ 822CFC7
+	return
+
+RusturfTunnel_EventScript_22CFC8:: @ 822CFC8
+	closemessage
+	applymovement 1, RusturfTunnel_Movement_22D065
+	waitmovement 0
+	return
+
+RusturfTunnel_EventScript_22CFD4:: @ 822CFD4
+	applymovement 10, RusturfTunnel_Movement_22D017
+	applymovement 1, RusturfTunnel_Movement_22D04B
+	waitmovement 0
+	return
+
+RusturfTunnel_EventScript_22CFE6:: @ 822CFE6
+	applymovement EVENT_OBJ_ID_PLAYER, RusturfTunnel_Movement_22D02F
+	applymovement 10, RusturfTunnel_Movement_22D023
+	applymovement 1, RusturfTunnel_Movement_22D058
+	waitmovement 0
+	return
+
+RusturfTunnel_EventScript_22CFFF:: @ 822CFFF
+	playse SE_PIN
+	applymovement 1, Common_Movement_ExclamationMark
+	waitmovement 0
+	applymovement 1, Common_Movement_Delay48
+	waitmovement 0
+	return
+
+RusturfTunnel_Movement_22D017: @ 822D017
+	walk_right
+	walk_right
+	walk_right
+	walk_right
+	walk_down
+	walk_down
+	walk_down
+	walk_down
+	walk_down
+	walk_down
+	walk_down
+	step_end
+
+RusturfTunnel_Movement_22D023: @ 822D023
+	walk_right
+	walk_right
+	walk_right
+	walk_right
+	walk_down
+	walk_down
+	walk_down
+	walk_down
+	walk_down
+	walk_down
+	walk_down
+	step_end
+
+RusturfTunnel_Movement_22D02F: @ 822D02F
+	delay_8
+	walk_in_place_fastest_up
+	delay_16
+	delay_16
+	walk_in_place_fastest_right
+	step_end
+
+RusturfTunnel_Movement_22D035: @ 822D035
+	walk_left
+	walk_in_place_fastest_right
+	step_end
+
+RusturfTunnel_Movement_22D038: @ 822D038
+	walk_down
+	walk_in_place_fastest_up
+	delay_8
+	walk_in_place_fastest_right
+	step_end
+
+RusturfTunnel_Movement_22D03D: @ 822D03D
+	walk_up
+	walk_in_place_fastest_down
+	delay_8
+	walk_in_place_fastest_right
+	step_end
+
+RusturfTunnel_Movement_22D042: @ 822D042
+	walk_left
+	walk_in_place_fastest_right
+	step_end
+
+RusturfTunnel_Movement_22D045: @ 822D045
+	walk_right
+	walk_in_place_fastest_left
+	step_end
+
+RusturfTunnel_Movement_22D048: @ 822D048
+	walk_up
+	walk_in_place_fastest_right
+	step_end
+
+RusturfTunnel_Movement_22D04B: @ 822D04B
+	walk_right
+	walk_right
+	walk_right
+	walk_right
+	walk_right
+	walk_down
+	walk_down
+	walk_down
+	walk_down
+	walk_down
+	walk_down
+	walk_down
+	step_end
+
+RusturfTunnel_Movement_22D058: @ 822D058
+	walk_up
+	walk_right
+	walk_right
+	walk_right
+	walk_right
+	walk_down
+	walk_down
+	walk_down
+	walk_down
+	walk_down
+	walk_down
+	walk_down
+	step_end
+
+RusturfTunnel_Movement_22D065: @ 822D065
+	walk_right
+	step_end
+
+RusturfTunnel_Movement_22D067: @ 822D067
+	walk_in_place_fast_up
+	walk_in_place_fast_up
+	walk_fast_up
+	walk_fast_right
+	step_end
+
+RusturfTunnel_Movement_22D06C: @ 822D06C
+	walk_in_place_fast_right
+	walk_in_place_fast_right
+	walk_fast_right
+	walk_in_place_fastest_up
+	step_end
+
+RusturfTunnel_EventScript_22D071:: @ 822D071
+	setvar VAR_TEMP_1, 1
+	end
+
+RusturfTunnel_EventScript_22D077:: @ 822D077
+	setvar VAR_TEMP_1, 2
+	end
+
+RusturfTunnel_EventScript_22D07D:: @ 822D07D
+	setvar VAR_TEMP_1, 3
+	end
+
+RusturfTunnel_EventScript_22D083:: @ 822D083
+	lockall
+	msgbox RusturfTunnel_Text_22D1C8, MSGBOX_DEFAULT
+	closemessage
+	applymovement 6, RusturfTunnel_Movement_22D0AB
+	applymovement 7, RusturfTunnel_Movement_22D0AB
+	waitmovement 0
+	copyobjectxytoperm 6
+	copyobjectxytoperm 7
+	setvar VAR_RUSTURF_TUNNEL_STATE, 3
+	releaseall
+	end
+
+RusturfTunnel_Movement_22D0AB: @ 822D0AB
+	lock_facing_direction
+	walk_right
+	unlock_facing_direction
+	step_end
+
+RusturfTunnel_EventScript_22D0AF:: @ 822D0AF
+	lock
+	faceplayer
+	waitse
+	playmoncry SPECIES_WINGULL, 0
+	msgbox RusturfTunnel_Text_22D1F7, MSGBOX_DEFAULT
+	waitmoncry
+	release
+	end
+
+RusturfTunnel_EventScript_22D0C2:: @ 822D0C2
+	lock
+	faceplayer
+	playbgm MUS_AQA_0, 0
+	msgbox RusturfTunnel_Text_22D20A, MSGBOX_DEFAULT
+	trainerbattle_no_intro TRAINER_GRUNT_10, RusturfTunnel_Text_22D2B0
+	msgbox RusturfTunnel_Text_22D2E1, MSGBOX_DEFAULT
+	giveitem_std ITEM_DEVON_GOODS
+	closemessage
+	applymovement EVENT_OBJ_ID_PLAYER, RusturfTunnel_Movement_22D178
+	applymovement 6, RusturfTunnel_Movement_22D181
+	waitmovement 0
+	removeobject 6
+	delay 50
+	addobject 5
+	applymovement 5, RusturfTunnel_Movement_22D18B
+	waitmovement 0
+	applymovement EVENT_OBJ_ID_PLAYER, RusturfTunnel_Movement_22D17E
+	applymovement 5, RusturfTunnel_Movement_22D1A4
+	waitmovement 0
+	msgbox RusturfTunnel_Text_22D395, MSGBOX_DEFAULT
+	applymovement 5, Common_Movement_FacePlayer
+	waitmovement 0
+	message RusturfTunnel_Text_22D3BA
+	waitmessage
+	waitse
+	playmoncry SPECIES_WINGULL, 0
+	waitbuttonpress
+	waitmoncry
+	closemessage
+	applymovement EVENT_OBJ_ID_PLAYER, RusturfTunnel_Movement_22D19F
+	applymovement 5, RusturfTunnel_Movement_22D193
+	applymovement 7, RusturfTunnel_Movement_22D1A7
+	waitmovement 0
+	removeobject 5
+	removeobject 7
+	clearflag FLAG_DEVON_GOODS_STOLEN
+	setflag FLAG_RECOVERED_DEVON_GOODS
+	setvar VAR_RUSTBORO_CITY_STATE, 4
+	setvar VAR_BRINEY_HOUSE_STATE, 1
+	setflag FLAG_HIDE_ROUTE_116_MR_BRINEY
+	release
+	end
+
+RusturfTunnel_Movement_22D178: @ 822D178
+	face_down
+	lock_facing_direction
+	walk_up
+	unlock_facing_direction
+	walk_in_place_fastest_left
+	step_end
+
+RusturfTunnel_Movement_22D17E: @ 822D17E
+	walk_down
+	walk_in_place_fastest_up
+	step_end
+
+RusturfTunnel_Movement_22D181: @ 822D181
+	walk_fast_left
+	walk_fast_left
+	walk_fast_left
+	walk_fast_left
+	walk_fast_left
+	walk_fast_left
+	walk_fast_left
+	walk_fast_left
+	walk_fast_left
+	step_end
+
+RusturfTunnel_Movement_22D18B: @ 822D18B
+	walk_right
+	walk_right
+	walk_right
+	walk_right
+	walk_right
+	walk_right
+	walk_right
+	step_end
+
+RusturfTunnel_Movement_22D193: @ 822D193
+	walk_left
+	walk_left
+	walk_left
+	walk_left
+	walk_left
+	walk_left
+	walk_left
+	walk_left
+	walk_left
+	walk_left
+	walk_left
+	step_end
+
+RusturfTunnel_Movement_22D19F: @ 822D19F
+	delay_16
+	delay_8
+	delay_4
+	walk_in_place_fastest_left
+	step_end
+
+RusturfTunnel_Movement_22D1A4: @ 822D1A4
+	delay_16
+	walk_right
+	step_end
+
+RusturfTunnel_Movement_22D1A7: @ 822D1A7
+	walk_left
+	walk_left
+	walk_left
+	walk_left
+	walk_left
+	walk_left
+	walk_left
+	walk_left
+	walk_left
+	step_end
+
+RusturfTunnel_EventScript_22D1B1:: @ 822D1B1
+	trainerbattle_single TRAINER_MIKE_2, RusturfTunnel_Text_22D84D, RusturfTunnel_Text_22D8DB
+	msgbox RusturfTunnel_Text_22D8F9, MSGBOX_AUTOCLOSE
+	end
+
+RusturfTunnel_Text_22D1C8: @ 822D1C8
+	.string "Alors, tu me suis?$"
+
+RusturfTunnel_Text_22D1F7: @ 822D1F7
+	.string "PIKO: Pii pikooo!$"
+
+RusturfTunnel_Text_22D20A: @ 822D20A
+	.string "C'est pas possible…\p"
+	.string "Ce POKéMON pris en otage ne me\n"
+	.string "sert à rien!\p"
+	.string "Et quand je pense que je me suis enfui\n"
+	.string "par ce tunnel qui ne mène nulle part!\p"
+	.string "Hé! Toi!\n"
+	.string "Alors, tu veux te battre contre moi?$"
+
+RusturfTunnel_Text_22D2B0: @ 822D2B0
+	.string "Arrrg! Ma carrière de criminel finit mal!$"
+
+RusturfTunnel_Text_22D2E1: @ 822D2E1
+	.string "C'est vraiment pas juste…\p"
+	.string "Le CHEF m'avait dit que ce serait simple\n"
+	.string "comme bonjour.\p"
+	.string "Tout ce que j'avais à faire, c'était de\n"
+	.string "voler un paquet chez DEVON.\p"
+	.string "Pff! Si tu l'veux vraiment,\n"
+	.string "t'as qu'à l'prendre!$"
+
+RusturfTunnel_Text_22D395: @ 822D395
+	.string "PIKO! Tu es sauf! Quelle joie!$"
+
+RusturfTunnel_Text_22D3BA: @ 822D3BA
+	.string "PIKO te doit la vie!\p"
+	.string "On m'appelle M. MARCO.\n"
+	.string "Et toi, comment t'appelles-tu?\p"
+	.string "… … … … … … … …\n"
+	.string "… … … … … … … …\p"
+	.string "Ah, alors tu es {PLAYER}{KUN}!\n"
+	.string "Je te remercie infiniment!\p"
+	.string "Désormais, s'il y a quoi que ce soit,\n"
+	.string "n'hésite pas à m'en parler!\p"
+	.string "Tu peux me trouver dans ma maison\n"
+	.string "en bord de mer près du BOIS CLEMENTI.\p"
+	.string "Allez, viens PIKO. On rentre.\p"
+	.string "PIKO: Pihikoh!$"
+
+RusturfTunnel_Text_22D510: @ 822D510
+	.string "… …\p"
+	.string "Pourquoi ne peuvent-ils plus creuser?\n"
+	.string "La roche est-elle trop dure?\p"
+	.string "Ma petite amie m'attend à VERGAZON,\n"
+	.string "qui se trouve juste derrière…\p"
+	.string "Si ce tunnel pouvait relier MEROUVILLE\n"
+	.string "et VERGAZON, je pourrais aller la\l"
+	.string "voir tous les jours…\p"
+	.string "Mais comme ça…\n"
+	.string "Que faire?$"
+
+RusturfTunnel_Text_22D5F3: @ 822D5F3
+	.string "Pour aller de MEROUVILLE à VERGAZON,\n"
+	.string "il faut aller à MYOKARA et ensuite\l"
+	.string "passer par POIVRESSEL et LAVANDIA…$"
+
+RusturfTunnel_Text_22D65C: @ 822D65C
+	.string "Waouh! Tu as pulvérisé ce bloc de pierre\n"
+	.string "qui bouchait le passage.\p"
+	.string "Pour que tu saches combien j'apprécie,\n"
+	.string "j'aimerais que tu prennes cette CS.$"
+
+RusturfTunnel_Text_22D6D2: @ 822D6D2
+	.string "Cette CS contient FORCE.\p"
+	.string "Si un POKéMON musclé l'apprend, il sera\n"
+	.string "capable de déplacer de gros rochers.$"
+
+RusturfTunnel_Text_22D745: @ 822D745
+	.string "SYLVIE! Maintenant, on peut\n"
+	.string "se voir quand on veut!\p"
+	.string "SYLVIE: C'est… merveilleux.\p"
+	.string "Repose-toi un peu chez moi.$"
+
+RusturfTunnel_Text_22D7A3: @ 822D7A3
+	.string "De l'autre côté de ce rocher…\n"
+	.string "C'est là que se trouve mon petit ami.\p"
+	.string "Il… Il ne creuse pas le tunnel juste\n"
+	.string "pour me voir.\p"
+	.string "S'il travaille dur, c'est pour que tout\n"
+	.string "le monde puisse en profiter.$"
+
+RusturfTunnel_Text_22D84D: @ 822D84D
+	.string "Comment appelle-t-on un homme vivant\n"
+	.string "dans les montagnes?\p"
+	.string "Un homme des montagnes?\n"
+	.string "Alors pourquoi n'appelle-t-on pas un\l"
+	.string "POKéMON vivant dans les montagnes"\l"
+	.string "un POKéMON des montagnes?$"
+
+RusturfTunnel_Text_22D8DB: @ 822D8DB
+	.string "Mes POKéMON…\n"
+	.string "n'ont plus de pouvoir…$"
+
+RusturfTunnel_Text_22D8F9: @ 822D8F9
+	.string "Ici, ils ont interrompu l'aménagement\n"
+	.string "pour protéger les POKéMON, pas vrai?\l"
+	.string "C'est une question de bien-être!$"
+
