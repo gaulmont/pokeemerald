@@ -1298,7 +1298,7 @@ SlateportCity_Text_1DEBCE: @ 81DEBCE
 SlateportCity_Text_1DED27: @ 81DED27
 	.string "J'ai récemment fait installer des\n"
 	.string "machines pour broyer les BAIES\l"
-	.string dans les CENTRES POKéMON.\p"
+	.string "dans les CENTRES POKéMON.\p"
 	.string "Les BROYEURS DE BAIES se\n"
 	.string "trouvent dans la SALLE LINK DIRECT.\p"
 	.string "Tu le savais?\p"
