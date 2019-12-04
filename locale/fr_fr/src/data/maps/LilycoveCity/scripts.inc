@@ -602,7 +602,7 @@ LilycoveCity_Text_1E3E3C: @ 81E3E3C
 
 LilycoveCity_Text_1E3E7D: @ 81E3E7D
 	.string "Je vais apprendre de nouvelles\n"
-	.string "capacités à mon POKéMON pour\"
+	.string "capacités à mon POKéMON pour\n"
 	.string "qu'il participe à un CONCOURS.\p"
 	.string "Alors, je vais aller voir l'EFFACEUR DE\n"
 	.string "CAPACITES, pour qu'il lui fasse oublier\n"
