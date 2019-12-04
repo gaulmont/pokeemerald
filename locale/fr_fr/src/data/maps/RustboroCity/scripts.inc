@@ -1250,7 +1250,7 @@ RustboroCity_Text_1E2128: @ 81E2128
 RustboroCity_Text_1E2167: @ 81E2167
 	.string "ARENE POKéMON de MEROUVILLE\n"
 	.string "CHAMPION: ROXANNE\p"
-	.string "“La meilleure étudiante attachée\n
+	.string "“La meilleure étudiante attachée\n"
 	.string "au type ROCHE!”$"
 
 RustboroCity_Text_1E21B3: @ 81E21B3
