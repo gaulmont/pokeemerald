@@ -112,7 +112,7 @@ SlateportCity_SternsShipyard_1F_Text_208323: @ 8208323
 	.string "en perpétuelle évolution.$"
 
 SlateportCity_SternsShipyard_1F_Text_2083EE: @ 82083EE
-	.string M. MARCO: Ah, {PLAYER}{KUN}!\n"
+	.string "M. MARCO: Ah, {PLAYER}{KUN}!\n"
 	.string "Ça faisait longtemps!\p"
 	.string "Hé, depuis notre dernière rencontre, le\n"
 	.string "vieux loup de mer est d'humeur folâtre.\p"
@@ -123,7 +123,7 @@ SlateportCity_SternsShipyard_1F_Text_2083EE: @ 82083EE
 	.string "Mais, tu sais, cet ARCHIBALD, c'est\n"
 	.string "vraiment quelqu'un!\p"
 	.string "Avec ses connaissances et mon\n"
-	.string expérience, je suis sûr qu'on va pouvoir\l"
+	.string "expérience, je suis sûr qu'on va pouvoir\l"
 	.string "construire un imposant bateau, hé, hé!$"
 
 SlateportCity_SternsShipyard_1F_Text_208558: @ 8208558

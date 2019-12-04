@@ -1189,5 +1189,6 @@ Route104_Text_1EE120: @ 81EE120
 	.string "plutôt pas mal.\p"
 	.string "Mais tu sais, il n'y a pas que les\n"
 	.string "combats dans la vie.\p"
-	.string Comme le dirait M. MARCO, il est\n"
+	.string "Comme le dirait M. MARCO, il est\n"
 	.string "important d'être ami avec ses POKéMON.$"
+

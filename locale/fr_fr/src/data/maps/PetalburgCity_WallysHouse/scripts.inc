@@ -71,7 +71,7 @@ PetalburgCity_WallysHouse_Text_ThanksForPlayingWithWally: @ 82042DF
 	.string "Merci d'avoir joué avec TIMMY.\p"
 	.string "Il est faible et maladif depuis\n"
 	.string "qu'il est tout petit.\p"
-	.string Nous l'avons envoyé chez des parents à\n"
+	.string "Nous l'avons envoyé chez des parents à\n"
 	.string "VERGAZON pour quelque temps.\p"
 	.string "L'air qu'on y respire est bien\n"
 	.string "meilleur qu'ici.\p"

@@ -303,7 +303,7 @@ SlateportCity_PokemonFanClub_Text_20A445: @ 820A445
 	.string "intense!\p"
 	.string "Oh, pardon! Ça fait déjà trop\n"
 	.string "longtemps que je parle!\p"
-	.string "Pourrais-je examiner tes POKéMON"\n"
+	.string "Pourrais-je examiner tes POKéMON\n"
 	.string "pour voir s'ils progressent bien?$"
 
 SlateportCity_PokemonFanClub_Text_20A62A: @ 820A62A
@@ -337,28 +337,28 @@ SlateportCity_PokemonFanClub_Text_20A795: @ 820A795
 
 SlateportCity_PokemonFanClub_Text_20A827: @ 820A827
 	.string "Fais porter ce FOUL. ROUGE\n"
-	.string "à un POKéMON."\p"
+	.string "à un POKéMON.\p"
 	.string "Tout le monde reconnaîtra son\n"
 	.string "SANG-FROID!$"
 
 SlateportCity_PokemonFanClub_Text_20A880: @ 820A880
 	.string "Fais porter ce FOUL. BLEU\n"
-	.string "à un POKéMON."\p"
+	.string "à un POKéMON.\p"
 	.string "Sa BEAUTE n'en sera qu'accentuée!$"
 
 SlateportCity_PokemonFanClub_Text_20A8D7: @ 820A8D7
 	.string "Fais porter ce FOUL. ROSE\n"
-	.string "à un POKéMON."\p"
+	.string "à un POKéMON.\p"
 	.string "Ça fera un peu ressortir sa GRACE!$"
 
 SlateportCity_PokemonFanClub_Text_20A933: @ 820A933
 	.string "Fais porter ce FOUL. VERT\n"
-	.string "à un POKéMON."\p"
+	.string "à un POKéMON.\p"
 	.string "Ça augmentera son INTELLIGENCE!$"
 
 SlateportCity_PokemonFanClub_Text_20A984: @ 820A984
 	.string "Fais porter ce FOUL. JAUNE\n"
-	.string "à un POKéMON."\p"
+	.string "à un POKéMON.\p"
 	.string "Ça lui redonnera de la ROBUSTESSE!$"
 
 SlateportCity_PokemonFanClub_Text_20A9E1: @ 820A9E1

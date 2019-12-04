@@ -32,8 +32,8 @@ LavaridgeTown_PokemonCenter_1F_Text_1FFB37: @ 81FFB37
 	.string "Je crois que les POKéMON deviennent\n"
 	.string "plus proches de leurs DRESSEURS s'ils\l"
 	.string "passent du temps ensemble.\p"
-	.string Plus ils passent de temps ensemble,\n"
-	.string |plus ils sont proches. J'en suis sûre.$"
+	.string "Plus ils passent de temps ensemble,\n"
+	.string "plus ils sont proches. J'en suis sûre.$"
 
 LavaridgeTown_PokemonCenter_1F_Text_1FFBAD: @ 81FFBAD
 	.string "Les sources chaudes me font un bien\n"

@@ -364,7 +364,7 @@ RivalsHouse_2F_Text_BrendanWhoAreYou: @ 81F97B4
 	.string "Je ne savais pas que tu étais une fille.\p"
 	.string "Mon père, le PROF. SEKO, m'a dit que\n"
 	.string "le père du nouvel arrivant était un\l"
-	.string "CHAMPION D'ARENE, donc j'ai supposé\L"
+	.string "CHAMPION D'ARENE, donc j'ai supposé\l"
 	.string "que tu étais un garçon.\p"
 	.string "Je m'appelle BRICE.\n"
 	.string "Eh bien, bonjour, voisine!\p"

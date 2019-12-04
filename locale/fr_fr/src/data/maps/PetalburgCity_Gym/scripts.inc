@@ -1365,7 +1365,7 @@ PetalburgCity_Gym_Text_NormanPreBattle: @ 8205FE5
 	.string "affronter mon propre enfant.\p"
 	.string "Mais un combat reste un combat!\p"
 	.string "Je ferai tout ce qui est en mon pouvoir\n"
-	.string de CHAMPION D'ARENE pour gagner.\p"
+	.string "de CHAMPION D'ARENE pour gagner.\p"
 	.string "{PLAYER}, il va aussi falloir donner\n"
 	.string "le meilleur de toi-même!$"
 
@@ -1464,7 +1464,7 @@ PetalburgCity_Gym_Text_RandallPostBattle: @ 82067D8
 	.string "Va dans la salle suivante!\n"
 	.string "Un autre combat t'attend.\p"
 	.string "A droite, se trouve la salle\n"
-	.string "CONFUSION".\p"
+	.string "CONFUSION.\p"
 	.string "A droite, se trouve la SALLE DEFENSE.$"
 
 PetalburgCity_Gym_Text_RandallPostBadge: @ 820685E
@@ -1522,7 +1522,7 @@ PetalburgCity_Gym_Text_BerkePreBattle: @ 8206BF4
 	.string "Je ne vais pas te faciliter les choses\n"
 	.string "parce que tu es l'enfant du CHAMPION.\p"
 	.string "Tu vas voir comme un coup critique\n"
-	.string "peut être terrible pour un POKéMON"!$"
+	.string "peut être terrible pour un POKéMON!$"
 
 PetalburgCity_Gym_Text_BerkeDefeat: @ 8206C7D
 	.string "Quelle puissance!\n"
@@ -1602,7 +1602,7 @@ PetalburgCity_Gym_Text_JodyPostBattle: @ 82070FB
 
 PetalburgCity_Gym_Text_JodyPostBadge: @ 8207170
 	.string "En effet, c'est très bien de rendre\n"
-	.string "tes POKéMON plus forts."\p"
+	.string "tes POKéMON plus forts.\p"
 	.string "Mais qu'est-ce qui détermine\n"
 	.string "la victoire?\p"
 	.string "Ce sont les sentiments des DRESSEURS\n"
@@ -1680,7 +1680,7 @@ PetalburgCity_Gym_Text_NormanPreRematch: @ 82074A2
 	.string "N'est-ce pas, {PLAYER}?$"
 
 PetalburgCity_Gym_Text_NormanRematchDefeat: @ 82075CE
-	.string "Hein"… Haha…\n"
+	.string "Hein… Haha…\n"
 	.string "Tu n'as vraiment pas retenu tes coups…$"
 
 PetalburgCity_Gym_Text_NormanPostRematch: @ 82075F7

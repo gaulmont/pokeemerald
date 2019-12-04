@@ -636,7 +636,6 @@ DewfordTown_EventScript_1E999E:: @ 81E999E
 	release
 	end
 
-
 DewfordTown_Text_1E99A8: @ 81E99A8
 	.string "Le VILLAGE MYOKARA est une petite.\n"
 	.string "communauté insulaire.\p"
@@ -797,6 +796,6 @@ DewfordTown_Text_1EA443: @ 81EA443
 	.string "modes, viens m'en parler, d'accord??$"
 
 DewfordTown_Text_1EA491: @ 81EA491
-	.string Ouais, tout à fait!\p"
+	.string "Ouais, tout à fait!\p"
 	.string "“{STR_VAR_1}”\n"
 	.string "reflète bien la tendance actuelle.$"

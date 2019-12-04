@@ -158,7 +158,7 @@ SootopolisCity_LotadAndSeedotHouse_Text_2275BC: @ 82275BC
 SootopolisCity_LotadAndSeedotHouse_Text_227617: @ 8227617
 	.string "Le plus grand GRAINIPIOT jamais vu!\n"
 	.string "Un géant de {STR_VAR_2} cm appartenant\l"
-	.string  à {STR_VAR_3}!\p"
+	.string "à {STR_VAR_3}!\p"
 	.string "Un GRAINIPIOT encore plus\n"
 	.string "grand qu'un NENUPIOT!$"
 

@@ -261,7 +261,7 @@ Route110_TrickHouseEnd_Movement_26B08B: @ 826B08B
 	step_end
 
 Route110_TrickHouseEnd_Text_26B08D: @ 826B08D
-	.string "string "Aaargh! Tu m'as retrouvé?\n"
+	.string "Aaargh! Tu m'as retrouvé?\n"
 	.string "Hmmm… Tu as l'œil!$"
 
 Route110_TrickHouseEnd_Text_26B0BC: @ 826B0BC
@@ -366,4 +366,3 @@ Route110_TrickHouseEnd_Text_26B7EF: @ 826B7EF
 Route110_TrickHouseEnd_Text_26B8BD: @ 826B8BD
 	.string "Quoi? Comment oses-tu? Tu m'ignores,\n"
 	.string "maintenant? Ça me fend le cœur!$"
-

@@ -222,7 +222,7 @@ LilycoveCity_LilycoveMuseum_2F_Text_219A0D: @ 8219A0D
 	.string "Comme il est facile de le constater, il\n"
 	.string "n'y a pas un seul tableau exposé.\p"
 	.string "Je ne souhaite pas exposer d'œuvres\n"
-	.string "dites «classiques» ici.\p"
+	.string "dites “classiques” ici.\p"
 	.string "Les œuvres de ce type ont déjà leur\n"
 	.string "place au rez-de-chaussée.\p"
 	.string "Mon désir est d'exposer des œuvres\n"

@@ -402,7 +402,7 @@ LavaridgeTown_Gym_1F_Text_FlanneryPostRematch: @ 81FF6BF
 	.string "beaucoup d'autres!$"
 
 LavaridgeTown_Gym_1F_Text_FlanneryRematchNeedTwoMons: @ 81FF75E
-	.string "ADRIANE: Je ne vais pas me dégonfler\"n"
+	.string "ADRIANE: Je ne vais pas me dégonfler\n"
 	.string "après une défaite.\p"
 	.string "J'aime les POKéMON.\n"
 	.string "J'aime me battre.\l"

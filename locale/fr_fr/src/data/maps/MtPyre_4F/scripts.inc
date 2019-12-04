@@ -8,7 +8,7 @@ MtPyre_5F_EventScript_231BC9:: @ 8231BC9
 
 MtPyre_5F_Text_231BE0: @ 8231BE0
 	.string "Professeur…\n"
-	.string Regardez les progrès que j'ai faits!$"
+	.string "Regardez les progrès que j'ai faits!$"
 
 MtPyre_5F_Text_231C08: @ 8231C08
 	.string "Professeur…\n"

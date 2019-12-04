@@ -334,7 +334,7 @@ DewfordTown_Gym_Text_TakaoDefeat: @ 81FCBB8
 	.string "Pas assez de puissance…$"
 
 DewfordTown_Gym_Text_TakaoPostBattle: @ 81FCBCA
-	.string "Ta compétence a surpassé ma force"!\n"
+	.string "Ta compétence a surpassé ma force!\n"
 	.string "Ta technique est impressionnante!$"
 
 DewfordTown_Gym_Text_JocelynPreBattle: @ 81FCC0A
@@ -406,7 +406,7 @@ DewfordTown_Gym_Text_CristianPostBattle: @ 81FCF26
 DewfordTown_Gym_Text_BrawlyPreBattle: @ 81FCF44
 	.string "Je suis BASTIEN!\n"
 	.string "Le CHAMPION D'ARENE de MYOKARA!\p"
-	.string "J'ai résisté aux vagues déchaînées"\n"
+	.string "J'ai résisté aux vagues déchaînées\n"
 	.string "de la région et je me suis endurci dans\l"
 	.string "les cavernes obscures!\p"
 	.string "Alors, comme ça, tu viens me défier?\n"
@@ -444,7 +444,7 @@ DewfordTown_Gym_Text_RegisteredBrawly: @ 81FD1E0
 
 DewfordTown_Gym_Text_BrawlyPostBattle: @ 81FD20D
 	.string "Je vois que tes talents ont causé un\n"
-	.string "raz-de-marée d'admiration parmi les"\l"
+	.string "raz-de-marée d'admiration parmi les\l"
 	.string "DRESSEURS, l'autre jour!$"
 
 DewfordTown_Gym_Text_GymStatue: @ 81FD272

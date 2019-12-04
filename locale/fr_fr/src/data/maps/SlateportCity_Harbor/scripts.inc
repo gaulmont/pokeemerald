@@ -447,7 +447,7 @@ SlateportCity_Harbor_Text_20D08E: @ 820D08E
 	.string "au CENTRE METEO.\p"
 	.string "Des changements climatiques\n"
 	.string "importants auraient été reportés\l"
-	.string un peu partout!\p"
+	.string "un peu partout!\p"
 	.string "Tu devrais aller faire un tour au\n"
 	.string "CENTRE METEO et te renseigner!$"
 
@@ -554,5 +554,5 @@ SlateportCity_Harbor_Text_20D94A: @ 820D94A
 	.string "CAPT. POUPE.$"
 
 SlateportCity_Harbor_Text_20D970: @ 820D970
-	.string CAPT. POUPE: Merci, {PLAYER}{KUN}!\n"
+	.string "CAPT. POUPE: Merci, {PLAYER}{KUN}!\n"
 	.string "Ça va nous aider dans nos recherches!$"

@@ -68,4 +68,4 @@ LilycoveCity_DepartmentStore_4F_Text_21FEC7: @ 821FEC7
 LilycoveCity_DepartmentStore_4F_Text_21FF2D: @ 821FF2D
 	.string "J'aimerais bien avoir toutes les sortes\n"
 	.string "de CT, mais un POKéMON ne peut\l"
-	.string "apprendre que quatre capacités.$
+	.string "apprendre que quatre capacités.$"

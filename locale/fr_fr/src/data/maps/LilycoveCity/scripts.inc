@@ -772,3 +772,4 @@ LilycoveCity_Text_1E49F4: @ 81E49F4
 	.string "Alors imagine un peu ce qu'on a pu\n"
 	.string "ressentir en voyant ce POKéMON rare.\p"
 	.string "Il n'y a pas de mots pour l'expliquer!$"
+	

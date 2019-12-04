@@ -355,7 +355,7 @@ LilycoveCity_ContestHall_Text_21BAD5: @ 821BAD5
 	.string "de sagesse, pour que ce POKéMON\l"
 	.string "devienne aussi intelligent.\p"
 	.string "Il ne se laisse pas battre par n'importe\n"
-	.string "quel POKéMON inexpérimenté.\$"
+	.string "quel POKéMON inexpérimenté.$"
 
 LilycoveCity_ContestHall_Text_21BB84: @ 821BB84
 	.string "Voilà!\p"

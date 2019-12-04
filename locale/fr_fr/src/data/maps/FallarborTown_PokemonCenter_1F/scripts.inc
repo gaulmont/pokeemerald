@@ -101,7 +101,7 @@ FallarborTown_PokemonCenter_1F_Text_200C6B: @ 8200C6B
 	.string "visite. J'habite sur la ROUTE 114.$"
 
 FallarborTown_PokemonCenter_1F_Text_200E22: @ 8200E22
-	.string "Je me demande à quoi ressemblaient les"\n"
+	.string "Je me demande à quoi ressemblaient les\n"
 	.string "POKéMON durant la préhistoire.\p"
 	.string "Le MANIAQUE DES FOSSILES qui vit\n"
 	.string "en bordure de la ville doit le savoir.$"

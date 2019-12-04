@@ -521,7 +521,7 @@ RusturfTunnel_Text_22D84D: @ 822D84D
 	.string "dans les montagnes?\p"
 	.string "Un homme des montagnes?\n"
 	.string "Alors pourquoi n'appelle-t-on pas un\l"
-	.string "POKéMON vivant dans les montagnes"\l"
+	.string "POKéMON vivant dans les montagnes\l"
 	.string "un POKéMON des montagnes?$"
 
 RusturfTunnel_Text_22D8DB: @ 822D8DB

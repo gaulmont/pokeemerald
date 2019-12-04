@@ -385,7 +385,7 @@ Route120_EventScript_1F5981:: @ 81F5981
 
 Route120_Text_StevenGreeting: @ 81F5998
 	.string "PIERRE: Hum? Salut {PLAYER}{KUN}.\n"
-	.string "Ça faisait longtemps".\p"
+	.string "Ça faisait longtemps.\p"
 	.string "Il y a quelque chose ici que tu ne peux\n"
 	.string "pas voir, n'est-ce pas?\p"
 	.string "Et si j'utilisais cet appareil sur cet\n"
@@ -428,7 +428,7 @@ Route120_Text_StevenGoodbye: @ 81F5C7B
 	.string "PIERRE: {PLAYER}{KUN}.\p"
 	.string "J'aime voir des POKéMON et des\n"
 	.string "DRESSEURS se donner du mal ensemble.\p"
-	.string "Je trouve que tu le fais très bien".\p"
+	.string "Je trouve que tu le fais très bien.\p"
 	.string "Bon, on s'affrontera ailleurs une\n"
 	.string "prochaine fois.$"
 

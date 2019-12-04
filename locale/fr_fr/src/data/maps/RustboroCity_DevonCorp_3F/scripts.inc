@@ -202,7 +202,7 @@ RustboroCity_DevonCorp_3F_Text_212609: @ 8212609
 	.string "de DEVON.\p"
 	.string "On vient de me parler de toi.\p"
 	.string "Tu as sauvé notre équipe pas une,\n"
-	.string "|mais deux fois!\p"
+	.string "mais deux fois!\p"
 	.string "J'ai un service à demander à\n"
 	.string "quelqu'un d'aussi remarquable que toi.\p"
 	.string "Je sais que tu dois livrer un paquet\n"

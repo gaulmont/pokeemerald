@@ -34,3 +34,4 @@ EverGrandeCity_Text_1E7D89: @ 81E7D89
 	.string "ETERNARA\p"
 	.string "“Le paradis des fleurs, de la mer et\n"
 	.string "des POKéMON.”$"
+	

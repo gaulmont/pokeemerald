@@ -413,7 +413,7 @@ DewfordTown_Hall_Text_1FDF72: @ 81FDF72
 	.string "Mais je me disais…\p"
 	.string "Vous ne croyez pas que\n"
 	.string "“{STR_VAR_1}”, qui\l"
-	.string "n'était qu'une mode, est maintenant"\l"
+	.string "n'était qu'une mode, est maintenant\l"
 	.string "quelque chose de tout à fait courant?$"
 
 DewfordTown_Hall_Text_1FDFF1: @ 81FDFF1
@@ -452,4 +452,3 @@ DewfordTown_Hall_Text_1FE1ED: @ 81FE1ED
 	.string "Mais c'est vrai que l'expression\n"
 	.string "“{STR_VAR_1}”\l"
 	.string "est pas mal non plus.$"
-

@@ -184,7 +184,7 @@ Route123_Text_1F645D: @ 81F645D
 	.string "Tu aimes aussi les POKéMON du\n"
 	.string "type PLANTE?\p"
 	.string "J'en suis contente, alors prends ça!\n"
-	.string "C'est un témoignage de notre amitié".$"
+	.string "C'est un témoignage de notre amitié.$"
 
 Route123_Text_1F64CF: @ 81F64CF
 	.string "Avec mes POKéMON du type PLANTE,\n"

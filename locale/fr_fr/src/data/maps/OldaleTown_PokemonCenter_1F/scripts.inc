@@ -59,5 +59,5 @@ OldaleTown_PokemonCenter_1F_Text_TradedInWirelessClub: @ 81FC1B9
 	.string "L'étage du CENTRE POKéMON\n"
 	.string "vient d'être construit.\p"
 	.string "J'y ai tout de suite échangé des\l"
-	.string "POKéMON".$"
+	.string "POKéMON.$"
 

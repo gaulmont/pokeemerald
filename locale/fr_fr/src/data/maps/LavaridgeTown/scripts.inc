@@ -294,7 +294,7 @@ LavaridgeTown_Text_1EA7C0: @ 81EA7C0
 	.string "Oh? Tu as eu le BADGE de VERMILAVA\n"
 	.string "pendant que j'étais aux sources.\p"
 	.string "Tu as dû attraper pas mal de POKéMON…\n"
-	.string "Enfin, je devrais plutôt dire «dresser»\l"
+	.string "Enfin, je devrais plutôt dire “dresser”\l"
 	.string "pas mal de POKéMON.\p"
 	.string "Je pense que ce serait bien pour toi\n"
 	.string "d'avoir ça.$"

@@ -83,7 +83,8 @@ FallarborTown_Text_1EB3CA: @ 81EB3CA
 
 FallarborTown_Text_1EB4C2: @ 81EB4C2
 	.string "TENTE DE COMBAT d'AUTEQUIA\n"
-	.string "“Que les meilleures équipes|nb|se rencontrent!”$"
+	.string "“Que les meilleures équipes\l"
+	.string "se rencontrent!”$"
 
 FallarborTown_Text_1EB4FE: @ 81EB4FE
 	.string "AUTEQUIA\n"
@@ -94,4 +95,3 @@ FallarborTown_Text_1EB534: @ 81EB534
 	.string "MAISON DU MAITRE DES CAPACITES\n"
 	.string "“Venez apprendre de nouvelles\l"
 	.string "capacités à vos POKéMON!”$"
-

@@ -512,7 +512,7 @@ BattleFrontier_BattlePalaceBattleRoom_Movement_24FEF2: @ 824FEF2
 
 BattleFrontier_BattlePalaceBattleRoom_Text_24FF00: @ 824FF00
 VerdanturfTown_BattleTentBattleRoom_Text_24FF00: @ 824FF00
-	.sttring "Excellent…\n"
+	.string "Excellent…\n"
 	.string "Je vais soigner vos POKéMON.$"
 
 BattleFrontier_BattlePalaceBattleRoom_Text_24FF28: @ 824FF28

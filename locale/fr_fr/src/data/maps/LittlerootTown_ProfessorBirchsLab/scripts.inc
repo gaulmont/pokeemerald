@@ -762,7 +762,7 @@ LittlerootTown_ProfessorBirchsLab_Text_1FAA74: @ 81FAA74
 	.string "peux aller te reposer chez toi.$"
 
 LittlerootTown_ProfessorBirchsLab_Text_1FAB22: @ 81FAB22
-	.string "PROF. SEKO: Oh, bonjour", {PLAYER}{KUN}!\p"
+	.string "PROF. SEKO: Oh, bonjour, {PLAYER}{KUN}!\p"
 	.string "Il paraît que tu as battu {RIVAL}.\n"
 	.string "Belle performance! Tu as remporté ton\l"
 	.string "premier combat contre une DRESSEUR\l"
@@ -790,7 +790,7 @@ LittlerootTown_ProfessorBirchsLab_Text_1FAC4B: @ 81FAC4B
 	.string "terrain pour me le montrer.$"
 
 LittlerootTown_ProfessorBirchsLab_Text_1FAD6F: @ 81FAD6F
-	.string PROF. SEKO: Tu vas découvrir\n"
+	.string "PROF. SEKO: Tu vas découvrir\n"
 	.string "de nombreux POKéMON!\p"
 	.string "Arrg, je crois que je vais retourner sur\n"
 	.string "le terrain. Ça me démange!$"
@@ -804,7 +804,7 @@ LittlerootTown_ProfessorBirchsLab_Text_1FADD7: @ 81FADD7
 LittlerootTown_ProfessorBirchsLab_Text_1FAE40: @ 81FAE40
 	.string "FLORA: Tu verras, c'est marrant\n"
 	.string "d'attraper plein de POKéMON!\p"
-	.string "Je vais aller explorer un peu la région"\n"
+	.string "Je vais aller explorer un peu la région\n"
 	.string "parce que je veux d'autres POKéMON.\p"
 	.string "Si je trouve des POKéMON mignons,\n"
 	.string "je les attraperai avec des POKé BALLS!$"
@@ -928,7 +928,7 @@ LittlerootTown_ProfessorBirchsLab_Text_1FB5F9: @ 81FB5F9
 	.string "POKéMON!$"
 
 LittlerootTown_ProfessorBirchsLab_Text_1FB787: @ 81FB787
-	.string PROF. SEKO: Ce sont des POKéMON rares\n"
+	.string "PROF. SEKO: Ce sont des POKéMON rares\n"
 	.string "provenant d'une autre région!\p"
 	.string "Tu peux choisir entre ces trois\n"
 	.string "POKéMON!$"
@@ -975,7 +975,7 @@ LittlerootTown_ProfessorBirchsLab_Text_1FBA2C: @ 81FBA2C
 	.string "mais ton périple n'est pas terminé.\p"
 	.string "Le chemin qui mène aux POKéMON\n"
 	.string "est infini.\p"
-	.string "Il y aura toujours un coin d'herbe verte"\n"
+	.string "Il y aura toujours un coin d'herbe verte\n"
 	.string "qui t'attendra quelque part!$"
 
 LittlerootTown_ProfessorBirchsLab_Text_1FBAF8: @ 81FBAF8
