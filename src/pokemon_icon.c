@@ -440,6 +440,116 @@ const u8 *const gMonIconTable[] =
     [SPECIES_UNOWN_Z] = gMonIcon_UnownZ,
     [SPECIES_UNOWN_EMARK] = gMonIcon_UnownExclamationMark,
     [SPECIES_UNOWN_QMARK] = gMonIcon_UnownQuestionMark,
+
+    //gen4
+
+    [SPECIES_TURTWIG] =     gMonIcon_Turtwig,
+    [SPECIES_GROTLE] =      gMonIcon_Grotle,
+    [SPECIES_TORTERRA] =    gMonIcon_Torterra,
+    [SPECIES_CHIMCHAR] =    gMonIcon_Chimchar,
+    [SPECIES_MONFERNO] =    gMonIcon_Monferno,
+    [SPECIES_INFERNAPE] =   gMonIcon_Infernape,
+    [SPECIES_PIPLUP] =      gMonIcon_Piplup,
+    [SPECIES_PRINPLUP] =    gMonIcon_Prinplup,
+    [SPECIES_EMPOLEON] =    gMonIcon_Empoleon,
+    [SPECIES_STARLY] =      gMonIcon_Starly,
+    [SPECIES_STARAVIA] =    gMonIcon_Staravia,
+    [SPECIES_STARAPTOR] =   gMonIcon_Staraptor,
+    [SPECIES_BIDOOF] =      gMonIcon_Bidoof,
+    [SPECIES_BIBAREL] =     gMonIcon_Bibarel,
+    [SPECIES_KRICKETOT] =   gMonIcon_Kricketot,
+    [SPECIES_KRICKETUNE] =  gMonIcon_Kricketune,
+    [SPECIES_SHINX] =       gMonIcon_Shinx,
+    [SPECIES_LUXIO] =       gMonIcon_Luxio,
+    [SPECIES_LUXRAY] =      gMonIcon_Luxray,
+    [SPECIES_BUDEW] =       gMonIcon_Budew,
+    [SPECIES_ROSERADE] =    gMonIcon_Roserade,
+    [SPECIES_CRANIDOS] =    gMonIcon_Cranidos,
+    [SPECIES_RAMPARDOS] =   gMonIcon_Rampardos,
+    [SPECIES_SHIELDON] =    gMonIcon_Shieldon,
+    [SPECIES_BASTIODON] =   gMonIcon_Bastiodon,
+    [SPECIES_BURMY] =       gMonIcon_Burmy,
+    [SPECIES_WORMADAM] =    gMonIcon_Wormadam,
+    [SPECIES_MOTHIM] =      gMonIcon_Mothim,
+    [SPECIES_COMBEE] =      gMonIcon_Combee,
+    [SPECIES_VESPIQUEN] =   gMonIcon_Vespiquen,
+    [SPECIES_PACHIRISU] =   gMonIcon_Pachirisu,
+    [SPECIES_BUIZEL] =      gMonIcon_Buizel,
+    [SPECIES_FLOATZEL] =    gMonIcon_Floatzel,
+    [SPECIES_CHERUBI] =     gMonIcon_Cherubi,
+    [SPECIES_CHERRIM] =     gMonIcon_Cherrim,
+    [SPECIES_SHELLOS] =     gMonIcon_Shellos,
+    [SPECIES_GASTRODON] =   gMonIcon_Gastrodon,
+    [SPECIES_AMBIPOM] =     gMonIcon_Ambipom,
+    [SPECIES_DRIFLOON] =    gMonIcon_Drifloon,
+    [SPECIES_DRIFBLIM] =    gMonIcon_Drifblim,
+    [SPECIES_BUNEARY] =     gMonIcon_Buneary,
+    [SPECIES_LOPUNNY] =     gMonIcon_Lopunny,
+    [SPECIES_MISMAGIUS] =   gMonIcon_Mismagius,
+    [SPECIES_HONCHKROW] =   gMonIcon_Honchkrow,
+    [SPECIES_GLAMEOW] =     gMonIcon_Glameow,
+    [SPECIES_PURUGLY] =     gMonIcon_Purugly,
+    [SPECIES_CHINGLING] =   gMonIcon_Chingling,
+    [SPECIES_STUNKY] =      gMonIcon_Stunky,
+    [SPECIES_SKUNTANK] =    gMonIcon_Skuntank,
+    [SPECIES_BRONZOR] =     gMonIcon_Bronzor,
+    [SPECIES_BRONZONG] =    gMonIcon_Bronzong,
+    [SPECIES_BONSLY] =      gMonIcon_Bonsly,
+    [SPECIES_MIMEJR] =      gMonIcon_MimeJr,
+    [SPECIES_HAPPINY] =     gMonIcon_Happiny,
+    [SPECIES_CHATOT] =      gMonIcon_Chatot,
+    [SPECIES_SPIRITOMB] =   gMonIcon_Spiritomb,
+    [SPECIES_GIBLE] =       gMonIcon_Gible,
+    [SPECIES_GABITE] =      gMonIcon_Gabite,
+    [SPECIES_GARCHOMP] =    gMonIcon_Garchomp,
+    [SPECIES_MUNCHLAX] =    gMonIcon_Munchlax,
+    [SPECIES_RIOLU] =       gMonIcon_Riolu,
+    [SPECIES_LUCARIO] =     gMonIcon_Lucario,
+    [SPECIES_HIPPOPOTAS] =  gMonIcon_Hippopotas,
+    [SPECIES_HIPPOWDON] =   gMonIcon_Hippowdon,
+    [SPECIES_SKORUPI] =     gMonIcon_Skorupi,
+    [SPECIES_DRAPION] =     gMonIcon_Drapion,
+    [SPECIES_CROAGUNK] =    gMonIcon_Croagunk,
+    [SPECIES_TOXICROAK] =   gMonIcon_Toxicroak,
+    [SPECIES_CARNIVINE] =   gMonIcon_Carnivine,
+    [SPECIES_FINNEON] =     gMonIcon_Finneon,
+    [SPECIES_LUMINEON] =    gMonIcon_Lumineon,
+    [SPECIES_MANTYKE] =     gMonIcon_Mantyke,
+    [SPECIES_SNOVER] =      gMonIcon_Snover,
+    [SPECIES_ABOMASNOW] =   gMonIcon_Abomasnow,
+    [SPECIES_WEAVILE] =     gMonIcon_Weavile,
+    [SPECIES_MAGNEZONE] =   gMonIcon_Magnezone,
+    [SPECIES_LICKILICKY] =  gMonIcon_Lickilicky,
+    [SPECIES_RHYPERIOR] =   gMonIcon_Rhyperior,
+    [SPECIES_TANGROWTH] =   gMonIcon_Tangrowth,
+    [SPECIES_ELECTIVIRE] =  gMonIcon_Electivire,
+    [SPECIES_MAGMORTAR] =   gMonIcon_Magmortar,
+    [SPECIES_TOGEKISS] =    gMonIcon_Togekiss,
+    [SPECIES_YANMEGA] =     gMonIcon_Yanmega,
+    [SPECIES_LEAFEON] =     gMonIcon_Leafeon,
+    [SPECIES_GLACEON] =     gMonIcon_Glaceon,
+    [SPECIES_GLISCOR] =     gMonIcon_Gliscor,
+    [SPECIES_MAMOSWINE] =   gMonIcon_Mamoswine,
+    [SPECIES_PORYGONZ] =    gMonIcon_PorygonZ,
+    [SPECIES_GALLADE] =     gMonIcon_Gallade,
+    [SPECIES_PROBOPASS] =   gMonIcon_Probopass,
+    [SPECIES_DUSKNOIR] =    gMonIcon_Dusknoir,
+    [SPECIES_FROSLASS] =    gMonIcon_Froslass,
+    [SPECIES_ROTOM] =       gMonIcon_Rotom,
+    [SPECIES_UXIE] =        gMonIcon_Uxie,
+    [SPECIES_MESPRIT] =     gMonIcon_Mesprit,
+    [SPECIES_AZELF] =       gMonIcon_Azelf,
+    [SPECIES_DIALGA] =      gMonIcon_Dialga,
+    [SPECIES_PALKIA] =      gMonIcon_Palkia,
+    [SPECIES_HEATRAN] =     gMonIcon_Heatran,
+    [SPECIES_REGIGIGAS] =   gMonIcon_Regigigas,
+    [SPECIES_GIRATINA] =    gMonIcon_Giratina,
+    [SPECIES_CRESSELIA] =   gMonIcon_Cresselia,
+    [SPECIES_PHIONE] =      gMonIcon_Phione,
+    [SPECIES_MANAPHY] =     gMonIcon_Manaphy,
+    [SPECIES_DARKRAI] =     gMonIcon_Darkrai,
+    [SPECIES_SHAYMIN] =     gMonIcon_Shaymin,
+    [SPECIES_ARCEUS] =      gMonIcon_Arceus,
 };
 
 const u8 gMonIconPaletteIndices[] =
@@ -954,38 +1064,36 @@ const union AffineAnimCmd *const sMonIconAffineAnims[] =
 
 const u16 sSpriteImageSizes[3][4] =
 {
-    // square
+    [ST_OAM_SQUARE] = 
     {
-         0x20, // 1×1
-         0x80, // 2×2
-        0x200, // 4×4
-        0x800, // 8×8
+        [SPRITE_SIZE(8x8)]   =  0x20,
+        [SPRITE_SIZE(16x16)] =  0x80,
+        [SPRITE_SIZE(32x32)] = 0x200,
+        [SPRITE_SIZE(64x64)] = 0x800,
     },
-
-    // horizontal rectangle
+    [ST_OAM_H_RECTANGLE] = 
     {
-         0x40, // 2×1
-         0x80, // 4×1
-        0x100, // 4×2
-        0x400, // 8×4
+        [SPRITE_SIZE(16x8)]  =  0x40,
+        [SPRITE_SIZE(32x8)]  =  0x80,
+        [SPRITE_SIZE(32x16)] = 0x100,
+        [SPRITE_SIZE(64x32)] = 0x400,
     },
-
-    // vertical rectangle
+    [ST_OAM_V_RECTANGLE] = 
     {
-         0x40, // 1×2
-         0x80, // 1×4
-        0x100, // 2×4
-        0x400, // 4×8
+        [SPRITE_SIZE(8x16)]  =  0x40,
+        [SPRITE_SIZE(8x32)]  =  0x80,
+        [SPRITE_SIZE(16x32)] = 0x100,
+        [SPRITE_SIZE(32x64)] = 0x400,
     },
 };
 
-u8 CreateMonIcon(u16 species, void (*callback)(struct Sprite *), s16 x, s16 y, u8 subpriority, u32 personality, bool32 extra)
+u8 CreateMonIcon(u16 species, void (*callback)(struct Sprite *), s16 x, s16 y, u8 subpriority, u32 personality, bool32 handleDeoxys)
 {
     u8 spriteId;
     struct MonIconSpriteTemplate iconTemplate =
     {
         .oam = &sMonIconOamData,
-        .image = GetMonIconPtr(species, personality, extra),
+        .image = GetMonIconPtr(species, personality, handleDeoxys),
         .anims = sMonIconAnims,
         .affineAnims = sMonIconAffineAnims,
         .callback = callback,
@@ -1073,9 +1181,9 @@ u16 sub_80D2E84(u16 species)
     }
 }
 
-const u8 *GetMonIconPtr(u16 species, u32 personality, bool32 extra)
+const u8 *GetMonIconPtr(u16 species, u32 personality, bool32 handleDeoxys)
 {
-    return GetMonIconTiles(GetIconSpecies(species, personality), extra);
+    return GetMonIconTiles(GetIconSpecies(species, personality), handleDeoxys);
 }
 
 void sub_80D2EF8(struct Sprite *sprite)
@@ -1132,17 +1240,17 @@ void FreeMonIconPalette(u16 species)
     FreeSpritePaletteByTag(gMonIconPaletteTable[palIndex].tag);
 }
 
-void sub_80D3014(struct Sprite *sprite)
+void SpriteCB_MonIcon(struct Sprite *sprite)
 {
     UpdateMonIconFrame(sprite);
 }
 
-const u8* GetMonIconTiles(u16 species, bool32 extra)
+const u8* GetMonIconTiles(u16 species, bool32 handleDeoxys)
 {
     const u8* iconSprite = gMonIconTable[species];
-    if (species == SPECIES_DEOXYS && extra == TRUE)
+    if (species == SPECIES_DEOXYS && handleDeoxys == TRUE)
     {
-        iconSprite = (const u8*)(0x400 + (u32)iconSprite); //WTF?
+        iconSprite = (const u8*)(0x400 + (u32)iconSprite); // use the specific Deoxys form icon (Speed in this case)
     }
     return iconSprite;
 }
@@ -1250,7 +1358,7 @@ void sub_80D328C(struct Sprite *sprite)
     DestroySprite(sprite);
 }
 
-void sub_80D32C8(struct Sprite *sprite, u8 animNum)
+void SetPartyHPBarSprite(struct Sprite *sprite, u8 animNum)
 {
     sprite->animNum = animNum;
     sprite->animDelayCounter = 0;
